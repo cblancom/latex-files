@@ -1,0 +1,84 @@
+\begin{tikzpicture}
+
+\definecolor{darkorange25512714}{RGB}{44,160,44}
+\definecolor{green_plot}{RGB}{255,127,14}
+\definecolor{blue_plot}{RGB}{31,119,180}
+
+\begin{axis} [
+width=\figurewidth,
+height=\figureheight,
+% tick align=inside,
+tick pos=left,
+xbar = .05cm,
+bar width = 3pt,
+xmin = 0,
+xmax = 0.2,
+% ymin = -8,
+% ymax = 8,
+% ytick = data,
+% xlabel=Relative Frequency,
+ylabel=Weymouth Error,
+% enlarge x limits = {value = .25, upper},
+% enlarge y limits = {abs = .8},
+% ytick={-5,0,5},
+% yticklabels={$10^{-5}$,$10^{0}$,$10^{5}$},
+xtick={0.05,0.1,0.15},
+xticklabels={$5\%$,$10\%$, $15\%$},
+ytick={-5,0,5},
+yticklabels={$10^{-7}$,$10^{-2}$,$10^{3}$},
+ymin=-9,
+ymax=7,
+]
+ 
+\addplot [
+    draw = none,
+    line width = .2mm,
+    fill = green_plot,
+    fill opacity=0.9,
+    draw opacity=0.9,
+    ] coordinates {
+(0.015673, -7.093023)
+(0.032058, -6.070670)
+(0.176677, -5.048318)
+(0.069104, -4.025965)
+(0.006412, -3.003612)
+(0.016385, -1.981260)
+(0.001425, 2.108151)
+(0.004987, 3.130503)
+(0.002137, 4.152856)};
+ 
+\addplot [
+draw = none,
+fill = darkorange25512714,
+fill opacity=0.8,
+ draw opacity=0.8,
+] coordinates {
+(0.001425, 1.426582)
+(0.059130, 2.448935)
+(0.097600, 3.471288)
+(0.168128, 4.493640)};
+
+\addplot [
+draw = none,
+fill = blue_plot,
+fill opacity=0.8,
+draw opacity=0.8,
+] coordinates {
+(0.040607, 2.789719)
+(0.007124, 1.767367)
+(0.109711, 3.812072)
+(0.169553, 4.834425)
+};
+
+\node[draw,fill=white,anchor=north east, font=\footnotesize] at (axis description cs:0.98,0.73) {
+    \begin{tabular}{@{}cl}
+        \tikz\draw[blue_plot,fill=blue_plot] (0,0) rectangle (20,50); & Taylor \\
+        \tikz\draw[darkorange25512714,fill=darkorange25512714] (0,0) rectangle (20,50); & SOC \\
+        \tikz\draw[green_plot,fill=green_plot] (0,0) rectangle (20,50); & MPCC \\
+    \end{tabular}
+};
+\end{axis}
+
+ 
+\end{tikzpicture}
+ 

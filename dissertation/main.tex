@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Overleaf (WriteLaTeX) Example: Molecular Chemistry Presentation
+%
+% Source: http://www.overleaf.com
+%
+% In these slides we show how Overleaf can be used with standard 
+% chemistry packages to easily create professional presentations.
+% 
+% Feel free to distribute this example, but please keep the referral
+% to overleaf.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use Overleaf: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[hyperref={colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue}]{beamer}
+
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}       % or try default, Darmstadt, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}    % or try default, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{chemfig}
+\usepackage[version=3]{mhchem}
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\usepackage{lineno}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{pgf}  
+\usepackage{svg}
+
+\newlength\figureheight
+\newlength\figurewidth
+% \addtobeamertemplate{navigation symbols}{}{%
+%     \usebeamerfont{footline}%
+%     \usebeamercolor[fg]{footline}%
+%     \hspace{5em}%
+%     \insertframenumber/\inserttotalframenumber
+% }
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]{}
+
+% On Overleaf, these lines give you sharper preview images.
+% You might want to `comment them out before you export, though.
+\usepackage{pgfpages}
+\pgfpagesuselayout{resize to}[%
+  physical paper width=8in, physical paper height=6in]
+
+% Here's where the presentation starts, with the info for the title slide
+\title[]{Optimization test of Interconnected Natural Gas and Power Systems Using Mathematical Programs with Complementarity Constraints}
+\author{Cristian Alejandro Blanco Martínez}
+\institute{Universidad Tecnológica de Pereira \\ 
+Grupo de investigación Automática}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% These three lines create an automatically generated table of contents.
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Justification}
+\begin{frame}{Relevance of natural gas}
+
+Natural gas is an energy source that has acquired great relevance worldwide, and this can be attributed to two fundamental causes. 
+
+\begin{itemize}
+    \item It has been observed that a country's economic growth is closely related to its energy consumption.
+    
+    \item Natural gas emits less greenhouse gases compared to other fossil fuels, making it a favorable option for climate change mitigation.    
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Global and national context}
+
+\begin{itemize}
+    \item Global natural gas consumption in 2015 reached 124.24 trillion cubic feet, with a projected increase of 43\% by 2040, 75\% of which is associated with the industrial sector and power generation from thermal plants. 
+    
+    \item In the Colombian case, natural gas is a very important energy source because it is used in several sectors such as residential, commercial, industrial and thermal. It is especially in the latter where this fuel acquires greater relevance in dry seasons, since that is when the level of reservoirs is reduced and therefore also lowers the generation in hydroelectric plants. 
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Challenges in the Colombian energy system}
+    
+    Although most of the country's electricity demand is commonly supplied by hydroelectric power plants, this type of generation presents an important source of uncertainty in the energy system, since its effectiveness and generation capacity are directly linked to the country's weather and climate conditions.
+
+      
+
+\end{frame}
+
+
+
+
+
+
+\end{document}

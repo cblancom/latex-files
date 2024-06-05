@@ -1,0 +1,48 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{steelblue31119180}{RGB}{31,119,180}
+
+\begin{axis}[
+width=\figurewidth,
+height=\figureheight,
+log basis x={10},
+tick align=inside,
+tick pos=left,
+xlabel=Relative difference in costs,
+ylabel=Frequency,
+% title={Relative frequency histogram},
+x grid style={darkgray176},
+xmajorgrids,
+xmin=0.000803240320295375, xmax=0.12,
+xmode=log,
+xtick style={color=black},
+xtick={1e-3,1e-2,1e-1},
+xticklabels={
+  \(\displaystyle {0.1\%}\),
+  \(\displaystyle {1\%}\),
+  \(\displaystyle {10\%}\),
+},
+y grid style={darkgray176},
+ymajorgrids,
+ymin=0, ymax=25.2,
+ytick style={color=black},
+ytick={9.4,18.8},
+yticklabels={
+  \(\displaystyle {10\%}\),
+  \(\displaystyle {20\%}\),
+},
+]
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.001,0) rectangle (axis cs:0.00162725060993692,24);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.00162725060993692,0) rectangle (axis cs:0.00264794454754009,21);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.00264794454754009,0) rectangle (axis cs:0.00430886938006377,7);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.00430886938006377,0) rectangle (axis cs:0.0070116103268473,3);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.0070116103268473,0) rectangle (axis cs:0.0114096471810023,3);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.0114096471810023,0) rectangle (axis cs:0.0185663553344511,2);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.0185663553344511,0) rectangle (axis cs:0.0302121130422912,2);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.0302121130422912,0) rectangle (axis cs:0.0491626793755517,4);
+\draw[draw=none,fill=steelblue31119180] (axis cs:0.0491626793755517,0) rectangle (axis cs:0.08,0);
+\end{axis}
+
+\end{tikzpicture}
