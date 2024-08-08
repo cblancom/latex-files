@@ -1,0 +1,70 @@
+\documentclass[letterpaper,12pt, oneside]{book}
+
+\usepackage{TesisElectricaUTP}
+% \usepackage[english]{babel}
+% \decimalpoint
+\usepackage{imakeidx}
+\usepackage{mathtools}
+\usepackage{verbatim} % comentarios
+\usepackage{float}
+\usepackage{dirtytalk}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage{cleveref}
+\usepackage[square,sort,comma,numbers]{natbib}
+%--------------------- Datos del Autor ----------------------
+\def\AUTOR{Cristian Alejandro Blanco Martínez}
+\def\TITULO{Título}
+\def\DIRECTOR{Ph.D David Augusto Cárdenas Peña}
+
+
+\def\FECHA{\ \today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+
+
+\chapter*{Acknowledgments}
+
+
+
+
+
+\chapter*{Abstract} 
+
+
+
+
+
+\tableofcontents
+\listoffigures
+\mainmatter
+
+
+\include{chapters/Chapter1_preliminaries}
+
+\include{chapters/Chapter_LinealCensnet}
+
+\include{chapters/Chapter_MPCC} 
+
+\include{chapters/Chapter_NonLinealCensnet}
+
+
+% \chapter{Objetivo específico 1} \label{Obj:1}
+
+% \chapter{Objetivo específico 2}   \label{Obj:2}
+
+% \chapter{Objetivo específico 3}   \label{Obj:3}
+    
+\chapter{Conclusions} \label{cap:conclusiones}
+    
+    
+
+\bibliography{biblio}
+\bibliographystyle{ieeetr}
+
+\end{document}

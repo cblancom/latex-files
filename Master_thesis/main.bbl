@@ -1,0 +1,209 @@
+\begin{thebibliography}{10}
+
+\bibitem{Wilson_poly}
+S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
+  matpower-based tool for optimal power and natural gas flow analyses,'' {\em
+  IEEE Transactions on Power Systems}, pp.~1--9, 2022.
+
+\bibitem{ABBASI2011xv}
+M.~Abbasi, H.~Afshari, S.~Asadi, M.~{Bakhshayeshi Baygi}, F.~H. Benam,
+  F.~Daneshzand, W.~Dullaert, M.~H. Ebrahimi, G.~Esmaeilian, B.~Fahimnia,
+  S.~Fallah, R.~Z. Farahani, M.~Hamedi, S.~Hosseini, M.~Jamshidi, L.~Kardar,
+  Z.~Khooban, R.~Molaei, S.~{Mostafa Mousavi}, E.~Nikbakhsh, M.~Parvini,
+  M.~Rajabi, F.~Ranaiefar, A.~Regan, S.~Rezapour, Z.~Rouhollahi, H.~Sadjady,
+  S.-A. Seyed-Alagheband, M.~SteadieSeifi, and A.~Zakery, ``List of
+  contributors,'' in {\em Logistics Operations and Management} (R.~Z. Farahani,
+  S.~Rezapour, and L.~Kardar, eds.), pp.~xv--xvi, London: Elsevier, 2011.
+
+\bibitem{review}
+E.~Raheli, Q.~Wu, M.~Zhang, and C.~Wen, ``Optimal coordinated operation of
+  integrated natural gas and electric power systems: A review of modeling and
+  solution methods,'' {\em Renewable and Sustainable Energy Reviews}, vol.~145,
+  p.~111134, 2021.
+
+\bibitem{Conejo}
+S.~Chen, A.~J. Conejo, R.~Sioshansi, and Z.~Wei, ``Unit commitment with an
+  enhanced natural gas-flow model,'' {\em IEEE Transactions on Power Systems},
+  vol.~34, no.~5, pp.~3729--3738, 2019.
+
+\bibitem{Byeon_Van_Hentenryck_2020}
+G.~Byeon and P.~Van~Hentenryck, ``Unit commitment with gas network awareness,''
+  {\em IEEE Transactions on Power Systems}, vol.~35, no.~2, p.~1327–1339,
+  2020.
+
+\bibitem{Morcillo_Angulo_Franco_2020a}
+J.~D. Morcillo, F.~Angulo, and C.~J. Franco, ``Analyzing the hydroelectricity
+  variability on power markets from a system dynamics and dynamic systems
+  perspective: Seasonality and enso phenomenon,'' May 2020.
+
+\bibitem{droughts_colombia}
+C.~Villa-Loaiza, I.~Taype-Huaman, J.~Benavides-Franco, G.~Buenaventura-Vera,
+  and J.~Carabalí-Mosquera, ``Does climate impact the relationship between the
+  energy price and the stock market? the colombian case,'' {\em Applied
+  Energy}, vol.~336, p.~120800, Apr 2023.
+
+\bibitem{Cuartas_Cunha_Alves_Parra_Deusdará_Leal_Costa_Molina_Amore_Broedel_Seluchi_et_al_2022}
+L.~A. Cuartas, A.~P. Cunha, J.~A. Alves, L.~M. Parra, K.~Deusdará-Leal, L.~C.
+  Costa, R.~D. Molina, D.~Amore, E.~Broedel, M.~E. Seluchi, and et~al.,
+  ``Recent hydrological droughts in brazil and their impact on hydropower
+  generation,'' {\em Water}, vol.~14, p.~601, Feb 2022.
+
+\bibitem{YANG2020106023}
+L.~Yang, X.~Zhao, and Y.~Xu, ``A convex optimization and iterative solution
+  based method for optimal power-gas flow considering power and gas losses,''
+  {\em International Journal of Electrical Power \& Energy Systems}, vol.~121,
+  p.~106023, 2020.
+
+\bibitem{JIANG2021106460}
+T.~Jiang, C.~Yuan, R.~Zhang, L.~Bai, X.~Li, H.~Chen, and G.~Li, ``Exploiting
+  flexibility of combined-cycle gas turbines in power system unit commitment
+  with natural gas transmission constraints and reserve scheduling,'' {\em
+  International Journal of Electrical Power \& Energy Systems}, vol.~125,
+  p.~106460, 2021.
+
+\bibitem{Alam_M}
+M.~S. Alam, S.~R. Paramati, M.~Shahbaz, and M.~Bhattacharya, ``Natural gas,
+  trade and sustainable growth: empirical evidence from the top gas consumers
+  of the developing world,'' {\em Applied Economics}, vol.~49, pp.~635--649, 2
+  2017.
+
+\bibitem{china_natural_gas}
+J.-H. Yuan, S.~Zhou, T.-D. Peng, G.-H. Wang, and X.-M. Ou, ``Petroleum
+  substitution, greenhouse gas emissions reduction and environmental benefits
+  from the development of natural gas vehicles in china,'' {\em Petroleum
+  Science}, vol.~15, no.~3, pp.~644--656, 2018.
+
+\bibitem{Yin_Wen_Wu_Han_Mukhtar_Gong_2022}
+X.~Yin, K.~Wen, Y.~Wu, X.~Han, Y.~Mukhtar, and J.~Gong, ``A machine
+  learning-based surrogate model for the rapid control of piping flow:
+  Application to a natural gas flowmeter calibration system,'' {\em Journal of
+  Natural Gas Science and Engineering}, vol.~98, p.~104384, 2022.
+
+\bibitem{Aydin_2018}
+M.~Aydin, ``Natural gas consumption and economic growth nexus for top 10
+  natural gas–consuming countries: A granger causality analysis in the
+  frequency domain,'' {\em Energy}, vol.~165, p.~179–186, 2018.
+
+\bibitem{eia}
+``U.s. energy information administration - eia - independent statistics and
+  analysis.''
+
+\bibitem{ideam}
+``Política nacional de cambio climático - ideam.''
+
+\bibitem{creg_2021}
+``Estructura del sector de gas natural en colombia,'' Dec 2021.
+
+\bibitem{paper-col}
+J.~Restrepo-Trujillo, R.~Moreno-Chuquen, and F.~N. Jiménez-García,
+  ``Strategies of expansion for electric power systems based on hydroelectric
+  plants in the context of climate change: Case of analysis of colombia,'' {\em
+  International Journal of Energy Economics and Policy}, vol.~10, no.~6,
+  p.~66–74, 2020.
+
+\bibitem{xm-generacion}
+``Oferta y generación.''
+
+\bibitem{fenomeno_niño}
+``Fenomeno niño y niña.''
+
+\bibitem{Ignacio_Fariza_2022}
+M.~P. Ignacio~Fariza, ``La sequía desploma la generación hidroeléctrica
+  hasta su nivel más bajo en tres décadas,'' Aug 2022.
+
+\bibitem{Shan_Yu_Gong_Huang_Wen_Wang_Ren_Wang_Shi_Liu_2023}
+X.~Shan, W.~Yu, J.~Gong, W.~Huang, K.~Wen, H.~Wang, S.~Ren, D.~Wang, Y.~Shi,
+  and C.~Liu, ``A methodology to evaluate gas supply reliability of natural gas
+  pipeline network considering the effects of natural gas resources,'' {\em
+  Reliability Engineering \&amp;amp; System Safety}, vol.~238, p.~109431, 2023.
+
+\bibitem{WANG2019113410}
+Y.~Wang, Y.~Wang, Y.~Huang, J.~Yang, Y.~Ma, H.~Yu, M.~Zeng, F.~Zhang, and
+  Y.~Zhang, ``Operation optimization of regional integrated energy system based
+  on the modeling of electricity-thermal-natural gas network,'' {\em Applied
+  Energy}, vol.~251, p.~113410, 2019.
+
+\bibitem{DC_flow}
+Z.~Yang, K.~Xie, J.~Yu, H.~Zhong, N.~Zhang, and Q.~Xia, ``A general formulation
+  of linear power flow models: Basic theory and error analysis,'' {\em IEEE
+  Transactions on Power Systems}, vol.~34, no.~2, pp.~1315--1324, 2019.
+
+\bibitem{DC_flow2}
+L.~Yang, Y.~Xu, H.~Sun, and X.~Zhao, ``Two-stage convexification-based optimal
+  electricity-gas flow,'' {\em IEEE Transactions on Smart Grid}, vol.~11,
+  no.~2, pp.~1465--1475, 2020.
+
+\bibitem{weymouth_nonconvex}
+Y.~Zhang, S.~Xie, and S.~Shu, ``Multi-stage robust optimization of a
+  multi-energy coupled system considering multiple uncertainties,'' {\em
+  Energy}, vol.~238, p.~122041, Jan 2022.
+
+\bibitem{baumrucker_renfro_biegler_2008}
+B.~Baumrucker, J.~Renfro, and L.~Biegler, ``Mpec problem formulations and
+  solution strategies with chemical engineering applications,'' {\em Computers
+  \&amp; Chemical Engineering}, vol.~32, no.~12, p.~2903–2913, 2008.
+
+\bibitem{MPCC_advantages}
+C.~Ruiz, A.~J. Conejo, J.~D. Fuller, S.~A. Gabriel, and B.~F. Hobbs, ``A
+  tutorial review of complementarity models for decision-making in energy
+  markets,'' {\em EURO Journal on Decision Processes}, vol.~2, p.~91–120, Oct
+  2014.
+
+\bibitem{Hintermüller_Kopacka_2009}
+M.~Hintermüller and I.~Kopacka, ``Mathematical programs with complementarity
+  constraints in function space: C- and strong stationarity and a
+  path-following algorithm,'' {\em SIAM Journal on Optimization}, vol.~20,
+  p.~868–902, Jan 2009.
+
+\bibitem{Hante_Schmidt_2019}
+F.~Hante and M.~Schmidt, ``Complementarity-based nonlinear programming
+  techniques for optimal mixing in gas networks,'' {\em EURO Journal on
+  Computational Optimization}, vol.~7, p.~299–323, Sep 2019.
+
+\bibitem{MPCC_lack_properties}
+Y.~Zhang, J.~Wu, and L.~Zhang, ``First order necessary optimality conditions
+  for mathematical programs with second-order cone complementarity
+  constraints,'' {\em Journal of Global Optimization}, vol.~63, no.~2,
+  p.~253–279, 2015.
+
+\bibitem{Bergmann_Herzog_2019}
+R.~Bergmann and R.~Herzog, ``Intrinsic formulation of kkt conditions and
+  constraint qualifications on smooth manifolds,'' {\em SIAM Journal on
+  Optimization}, vol.~29, no.~4, p.~2423–2444, 2019.
+
+\bibitem{BertsekasDimitriP1999Np/D}
+D.~P. Bertsekas, {\em Nonlinear programming / Dimitri P. Bertsekas}.
+\newblock Belmont, Mass.: Athena Scientific, 2nd ed~ed., 1999.
+
+\bibitem{Bouza_Still_2007}
+G.~Bouza and G.~Still, ``Mathematical programs with complementarity
+  constraints: Convergence properties of a smoothing method,'' {\em Mathematics
+  of Operations Research}, vol.~32, p.~467–483, May 2007.
+
+\bibitem{Scholtes_2001}
+S.~Scholtes, ``Convergence properties of a regularization scheme for
+  mathematical programs with complementarity constraints,'' {\em SIAM Journal
+  on Optimization}, vol.~11, p.~918–936, Mar 2001.
+
+\bibitem{Scheel_Scholtes_2000}
+H.~Scheel and S.~Scholtes, ``Mathematical programs with complementarity
+  constraints: Stationarity, optimality, and sensitivity,'' {\em Mathematics of
+  Operations Research}, vol.~25, p.~1–22, Feb 2000.
+
+\bibitem{Ralph_Wright_2004}
+D.~Ralph and S.~J. Wright, ``Some properties of regularization and penalization
+  schemes for mpecs,'' {\em Optimization Methods and Software}, vol.~19, no.~5,
+  pp.~527--556, 2004.
+
+\bibitem{ORDOUDIS2019642}
+C.~Ordoudis, P.~Pinson, and J.~M. Morales, ``An integrated market for
+  electricity and natural gas systems with stochastic power producers,'' {\em
+  European Journal of Operational Research}, vol.~272, no.~2, pp.~642--654,
+  2019.
+
+\bibitem{soc_paper}
+A.~Schwele, C.~Ordoudis, J.~Kazempour, and P.~Pinson, ``Coordination of power
+  and natural gas systems: Convexification approaches for linepack modeling,''
+  in {\em 2019 IEEE Milan PowerTech}, pp.~1--6, 2019.
+
+\end{thebibliography}

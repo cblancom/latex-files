@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.5.23)  28 MAY 2024 22:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.5.23)  13 JUN 2024 05:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1549,24 +1549,24 @@ Package: pgfpages 2011/01/05 ver 0.02
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1624,7 +1624,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 82.
+Package hyperref Info: Link coloring ON on input line 83.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1656,24 +1656,54 @@ ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 
-Package chemgreek Info: Activating mapping `default' on line 82.
+Package chemgreek Info: Activating mapping `default' on line 83.
 
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 82.
+ on input line 83.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-(./main.nav) (./main.toc) [2
+(./main.nav)
+Overfull \hbox (235.6988pt too wide) in paragraph at lines 83--83
+ [][]  \OT1/cmr/m/n/6 ([])  
+ []
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [3
 
-] [4
+Overfull \hbox (235.6988pt too wide) has occurred while \output is active
+ [][]  \OT1/cmr/m/n/6 ([])  
+ []
 
-] [5
+(./main.toc)
+Overfull \hbox (235.6988pt too wide) has occurred while \output is active
+ [][]  \OT1/cmr/m/n/6 ([])  
+ []
+
+[2
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (235.6988pt too wide) has occurred while \output is active
+ [][]  \OT1/cmr/m/n/6 ([])  
+ []
+
+[3
+
+]
+Overfull \hbox (235.6988pt too wide) has occurred while \output is active
+ [][]  \OT1/cmr/m/n/6 ([])  
+ []
+
+[4
+
+]
+Overfull \hbox (235.6988pt too wide) has occurred while \output is active
+ [][]  \OT1/cmr/m/n/6 ([])  
+ []
+
+[5
 
 ]
 \tf@nav=\write6
@@ -1688,31 +1718,25 @@ Package caption Info: End \AtBeginDocument code.
  [6
 
 ] (./main.aux)
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  E69378D4DC2AECBE3754D264EB536CE4;108.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: E69378D4DC2AECBE3754D264EB536CE4;108.
  ) 
 Here is how much of TeX's memory you used:
- 40509 strings out of 476041
- 957466 string characters out of 5793164
- 1859388 words of memory out of 6000000
- 60225 multiletter control sequences out of 15000+600000
+ 40540 strings out of 476041
+ 958263 string characters out of 5793164
+ 1862388 words of memory out of 6000000
+ 60256 multiletter control sequences out of 15000+600000
  514071 words of font info for 38 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 128i,11n,122p,719b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,122p,719b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on main.pdf (5 pages, 64029 bytes).
+Output written on main.pdf (5 pages, 71134 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  12 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
