@@ -7,44 +7,44 @@ A level-1 auxiliary file: chapters/Chapter_MPCC.aux
 A level-1 auxiliary file: chapters/Chapter_NonLinealCensnet.aux
 The style file: ieeetr.bst
 Database file #1: biblio.bib
-You've used 39 entries,
+You've used 42 entries,
             1876 wiz_defined-function locations,
-            742 strings with 12771 characters,
-and the built_in function-call counts, 12023 in all, are:
-= -- 1186
-> -- 548
+            761 strings with 13485 characters,
+and the built_in function-call counts, 13047 in all, are:
+= -- 1279
+> -- 611
 < -- 0
-+ -- 198
-- -- 159
-* -- 761
-:= -- 1576
-add.period$ -- 36
-call.type$ -- 39
-change.case$ -- 39
++ -- 220
+- -- 178
+* -- 834
+:= -- 1723
+add.period$ -- 39
+call.type$ -- 42
+change.case$ -- 42
 chr.to.int$ -- 0
-cite$ -- 39
-duplicate$ -- 707
-empty$ -- 976
-format.name$ -- 159
-if$ -- 3050
+cite$ -- 42
+duplicate$ -- 764
+empty$ -- 1051
+format.name$ -- 178
+if$ -- 3302
 int.to.chr$ -- 0
-int.to.str$ -- 39
-missing$ -- 33
-newline$ -- 121
-num.names$ -- 36
-pop$ -- 122
+int.to.str$ -- 42
+missing$ -- 36
+newline$ -- 130
+num.names$ -- 39
+pop$ -- 130
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 694
+skip$ -- 743
 stack$ -- 0
-substring$ -- 589
-swap$ -- 426
+substring$ -- 633
+swap$ -- 459
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 77
-width$ -- 41
-write$ -- 371
+while$ -- 84
+width$ -- 44
+write$ -- 401

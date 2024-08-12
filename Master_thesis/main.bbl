@@ -206,4 +206,20 @@ A.~Schwele, C.~Ordoudis, J.~Kazempour, and P.~Pinson, ``Coordination of power
   and natural gas systems: Convexification approaches for linepack modeling,''
   in {\em 2019 IEEE Milan PowerTech}, pp.~1--6, 2019.
 
+\bibitem{WANG201970}
+C.~Wang, W.~Wei, J.~Wang, and T.~Bi, ``Convex optimization based adjustable
+  robust dispatch for integrated electric-gas systems considering gas delivery
+  priority,'' {\em Applied Energy}, vol.~239, pp.~70--82, 2019.
+
+\bibitem{ZHAO2023129010}
+Y.~Zhao, M.~Gong, J.~Sun, C.~Han, L.~Jing, B.~Li, and Z.~Zhao, ``A new hybrid
+  optimization prediction strategy based on sh-informer for district heating
+  system,'' {\em Energy}, vol.~282, p.~129010, 2023.
+
+\bibitem{DING2024123275}
+B.~Ding, Z.~Li, Z.~Li, Y.~Xue, X.~Chang, J.~Su, X.~Jin, and H.~Sun, ``A
+  ccp-based distributed cooperative operation strategy for multi-agent energy
+  systems integrated with wind, solar, and buildings,'' {\em Applied Energy},
+  vol.~365, p.~123275, 2024.
+
 \end{thebibliography}
