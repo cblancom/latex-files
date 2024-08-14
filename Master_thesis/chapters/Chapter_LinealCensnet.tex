@@ -1,10 +1,90 @@
 \chapter{Power System - Censnet} \label{cap:mpcc}
 
+\section{Preliminaries}
+
+\subsection{Graph definition}
+
+
+A \textbf{graph} $G$ is a mathematical structure that represents a set of interconnected objects. These objects are known as \textbf{vertices} (or \textbf{nodes}), denoted by the set $V(G)$, and the connections between them are called \textbf{edges} (or \textbf{arcs}), denoted by the set $E(G)$. Formally, a graph is defined as an ordered pair $G = (V, E)$, where $V(G)$ is a non-empty set of vertices, and $E(G) \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is a set of edges, where each edge connects two distinct vertices.
+
+Graphs can be categorized based on the properties of their edges. An \textbf{undirected graph} has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a \textbf{directed graph} (or \textbf{digraph}), each edge $(u, v) \in E(G)$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$
+
+ %
+% \begin{figure}
+%     \begin{center}
+%         \setlength\figurewidth{.5\textwidth}        
+%             \setlength\figureheight{0.4\textwidth}
+%         \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/graph_def}}
+%         % \input{figures/Chapter_LinealCensnet/graph_def}
+%         % \includegraphics[width=0.95\textwidth]{figures/}
+%     \end{center}
+%     \caption{Directed graph}\label{fig:graph_definition}
+% \end{figure}
+%
+\begin{figure}
+    \centering
+        \setlength\figurewidth{.5\textwidth}        
+        \setlength\figureheight{0.4\textwidth} 
+        \subfloat [Undirected graph] {\label{fig:undirected_graph_def}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/un_graph_def}}}
+        \subfloat [Directed graph] {\label{fig:direc_graph_def}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/di_graph_def}}}
+        % \includegraphics[width=0.45\textwidth]{figures/}
+    \caption{Types of graphs}\label{fig:graph_definition}
+\end{figure}
+
+In \Cref{fig:graph_definition}, two graphs are represented, each composed of four nodes labeled $1$, $2$, $3$, and $4$,, and six edges labeled $A$, $B$, $C$, $D$, $E$, and $F$.. The difference between them lies in the type of graph they represent. For example, in \Cref{fig:undirected_graph_def}, the edge c shows a connection between nodes 2 and 4. However, in \Cref{fig:direc_graph_def}, this connection provides additional information: a direction, which, in the context of this study, could represent the direction of a specific element, such as electric power or flow.
+
+
+A graph can be represented in various ways using matrices, each capturing different aspects of the graph's structure. The two most common matrix representations are the \textbf{adjacency matrix} and the \textbf{incidence matrix}.
+
+The \textbf{adjacency matrix} of a graph is a square matrix used to represent the connections between vertices. For a graph $G$ with $n$ vertices, the adjacency matrix $A$ is an $n \times n$ matrix where the entry $a_{ij}$ is defined as follows:
+
+\[
+a_{ij} =
+\begin{cases}
+1 & \text{if there is an edge from vertex } i \text{ to vertex } j, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+
+For a directed graph, the adjacency matrix captures the direction of the edges. Below is the adjacency matrix for the directed graph shown earlier:
+
+\[
+A = \begin{pmatrix}
+0 & 1 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 1 \\
+1 & 1 & 0 & 0
+\end{pmatrix}
+\]
+
+
+The \textbf{incidence matrix} of a graph represents the relationship between vertices and edges. For a graph $G$ with $n$ vertices and $m$ edges, the incidence matrix $I$ is an $n \times m$ matrix where the entry $i_{ij}$ is defined as follows:
+
+\[
+i_{ij} =
+\begin{cases}
+1 & \text{if vertex } i \text{ is the starting point of edge } j \text{ in a directed graph}, \\
+-1 & \text{if vertex } i \text{ is the endpoint of edge } j \text{ in a directed graph}, \\
+0 & \text{if vertex } i \text{ is not connected to edge } j.
+\end{cases}
+\]
+
+For the directed graph previously described, the incidence matrix is given by:
+
+\[
+I = \begin{pmatrix}
+1 & 1 & 0 & 0 & 1 & 0 \\
+-1 & 0 & 1 & 0 & 0 & 1 \\
+0 & 0 & 0 & 1 & -1 & -1 \\
+0 & -1 & -1 & -1 & 0 & 0
+\end{pmatrix}
+\]
+
+
 \section{Linear formulation of the natural gas system} \label{sec:LinealCensnet_formulation}
 
+
 Natural gas is a widely used energy resource, particularly for electricity generation. The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $\mathcal{G}_f = \left\{\mathcal{N}_f, \mathcal{E}_f\right\}$ where $\mathcal{N}_f$ is the set of units within the gas system, and $ \mathcal{E}_f$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset \mathcal{N}_{f}$, gas demand nodes or users $\mathcal{U} \subset \mathcal{N}_{f}$, and gas storage facilities $\mathcal{S} \subset \mathcal{N}_{f}$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in\mathcal{N}_f \right\} \subset \mathcal{E}$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in\mathcal{N}_f \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m\in\mathcal{N}_f \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
-
-
 
 
 Natural gas transportation requires coordination to manage the flow through the different elements to maintain safe operating ranges. In optimizing this network, mathematical models minimize overall operating costs associated with the various stages of natural gas transportation, compression, storage, and handling unsupplied demand, ensuring compliance with technical and physical constraints. The function is expressed as:
@@ -36,7 +116,5 @@ Beyond production, transportation, and compression, the model also considers the
 \end{alignat}
 
 The constraint set models the gas transportation system: \Cref{eq:well_limits} forces each production well to inject the flow $f_{w}^t$ over the technical minimum $\underline{f_{w}^t}$ and under the maximum capacity $\overline{f_{w}^t}$. \Cref{eq:pipe_limits} upper-bounds the gas flow through pipelines $f_{p}^t$ to the structural capacity $\overline{f_{p}^t}$. \Cref{eq:dem_limit_gas} ensures that the unsupplied demand $f_{u}^{t}$ is lower than the corresponding user demand $\overline{f_{u}^{t}}$. The nodal gas balance in \Cref{eq:gas_balance} guarantees that the gas entering the node $n$ equals the gas leaving it. \Cref{eq:sto_limit1,eq:sto_limit2} limit the gas injection $f_{s+}$  and extraction $f_{s-}$ rates at storage facilities according to the feasible operating range determined by the currently stored volume $V_{s}^t$, respectively. In turn, \Cref{eq:sto_time} balances the gas storage unit such that gas volume at operation period $t$ $V_{s}^t$ equals the volume from period $V_{s}^{t-1}$ plus the difference between injected $f_{s+}^{t-1}$ and extracted $f_{s+}^{t-1}$ gas flow, a fundamental constraint for modeling the dynamics of gas storage over time. 
-
-
 
 
