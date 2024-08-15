@@ -124,13 +124,73 @@ The entire MLP is trained using a process called backpropagation, combined with 
 \end{figure}
 
 
+\subsubsection{Graph Neural Networks}
+
+In recent years, \textbf{Graph Neural Networks (GNNs)} have emerged as a powerful tool in machine learning, particularly for tasks involving data that can be naturally represented as graphs. Graphs are a universal data structure that can model various systems in numerous fields, including social networks, biological networks, knowledge graphs, and physical systems. Because of their ability to represent relationships and interactions between entities, graphs are used extensively to model complex structures where the data points are not independent but interconnected.
+
+The importance of GNNs lies in their ability to directly operate on graph-structured data, extending the success of neural networks from grid-like data structures, such as images and sequences, to more general and irregular structures. Traditional neural networks, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), are designed to work with data that has a fixed structure. However, many real-world problems involve data that can be better described by graphs, where nodes represent entities and edges represent relationships between those entities. 
 
 
+\textbf{Graph Neural Networks} can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let $G = (V, E)$ represent a graph, where $V$ is the set of nodes (or vertices) and $E$ is the set of edges. Each node $v \in V$ can be associated with a feature vector $\mathbf{x}_v$, and each edge $(u, v) \in E$ may have an associated weight or feature vector $\mathbf{e}_{uv}$. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
 
 
+In the GNN framework, the process of message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. To move from the abstract concept to a practical implementation, it is necessary to define the specific functions used for updating and aggregating node features.
+
+The basic message passing operation, which simplifies the original GNN model proposed by [], is expressed by the following equation:
+\[
+\mathbf{h}_u^{(k)} = \sigma\left( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} + \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} + \mathbf{b}^{(k)} \right)
+\]
+
+In this equation:
+\begin{itemize}
+    \item \( \mathbf{h}_u^{(k)} \) represents the updated feature vector of node \( u \) at layer \( k \).
+    \item The term \( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} \) applies a transformation to the node's own feature vector from the previous layer, enabling the node to retain and modify its self-information. 
+    \item The term \( \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} \) aggregates the feature vectors of the neighboring nodes \( v \) in the set \( \mathcal{N}(u) \), and then applies a transformation via the weight matrix \( \mathbf{W}_{\text{neigh}}^{(k)} \) 
+    \item \( \mathbf{b}^{(k)} \) is a bias term that can be added to the weighted sum, though it is sometimes omitted for simplicity. 
+    \item  The non-linear function \( \sigma(\cdot) \), such as ReLU or tanh, is applied elementwise to introduce non-linearity into the model, which is essential for capturing complex patterns in the data.
+
+\end{itemize}
+
+% . This aggregation step is crucial as it allows the node to incorporate information from its local neighborhood.
 
 
+In the context of Graph Neural Networks (GNNs), a Graph Convolutional Network (GCN) is a specialized model that applies the concept of convolution, widely used in image processing, to graphs. First introduced by Thomas Kipf and Max Welling in 2017, GCNs offer a method to perform deep learning on graph-structured data by extending traditional convolution operations to the irregular domain of graphs.
 
+The fundamental idea behind GCNs is to create a spectral filter that operates on graph data. The filter's purpose is to combine features from a node's local neighborhood, taking into account the graph's structure. This process is mathematically formalized in the following way:
+
+\[
+\mathbf{H} = \sigma\left( \tilde{\mathbf{D}}^{-\frac{1}{2}} \tilde{\mathbf{A}} \tilde{\mathbf{D}}^{-\frac{1}{2}} \mathbf{X} \mathbf{\Theta} \right)
+\]
+
+Where:
+\begin{itemize}
+    \item \( \mathbf{H} \) represents the matrix of node representations after applying the GCN layer. Each row \( \mathbf{h}_u \) in \( \mathbf{H} \) corresponds to the updated feature vector for node \( u \). 
+    \item \( \mathbf{X} \) is the matrix of input node features, where each row \( \mathbf{x}_u \) corresponds to the feature vector for node \( u \) before applying the GCN layer. 
+    \item \( \sigma(\cdot) \) denotes a non-linear activation function, such as ReLU, applied elementwise to introduce non-linearity into the model. 
+    \item \( \tilde{\mathbf{A}} \) is the adjacency matrix of the graph, with added self-loops to account for the node itself in the aggregation. 
+    \item \( \tilde{\mathbf{D}} \) is the degree matrix of the graph, modified to include the self-loops. The degree matrix is diagonal, with each diagonal entry \( \tilde{D}_{ii} \) representing the degree of node \( i \) in the graph. 
+    \item \( \mathbf{\Theta} \) is a matrix of trainable parameters, which is learned during the training process to optimize the model's performance.
+
+
+\end{itemize}
+
+The expression \( \tilde{\mathbf{D}}^{-\frac{1}{2}} \tilde{\mathbf{A}} \tilde{\mathbf{D}}^{-\frac{1}{2}} \) is a normalized version of the adjacency matrix, ensuring that the eigenvalues of the operation are bounded between 0 and 1. This normalization step is crucial as it prevents issues such as exploding or vanishing gradients during the training of deep networks.
+
+Specifically, the adjacency matrix \( \tilde{\mathbf{A}} \) is defined as:
+
+\[
+\tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}
+\]
+
+where \( \mathbf{A} \) is the original adjacency matrix, and \( \mathbf{I} \) is the identity matrix. The identity matrix \( \mathbf{I} \) ensures that each node considers its own features when aggregating information from its neighbors.
+
+The degree matrix \( \tilde{\mathbf{D}} \) is defined as:
+
+\[
+\tilde{D}_{ii} = \sum_{j \in V} \tilde{A}_{ij}
+\]
+
+where \( V \) represents the set of all nodes in the graph. The diagonal entries of \( \tilde{\mathbf{D}} \) correspond to the degree of each node, adjusted to account for the added self-loops.
 
 
 
