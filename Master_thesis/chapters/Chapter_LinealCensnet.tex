@@ -31,7 +31,7 @@ Graphs can be categorized based on the properties of their edges. An \textbf{und
     \caption{Types of graphs}\label{fig:graph_definition}
 \end{figure}
 
-In \Cref{fig:graph_definition}, two graphs are represented, each composed of four nodes labeled $1$, $2$, $3$, and $4$,, and six edges labeled $A$, $B$, $C$, $D$, $E$, and $F$.. The difference between them lies in the type of graph they represent. For example, in \Cref{fig:undirected_graph_def}, the edge c shows a connection between nodes 2 and 4. However, in \Cref{fig:direc_graph_def}, this connection provides additional information: a direction, which, in the context of this study, could represent the direction of a specific element, such as electric power or flow.
+In \Cref{fig:graph_definition}, two graphs are represented, each composed of four nodes labeled $1$, $2$, $3$, and $4$,, and six edges labeled $A$, $B$, $C$, $D$, $E$, and $F$. The difference between them lies in the type of graph they represent. For example, in \Cref{fig:undirected_graph_def}, the edge c shows a connection between nodes 2 and 4. However, in \Cref{fig:direc_graph_def}, this connection provides additional information: a direction, which, in the context of this study, could represent the direction of a specific element, such as electric power or flow.
 
 
 A graph can be represented in various ways using matrices, each capturing different aspects of the graph's structure. The two most common matrix representations are the \textbf{adjacency matrix} and the \textbf{incidence matrix}.
@@ -50,10 +50,10 @@ For a directed graph, the adjacency matrix captures the direction of the edges. 
 
 \[
 A = \begin{pmatrix}
-0 & 1 & 1 & 0 \\
-0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 1 \\
-1 & 1 & 0 & 0
+1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 1 \\
+1 & 1 & 1 & 0
 \end{pmatrix}
 \]
 
@@ -73,12 +73,66 @@ For the directed graph previously described, the incidence matrix is given by:
 
 \[
 I = \begin{pmatrix}
-1 & 1 & 0 & 0 & 1 & 0 \\
--1 & 0 & 1 & 0 & 0 & 1 \\
-0 & 0 & 0 & 1 & -1 & -1 \\
-0 & -1 & -1 & -1 & 0 & 0
+1 & -1 & 0 & 0 \\
+-1 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1  \\
+0 & 1 & 1 & -1 
 \end{pmatrix}
 \]
+
+\subsection{Neural networks}
+
+\subsubsection{Multi-Layered Perceptrons}
+
+
+A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network, often regarded as one of the building blocks of deep learning. At its core, an MLP consists of multiple layers of nodes, or neurons, where each layer is fully connected to the next one. The architecture typically includes an input layer, one or more hidden layers, and an output layer. The neurons in each layer are connected to the neurons in the subsequent layer through weighted connections, which are the key parameters learned during the training process. One of the most significant properties of an MLP is its ability to function as a universal approximator. This means that, given sufficient neurons in the hidden layers, an MLP can approximate any continuous function to an arbitrary degree of accuracy, provided the network is trained properly.
+
+Mathematically, an MLP can be defined as follows. Let $\mathbf{x} \in \mathbb{R}^n$ represent the input vector, where $n$ is the number of features. The output of each neuron in the first hidden layer is calculated as:
+
+\[
+\mathbf{z}^{(1)} = \sigma\left(\mathbf{W}^{(1)}\mathbf{x} + \mathbf{b}^{(1)}\right)
+\]
+
+where $\mathbf{W}^{(1)} \in \mathbb{R}^{m_1 \times n}$ is the weight matrix for the first hidden layer, with $m_1$ being the number of neurons in this layer, $\mathbf{b}^{(1)} \in \mathbb{R}^{m_1}$ is the bias vector, and $\sigma(\cdot)$ is the activation function, typically a non-linear function such as the ReLU (Rectified Linear Unit) or sigmoid function.
+
+This process is repeated for each subsequent hidden layer $k$, where the output of the $k$-th layer is given by:
+
+\[
+\mathbf{z}^{(k)} = \sigma\left(\mathbf{W}^{(k)}\mathbf{z}^{(k-1)} + \mathbf{b}^{(k)}\right)
+\]
+
+Here, $\mathbf{W}^{(k)} \in \mathbb{R}^{m_k \times m_{k-1}}$ represents the weight matrix connecting layer $k-1$ to layer $k$, $\mathbf{b}^{(k)} \in \mathbb{R}^{m_k}$ is the bias vector for layer $k$, and $\mathbf{z}^{(k-1)}$ is the output of the previous layer.
+
+Finally, the output layer produces the final prediction $\mathbf{\hat{y}}$:
+
+\[
+\mathbf{\hat{y}} = \sigma\left(\mathbf{W}^{(L)}\mathbf{z}^{(L-1)} + \mathbf{b}^{(L)}\right)
+\]
+
+where $L$ denotes the number of layers in the network, including the input and output layers. Depending on the nature of the problem (e.g., classification or regression), the activation function $\sigma(\cdot)$ used in the output layer can vary, with softmax being common in multi-class classification problems, and a linear activation for regression tasks.
+
+The entire MLP is trained using a process called backpropagation, combined with an optimization algorithm like gradient descent, to minimize a loss function $J(\mathbf{y}, \mathbf{\hat{y}})$, which measures the difference between the true outputs $\mathbf{y}$ and the predicted outputs $\mathbf{\hat{y}}$.
+
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/MLP_def.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{}\label{fig:}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Linear formulation of the natural gas system} \label{sec:LinealCensnet_formulation}
