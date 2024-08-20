@@ -23,8 +23,8 @@ Graphs can be categorized based on the properties of their edges. An \textbf{und
 %
 \begin{figure}
     \centering
-        \setlength\figurewidth{.5\textwidth}        
-        \setlength\figureheight{0.4\textwidth} 
+        \setlength\figurewidth{.53\textwidth}        
+        \setlength\figureheight{0.36\textwidth} 
         \subfloat [Undirected graph] {\label{fig:undirected_graph_def}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/un_graph_def}}}
         \subfloat [Directed graph] {\label{fig:direc_graph_def}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/di_graph_def}}}
         % \includegraphics[width=0.45\textwidth]{figures/}
@@ -192,6 +192,100 @@ The degree matrix \( \tilde{\mathbf{D}} \) is defined as:
 
 where \( V \) represents the set of all nodes in the graph. The diagonal entries of \( \tilde{\mathbf{D}} \) correspond to the degree of each node, adjusted to account for the added self-loops.
 
+\subsubsection{Convolution with Edge-Node Switching (CensNet)}
+
+Graph Convolutional Networks (GCNs) have demonstrated considerable success in various graph-based machine learning tasks, particularly in their ability to generalize convolution operations to non-Euclidean data structures like graphs. GCNs operate by aggregating features from a node's neighbors, thereby capturing local neighborhood information and propagating it through the network layers. Despite their effectiveness, GCNs possess certain limitations that hinder their performance in more complex scenarios.
+
+One notable limitation of GCNs is their reliance solely on node features during the convolution process. This approach disregards the information contained within edge features. By neglecting edge features, GCNs fail to fully exploit the underlying structure of the graph, potentially missing out on critical insights that could enhance model performance.
+
+Furthermore, GCNs typically aggregate information from immediate neighbors only, which can limit their ability to capture long-range dependencies in large or densely connected graphs. This restriction can lead to an oversimplified representation of the graph structure, particularly in cases where the graph contains intricate patterns that require deeper and more nuanced analysis.
+
+To overcome the limitations of traditional GCNs, which focus primarily on node features, CensNet introduces a novel approach that integrates both node and edge features into the graph convolution process. The CensNet framework consists of two primary types of layers: the \textit{node layer} and the \textit{edge layer}. These layers work in tandem to update node and edge embeddings alternately, leveraging the information from both nodes and edges in the graph.
+
+The propagation rules in CensNet are designed to incorporate edge features into the convolution process, enabling a more comprehensive feature propagation across the graph. We define the normalized node adjacency matrix with self-loops as follows:
+
+\begin{equation}
+\tilde{\mathbf{A}}_v = \mathbf{D}_v^{-\frac{1}{2}} (\mathbf{A}_v + \mathbf{I}_{N_v}) \mathbf{D}_v^{-\frac{1}{2}},
+\end{equation}
+
+where $\mathbf{D}_v$ is the diagonal degree matrix of $\mathbf{A}_v + \mathbf{I}_{N_v}$.
+
+\paragraph{Node Layer Propagation:}
+
+
+In the $(l+1)$-th layer, the node features are updated using the following propagation rule:
+
+\[
+H^{(l+1)}_v = \sigma\left(T\Phi\left(H^{(l)}_e P_e\right)T^\top \odot \tilde{A}_v H^{(l)}_v W_v\right)
+\]
+
+Where, 
+
+\begin{itemize}
+    \item \( T \in \mathbb{R}^{N_v \times N_e} \) is a binary transformation matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( T \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
+    \item \( H^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( P_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \( \Phi(H^{(l)}_e P_e) \) denotes the diagonalization of the vector \( H^{(l)}_e P_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
+    \item The Hadamard product, denoted by \( \odot \), represents element-wise multiplication between matrices. In this context, it combines the transformed edge features with the node adjacency matrix, integrating information from both the original graph and its line graph.
+    \item \( \tilde{A}_v = D_v^{-\frac{1}{2}} (A_v + I_{N_v}) D_v^{-\frac{1}{2}} \) is the normalized adjacency matrix for nodes, where \( A_v \) is the original node adjacency matrix and \( I_{N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
+    \item \( H^{(l)}_v \) represents the node feature matrix from the \( l \)-th layer. \( W_v \) is a learnable weight matrix that is applied to the node features during the propagation process. 
+    \item The activation function \( \sigma \) (typically a non-linear function such as ReLU) is applied element-wise to the resulting matrix to introduce non-linearity into the model.
+
+\end{itemize}
+
+
+This expression can be interpreted as a way of fusing node and edge information. The matrix \( T \) maps edge features into the node domain, and this information is combined with the normalized node adjacency matrix \( \tilde{A}_v \). This fusion creates a new node adjacency matrix that incorporates both node and edge features, which is then used to update the node embeddings.
+
+\paragraph{Edge Layer Propagation:}
+
+Similarly, the normalized (Laplacianized) edge adjacency matrix is defined as:
+
+\begin{equation}
+\tilde{A}_e = D_e^{-\frac{1}{2}} \left(A_e + I_{N_e}\right) D_e^{-\frac{1}{2}},
+\end{equation}
+
+where \( D_e \) is the degree matrix corresponding to the edge adjacency matrix \( A_e + I_{N_e} \). The matrix \( \tilde{A}_e \) serves as the normalized version of the edge adjacency matrix, similar to how the node adjacency matrix is normalized. This normalization ensures that the influence of each edge is scaled appropriately, which is crucial for the stability of the propagation process.
+
+The propagation rule for edge features is defined as follows:
+
+\begin{equation}
+H^{(l+1)}_e = \sigma\left(T^\top \Phi\left(H^{(l)}_v P_v\right) T \odot \tilde{A}_e H^{(l)}_e W_e\right).
+\end{equation}
+
+In this expression, the following components are involved:
+
+\begin{itemize}
+    \item \textbf{ \( T^\top \)} is the transpose of the binary transformation matrix \( T \) used in the node layer propagation. The matrix \( T^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
+    \item \( H^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( P_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(H^{(l)}_v P_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation. 
+    \item The matrix \( \tilde{A}_e \) is the normalized edge adjacency matrix, as defined above. This matrix integrates information about the connections between edges, analogous to how \( \tilde{A}_v \) handles connections between nodes. 
+    \item \( H^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( W_e \) is a learnable weight matrix that is applied to the edge features during the propagation.
+    \item The Hadamard product \( \odot \) element-wise multiplies the transformed node features with the edge adjacency matrix, merging the information from both domains.
+    \item As in the node layer propagation, the activation function \( \sigma \) is applied element-wise to introduce non-linearity.
+
+\end{itemize}
+
+This propagation rule updates the edge embeddings by integrating information from the node features and the edge structure, thereby enhancing the expressiveness of the edge representations. The alternating updates between node and edge embeddings allow the model to effectively bridge signals across nodes and edges, leading to more robust and informative graph embeddings.
+
+
+
+
+\subsection{Task-Dependent Loss Functions}
+
+The output layer and corresponding loss functions in CensNet are designed to be task-dependent. For regression tasks, the loss function can be formalized as a regularized mean square error (MSE) loss. The MSE loss measures the difference between the predicted outcomes and the actual continuous values, providing a natural fit for regression problems.
+
+
+We define the loss function for graph regression as follows:
+
+\begin{equation}
+\mathcal{L}(\Theta) = \sum_{l \in \mathcal{Y}_L} \sum_{f=1}^{F} \| Y_{lf} - \hat{Y}_{lf} \|^2_2 + \lambda \|\Theta\|_p,
+\end{equation}
+
+where:
+
+\begin{itemize}
+    \item \( Y_{lf} \) represents the true continuous value for the \( f \)-th feature of the \( l \)-th graph in the training set.
+    \item \( \hat{Y}_{lf} \) is the predicted outcome generated from the final node hidden layer of the CensNet model.
+    \item \( \| Y_{lf} - \hat{Y}_{lf} \|^2_2 \) is the squared difference between the true and predicted values, summed across all features and all graphs in the training set.
+    \item \( \lambda \|\Theta\|_p \) is the regularization term, which helps control the model's complexity and prevents overfitting by penalizing large weights. The parameter \( \lambda \) controls the strength of the regularization, while \( p \) determines the type of regularization norm (e.g., \( p=2 \) for \( L_2 \) regularization).
+\end{itemize}
 
 
 
