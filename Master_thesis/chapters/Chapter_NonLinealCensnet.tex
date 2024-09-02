@@ -3,3 +3,19 @@
 \section{Formulation of Gas System} \label{sec:formulation}
 
 
+\section{Introduction to Physics-Informed Neural Networks (PINNs)}
+
+Physics-Informed Neural Networks (PINNs) represent a class of neural networks where physical laws are incorporated into the learning process, guiding the model to respect these constraints. Unlike traditional neural networks, where the loss function is typically based on the discrepancy between predicted and actual data, PINNs introduce additional terms in the loss function that penalize the model for deviating from known physical principles.
+
+In this case, the physical constraints are derived from the gas balance and the Weymouth equations, which describe the flow and pressure behavior within the gas transportation network. These constraints are integrated into our neural network as additional loss terms. Specifically, we define two layers within the network: one that calculates the error in gas balance and another that calculates the error in the Weymouth equation. The outputs of these layers are then used to adjust the network's predictions, ensuring that they adhere to the physical laws governing the system.
+
+The inclusion of these physics-informed layers allows the network to achieve better generalization, as it is not only trained on the data but also guided by the underlying physical laws. This approach can be seen as a specialized form of regularization, where the model is penalized if its predictions do not satisfy the physical constraints. The overall loss function can be expressed as:
+
+
+\[
+\mathcal{L}(\Theta) = \mathcal{L}_{\text{data}}(\Theta) + \lambda_1 \mathcal{L}_{\text{balance}}(\Theta) + \lambda_2 \mathcal{L}_{\text{weymouth}}(\Theta),
+\]
+
+where \( \mathcal{L}_{\text{data}}(\Theta) \) represents the traditional data-driven loss, \( \mathcal{L}_{\text{balance}}(\Theta) \) is the loss associated with the gas balance constraint, and \( \mathcal{L}_{\text{weymouth}}(\Theta) \) is the loss associated with the Weymouth equation constraint. The parameters \( \lambda_1 \) and \( \lambda_2 \) control the importance of each physical constraint in the learning process.
+
+
