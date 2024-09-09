@@ -5,9 +5,9 @@
 \subsection{Graph definition}
 
 
-A \textbf{graph} $G$ is a mathematical structure that represents a set of interconnected objects. These objects are known as \textbf{vertices} (or \textbf{nodes}), denoted by the set $V(G)$, and the connections between them are called \textbf{edges} (or \textbf{arcs}), denoted by the set $E(G)$. Formally, a graph is defined as an ordered pair $G = (V, E)$, where $V(G)$ is a non-empty set of vertices, and $E(G) \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is a set of edges, where each edge connects two distinct vertices.
+A \textbf{graph} $G$ is a mathematical structure that represents a set of interconnected objects. These objects are known as \textbf{vertices} (or \textbf{nodes}), denoted by the set $V(G)$, and the connections between them are called \textbf{edges} (or \textbf{arcs}), denoted by the set $E(G)$. Formally, a graph is defined as an ordered pair $G = (V, E)$, where $V(G)$ is a non-empty set of vertices, and $E(G) \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is a set of edges, where each edge connects two distinct vertices \cite{Trudeau_2015}.
 
-Graphs can be categorized based on the properties of their edges. An \textbf{undirected graph} has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a \textbf{directed graph} (or \textbf{digraph}), each edge $(u, v) \in E(G)$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$
+Graphs can be categorized based on the properties of their edges. An \textbf{undirected graph} has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a \textbf{directed graph} (or \textbf{digraph}), each edge $(u, v) \in E(G)$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$ \cite{Bender_Williamson_2010}.
 
  %
 % \begin{figure}
@@ -36,15 +36,23 @@ In \Cref{fig:graph_definition}, two graphs are represented, each composed of fou
 
 A graph can be represented in various ways using matrices, each capturing different aspects of the graph's structure. The two most common matrix representations are the \textbf{adjacency matrix} and the \textbf{incidence matrix}.
 
-The \textbf{adjacency matrix} of a graph is a square matrix used to represent the connections between vertices. For a graph $G$ with $n$ vertices, the adjacency matrix $A$ is an $n \times n$ matrix where the entry $a_{ij}$ is defined as follows:
+The \textbf{adjacency matrix} of a graph is a square matrix used to represent the connections between vertices \cite{wilson_1972}. For a graph $G$ with $n$ vertices, the adjacency matrix $A$ is an $n \times n$ matrix where the entry $a_{ij}$ is defined as follows:
 
-\[
-a_{ij} =
+\begin{equation}
+ a_{ij} = 
 \begin{cases}
 1 & \text{if there is an edge from vertex } i \text{ to vertex } j, \\
 0 & \text{otherwise}.
 \end{cases}
-\]
+\end{equation}
+
+% \[
+% a_{ij} =
+% \begin{cases}
+% 1 & \text{if there is an edge from vertex } i \text{ to vertex } j, \\
+% 0 & \text{otherwise}.
+% \end{cases}
+% \]
 
 For a directed graph, the adjacency matrix captures the direction of the edges. Below is the adjacency matrix for the directed graph shown earlier:
 
@@ -58,21 +66,23 @@ A = \begin{pmatrix}
 \]
 
 
-The \textbf{incidence matrix} of a graph represents the relationship between vertices and edges. For a graph $G$ with $n$ vertices and $m$ edges, the incidence matrix $I$ is an $n \times m$ matrix where the entry $i_{ij}$ is defined as follows:
+The \textbf{incidence matrix} of a graph represents the relationship between vertices and edges \cite{wilson_1972}. For a graph $G$ with $n$ vertices and $m$ edges, the incidence matrix $I$ is an $n \times m$ matrix where the entry $i_{ij}$ is defined as follows:
 
-\[
-i_{ij} =
+\begin{equation}
+ B_{ij} =
 \begin{cases}
 1 & \text{if vertex } i \text{ is the starting point of edge } j \text{ in a directed graph}, \\
 -1 & \text{if vertex } i \text{ is the endpoint of edge } j \text{ in a directed graph}, \\
 0 & \text{if vertex } i \text{ is not connected to edge } j.
-\end{cases}
-\]
+\end{cases}  
+    \label{eq:}
+\end{equation}
+
 
 For the directed graph previously described, the incidence matrix is given by:
 
 \[
-I = \begin{pmatrix}
+B = \begin{pmatrix}
 1 & -1 & 0 & 0 \\
 -1 & 0 & -1 & 0 \\
 0 & 0 & 0 & 1  \\
@@ -325,4 +335,91 @@ Beyond production, transportation, and compression, the model also considers the
 
 The constraint set models the gas transportation system: \Cref{eq:well_limits} forces each production well to inject the flow $f_{w}^t$ over the technical minimum $\underline{f_{w}^t}$ and under the maximum capacity $\overline{f_{w}^t}$. \Cref{eq:pipe_limits} upper-bounds the gas flow through pipelines $f_{p}^t$ to the structural capacity $\overline{f_{p}^t}$. \Cref{eq:dem_limit_gas} ensures that the unsupplied demand $f_{u}^{t}$ is lower than the corresponding user demand $\overline{f_{u}^{t}}$. The nodal gas balance in \Cref{eq:gas_balance} guarantees that the gas entering the node $n$ equals the gas leaving it. \Cref{eq:sto_limit1,eq:sto_limit2} limit the gas injection $f_{s+}$  and extraction $f_{s-}$ rates at storage facilities according to the feasible operating range determined by the currently stored volume $V_{s}^t$, respectively. In turn, \Cref{eq:sto_time} balances the gas storage unit such that gas volume at operation period $t$ $V_{s}^t$ equals the volume from period $V_{s}^{t-1}$ plus the difference between injected $f_{s+}^{t-1}$ and extracted $f_{s+}^{t-1}$ gas flow, a fundamental constraint for modeling the dynamics of gas storage over time. 
 
+\section{Experimental Setup}
 
+
+In this experimental setup, we take the optimization model presented in the previous section and generate samples by introducing noise into the base values of two different gas networks. The noise levels range from 5\% to 25\%, applied to the parameters of the networks to simulate varying operating conditions. The first network is a small-scale test network consisting of 8 nodes, while the second represents the Colombian natural gas transportation system, a larger and more complex network. These networks will be used to evaluate the performance of the proposed model under different scenarios.
+
+The generated samples will serve as the training data for a graph neural network (GNN) model designed to optimize the performance of the natural gas transportation system. This GNN model is built to focus on predicting node and edge-level characteristics, incorporating the structure of the network and its connectivity into the learning process. The model specifically penalizes deviations in node and edge losses, which directly impact the efficiency of gas flow through the system. To achieve this, the architecture is structured as a multi-layer neural network, with customizable depth (number of layers), channels, and dense layers, ensuring flexibility in adapting to both small-scale and large-scale networks, such as the Colombian system. This flexibility allows the network to generalize across different scenarios while retaining the ability to fine-tune for specific operating conditions.
+
+The core components of the model include:
+
+\begin{itemize}
+    \item \textbf{Input Channels:} The model receives five types of input data:
+        
+        
+    \begin{itemize}
+        \item Node Features: A matrix $\in \mathbb{R}^{N \times 3}$, where $N$ is the number of nodes in the network, containing the features of each node. Each node feature includes the lower and upper limits for injected flow, as well as demanded flow.
+        \item Node Laplacian: An adjacency matrix of size $N\times N$ encoding the graph structure of the nodes.
+        \item Edge Laplacian: A matrix of size $E\times E$ encoding the connections between edges.
+        \item Incidence Matrix: A matrix of size $N\times E$ representing the node-edge incidence relationship, mapping the flow of gas between nodes through edges.
+        \item Edge Features: A matrix $\in \mathbb{R}^{N \times 3}$ that includes the features of pipelines and compressors in the gas network. Each edge feature includes the $K$ constant, the maximum compression ratio $\beta$, and the upper and lower flow limits.
+    \end{itemize}
+
+    \item \textbf{Normalization and Pre\-dense Layers:} The node and edge inputs undergo feature-wise normalization to standardize the data. Following this, the inputs are passed through two dense layers, each with N\_channels neurons. The purpose of these pre-dense layers is to transform the feature space before applying the convolutional layers 
+    \item \textbf{Convolutional Layers:} The main body of the network consists of N\_layers convolutional blocks. Each block applies a CensNet convolution, which operates simultaneously on the node and edge features, taking into account the structural relationships encoded in the node and edge Laplacians and the incidence matrix. Each convolutional block is followed by batch normalization to stabilize the learning process. 
+ The convolution layers update both node and edge features, enabling the model to capture the complex interactions between nodes and edges within the network. These layers allow the model to propagate information across the graph structure and learn how local features at one node or edge influence the broader system.   
+    \item \textbf{Post-dense Layer:} After passing through the convolutional blocks, the node and edge features are further processed by a series of dense layers. The number of dense layers (N\_dense) is adjustable but typically set to two in this study. These layers further refine the learned features, enabling the model to output node and edge-level predictions. 
+    \item \textbf{Losses and Outputs:} The final outputs of the network are the node-level and edge-level predictions. The node predictions correspond to the estimated flow at each node, while the edge predictions represent the flow along the edges. Both outputs are penalized based on their respective losses, which are calculated by comparing the predicted values to ground truth values and evaluating how well the physical constraints are respected.
+
+The loss functions ensure that the model accurately predicts the node and edge flows while satisfying the physical constraints of the system. These constraints are essential for ensuring that the predicted flows are feasible within the operational limitations of the network. 
+    \item \textbf{Model Optimization:} The model is trained using backpropagation with the Adam optimizer. The training process involves minimizing the node and edge loss functions, which penalize incorrect flow predictions and deviations from the expected behavior of the network.
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/model_description.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{}\label{fig:}
+\end{figure}
+
+
+
+
+\end{itemize}
+
+\section{Results}
+
+
+In this chapter, we present the results of the proposed graph neural network (GNN) model, focusing on the relationship between the predicted outputs and the actual observed values in the natural gas transportation networks. The evaluation includes both the 8-node test network and the Colombian natural gas system, with the goal of assessing the model's ability to predict key parameters under varying operational conditions. 
+
+
+%
+% \begin{figure}
+%     \centering
+%     \input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}
+%     \caption{Your caption here}\label{fig:your-label-here}
+% \end{figure}
+%
+
+\subsection{Case Study I: 8-node Network}
+
+
+In \cref{fig:results_dummy_base}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has significant gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around certain points.
+%
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{}\label{fig:results_dummy_base}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{}\label{fig:results_dummy_base}
+\end{figure}
+
+
+
+
+
+
+
+\section{Discussion and conclusions}

@@ -1,0 +1,53 @@
+\begin{tikzpicture}[shorten >=1pt, ->, draw=black!50, node distance=1.5cm and 3.5cm, align=center]
+
+    % Styles
+    \tikzstyle{input} = [rectangle, draw, fill=orange!30, minimum width=3cm, minimum height=1cm]
+    \tikzstyle{dense} = [rectangle, draw, fill=blue!30, minimum width=3cm, minimum height=1cm]
+    \tikzstyle{conv} = [rectangle, draw, fill=green!30, minimum width=3cm, minimum height=1cm]
+    \tikzstyle{output} = [rectangle, draw, fill=purple!30, minimum width=3cm, minimum height=1cm]
+    \tikzstyle{loss} = [rectangle, draw, fill=red!30, minimum width=3cm, minimum height=1cm]
+    \tikzstyle{arrow} = [->, thick]
+
+    % Input Layer
+    \node[input] (node_features) at (0,0) {Node Features \\ $\mathbb{R}^{N \times 3}$};
+    \node[input] (node_laplacian) [below of=node_features] {Node Laplacian \\ $N \times N$};
+    \node[input] (edge_laplacian) [below of=node_laplacian] {Edge Laplacian \\ $E \times E$};
+    \node[input] (incidence_matrix) [below of=edge_laplacian] {Incidence Matrix \\ $N \times E$};
+    \node[input] (edge_features) [below of=incidence_matrix] {Edge Features \\ $\mathbb{R}^{N \times 3}$};
+
+    % Normalization and Pre-dense Layer
+    \node[dense] (norm_pre_dense) [right of=node_features, xshift=3cm] {Normalization \\ \& Pre-dense Layers};
+
+    % Convolutional Layers
+    \node[conv] (conv_layers) [right of=norm_pre_dense, xshift=3cm] {Convolutional Layers \\ (CensNet Blocks)};
+
+    % Post-dense Layer
+    \node[dense] (post_dense) [right of=conv_layers, xshift=3cm] {Post-dense Layers};
+
+    % Outputs
+    \node[output] (node_output) [right of=post_dense, xshift=3cm] {Node Predictions};
+    \node[output] (edge_output) [below of=node_output] {Edge Predictions};
+
+    % Losses
+    \node[loss] (node_loss) [right of=node_output, xshift=3cm] {Node Loss};
+    \node[loss] (edge_loss) [below of=node_loss] {Edge Loss};
+
+    % Arrows
+    \draw[arrow] (node_features) -- (norm_pre_dense);
+    \draw[arrow] (node_laplacian) -- (norm_pre_dense);
+    \draw[arrow] (edge_laplacian) -- (norm_pre_dense);
+    \draw[arrow] (incidence_matrix) -- (norm_pre_dense);
+    \draw[arrow] (edge_features) -- (norm_pre_dense);
+
+    \draw[arrow] (norm_pre_dense) -- (conv_layers);
+
+    \draw[arrow] (conv_layers) -- (post_dense);
+
+    \draw[arrow] (post_dense) -- (node_output);
+    \draw[arrow] (post_dense) -- (edge_output);
+
+    \draw[arrow] (node_output) -- (node_loss);
+    \draw[arrow] (edge_output) -- (edge_loss);
+
+\end{tikzpicture}
+
