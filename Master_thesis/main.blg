@@ -7,44 +7,46 @@ A level-1 auxiliary file: chapters/Chapter_MPCC.aux
 A level-1 auxiliary file: chapters/Chapter_NonLinealCensnet.aux
 The style file: ieeetr.bst
 Database file #1: biblio.bib
-You've used 45 entries,
+Warning--empty year in GRLB_Hamilton
+You've used 51 entries,
             1876 wiz_defined-function locations,
-            778 strings with 13858 characters,
-and the built_in function-call counts, 13514 in all, are:
-= -- 1324
-> -- 627
+            819 strings with 15034 characters,
+and the built_in function-call counts, 15490 in all, are:
+= -- 1539
+> -- 695
 < -- 0
-+ -- 227
-- -- 182
-* -- 855
-:= -- 1791
-add.period$ -- 45
-call.type$ -- 45
-change.case$ -- 43
++ -- 252
+- -- 201
+* -- 971
+:= -- 2034
+add.period$ -- 51
+call.type$ -- 51
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 790
-empty$ -- 1111
-format.name$ -- 182
-if$ -- 3422
+cite$ -- 52
+duplicate$ -- 923
+empty$ -- 1257
+format.name$ -- 201
+if$ -- 3935
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 42
-newline$ -- 142
-num.names$ -- 42
-pop$ -- 146
+int.to.str$ -- 51
+missing$ -- 48
+newline$ -- 160
+num.names$ -- 48
+pop$ -- 158
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 748
+skip$ -- 886
 stack$ -- 0
-substring$ -- 633
-swap$ -- 462
+substring$ -- 731
+swap$ -- 552
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 87
-width$ -- 47
-write$ -- 430
+warning$ -- 1
+while$ -- 100
+width$ -- 53
+write$ -- 490
+(There was 1 warning)

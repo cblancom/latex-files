@@ -94,34 +94,39 @@ B = \begin{pmatrix}
 
 \subsubsection{Multi-Layered Perceptrons}
 
-
-A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network, often regarded as one of the building blocks of deep learning. At its core, an MLP consists of multiple layers of nodes, or neurons, where each layer is fully connected to the next one. The architecture typically includes an input layer, one or more hidden layers, and an output layer. The neurons in each layer are connected to the neurons in the subsequent layer through weighted connections, which are the key parameters learned during the training process. One of the most significant properties of an MLP is its ability to function as a universal approximator. This means that, given sufficient neurons in the hidden layers, an MLP can approximate any continuous function to an arbitrary degree of accuracy, provided the network is trained properly.
+    A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network, often regarded as one of the building blocks of deep learning. At its core, an MLP consists of multiple layers of nodes, or neurons, where each layer is fully connected to the next one. The architecture typically includes an input layer, one or more hidden layers, and an output layer. The neurons in each layer are connected to the neurons in the subsequent layer through weighted connections, the key parameters learned during the training process \cite{Hippert_Pedreira_Souza_2001}. One of the most significant properties of an MLP is its ability to function as a universal approximator. Given sufficient neurons in the hidden layers, an MLP can approximate any continuous function to an arbitrary degree of accuracy, provided the network is trained correctly \cite{Zhang_Eddy_Patuwo_Y_Hu_1998}.
 
 Mathematically, an MLP can be defined as follows. Let $\mathbf{x} \in \mathbb{R}^n$ represent the input vector, where $n$ is the number of features. The output of each neuron in the first hidden layer is calculated as:
 
-\[
-\mathbf{z}^{(1)} = \sigma\left(\mathbf{W}^{(1)}\mathbf{x} + \mathbf{b}^{(1)}\right)
-\]
+\begin{equation}
+ \mathbf{z}^{(1)} = \sigma\left(\mathbf{W}^{(1)}\mathbf{x} + \mathbf{b}^{(1)}\right)   
+    \label{eq:output_neuron}
+\end{equation}
+
+
 
 where $\mathbf{W}^{(1)} \in \mathbb{R}^{m_1 \times n}$ is the weight matrix for the first hidden layer, with $m_1$ being the number of neurons in this layer, $\mathbf{b}^{(1)} \in \mathbb{R}^{m_1}$ is the bias vector, and $\sigma(\cdot)$ is the activation function, typically a non-linear function such as the ReLU (Rectified Linear Unit) or sigmoid function.
 
 This process is repeated for each subsequent hidden layer $k$, where the output of the $k$-th layer is given by:
 
-\[
-\mathbf{z}^{(k)} = \sigma\left(\mathbf{W}^{(k)}\mathbf{z}^{(k-1)} + \mathbf{b}^{(k)}\right)
-\]
+\begin{equation}
+ \mathbf{z}^{(k)} = \sigma\left(\mathbf{W}^{(k)}\mathbf{z}^{(k-1)} + \mathbf{b}^{(k)}\right) 
+    \label{eq:}
+\end{equation}
+
 
 Here, $\mathbf{W}^{(k)} \in \mathbb{R}^{m_k \times m_{k-1}}$ represents the weight matrix connecting layer $k-1$ to layer $k$, $\mathbf{b}^{(k)} \in \mathbb{R}^{m_k}$ is the bias vector for layer $k$, and $\mathbf{z}^{(k-1)}$ is the output of the previous layer.
 
 Finally, the output layer produces the final prediction $\mathbf{\hat{y}}$:
 
-\[
-\mathbf{\hat{y}} = \sigma\left(\mathbf{W}^{(L)}\mathbf{z}^{(L-1)} + \mathbf{b}^{(L)}\right)
-\]
+\begin{equation}
+ \mathbf{\hat{y}} = \sigma\left(\mathbf{W}^{(L)}\mathbf{z}^{(L-1)} + \mathbf{b}^{(L)}\right)   
+    \label{eq:}
+\end{equation}
 
 where $L$ denotes the number of layers in the network, including the input and output layers. Depending on the nature of the problem (e.g., classification or regression), the activation function $\sigma(\cdot)$ used in the output layer can vary, with softmax being common in multi-class classification problems, and a linear activation for regression tasks.
 
-The entire MLP is trained using a process called backpropagation, combined with an optimization algorithm like gradient descent, to minimize a loss function $J(\mathbf{y}, \mathbf{\hat{y}})$, which measures the difference between the true outputs $\mathbf{y}$ and the predicted outputs $\mathbf{\hat{y}}$.
+The entire MLP is trained using a process called backpropagation, combined with an optimization algorithm like gradient descent, to minimize a loss function $J(\mathbf{y}, \mathbf{\hat{y}})$, which measures the difference between the true outputs $\mathbf{y}$ and the predicted outputs $\mathbf{\hat{y}}$. \Cref{fig:FCNN_representation} shows a graphical representation of a fully connected network.
 
 
 \begin{figure}
@@ -130,26 +135,27 @@ The entire MLP is trained using a process called backpropagation, combined with 
     \setlength\figureheight{0.5\textwidth}
     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/MLP_def.tex}}
     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{}\label{fig:}
+    \caption{General diagram of a multilayer perceptron, showing the input layers in green, the hidden layers in blue and the outputs in red.}\label{fig:FCNN_representation}
 \end{figure}
 
 
 \subsubsection{Graph Neural Networks}
 
-In recent years, \textbf{Graph Neural Networks (GNNs)} have emerged as a powerful tool in machine learning, particularly for tasks involving data that can be naturally represented as graphs. Graphs are a universal data structure that can model various systems in numerous fields, including social networks, biological networks, knowledge graphs, and physical systems. Because of their ability to represent relationships and interactions between entities, graphs are used extensively to model complex structures where the data points are not independent but interconnected.
+In recent years, \textbf{Graph Neural Networks (GNNs)} have emerged as a powerful tool in machine learning, particularly for tasks involving data that can be naturally represented as graphs. Graphs are a universal data structure that can model various systems in numerous fields, including social networks, biological networks, knowledge graphs, and physical systems. Because of their ability to represent relationships and interactions between entities, graphs are used extensively to model complex structures where the data points are not independent but interconnected \cite{Jia_Wang_Shou_Hosseini_Bai_2023}.
 
-The importance of GNNs lies in their ability to directly operate on graph-structured data, extending the success of neural networks from grid-like data structures, such as images and sequences, to more general and irregular structures. Traditional neural networks, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), are designed to work with data that has a fixed structure. However, many real-world problems involve data that can be better described by graphs, where nodes represent entities and edges represent relationships between those entities. 
-
+GNNs are important because they can directly operate on graph-structured data, extending neural networks' success from grid-like data structures, such as images and sequences, to more general and irregular structures. Traditional neural networks, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), are designed to work with data that has a fixed structure. However, many real-world problems involve data that can be better described by graphs, where nodes represent entities and edges represent relationships between those entities \cite{Gupta_Matta_Pant_2021}. 
 
 \textbf{Graph Neural Networks} can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let $G = (V, E)$ represent a graph, where $V$ is the set of nodes (or vertices) and $E$ is the set of edges. Each node $v \in V$ can be associated with a feature vector $\mathbf{x}_v$, and each edge $(u, v) \in E$ may have an associated weight or feature vector $\mathbf{e}_{uv}$. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
 
 
-In the GNN framework, the process of message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. To move from the abstract concept to a practical implementation, it is necessary to define the specific functions used for updating and aggregating node features.
+In the GNN framework, message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. To move from the abstract concept to a practical implementation, the specific functions used for updating and aggregating node features must be defined \cite{Liu_Wu_Liu_Hu_2021}.
 
-The basic message passing operation, which simplifies the original GNN model proposed by [], is expressed by the following equation:
-\[
-\mathbf{h}_u^{(k)} = \sigma\left( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} + \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} + \mathbf{b}^{(k)} \right)
-\]
+
+The basic message passing operation, which simplifies the original GNN model proposed by \cite{GRLB_Hamilton}, is expressed by the following equation:
+\begin{equation}
+ \mathbf{h}_u^{(k)} = \sigma\left( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} + \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} + \mathbf{b}^{(k)} \right)  
+    \label{eq:}
+\end{equation}
 
 In this equation:
 \begin{itemize}
@@ -396,15 +402,17 @@ In this chapter, we present the results of the proposed graph neural network (GN
 \subsection{Case Study I: 8-node Network}
 
 
-In \cref{fig:results_dummy_base}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has significant gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around certain points.
-%
+In \cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
+
+\Cref{fig:results_dummy_base_f} displays the relationship between the actual gas flows through the edges and the predictions made by the neural network. In this case, the model struggled to predict the flow values accurately, demonstrating a significant deviation from the real data. This result is not unexpected, as the model used in this experiment focused solely on the losses related to gas flows at the injection nodes without accounting for the gas transported through the edges. As such, the absence of edge-related loss consideration likely contributed to the poor prediction performance for edge flows.
+
 \begin{figure}
     \centering
     \setlength\figurewidth{1\textwidth}        
     \setlength\figureheight{0.5\textwidth}
     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}
     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{}\label{fig:results_dummy_base}
+    \caption{}\label{fig:results_dummy_base_node}
 \end{figure}
 
 \begin{figure}
@@ -413,10 +421,30 @@ In \cref{fig:results_dummy_base}, a scatter plot illustrates the relationship be
     \setlength\figureheight{0.5\textwidth}
     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}
     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{}\label{fig:results_dummy_base}
+    \caption{}\label{fig:results_dummy_base_f}
 \end{figure}
 
 
+In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This adjustment allows the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. \cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an R-value of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
+
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{}\label{fig:results_dummy_node_base_f}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{}\label{fig:results_dummy_edge_base_f}
+\end{figure}
 
 
 

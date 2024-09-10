@@ -130,6 +130,35 @@ E.~A. Bender and S.~G. Williamson, {\em Section 2: Digraphs, Paths, and
 R.~J. Wilson, {\em Introduction to graph theory}, vol.~1.
 \newblock Oliver \& Boyd, 4~ed., 1972.
 
+\bibitem{Hippert_Pedreira_Souza_2001}
+H.~Hippert, C.~Pedreira, and R.~Souza, ``Neural networks for short-term load
+  forecasting: A review and evaluation,'' {\em IEEE Transactions on Power
+  Systems}, vol.~16, p.~44–55, Feb 2001.
+
+\bibitem{Zhang_Eddy_Patuwo_Y_Hu_1998}
+G.~Zhang, B.~Eddy~Patuwo, and M.~Y.~Hu, ``Forecasting with artificial neural
+  networks:,'' {\em International Journal of Forecasting}, vol.~14, p.~35–62,
+  Mar 1998.
+
+\bibitem{Jia_Wang_Shou_Hosseini_Bai_2023}
+Y.~Jia, J.~Wang, W.~Shou, M.~R. Hosseini, and Y.~Bai, ``Graph neural networks
+  for construction applications,'' {\em Automation in Construction}, vol.~154,
+  p.~104984, Oct 2023.
+
+\bibitem{Gupta_Matta_Pant_2021}
+A.~Gupta, P.~Matta, and B.~Pant, ``Graph neural network: Current state of art,
+  challenges and applications,'' {\em Materials Today: Proceedings}, vol.~46,
+  p.~10927–10932, Mar 2021.
+
+\bibitem{Liu_Wu_Liu_Hu_2021}
+C.~Liu, J.~Wu, W.~Liu, and W.~Hu, ``Enhancing graph neural networks by a
+  high-quality aggregation of beneficial information,'' {\em Neural Networks},
+  vol.~142, p.~20–33, Oct 2021.
+
+\bibitem{GRLB_Hamilton}
+W.~L. Hamilton, ``Graph representation learning,'' {\em Synthesis Lectures on
+  Artificial Intelligence and Machine Learning}, vol.~14, no.~3, pp.~1--159.
+
 \bibitem{WANG2019113410}
 Y.~Wang, Y.~Wang, Y.~Huang, J.~Yang, Y.~Ma, H.~Yu, M.~Zeng, F.~Zhang, and
   Y.~Zhang, ``Operation optimization of regional integrated energy system based
