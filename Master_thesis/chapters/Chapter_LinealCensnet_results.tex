@@ -39,16 +39,29 @@ As a result of the optimization process for this first test, the following hyper
 % \end{figure}
 %
 
+% \begin{figure}
+%     \centering
+%         \setlength\figurewidth{.53\textwidth}        
+%         \setlength\figureheight{0.36\textwidth} 
+%         \subfloat [Relationship between the actual flows injected into the nodes and those predicted by the model.] {\label{fig:results_dummy_base_node}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}}
+%         \subfloat [Relationship between the actual flows carried by the edges (gas pipelines and compressors) and those predicted by the model.] {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
+%         % \includegraphics[width=0.45\textwidth]{figures/}
+%     \caption{Model results using only the loss associated with the predictions of the nodal flows.}\label{fig:}
+% \end{figure}
+%
+
 \begin{figure}
     \centering
-        \setlength\figurewidth{.53\textwidth}        
-        \setlength\figureheight{0.36\textwidth} 
-        \subfloat [Undirected graph] {\label{fig:results_dummy_base_node}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}}
-        \subfloat [Directed graph] {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
-        % \includegraphics[width=0.45\textwidth]{figures/}
-    \caption{}\label{fig:}
+    \setlength\figurewidth{.53\textwidth}        
+    \setlength\figureheight{0.36\textwidth} 
+    \subfloat[Actual vs predicted nodal flows.] 
+    {\label{fig:results_dummy_base_node}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}}
+    \subfloat[Actual vs predicted edge flows.] 
+    {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
+    
+    \caption{Model results using only the loss associated with the predictions of the nodal flows.}
+    \label{fig:}
 \end{figure}
-
 
 In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This adjustment allows the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. \cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an R-value of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
 
@@ -58,10 +71,10 @@ In the next stage of the experiment, the model was updated to account for the lo
     \centering
         \setlength\figurewidth{.53\textwidth}        
         \setlength\figureheight{0.36\textwidth} 
-        \subfloat [Undirected graph] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
-        \subfloat [Directed graph] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
+        \subfloat [Actual vs predicted nodal flows.] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
+        \subfloat [Actual vs predicted edge flows.] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
         % \includegraphics[width=0.45\textwidth]{figures/}
-    \caption{}\label{fig:}
+    \caption{Model results using losses associated with predictions of nodal and transported flows.}\label{fig:}
 \end{figure}
 
 
@@ -97,10 +110,10 @@ On the other hand, \cref{fig:ye_col_base} presents the relationship between the 
     \centering
         \setlength\figurewidth{.53\textwidth}        
         \setlength\figureheight{0.36\textwidth} 
-        \subfloat [Undirected graph] {\label{fig:yn_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base.tex}}}
-        \subfloat [Directed graph] {\label{fig:ye_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base.tex}}}
+        \subfloat [Actual vs predicted nodal flows.] {\label{fig:yn_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base.tex}}}
+        \subfloat [Actual vs predicted edge flows.] {\label{fig:ye_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base.tex}}}
         % \includegraphics[width=0.45\textwidth]{figures/}
-    \caption{}\label{fig:}
+    \caption{Model results using only the loss associated with the predictions of the nodal flows.}\label{fig:}
 \end{figure}
 
 %
