@@ -44,6 +44,7 @@ The \textbf{adjacency matrix} of a graph is a square matrix used to represent th
 1 & \text{if there is an edge from vertex } i \text{ to vertex } j, \\
 0 & \text{otherwise}.
 \end{cases}
+    \label{eq:adjacency_matrix_definition}
 \end{equation}
 
 % \[
@@ -75,7 +76,7 @@ The \textbf{incidence matrix} of a graph represents the relationship between ver
 -1 & \text{if vertex } i \text{ is the endpoint of edge } j \text{ in a directed graph}, \\
 0 & \text{if vertex } i \text{ is not connected to edge } j.
 \end{cases}  
-    \label{eq:}
+    \label{eq:incidence_matrix_definition}
 \end{equation}
 
 
@@ -111,7 +112,7 @@ This process is repeated for each subsequent hidden layer $k$, where the output 
 
 \begin{equation}
  \mathbf{z}^{(k)} = \sigma\left(\mathbf{W}^{(k)}\mathbf{z}^{(k-1)} + \mathbf{b}^{(k)}\right) 
-    \label{eq:}
+    \label{eq:hidden_layers_output}
 \end{equation}
 
 
@@ -121,7 +122,7 @@ Finally, the output layer produces the final prediction $\mathbf{\hat{y}}$:
 
 \begin{equation}
  \mathbf{\hat{y}} = \sigma\left(\mathbf{W}^{(L)}\mathbf{z}^{(L-1)} + \mathbf{b}^{(L)}\right)   
-    \label{eq:}
+    \label{eq:output_layer}
 \end{equation}
 
 where $L$ denotes the number of layers in the network, including the input and output layers. Depending on the nature of the problem (e.g., classification or regression), the activation function $\sigma(\cdot)$ used in the output layer can vary, with softmax being common in multi-class classification problems, and a linear activation for regression tasks.
@@ -154,7 +155,7 @@ In the GNN framework, message passing is understood as a series of iterations in
 The basic message passing operation, which simplifies the original GNN model proposed by \cite{GRLB_Hamilton}, is expressed by the following equation:
 \begin{equation}
  \mathbf{h}_u^{(k)} = \sigma\left( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} + \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} + \mathbf{b}^{(k)} \right)  
-    \label{eq:}
+    \label{eq:message_passing}
 \end{equation}
 
 In this equation:
@@ -170,13 +171,14 @@ In this equation:
 % . This aggregation step is crucial as it allows the node to incorporate information from its local neighborhood.
 
 
-In the context of Graph Neural Networks (GNNs), a Graph Convolutional Network (GCN) is a specialized model that applies the concept of convolution, widely used in image processing, to graphs. First introduced by Thomas Kipf and Max Welling in 2017, GCNs offer a method to perform deep learning on graph-structured data by extending traditional convolution operations to the irregular domain of graphs.
+In the context of Graph Neural Networks (GNNs), a Graph Convolutional Network (GCN) is a specialized model that applies the concept of convolution, widely used in image processing, to graphs. First introduced by \cite{Kipf:2016tc}, GCNs offer a method to perform deep learning on graph-structured data by extending traditional convolution operations to the irregular domain of graphs.
 
 The fundamental idea behind GCNs is to create a spectral filter that operates on graph data. The filter's purpose is to combine features from a node's local neighborhood, taking into account the graph's structure. This process is mathematically formalized in the following way:
 
-\[
-\mathbf{H} = \sigma\left( \tilde{\mathbf{D}}^{-\frac{1}{2}} \tilde{\mathbf{A}} \tilde{\mathbf{D}}^{-\frac{1}{2}} \mathbf{X} \mathbf{\Theta} \right)
-\]
+\begin{equation}
+ \mathbf{H} = \sigma\left( \tilde{\mathbf{D}}^{-\frac{1}{2}} \tilde{\mathbf{A}} \tilde{\mathbf{D}}^{-\frac{1}{2}} \mathbf{X} \mathbf{\Theta} \right)   
+    \label{eq:GCN_filter}
+\end{equation}
 
 Where:
 \begin{itemize}
@@ -194,29 +196,31 @@ The expression \( \tilde{\mathbf{D}}^{-\frac{1}{2}} \tilde{\mathbf{A}} \tilde{\m
 
 Specifically, the adjacency matrix \( \tilde{\mathbf{A}} \) is defined as:
 
-\[
-\tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}
-\]
+\begin{equation}
+ \tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}   
+    \label{eq:modified_adjacency_matrix}
+\end{equation}
 
 where \( \mathbf{A} \) is the original adjacency matrix, and \( \mathbf{I} \) is the identity matrix. The identity matrix \( \mathbf{I} \) ensures that each node considers its own features when aggregating information from its neighbors.
 
 The degree matrix \( \tilde{\mathbf{D}} \) is defined as:
 
-\[
-\tilde{D}_{ii} = \sum_{j \in V} \tilde{A}_{ij}
-\]
+\begin{equation}
+ \tilde{D}_{ii} = \sum_{j \in V} \tilde{A}_{ij}   
+    \label{eq:degree_matrix}
+\end{equation}
 
 where \( V \) represents the set of all nodes in the graph. The diagonal entries of \( \tilde{\mathbf{D}} \) correspond to the degree of each node, adjusted to account for the added self-loops.
 
 \subsubsection{Convolution with Edge-Node Switching (CensNet)}
 
-Graph Convolutional Networks (GCNs) have demonstrated considerable success in various graph-based machine learning tasks, particularly in their ability to generalize convolution operations to non-Euclidean data structures like graphs. GCNs operate by aggregating features from a node's neighbors, thereby capturing local neighborhood information and propagating it through the network layers. Despite their effectiveness, GCNs possess certain limitations that hinder their performance in more complex scenarios.
+Graph Convolutional Networks (GCNs) have demonstrated considerable success in various graph-based machine learning tasks, particularly in their ability to generalize convolution operations to non-Euclidean data structures like graphs \cite{Fu_Wang_Liu_Liu_Zhou_You_Peng_Jing_2022} . GCNs operate by aggregating features from a node's neighbors, thereby capturing local neighborhood information and propagating it through the network layers. Despite their effectiveness, GCNs possess certain limitations that hinder their performance in more complex scenarios.
 
-One notable limitation of GCNs is their reliance solely on node features during the convolution process. This approach disregards the information contained within edge features. By neglecting edge features, GCNs fail to fully exploit the underlying structure of the graph, potentially missing out on critical insights that could enhance model performance.
+One notable limitation of GCNs is their reliance solely on node features during the convolution process. This approach disregards the information contained within edge features. By neglecting edge features, GCNs fail to fully exploit the underlying structure of the graph, potentially missing out on critical insights that could enhance model performance \cite{8954414}.
 
-Furthermore, GCNs typically aggregate information from immediate neighbors only, which can limit their ability to capture long-range dependencies in large or densely connected graphs. This restriction can lead to an oversimplified representation of the graph structure, particularly in cases where the graph contains intricate patterns that require deeper and more nuanced analysis.
+Furthermore, GCNs typically aggregate information from immediate neighbors only, which can limit their ability to capture long-range dependencies in large or densely connected graphs. This restriction can lead to an oversimplified representation of the graph structure, particularly in cases where the graph contains intricate patterns that require deeper and more nuanced analysis \cite{Guo_Zhang_Teng_Lu_2019}.
 
-To overcome the limitations of traditional GCNs, which focus primarily on node features, CensNet introduces a novel approach that integrates both node and edge features into the graph convolution process. The CensNet framework consists of two primary types of layers: the \textit{node layer} and the \textit{edge layer}. These layers work in tandem to update node and edge embeddings alternately, leveraging the information from both nodes and edges in the graph.
+To overcome the limitations of traditional GCNs, which focus primarily on node features, CensNet introduces a novel approach that integrates both node and edge features into the graph convolution process. The CensNet framework consists of two primary types of layers: the \textit{node layer} and the \textit{edge layer}. These layers work in tandem to update node and edge embeddings alternately, leveraging the information from both nodes and edges in the graph \cite{9224195}.
 
 The propagation rules in CensNet are designed to incorporate edge features into the convolution process, enabling a more comprehensive feature propagation across the graph. We define the normalized node adjacency matrix with self-loops as follows:
 
@@ -346,7 +350,7 @@ The constraint set models the gas transportation system: \Cref{eq:well_limits} f
 
 In this experimental setup, we take the optimization model presented in the previous section and generate samples by introducing noise into the base values of two different gas networks. The noise levels range from 5\% to 25\%, applied to the parameters of the networks to simulate varying operating conditions. The first network is a small-scale test network consisting of 8 nodes, while the second represents the Colombian natural gas transportation system, a larger and more complex network. These networks will be used to evaluate the performance of the proposed model under different scenarios.
 
-The generated samples will serve as the training data for a graph neural network (GNN) model designed to optimize the performance of the natural gas transportation system. This GNN model is built to focus on predicting node and edge-level characteristics, incorporating the structure of the network and its connectivity into the learning process. The model specifically penalizes deviations in node and edge losses, which directly impact the efficiency of gas flow through the system. To achieve this, the architecture is structured as a multi-layer neural network, with customizable depth (number of layers), channels, and dense layers, ensuring flexibility in adapting to both small-scale and large-scale networks, such as the Colombian system. This flexibility allows the network to generalize across different scenarios while retaining the ability to fine-tune for specific operating conditions.
+The generated samples will serve as the training data for a graph neural network (GNN) model designed to optimize the performance of the natural gas transportation system. This GNN model is built to focus on predicting node and edge-level characteristics, incorporating the structure of the network and its connectivity into the learning process. The model explicitly penalizes deviations in node and edge losses, which directly impact the efficiency of gas flow through the system. To achieve this, the architecture is structured as a multi-layer neural network, with customizable depth (number of layers), channels, and dense layers, ensuring flexibility in adapting to small-scale and large-scale networks, such as the Colombian system. This flexibility allows the network to generalize across different scenarios while retaining the ability to fine-tune for specific operating conditions.
 
 The core components of the model include:
 
@@ -379,75 +383,16 @@ The loss functions ensure that the model accurately predicts the node and edge f
     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
     \caption{}\label{fig:}
 \end{figure}
-
-
-
-
 \end{itemize}
 
-\section{Results}
+
+The network training was done under the following conditions: data was partitioned into training, validation, and test sets, with percentages of 60\%, 20\%, and 20\%. The learning rate schedule followed an Exponential Decay approach, with an initial learning rate of $1e^{-2}$ decay steps of 1000, and a decay rate of 0.9. The model was trained over 1500 epochs, ensuring the parameters had sufficient time to converge for both node- and edge-level predictions using a Leaky Relu activation function with an alpha parameter of 0.2.
 
 
-In this chapter, we present the results of the proposed graph neural network (GNN) model, focusing on the relationship between the predicted outputs and the actual observed values in the natural gas transportation networks. The evaluation includes both the 8-node test network and the Colombian natural gas system, with the goal of assessing the model's ability to predict key parameters under varying operational conditions. 
-
-
-%
-% \begin{figure}
-%     \centering
-%     \input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}
-%     \caption{Your caption here}\label{fig:your-label-here}
-% \end{figure}
-%
-
-\subsection{Case Study I: 8-node Network}
-
-
-In \cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
-
-\Cref{fig:results_dummy_base_f} displays the relationship between the actual gas flows through the edges and the predictions made by the neural network. In this case, the model struggled to predict the flow values accurately, demonstrating a significant deviation from the real data. This result is not unexpected, as the model used in this experiment focused solely on the losses related to gas flows at the injection nodes without accounting for the gas transported through the edges. As such, the absence of edge-related loss consideration likely contributed to the poor prediction performance for edge flows.
-
-\begin{figure}
-    \centering
-    \setlength\figurewidth{1\textwidth}        
-    \setlength\figureheight{0.5\textwidth}
-    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}
-    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{}\label{fig:results_dummy_base_node}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \setlength\figurewidth{1\textwidth}        
-    \setlength\figureheight{0.5\textwidth}
-    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}
-    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{}\label{fig:results_dummy_base_f}
-\end{figure}
-
-
-In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This adjustment allows the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. \cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an R-value of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
-
-
-\begin{figure}
-    \centering
-    \setlength\figurewidth{1\textwidth}        
-    \setlength\figureheight{0.5\textwidth}
-    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}
-    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{}\label{fig:results_dummy_node_base_f}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \setlength\figurewidth{1\textwidth}        
-    \setlength\figureheight{0.5\textwidth}
-    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}
-    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{}\label{fig:results_dummy_edge_base_f}
-\end{figure}
+The model utilized several key hyperparameters: N channels, which corresponds to the units in the pre-dense and convolutional layers (CensNet), N Dense, representing the number of post-dense layers, and N Layers, denoting the number of convolutional layers. 
+Additionally, the model incorporated weights to penalize deviations in the network's response, specifically targeting the mean squared error (MSE) between the actual flow and the predicted flow at both the nodes and pipelines. Two tests were conducted to determine the optimal set of hyperparameters. The first test considered only the weight associated with node flow preconditions, while the second test included weights for both node and pipeline flows. In each test, the hyperparameters were optimized using the open-source Optuna framework \cite{optuna_2019}, with the following search space: N Channels ranged from 16 to 64, N Layers from 1 to 5, and N Dense from 2 to 32.
 
 
 
 
 
-\section{Discussion and conclusions}

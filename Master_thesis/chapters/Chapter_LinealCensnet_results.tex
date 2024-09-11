@@ -1,0 +1,130 @@
+\section{Results}
+
+In this section, we present the results of the proposed graph neural network (GNN) model, focusing on the relationship between the predicted outputs and the actual observed values in the natural gas transportation networks. The evaluation includes both the 8-node test network and the Colombian natural gas system, with the goal of assessing the model's ability to predict key parameters under varying operational conditions. 
+
+
+%
+% \begin{figure}
+%     \centering
+%     \input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}
+%     \caption{Your caption here}\label{fig:your-label-here}
+% \end{figure}
+%
+
+\subsection{Case Study I: 8-node Network}
+
+
+As a result of the optimization process for this first test, the following hyperparameters were obtained: $N\_channels=21$, $N\_layers=5$, and $N\_dense=4$. With these optimized values, the model achieved a mean squared error (MSE) of 1.826. In \cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
+
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_base_node}
+% \end{figure}
+
+\Cref{fig:results_dummy_base_f} displays the relationship between the actual gas flows through the edges and the predictions made by the neural network. In this case, the model struggled to predict the flow values accurately, demonstrating a significant deviation from the real data. This result is not unexpected, as the model used in this experiment focused solely on the losses related to gas flows at the injection nodes without accounting for the gas transported through the edges. As such, the absence of edge-related loss consideration likely contributed to the poor prediction performance for edge flows.
+
+
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_base_f}
+% \end{figure}
+%
+
+\begin{figure}
+    \centering
+        \setlength\figurewidth{.53\textwidth}        
+        \setlength\figureheight{0.36\textwidth} 
+        \subfloat [Undirected graph] {\label{fig:results_dummy_base_node}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}}
+        \subfloat [Directed graph] {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
+        % \includegraphics[width=0.45\textwidth]{figures/}
+    \caption{}\label{fig:}
+\end{figure}
+
+
+In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This adjustment allows the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. \cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an R-value of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
+
+
+
+\begin{figure}
+    \centering
+        \setlength\figurewidth{.53\textwidth}        
+        \setlength\figureheight{0.36\textwidth} 
+        \subfloat [Undirected graph] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
+        \subfloat [Directed graph] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
+        % \includegraphics[width=0.45\textwidth]{figures/}
+    \caption{}\label{fig:}
+\end{figure}
+
+
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_node_base_f}
+% \end{figure}
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_edge_base_f}
+% \end{figure}
+%
+
+\subsection{Case Study II: 63-node Network (Colombia)}
+
+
+The second case studied corresponds to a gas transportation network consisting of 63 nodes representing the Colombian natural gas system. In the first test, where only the loss associated with the flows injected into the nodes was considered, \cref{fig:yn_col_base} shows the scatter plot relating the actual injected flows at the nodes to the predicted flows. This figure demonstrates the network's ability to accurately identify which nodes had gas injections and which did not. Furthermore, with an R value of 0.996, the network effectively captured the correct proportions of these injected flows, indicating a robust predictive performance. 
+
+On the other hand, \cref{fig:ye_col_base} presents the relationship between the actual and predicted flows through the edges, encompassing both gas pipelines and compressors. In this case, the network struggled to predict the flow values accurately for these elements, which is unsurprising given that the loss associated with the edge flows was not included in the network's optimization process for this test.
+
+
+\begin{figure}
+    \centering
+        \setlength\figurewidth{.53\textwidth}        
+        \setlength\figureheight{0.36\textwidth} 
+        \subfloat [Undirected graph] {\label{fig:yn_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base.tex}}}
+        \subfloat [Directed graph] {\label{fig:ye_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base.tex}}}
+        % \includegraphics[width=0.45\textwidth]{figures/}
+    \caption{}\label{fig:}
+\end{figure}
+
+%
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_node_base_f}
+% \end{figure}
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_edge_base_f}
+% \end{figure}
+%
+%
+
+
+
+\section{Discussion and conclusions}

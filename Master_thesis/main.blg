@@ -3,50 +3,51 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: chapters/Chapter1_preliminaries.aux
 A level-1 auxiliary file: chapters/Chapter_LinealCensnet.aux
+A level-1 auxiliary file: chapters/Chapter_LinealCensnet_results.aux
 A level-1 auxiliary file: chapters/Chapter_MPCC.aux
 A level-1 auxiliary file: chapters/Chapter_NonLinealCensnet.aux
 The style file: ieeetr.bst
 Database file #1: biblio.bib
 Warning--empty year in GRLB_Hamilton
-You've used 51 entries,
+You've used 57 entries,
             1876 wiz_defined-function locations,
-            819 strings with 15034 characters,
-and the built_in function-call counts, 15490 in all, are:
-= -- 1539
-> -- 695
+            855 strings with 16489 characters,
+and the built_in function-call counts, 17433 in all, are:
+= -- 1724
+> -- 782
 < -- 0
-+ -- 252
-- -- 201
-* -- 971
-:= -- 2034
-add.period$ -- 51
-call.type$ -- 51
-change.case$ -- 49
++ -- 283
+- -- 226
+* -- 1097
+:= -- 2288
+add.period$ -- 57
+call.type$ -- 57
+change.case$ -- 55
 chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 923
-empty$ -- 1257
-format.name$ -- 201
-if$ -- 3935
+cite$ -- 58
+duplicate$ -- 1043
+empty$ -- 1428
+format.name$ -- 226
+if$ -- 4423
 int.to.chr$ -- 0
-int.to.str$ -- 51
-missing$ -- 48
-newline$ -- 160
-num.names$ -- 48
-pop$ -- 158
+int.to.str$ -- 57
+missing$ -- 54
+newline$ -- 178
+num.names$ -- 54
+pop$ -- 184
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 886
+skip$ -- 986
 stack$ -- 0
-substring$ -- 731
-swap$ -- 552
+substring$ -- 839
+swap$ -- 614
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 100
-width$ -- 53
-write$ -- 490
+while$ -- 112
+width$ -- 59
+write$ -- 547
 (There was 1 warning)

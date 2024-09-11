@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Wilson_poly}
-S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
-  matpower-based tool for optimal power and natural gas flow analyses,'' {\em
-  IEEE Transactions on Power Systems}, pp.~1--9, 2022.
-
 \bibitem{ABBASI2011xv}
 M.~Abbasi, H.~Afshari, S.~Asadi, M.~{Bakhshayeshi Baygi}, F.~H. Benam,
   F.~Daneshzand, W.~Dullaert, M.~H. Ebrahimi, G.~Esmaeilian, B.~Fahimnia,
@@ -159,6 +154,38 @@ C.~Liu, J.~Wu, W.~Liu, and W.~Hu, ``Enhancing graph neural networks by a
 W.~L. Hamilton, ``Graph representation learning,'' {\em Synthesis Lectures on
   Artificial Intelligence and Machine Learning}, vol.~14, no.~3, pp.~1--159.
 
+\bibitem{Kipf:2016tc}
+T.~N. Kipf and M.~Welling, ``{Semi-Supervised Classification with Graph
+  Convolutional Networks},'' in {\em Proceedings of the 5th International
+  Conference on Learning Representations}, ICLR '17, 2017.
+
+\bibitem{Fu_Wang_Liu_Liu_Zhou_You_Peng_Jing_2022}
+S.~Fu, S.~Wang, W.~Liu, B.~Liu, B.~Zhou, X.~You, Q.~Peng, and X.-Y. Jing,
+  ``Adaptive graph convolutional collaboration networks for semi-supervised
+  classification,'' {\em Information Sciences}, vol.~611, p.~262–276, Sep
+  2022.
+
+\bibitem{8954414}
+L.~Gong and Q.~Cheng, ``Exploiting edge features for graph neural networks,''
+  in {\em 2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, pp.~9203--9211, 2019.
+
+\bibitem{Guo_Zhang_Teng_Lu_2019}
+Z.~Guo, Y.~Zhang, Z.~Teng, and W.~Lu, ``Densely connected graph convolutional
+  networks for graph-to-sequence learning,'' {\em Transactions of the
+  Association for Computational Linguistics}, vol.~7, p.~297–312, Nov 2019.
+
+\bibitem{9224195}
+X.~Jiang, R.~Zhu, P.~Ji, and S.~Li, ``Co-embedding of nodes and edges with
+  graph neural networks,'' {\em IEEE Transactions on Pattern Analysis and
+  Machine Intelligence}, vol.~45, no.~6, pp.~7075--7086, 2023.
+
+\bibitem{optuna_2019}
+T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``Optuna: A
+  next-generation hyperparameter optimization framework,'' in {\em Proceedings
+  of the 25th {ACM} {SIGKDD} International Conference on Knowledge Discovery
+  and Data Mining}, 2019.
+
 \bibitem{WANG2019113410}
 Y.~Wang, Y.~Wang, Y.~Huang, J.~Yang, Y.~Ma, H.~Yu, M.~Zeng, F.~Zhang, and
   Y.~Zhang, ``Operation optimization of regional integrated energy system based
@@ -247,6 +274,11 @@ C.~Ordoudis, P.~Pinson, and J.~M. Morales, ``An integrated market for
 A.~Schwele, C.~Ordoudis, J.~Kazempour, and P.~Pinson, ``Coordination of power
   and natural gas systems: Convexification approaches for linepack modeling,''
   in {\em 2019 IEEE Milan PowerTech}, pp.~1--6, 2019.
+
+\bibitem{Wilson_poly}
+S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
+  matpower-based tool for optimal power and natural gas flow analyses,'' {\em
+  IEEE Transactions on Power Systems}, pp.~1--9, 2022.
 
 \bibitem{WANG201970}
 C.~Wang, W.~Wei, J.~Wang, and T.~Bi, ``Convex optimization based adjustable
