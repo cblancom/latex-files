@@ -14,7 +14,7 @@ In this section, we present the results of the proposed graph neural network (GN
 \subsection{Case Study I: 8-node Network}
 
 
-As a result of the optimization process for this first test, the following hyperparameters were obtained: $N\_channels=21$, $N\_layers=5$, and $N\_dense=4$. With these optimized values, the model achieved a mean squared error (MSE) of 1.826. In \cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
+As a result of the optimization process for this first test, the following hyperparameters were obtained: $N \ channels=21$, $N \ layers=5$, and $N \ dense=4$. With these optimized values, the model achieved a mean squared error (MSE) of 1.98. In \cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
 
 % \begin{figure}
 %     \centering
@@ -59,11 +59,14 @@ As a result of the optimization process for this first test, the following hyper
     \subfloat[Actual vs predicted edge flows.] 
     {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
     
-    \caption{Model results using only the loss associated with the predictions of the nodal flows.}
-    \label{fig:}
+    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \label{fig:dummy_base_results}
 \end{figure}
 
-In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This adjustment allows the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. \cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an R-value of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
+In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This adjustment allows the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. In this case, the hyperparameter tuning revealed that the best combination was $N channels=44$, $N Layers=4$, and $N Dense=4$, with a test data loss of 2.02, where 1.996 corresponds to the loss associated with the prediction of flows injected at the nodes, and 0.207 corresponds to the loss related to the prediction of flows through the edges. Additionally, the MSE between the gas balance based on actual flows and predicted flows was calculated, resulting in a loss of 1.719. It is essential to highlight that, in the previous experiment, this same loss was 284.764. This loss was computed outside the training stage, so it did not influence the optimization of parameters or hyperparameters.
+
+
+\Cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an $R^2$ of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
 
 
 
@@ -74,7 +77,8 @@ In the next stage of the experiment, the model was updated to account for the lo
         \subfloat [Actual vs predicted nodal flows.] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
         \subfloat [Actual vs predicted edge flows.] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
         % \includegraphics[width=0.45\textwidth]{figures/}
-    \caption{Model results using losses associated with predictions of nodal and transported flows.}\label{fig:}
+    \caption{Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the 8-node network.}
+    \label{fig:dummy_base_f_results}
 \end{figure}
 
 
@@ -101,10 +105,10 @@ In the next stage of the experiment, the model was updated to account for the lo
 \subsection{Case Study II: 63-node Network (Colombia)}
 
 
-The second case studied corresponds to a gas transportation network consisting of 63 nodes representing the Colombian natural gas system. In the first test, where only the loss associated with the flows injected into the nodes was considered, \cref{fig:yn_col_base} shows the scatter plot relating the actual injected flows at the nodes to the predicted flows. This figure demonstrates the network's ability to accurately identify which nodes had gas injections and which did not. Furthermore, with an R value of 0.996, the network effectively captured the correct proportions of these injected flows, indicating a robust predictive performance. 
+The second case studied corresponds to a gas transportation network consisting of 63 nodes representing the Colombian natural gas system. In the first test, where only the loss associated with the flows injected into the nodes was considered the hyperparameter tuning resulted in the following values: $N \ channels = 43$, $N \ layers = 2$, and $N \ dense = 2$. The total loss obtained was 10.598, with the loss associated with the nodal flows. The gas balance loss was 3426.659, but it is important to note that only the nodal flows were considered during the network optimization, and the balance loss was computed after the training process.
 
+The \cref{fig:yn_col_base} shows the scatter plot relating the actual injected flows at the nodes to the predicted flows. This figure demonstrates the network's ability to accurately identify which nodes had gas injections and which did not. Furthermore, with an $R^2$ value of 0.996, the network effectively captured the correct proportions of these injected flows, indicating a robust predictive performance. 
 On the other hand, \cref{fig:ye_col_base} presents the relationship between the actual and predicted flows through the edges, encompassing both gas pipelines and compressors. In this case, the network struggled to predict the flow values accurately for these elements, which is unsurprising given that the loss associated with the edge flows was not included in the network's optimization process for this test.
-
 
 \begin{figure}
     \centering
@@ -137,6 +141,13 @@ On the other hand, \cref{fig:ye_col_base} presents the relationship between the 
 % \end{figure}
 %
 %
+
+
+In the next stage of this case study, predictions were made on the same system, but this time, considering not only the losses associated with the flows injected at the nodes but also those corresponding to the flows transported by the system's pipelines and compressors. For this experiment, the hyperparameter tuning resulted in $N \ channels = 25$, $N \ layers = 5$, and $N \ dense = 4$, with a total loss of 34.399. Of this, 10.792 were associated with the predictions of the flows injected at the nodes, while 23,607 corresponded to the flows transported through the edges. The mean squared error (MSE) for the gas balance was 279.754.
+
+\Cref{fig:yn_col_base_f} illustrates that, as in the previous case, the network can predict which nodes can inject natural gas and demonstrate a certain degree of accuracy regarding their injection capacity. The critical difference in this test, compared to the previous one, is shown in \cref{fig:ye_col_base_f}. Here, it is evident that by including the losses associated with the edges of the Colombian transportation network, the model significantly improves its predictions for these elements, achieving an $R^2$ value of 0.996 compared to the actual data.
+
+
 \begin{figure}
     \centering
         \setlength\figurewidth{.53\textwidth}        
