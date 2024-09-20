@@ -102,6 +102,14 @@ In the next stage of the experiment, the model was updated to account for the lo
 % \end{figure}
 %
 
+
+To evaluate the performance of the optimization model and the graph neural network (GNN)-based model, a t-test was performed, comparing the time each took to generate 100 predictions for new, unseen cases. The results showed a T-statistic of 40.09 and a p-value of 9.29e-201, indicating that the optimization model took significantly longer than the GNN-based model, confirming its higher computational cost.
+
+
+
+
+
+
 \subsection{Case Study II: 63-node Network (Colombia)}
 
 
@@ -117,7 +125,7 @@ On the other hand, \cref{fig:ye_col_base} presents the relationship between the 
         \subfloat [Actual vs predicted nodal flows.] {\label{fig:yn_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base.tex}}}
         \subfloat [Actual vs predicted edge flows.] {\label{fig:ye_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base.tex}}}
         % \includegraphics[width=0.45\textwidth]{figures/}
-    \caption{Model results using only the loss associated with the predictions of the nodal flows.}\label{fig:}
+    \caption{Model results using only the loss associated with nodal flow predictions in the colombian 63-node network.}\label{fig:colombian_base_results}
 \end{figure}
 
 %
@@ -155,7 +163,7 @@ In the next stage of this case study, predictions were made on the same system, 
         \subfloat [Actual vs predicted nodal flows.] {\label{fig:yn_col_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base_f.tex}}}
         \subfloat [Actual vs predicted edge flows.] {\label{fig:ye_col_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base_f.tex}}}
         % \includegraphics[width=0.45\textwidth]{figures/}
-        \caption{Model results using only the loss associated with the predictions of the nodal flows.}\label{fig:}
+        \caption{Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the colombian 63-node network.}\label{fig:colombian_base_f_results}
 \end{figure}
 
 
