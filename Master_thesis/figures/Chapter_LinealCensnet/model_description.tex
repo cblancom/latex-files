@@ -16,7 +16,7 @@
     \node[input] (edge_features) [below of=incidence_matrix] {Edge Features \\ $\mathbb{R}^{N \times 3}$};
 
     % Normalization and Pre-dense Layer
-    \node[dense] (norm_pre_dense) [right of=node_features, xshift=3cm] {Normalization \\ \& Pre-dense Layers};
+    \node[dense] (norm_pre_dense) [right of=edge_laplacian, xshift=3cm] {Normalization \\ \& Pre-dense Layers};
 
     % Convolutional Layers
     \node[conv] (conv_layers) [right of=norm_pre_dense, xshift=3cm] {Convolutional Layers \\ (CensNet Blocks)};
@@ -25,12 +25,12 @@
     \node[dense] (post_dense) [right of=conv_layers, xshift=3cm] {Post-dense Layers};
 
     % Outputs
-    \node[output] (node_output) [right of=post_dense, xshift=3cm] {Node Predictions};
-    \node[output] (edge_output) [below of=node_output] {Edge Predictions};
+    \node[output] (node_output) [right of=post_dense, xshift=3cm, yshift=1cm] {Node Predictions};
+    \node[output] (edge_output) [right of=post_dense, xshift=3cm, yshift=-1cm] {Edge Predictions};
 
     % Losses
     \node[loss] (node_loss) [right of=node_output, xshift=3cm] {Node Loss};
-    \node[loss] (edge_loss) [below of=node_loss] {Edge Loss};
+    \node[loss] (edge_loss) [right of=edge_output, xshift=3cm] {Edge Loss};
 
     % Arrows
     \draw[arrow] (node_features) -- (norm_pre_dense);
