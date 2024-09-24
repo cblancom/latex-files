@@ -5,9 +5,9 @@
 \subsection{Graph definition}
 
 
-A \textbf{graph} $G$ is a mathematical structure that represents a set of interconnected objects. These objects are known as \textbf{vertices} (or \textbf{nodes}), denoted by the set $V(G)$, and the connections between them are called \textbf{edges} (or \textbf{arcs}), denoted by the set $E(G)$. Formally, a graph is defined as an ordered pair $G = (V, E)$, where $V(G)$ is a non-empty set of vertices, and $E(G) \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is a set of edges, where each edge connects two distinct vertices \cite{Trudeau_2015}.
+A graph $G$ is a mathematical structure that represents a set of interconnected objects. These objects are known as vertices (or nodes), denoted by the set $V(G)$, and the connections between them are called edges (or arcs), denoted by the set $E(G)$. Formally, a graph is defined as an ordered pair $G = (V, E)$, where $V(G)$ is a non-empty set of vertices, and $E(G) \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is a set of edges, where each edge connects two distinct vertices \cite{Trudeau_2015}.
 
-Graphs can be categorized based on the properties of their edges. An \textbf{undirected graph} has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a \textbf{directed graph} (or \textbf{digraph}), each edge $(u, v) \in E(G)$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$ \cite{Bender_Williamson_2010}.
+Graphs can be categorized based on the properties of their edges. An undirected graph has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a directed graph (or digraph), each edge $(u, v) \in E(G)$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$ \cite{Bender_Williamson_2010}.
 
  %
 % \begin{figure}
@@ -31,12 +31,12 @@ Graphs can be categorized based on the properties of their edges. An \textbf{und
     \caption{Types of graphs}\label{fig:graph_definition}
 \end{figure}
 
-In \Cref{fig:graph_definition}, two graphs are represented, each composed of four nodes labeled $1$, $2$, $3$, and $4$,, and six edges labeled $A$, $B$, $C$, $D$, $E$, and $F$. The difference between them lies in the type of graph they represent. For example, in \Cref{fig:undirected_graph_def}, the edge c shows a connection between nodes 2 and 4. However, in \Cref{fig:direc_graph_def}, this connection provides additional information: a direction, which, in the context of this study, could represent the direction of a specific element, such as electric power or flow.
+In \cref{fig:graph_definition}, two graphs are represented, each composed of four nodes labeled $1$, $2$, $3$, and $4$, and six edges labeled $A$, $B$, $C$, $D$, $E$, and $F$. The difference between them lies in the type of graph they represent. For example, in \cref{fig:undirected_graph_def}, the edge c shows a connection between nodes 2 and 4. However, in \cref{fig:direc_graph_def}, this connection provides additional information: a direction, which, in the context of this study, could represent the direction of a specific element, such as electric power or gas flow.
 
 
-A graph can be represented in various ways using matrices, each capturing different aspects of the graph's structure. The two most common matrix representations are the \textbf{adjacency matrix} and the \textbf{incidence matrix}.
+A graph can be represented in various ways using matrices, each capturing different aspects of the graph's structure. The two most common matrix representations are the adjacency matrix and the incidence matrix.
 
-The \textbf{adjacency matrix} of a graph is a square matrix used to represent the connections between vertices \cite{wilson_1972}. For a graph $G$ with $n$ vertices, the adjacency matrix $A$ is an $n \times n$ matrix where the entry $a_{ij}$ is defined as follows:
+The adjacency matrix of a graph is a square matrix used to represent the connections between vertices \cite{wilson_1972}. For a graph $G$ with $n$ vertices, the adjacency matrix $A$ is an $n \times n$ matrix where the entry $a_{ij}$ is defined as follows:
 
 \begin{equation}
  a_{ij} = 
@@ -67,7 +67,7 @@ A = \begin{pmatrix}
 \]
 
 
-The \textbf{incidence matrix} of a graph represents the relationship between vertices and edges \cite{wilson_1972}. For a graph $G$ with $n$ vertices and $m$ edges, the incidence matrix $I$ is an $n \times m$ matrix where the entry $i_{ij}$ is defined as follows:
+The incidence matrix of a graph represents the relationship between vertices and edges \cite{wilson_1972}. For a graph $G$ with $n$ vertices and $m$ edges, the incidence matrix $I$ is an $n \times m$ matrix where the entry $i_{ij}$ is defined as follows:
 
 \begin{equation}
  B_{ij} =
@@ -95,7 +95,21 @@ B = \begin{pmatrix}
 
 \subsubsection{Multi-Layered Perceptrons}
 
-    A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network, often regarded as one of the building blocks of deep learning. At its core, an MLP consists of multiple layers of nodes, or neurons, where each layer is fully connected to the next one. The architecture typically includes an input layer, one or more hidden layers, and an output layer. The neurons in each layer are connected to the neurons in the subsequent layer through weighted connections, the key parameters learned during the training process \cite{Hippert_Pedreira_Souza_2001}. One of the most significant properties of an MLP is its ability to function as a universal approximator. Given sufficient neurons in the hidden layers, an MLP can approximate any continuous function to an arbitrary degree of accuracy, provided the network is trained correctly \cite{Zhang_Eddy_Patuwo_Y_Hu_1998}.
+A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network, often regarded as one of the building blocks of deep learning. At its core, an MLP consists of multiple layers of nodes, or neurons, where each layer is fully connected to the next one. The architecture typically includes an input layer, one or more hidden layers, and an output layer, as can be seen in the \cref{fig:FCNN_representation}.
+
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/MLP_def.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{General diagram of a multilayer perceptron, showing the input layers in green, the hidden layers in blue and the outputs in red.}\label{fig:FCNN_representation}
+\end{figure}
+
+
+
+The neurons in each layer are connected to the neurons in the subsequent layer through weighted connections, the key parameters learned during the training process \cite{Hippert_Pedreira_Souza_2001}. One of the most significant properties of an MLP is its ability to function as a universal approximator. Given sufficient neurons in the hidden layers, an MLP can approximate any continuous function to an arbitrary degree of accuracy, provided the network is trained correctly \cite{Zhang_Eddy_Patuwo_Y_Hu_1998}.
 
 Mathematically, an MLP can be defined as follows. Let $\mathbf{x} \in \mathbb{R}^n$ represent the input vector, where $n$ is the number of features. The output of each neuron in the first hidden layer is calculated as:
 
@@ -125,28 +139,16 @@ Finally, the output layer produces the final prediction $\mathbf{\hat{y}}$:
     \label{eq:output_layer}
 \end{equation}
 
-where $L$ denotes the number of layers in the network, including the input and output layers. Depending on the nature of the problem (e.g., classification or regression), the activation function $\sigma(\cdot)$ used in the output layer can vary, with softmax being common in multi-class classification problems, and a linear activation for regression tasks.
-
-The entire MLP is trained using a process called backpropagation, combined with an optimization algorithm like gradient descent, to minimize a loss function $J(\mathbf{y}, \mathbf{\hat{y}})$, which measures the difference between the true outputs $\mathbf{y}$ and the predicted outputs $\mathbf{\hat{y}}$. \Cref{fig:FCNN_representation} shows a graphical representation of a fully connected network.
-
-
-\begin{figure}
-    \centering
-    \setlength\figurewidth{1\textwidth}        
-    \setlength\figureheight{0.5\textwidth}
-    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/MLP_def.tex}}
-    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{General diagram of a multilayer perceptron, showing the input layers in green, the hidden layers in blue and the outputs in red.}\label{fig:FCNN_representation}
-\end{figure}
+where $L$ denotes the number of layers in the network, including the input and output layers. Depending on the nature of the problem (e.g., classification or regression), the activation function $\sigma(\cdot)$ used in the output layer can vary, with softmax being common in multi-class classification problems, and a linear activation for regression tasks. The entire MLP is trained using a process called backpropagation, combined with an optimization algorithm like gradient descent, to minimize a loss function $J(\mathbf{y}, \mathbf{\hat{y}})$, which measures the difference between the true outputs $\mathbf{y}$ and the predicted outputs $\mathbf{\hat{y}}$. 
 
 
 \subsubsection{Graph Neural Networks}
 
-In recent years, \textbf{Graph Neural Networks (GNNs)} have emerged as a powerful tool in machine learning, particularly for tasks involving data that can be naturally represented as graphs. Graphs are a universal data structure that can model various systems in numerous fields, including social networks, biological networks, knowledge graphs, and physical systems. Because of their ability to represent relationships and interactions between entities, graphs are used extensively to model complex structures where the data points are not independent but interconnected \cite{Jia_Wang_Shou_Hosseini_Bai_2023}.
+In recent years, Graph Neural Networks (GNNs) have emerged as a powerful tool in machine learning, particularly for tasks involving data that can be naturally represented as graphs. Graphs are a universal data structure that can model various systems in numerous fields, including social networks, biological networks, knowledge graphs, and physical systems. Because of their ability to represent relationships and interactions between entities, graphs are used extensively to model complex structures where the data points are not independent but interconnected \cite{Jia_Wang_Shou_Hosseini_Bai_2023}.
 
-GNNs are important because they can directly operate on graph-structured data, extending neural networks' success from grid-like data structures, such as images and sequences, to more general and irregular structures. Traditional neural networks, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), are designed to work with data that has a fixed structure. However, many real-world problems involve data that can be better described by graphs, where nodes represent entities and edges represent relationships between those entities \cite{Gupta_Matta_Pant_2021}. 
+GNNs are important because they can directly operate on graph-structured data, extending neural networks' success from grid-like data structures, such as images and sequences, to more general and irregular structures \cite{Jia_Wang_Shou_Hosseini_Bai_2023a} . Traditional neural networks, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), are designed to work with data that has a fixed structure. However, many real-world problems involve data that can be better described by graphs, where nodes represent entities and edges represent relationships between those entities \cite{Gupta_Matta_Pant_2021}. 
 
-\textbf{Graph Neural Networks} can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let $G = (V, E)$ represent a graph, where $V$ is the set of nodes (or vertices) and $E$ is the set of edges. Each node $v \in V$ can be associated with a feature vector $\mathbf{x}_v$, and each edge $(u, v) \in E$ may have an associated weight or feature vector $\mathbf{e}_{uv}$. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
+Graph Neural Networks can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let $G = (V, E)$ represent a graph, where $V$ is the set of nodes (or vertices) and $E$ is the set of edges. Each node $v \in V$ can be associated with a feature vector $\mathbf{x}_v$, and each edge $(u, v) \in E$ may have an associated weight or feature vector $\mathbf{e}_{uv}$. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
 
 
 In the GNN framework, message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. To move from the abstract concept to a practical implementation, the specific functions used for updating and aggregating node features must be defined \cite{Liu_Wu_Liu_Hu_2021}.
@@ -220,12 +222,13 @@ One notable limitation of GCNs is their reliance solely on node features during 
 
 Furthermore, GCNs typically aggregate information from immediate neighbors only, which can limit their ability to capture long-range dependencies in large or densely connected graphs. This restriction can lead to an oversimplified representation of the graph structure, particularly in cases where the graph contains intricate patterns that require deeper and more nuanced analysis \cite{Guo_Zhang_Teng_Lu_2019}.
 
-To overcome the limitations of traditional GCNs, which focus primarily on node features, CensNet introduces a novel approach that integrates both node and edge features into the graph convolution process. The CensNet framework consists of two primary types of layers: the \textit{node layer} and the \textit{edge layer}. These layers work in tandem to update node and edge embeddings alternately, leveraging the information from both nodes and edges in the graph \cite{9224195}.
+To overcome the limitations of traditional GCNs, which focus primarily on node features, CensNet introduces a novel approach that integrates both node and edge features into the graph convolution process. The CensNet framework consists of two primary types of layers: the \textit{node layer} and the \textit{edge layer}. These layers work in concert to update node and edge embeddings alternately, leveraging the information from both nodes and edges in the graph \cite{9224195}.
 
 The propagation rules in CensNet are designed to incorporate edge features into the convolution process, enabling a more comprehensive feature propagation across the graph. We define the normalized node adjacency matrix with self-loops as follows:
 
 \begin{equation}
 \tilde{\mathbf{A}}_v = \mathbf{D}_v^{-\frac{1}{2}} (\mathbf{A}_v + \mathbf{I}_{N_v}) \mathbf{D}_v^{-\frac{1}{2}},
+    \label{eq:normalized_node_adjacency}
 \end{equation}
 
 where $\mathbf{D}_v$ is the diagonal degree matrix of $\mathbf{A}_v + \mathbf{I}_{N_v}$.
@@ -235,52 +238,58 @@ where $\mathbf{D}_v$ is the diagonal degree matrix of $\mathbf{A}_v + \mathbf{I}
 
 In the $(l+1)$-th layer, the node features are updated using the following propagation rule:
 
-\[
-H^{(l+1)}_v = \sigma\left(T\Phi\left(H^{(l)}_e P_e\right)T^\top \odot \tilde{A}_v H^{(l)}_v W_v\right)
-\]
+
+\begin{equation}
+    \mathbf{H}^{(l+1)}_v = \sigma\left(\mathbf{T} \Phi\left(\mathbf{H}^{(l)}_e \mathbf{P}_e\right)\mathbf{T}^\top \odot \tilde{\mathbf{A}}_v \mathbf{H}^{(l)}_v \mathbf{W}_v\right) 
+    \label{eq:CensNet_propagation}
+\end{equation}
 
 Where, 
 
 \begin{itemize}
-    \item \( T \in \mathbb{R}^{N_v \times N_e} \) is a binary transformation matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( T \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
-    \item \( H^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( P_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \( \Phi(H^{(l)}_e P_e) \) denotes the diagonalization of the vector \( H^{(l)}_e P_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
+    \item \( \mathbf{T} \in \mathbb{R}^{N_v \times N_e} \) is a binary transformation matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( \mathbf{T} \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
+    \item \( \mathbf{H}^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( \mathbf{P}_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \( \Phi(\mathbf{H}^{(l)}_e \mathbf{P}_e) \) denotes the diagonalization of the vector \( \mathbf{H}^{(l)}_e \mathbf{P}_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
     \item The Hadamard product, denoted by \( \odot \), represents element-wise multiplication between matrices. In this context, it combines the transformed edge features with the node adjacency matrix, integrating information from both the original graph and its line graph.
-    \item \( \tilde{A}_v = D_v^{-\frac{1}{2}} (A_v + I_{N_v}) D_v^{-\frac{1}{2}} \) is the normalized adjacency matrix for nodes, where \( A_v \) is the original node adjacency matrix and \( I_{N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
-    \item \( H^{(l)}_v \) represents the node feature matrix from the \( l \)-th layer. \( W_v \) is a learnable weight matrix that is applied to the node features during the propagation process. 
+    \item \( \tilde{\mathbf{A}}_v\) is the normalized adjacency matrix for nodes, as shown in \cref{eq:normalized_node_adjacency}, where \( \mathbf{A}_v \) is the original node adjacency matrix and \( \mathbf{I}_{N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
+    \item \( \mathbf{H}^{(l)}_v \) represents the node feature matrix from the \( l \)-th layer. \( \mathbf{W}_v \) is a learnable weight matrix that is applied to the node features during the propagation process. 
     \item The activation function \( \sigma \) (typically a non-linear function such as ReLU) is applied element-wise to the resulting matrix to introduce non-linearity into the model.
-
 \end{itemize}
 
 
-This expression can be interpreted as a way of fusing node and edge information. The matrix \( T \) maps edge features into the node domain, and this information is combined with the normalized node adjacency matrix \( \tilde{A}_v \). This fusion creates a new node adjacency matrix that incorporates both node and edge features, which is then used to update the node embeddings.
+This expression can be understood as a mechanism for integrating node and edge information. The matrix \( \mathbf{T} \) is responsible for transferring edge features into the node domain, allowing these edge-derived features to be merged with the normalized node adjacency matrix \( \tilde{\mathbf{A}}_v \). 
+
+
 
 \paragraph{Edge Layer Propagation:}
 
 Similarly, the normalized (Laplacianized) edge adjacency matrix is defined as:
 
 \begin{equation}
-\tilde{A}_e = D_e^{-\frac{1}{2}} \left(A_e + I_{N_e}\right) D_e^{-\frac{1}{2}},
+    \tilde{\mathbf{A}}_e = \mathbf{D}_e^{-\frac{1}{2}} \left(\mathbf{A}_e + \mathbf{I}_{N_e}\right) \mathbf{D}_e^{-\frac{1}{2}},
+    \label{eq:normalized_edge_adjacency}
 \end{equation}
+
 
 where \( D_e \) is the degree matrix corresponding to the edge adjacency matrix \( A_e + I_{N_e} \). The matrix \( \tilde{A}_e \) serves as the normalized version of the edge adjacency matrix, similar to how the node adjacency matrix is normalized. This normalization ensures that the influence of each edge is scaled appropriately, which is crucial for the stability of the propagation process.
 
 The propagation rule for edge features is defined as follows:
 
+
 \begin{equation}
-H^{(l+1)}_e = \sigma\left(T^\top \Phi\left(H^{(l)}_v P_v\right) T \odot \tilde{A}_e H^{(l)}_e W_e\right).
+    \mathbf{H}^{(l+1)}_e = \sigma\left(\mathbf{T}^\top \Phi\left(\mathbf{H}^{(l)}_v \mathbf{P}_v\right) \mathbf{T} \odot \tilde{\mathbf{A}}_e \mathbf{H}^{(l)}_e \mathbf{W}_e\right),
 \end{equation}
 
 In this expression, the following components are involved:
 
 \begin{itemize}
-    \item \textbf{ \( T^\top \)} is the transpose of the binary transformation matrix \( T \) used in the node layer propagation. The matrix \( T^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
-    \item \( H^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( P_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(H^{(l)}_v P_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation. 
-    \item The matrix \( \tilde{A}_e \) is the normalized edge adjacency matrix, as defined above. This matrix integrates information about the connections between edges, analogous to how \( \tilde{A}_v \) handles connections between nodes. 
-    \item \( H^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( W_e \) is a learnable weight matrix that is applied to the edge features during the propagation.
+    \item \textbf{\( \mathbf{T}^\top \)} is the transpose of the binary transformation matrix \( \mathbf{T} \) used in the node layer propagation. The matrix \( \mathbf{T}^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
+    \item \( \mathbf{H}^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( \mathbf{P}_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(\mathbf{H}^{(l)}_v \mathbf{P}_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation.
+    \item The matrix \( \tilde{\mathbf{A}}_e \) is the normalized edge adjacency matrix, as defined in \cref{eq:normalized_edge_adjacency}. This matrix integrates information about the connections between edges, analogous to how \( \tilde{\mathbf{A}}_v \) handles connections between nodes.
+    \item \( \mathbf{H}^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( \mathbf{W}_e \) is a learnable weight matrix that is applied to the edge features during the propagation.
     \item The Hadamard product \( \odot \) element-wise multiplies the transformed node features with the edge adjacency matrix, merging the information from both domains.
     \item As in the node layer propagation, the activation function \( \sigma \) is applied element-wise to introduce non-linearity.
-
 \end{itemize}
+
 
 This propagation rule updates the edge embeddings by integrating information from the node features and the edge structure, thereby enhancing the expressiveness of the edge representations. The alternating updates between node and edge embeddings allow the model to effectively bridge signals across nodes and edges, leading to more robust and informative graph embeddings.
 
@@ -295,7 +304,7 @@ The output layer and corresponding loss functions in CensNet are designed to be 
 We define the loss function for graph regression as follows:
 
 \begin{equation}
-\mathcal{L}(\Theta) = \sum_{l \in \mathcal{Y}_L} \sum_{f=1}^{F} \| Y_{lf} - \hat{Y}_{lf} \|^2_2 + \lambda \|\Theta\|_p,
+    \mathcal{L}(\Theta) = \sum_{l \in \mathcal{Y}_L} \sum_{f=1}^{F} \| Y_{lf} - \hat{Y}_{lf} \|^2_2 + \lambda \|\Theta\|_p,
 \end{equation}
 
 where:
