@@ -9,11 +9,11 @@
     \tikzstyle{arrow} = [->, thick]
 
     % Input Layer
-    \node[input] (node_features) at (0,0) {Node Features \\ $\mathbb{R}^{N \times 3}$};
-    \node[input] (node_laplacian) [below of=node_features] {Node Laplacian \\ $N \times N$};
-    \node[input] (edge_laplacian) [below of=node_laplacian] {Edge Laplacian \\ $E \times E$};
-    \node[input] (incidence_matrix) [below of=edge_laplacian] {Incidence Matrix \\ $N \times E$};
-    \node[input] (edge_features) [below of=incidence_matrix] {Edge Features \\ $\mathbb{R}^{N \times 3}$};
+    \node[input] (node_features) at (0,0) {Node Features}; %\\ $\mathbb{R}^{N \times 3}$};
+    \node[input] (node_laplacian) [below of=node_features] {Node Laplacian}; %\\ $N \times N$};
+    \node[input] (edge_laplacian) [below of=node_laplacian] {Edge Laplacian}; %\\ $E \times E$};
+    \node[input] (incidence_matrix) [below of=edge_laplacian] {Incidence Matrix}; %\\ $N \times E$};
+    \node[input] (edge_features) [below of=incidence_matrix] {Edge Features}; %\\ $\mathbb{R}^{N \times 3}$};
 
     % Normalization and Pre-dense Layer
     \node[dense] (norm_pre_dense) [right of=edge_laplacian, xshift=3cm] {Normalization \\ \& Pre-dense Layers};

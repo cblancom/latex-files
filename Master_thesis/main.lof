@@ -3,7 +3,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Types of graphs\relax }}{6}{figure.caption.6}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces General diagram of a multilayer perceptron, showing the input layers in green, the hidden layers in blue and the outputs in red.\relax }}{7}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces \relax }}{19}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces General outline of the CensNet-based model used.\relax }}{19}{figure.caption.13}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{22}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the 8-node network.\relax }}{24}{figure.caption.16}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the colombian 63-node network.\relax }}{26}{figure.caption.18}%
