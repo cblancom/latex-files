@@ -409,4 +409,359 @@ The model utilized several key hyperparameters: $N \ channels$, which correspond
 
 
 
+\section{Results}
+
+In this section, we present the results of the proposed graph neural network (GNN) model, focusing on the relationship between the predicted outputs and the actual observed values in the natural gas transportation networks. The evaluation includes both the 8-node test network and the Colombian natural gas system, with the goal of assessing the model's ability to predict key parameters under varying operational conditions. 
+
+
+%
+% \begin{figure}
+%     \centering
+%     \input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}
+%     \caption{Your caption here}\label{fig:your-label-here}
+% \end{figure}
+%
+
+\subsection{Case Study I: 8-node Network}
+
+
+As a result of the optimization process for this first test, the following hyperparameters were obtained: $N \ channels=21$, $N \ layers=5$, and $N \ dense=4$. With these optimized values, the model achieved a mean squared error (MSE) of 1.98. In \cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
+
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_base_node}
+% \end{figure}
+
+\Cref{fig:results_dummy_base_f} displays the relationship between the actual gas flows through the edges and the predictions made by the neural network. In this case, the model struggled to predict the flow values accurately, demonstrating a significant deviation from the real data. This result is not unexpected, as the model used in this experiment focused solely on the losses related to gas flows at the injection nodes without accounting for the gas transported through the edges. As such, the absence of edge-related loss consideration likely contributed to the poor prediction performance for edge flows.
+
+
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_base_f}
+% \end{figure}
+%
+
+% \begin{figure}
+%     \centering
+%         \setlength\figurewidth{.53\textwidth}        
+%         \setlength\figureheight{0.36\textwidth} 
+%         \subfloat [Relationship between the actual flows injected into the nodes and those predicted by the model.] {\label{fig:results_dummy_base_node}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}}
+%         \subfloat [Relationship between the actual flows carried by the edges (gas pipelines and compressors) and those predicted by the model.] {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
+%         % \includegraphics[width=0.45\textwidth]{figures/}
+%     \caption{Model results using only the loss associated with the predictions of the nodal flows.}\label{fig:}
+% \end{figure}
+%
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{.53\textwidth}        
+    \setlength\figureheight{0.36\textwidth} 
+    \subfloat[Actual vs predicted nodal flows.] 
+    {\label{fig:results_dummy_base_node}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}}
+    \subfloat[Actual vs predicted edge flows.] 
+    {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
+    
+    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \label{fig:dummy_base_results}
+\end{figure}
+
+
+
+To evaluate the performance of the optimization model and the graph neural network (GNN)-based model, a t-test was performed, comparing the time each took to generate 100 predictions for new, unseen cases. The results showed a T-statistic of 47.3 and a p-value of 3.7e-110, indicating that the optimization model took significantly longer than the GNN-based model, confirming its higher computational cost.
+
+% The table was here !!
+
+
+
+In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This adjustment allows the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. In this case, the hyperparameter tuning revealed that the best combination was $N channels=44$, $N Layers=4$, and $N Dense=4$, with a test data loss of 2.02, where 1.996 corresponds to the loss associated with the prediction of flows injected at the nodes, and 0.207 corresponds to the loss related to the prediction of flows through the edges. Additionally, the MSE between the gas balance based on actual flows and predicted flows was calculated, resulting in a loss of 1.719. It is essential to highlight that, in the previous experiment, this same loss was 284.764. This loss was computed outside the training stage, so it did not influence the optimization of parameters or hyperparameters.
+
+
+\Cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an $R^2$ of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
+
+
+
+\begin{figure}
+    \centering
+        \setlength\figurewidth{.53\textwidth}        
+        \setlength\figureheight{0.36\textwidth} 
+        \subfloat [Actual vs predicted nodal flows.] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
+        \subfloat [Actual vs predicted edge flows.] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
+        % \includegraphics[width=0.45\textwidth]{figures/}
+    % \caption{Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the 8-node network.}
+    \label{fig:dummy_base_f_results}
+\end{figure}
+
+
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_node_base_f}
+% \end{figure}
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_edge_base_f}
+% \end{figure}
+%
+
+To evaluate the computational performance when considering the loss associated with pipelines and compressor flows, a t-test was performed comparing the computation times of the optimization model and the GNN-based model. The results showed a T-statistic of 47.28 and a p-value of 3.95e-110, indicating that the optimization model took significantly longer to compute than the GNN-based model. This confirms the consistently higher computational cost of the optimization model, even when additional complexities, such as pipeline flows, are included in the network.
+
+
+%
+% \begin{table}
+%     \begin{tabular}{|c|c|c|c|c|}
+%         \hline
+%         Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+%         Opt & $4.84 \pm 12.9$ & $24.2 \pm 14.0$ & $-1.01 \times 10^{-3} \pm 3.82 \times 10^{-2}$ & $0.735 \pm 0.292$ \\ \hline
+%         GNN & $4.77 \pm 12.7$ & $24.1 \pm 14.1$ & $-7.85 \times 10^{-2} \pm 1.17$ & $0.143 \pm 0.052$ \\ \hline
+%     \end{tabular}
+%     \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
+%     \label{tab:dummy_base_f_results}
+% \end{table}
+%
+
+
+
+% \begin{table}
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|}
+%         \hline
+%         Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+%         Opt & 4.84 ± 12.9 & 24.2 ± 14.0 & -0.00101 ± 0.0382 & 0.735 ± 0.292 \\ \hline
+%         GNN & 4.84 ± 12.8 & 0.455 ± 0.262 & -0.00571 ± 16.9 & 0.148 ± 0.0925 \\ \hline
+%     \end{tabular}
+%     \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
+%     \label{tab:dummy_base_results}
+% \end{table}
+%
+% The table following the t-test results compares the optimization and GNN-based models for various performance metrics over 100 samples. The metrics include the mean and standard deviation (std) of nodal flow values, edge flow values, nodal balance, and the time taken for predictions. The mean nodal flow is identical for both models, with an average of 4.84. However, the GNN-based model significantly outperforms the optimization model's edge flow values, showing a mean of $0.455 \pm 0.262$, compared to $24.2 \pm 14.0$ for the optimization model. This indicates that the GNN-based model more accurately captures the gas flows through pipelines and compressors.
+%
+% The optimization model performs slightly better regarding nodal balance, with an almost negligible mean balance of $-1.01 \times 10^{-3}$ and a smaller standard deviation than the GNN-based model. However, this difference in nodal balance is overshadowed by the GNN's much lower edge flow values, which are critical for accurate system-wide predictions. Finally, the prediction time shows a stark contrast, with the GNN model completing predictions much faster at $0.148 \pm 0.0925$ seconds, compared to $0.735 \pm 0.292$ seconds for the optimization model. This confirms the findings of the t-test, further highlighting the GNN's computational efficiency and potential for real-time applications.
+%
+%
+%
+%
+%
+%
+% \begin{table}
+% \centering
+% \begin{tabular}{|c|c|c|c|c|}
+% \hline
+% Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+% Opt & 4.84 ± 12.9 & 24.2 ± 14.0 & -0.00101 ± 0.0382 & 0.735 ± 0.292 \\ \hline
+% GNN & 4.77 ± 12.7 & 24.1 ± 14.1 & -0.0785 ± 1.17 & 0.143 ± 0.052 \\ \hline
+% \end{tabular}
+% \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
+% \label{tab:dummy_base_f_results}
+%
+% \end{table}
+%
+%
+%
+%
+% The \cref{tab:dummy_base_f_results} presents a comparison between the optimization model (Opt) and the GNN-based model (GNN) across four key metrics: nodal flows, edge flows, nodal balance, and prediction time. The mean and standard deviation are provided for each of these variables based on 100 samples. These results illustrate the accuracy of the models when predicting both the flows at the nodes and along the edges of the transportation system, as well as the overall balance of the system.
+%
+% The optimization model and the GNN-based model display nearly identical results for the nodal flow values, with a mean nodal flow of $4.84$ for the optimization model and $4.77$ for the GNN. The standard deviations are also comparable, with $12.9$ for the optimization model and $12.7$ for the GNN, indicating that both models capture the nodal flow behavior similarly. Moving to the edge flows, the two models also show similar performance, with mean values of $24.2$ and $24.1$ for the optimization and GNN models, respectively. The consistency in their edge flow predictions further suggests that the GNN model can achieve the same level of accuracy as the optimization model in this regard.
+%
+% However, the most notable difference between the two models can be observed in the nodal balance values. While the optimization model shows a near-zero balance mean ($-1.01 \times 10^{-3}$), the GNN model presents a more considerable mean variation of $-7.85 \times 10^{-2}$. Nevertheless, this larger mean is accompanied by a higher standard deviation in the GNN model ($1.17$), indicating some prediction variation. 
+%
+% A significant improvement in prediction speed is also observed, with the GNN model taking considerably less time to make predictions. The optimization model required an average of $0.735$ seconds per prediction, whereas the GNN model completed predictions in just $0.143$ seconds, showcasing the GNN's superior computational efficiency.
+%
+
+
+% Compared to the results from the \cref{tab:dummy_base_results}, which did not account for flows associated with the pipelines and compressors, it is evident that the inclusion of these flows has led to better predictions, particularly in the edge flow values. The standard deviation in the nodal balance has also decreased, reflecting a reduction in the variability of the GNN model's predictions in this aspect. 
+
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        Method & Source & Node Value & Edge Value & Balance Value & Time \\ \hline
+        Opt & Base   & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+        GNN & Base   & 4.840 ± 12.794 & 0.455 ± 0.262   & -5.711 ± 16.854 & 0.144 ± 0.044 \\ \hline
+        Opt & Base-f & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+        GNN & Base-f & 4.767 ± 12.701 & 24.142 ± 14.083 & -0.079 ± 1.174  & 0.145 ± 0.060 \\ \hline
+    \end{tabular}
+    \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples for Base and Base-f.}
+    \label{tab:combined_results}
+\end{table}
+
+
+The \cref{tab:combined_results} presents a combined comparison of the optimization model (Opt) and the GNN-based model (GNN) across two sets of experiments: Base and Base-f. The comparison focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation values provided for each variable based on 100 samples.
+
+For both Base and Base-f, the optimization and GNN-based models show nearly identical results for the nodal flow values. The mean nodal flow for both models is around \(4.84\) in the Base set, and the standard deviations are also similar, indicating that both models capture the nodal flow behavior consistently. In the Base-f set, the GNN shows a slightly lower mean nodal flow at \(4.767 \pm 12.701\), but the overall difference is minimal.
+
+A more significant difference is observed in the edge flow values. In the Base experiment, the GNN-based model achieves much lower mean edge flow values of \(0.455 \pm 0.262\), compared to \(24.221 \pm 14.041\) for the optimization model. This highlights the GNN's ability to accurately capture gas flows through pipelines and compressors. However, in the Base-f set, the edge flow values for both models are comparable, with the optimization model showing \(24.221 \pm 14.041\) and the GNN showing \(24.142 \pm 14.083\), suggesting that the GNN can achieve similar levels of accuracy in edge flow predictions as the optimization model under certain conditions.
+
+Regarding nodal balance, the optimization model shows a near-zero balance mean across both Base and Base-f sets (\(-0.001\)), while the GNN-based model exhibits more variation. In the Base set, the GNN has a more considerable mean variation (\(-5.711 \pm 16.854\)), but this variation is reduced in the Base-f set (\(-0.079 \pm 1.174\)). This higher variation in the Base experiment suggests that the GNN's predictions can fluctuate more, though the consistency improves in Base-f.
+
+Finally, the GNN-based model significantly outperforms the optimization model regarding prediction time. In both sets, the GNN completes predictions much faster, taking approximately \(0.144\) seconds in the Base set and \(0.145\) seconds in the Base-f set, compared to the optimization model's \(0.792\) seconds in both cases. This highlights the GNN's superior computational efficiency, making it well-suited for real-time applications.
+
+
+
+\subsection{Case Study II: 63-node Network (Colombia)}
+
+
+The second case studied corresponds to a gas transportation network consisting of 63 nodes representing the Colombian natural gas system. In the first test, where only the loss associated with the flows injected into the nodes was considered the hyperparameter tuning resulted in the following values: $N \ channels = 43$, $N \ layers = 2$, and $N \ dense = 2$. The total loss obtained was 10.598, with the loss associated with the nodal flows. The gas balance loss was 3426.659, but it is important to note that only the nodal flows were considered during the network optimization, and the balance loss was computed after the training process.
+
+The \cref{fig:yn_col_base} shows the scatter plot relating the actual injected flows at the nodes to the predicted flows. This figure demonstrates the network's ability to accurately identify which nodes had gas injections and which did not. Furthermore, with an $R^2$ value of 0.996, the network effectively captured the correct proportions of these injected flows, indicating a robust predictive performance. 
+On the other hand, \cref{fig:ye_col_base} presents the relationship between the actual and predicted flows through the edges, encompassing both gas pipelines and compressors. In this case, the network struggled to predict the flow values accurately for these elements, which is unsurprising given that the loss associated with the edge flows was not included in the network's optimization process for this test.
+
+\begin{figure}
+    \centering
+        \setlength\figurewidth{.53\textwidth}        
+        \setlength\figureheight{0.36\textwidth} 
+        \subfloat [Actual vs predicted nodal flows.] {\label{fig:yn_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base.tex}}}
+        \subfloat [Actual vs predicted edge flows.] {\label{fig:ye_col_base}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base.tex}}}
+        % \includegraphics[width=0.45\textwidth]{figures/}
+    \caption{Model results using only the loss associated with nodal flow predictions in the colombian 63-node network.}
+    \label{fig:lineal_col_base_results}
+\end{figure}
+
+%
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_node_base_f}
+% \end{figure}
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{1\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base.tex}}
+%     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+%     \caption{}\label{fig:results_dummy_edge_base_f}
+% \end{figure}
+%
+%
+
+For the current experiment stage, involving the 63-node Colombian network, a t-test was conducted to compare the computation times between the optimization model and the GNN-based model. The test yielded a T-statistic of 47.29 and a p-value of $3.87 \times 10^{-110}$, demonstrating a highly significant difference in the computational times. As with the previous experiments, these results confirm that the GNN-based model significantly outperformed the optimization model in terms of prediction speed.
+
+
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Method & Node Values & Edge Values & Balance Values & Time \\ \hline
+Opt & 11.4 ± 49.2 & 63.5 ± 81.6 & -2.15 ± 16.5 & 5.01 ± 5.59 \\ \hline
+GNN & 11.4 ± 49.1 & 0.914 ± 1.26 & -2.19 ± 58.6 & 0.136 ± 0.0278 \\ \hline
+\end{tabular}
+\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
+\label{tab:lineal_col_base_results}
+\end{table}
+The values presented in \cref{tab:lineal_col_base_results} correspond to the mean and standard deviation for different metrics obtained from both the optimization model (Opt) and the GNN-based model (GNN) over 100 sample 
+
+
+
+
+The table presents a comparison between the optimization model (Opt) and the GNN-based model (GNN) across four metrics: nodal flows, edge flows, nodal balance, and prediction time. The mean and standard deviation values are shown for each of these variables, based on 100 samples.
+
+For the nodal flow values, both models produce nearly identical results. The optimization model reports a mean value of $11.4$ with a standard deviation of $49.2$, while the GNN-based model shows a mean of $11.4$ with a slightly lower standard deviation of $49.1$. This close alignment suggests that both models effectively capture the behavior of nodal flows in the system.
+
+When analyzing the edge flows, a more pronounced difference emerges. The optimization model presents a mean value of $63.5$ with a standard deviation of $81.6$. In contrast, the GNN-based model significantly reduces both the mean ($0.914$) and the variability, with a standard deviation of $1.26$. This highlights the GNN's improved performance in predicting edge flows, particularly in reducing prediction variability.
+
+Regarding the nodal balance, the optimization model yields a mean value of $-2.15$ and a standard deviation of $16.5$, while the GNN-based model shows a comparable mean value of $-2.19$, though with a much higher standard deviation of $58.6$. While the means are close, the more significant variability in the GNN model's balance predictions points to some challenges in maintaining consistency in this metric.
+
+Lastly, the prediction time demonstrates a stark contrast in computational efficiency between the two models. The optimization model requires an average of $5.01$ seconds per prediction with a standard deviation of $5.59$, whereas the GNN-based model completes predictions in just $0.136$ seconds, with a much smaller standard deviation of $0.0278$. This result clearly illustrates the computational advantage of the GNN model, particularly when applied to large-scale networks.
+
+
+
+
+
+
+
+In the next stage of this case study, predictions were made on the same system, but this time, considering not only the losses associated with the flows injected at the nodes but also those corresponding to the flows transported by the system's pipelines and compressors. For this experiment, the hyperparameter tuning resulted in $N \ channels = 25$, $N \ layers = 5$, and $N \ dense = 4$, with a total loss of 34.399. Of this, 10.792 were associated with the predictions of the flows injected at the nodes, while 23,607 corresponded to the flows transported through the edges. The mean squared error (MSE) for the gas balance was 279.754.
+
+\Cref{fig:yn_col_base_f} illustrates that, as in the previous case, the network can predict which nodes can inject natural gas and demonstrate a certain degree of accuracy regarding their injection capacity. The critical difference in this test, compared to the previous one, is shown in \cref{fig:ye_col_base_f}. Here, it is evident that by including the losses associated with the edges of the Colombian transportation network, the model significantly improves its predictions for these elements, achieving an $R^2$ value of 0.996 compared to the actual data.
+
+
+\begin{figure}
+    \centering
+        \setlength\figurewidth{.53\textwidth}        
+        \setlength\figureheight{0.36\textwidth} 
+        \subfloat [Actual vs predicted nodal flows.] {\label{fig:yn_col_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_col_base_f.tex}}}
+        \subfloat [Actual vs predicted edge flows.] {\label{fig:ye_col_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_col_base_f.tex}}}
+        % \includegraphics[width=0.45\textwidth]{figures/}
+        \caption{Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the colombian 63-node network.}
+        \label{fig:col_base_f_results}
+\end{figure}
+
+
+In this stage, a t-test was performed to compare the computation times between the optimization model and the GNN-based model. The results yielded a T-statistic of $47.29$ and a p-value of $3.87 \times 10^{-110}$. These values confirm with high statistical confidence that the GNN-based model significantly outperforms the optimization model in terms of computational efficiency when predicting flows across the network.
+
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+Opt & 11.4 \pm 49.2 & 63.5 \pm 81.6 & -2.15 \pm 16.5 & 5.01 \pm 5.59 \\ \hline
+GNN & 11.4 \pm 49.0 & 63.5 \pm 81.4 & -2.16 \pm 16.6 & 0.139 \pm 0.0419 \\ \hline
+\end{tabular}
+\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
+\label{tab:lineal_col_base_f_resultsd}
+\end{table}
+
+
+\cref{tab:lineal_col_base_f_resultsd} presents a comparison between the optimization model (Opt) and the GNN-based model (GNN) for the 63-node Colombian network, considering nodal flows, edge flows, balance values, and computation time. Both models demonstrate nearly identical results in terms of nodal flows, with a mean value of $11.4$ and a standard deviation of approximately $49$ for both. Similarly, the mean and standard deviation of the edge flow values are almost identical, with the optimization model showing $63.5 \pm 81.6$ and the GNN model showing $63.5 \pm 81.4$.
+
+Regarding the balance values, both models provide close results, with the optimization model having a mean balance value of $-2.15 \pm 16.5$ and the GNN showing a slightly lower mean value of $-2.16 \pm 16.6$. This indicates that the GNN can predict the overall system balance with a level of accuracy similar to that of the optimization model. 
+
+The most notable difference is found in the prediction times. While the optimization model required an average of $5.01$ seconds per prediction, the GNN-based model significantly reduced this to just $0.139$ seconds, with a lower standard deviation. This reinforces the GNN's superior computational efficiency, allowing it to make faster predictions while maintaining the same level of accuracy as the optimization model.
+
+
+
+
+\section{Discussion and conclusions}
+
+In this section, we analyze and summarize the performance of the proposed graph neural network (GNN) model in predicting the operational parameters of natural gas transportation systems. The evaluation was conducted on two test cases: a simplified 8-node network and a more complex real-world system with 63 nodes representing the Colombian natural gas system. The results demonstrate the GNN model's ability to deliver accurate predictions with significant improvements in computational efficiency compared to traditional optimization methods.
+
+
+The 8-node network provided a controlled environment to test the GNN's predictive capabilities. The initial experiment, where only nodal losses were considered, resulted in a mean squared error (MSE) of 1.98. Although the model accurately identified the generating node, its predictions were more concentrated, lacking the dispersion seen in the actual values. This behavior suggests that while the GNN could capture certain trends in gas generation at the nodes, its predictive distribution did not fully align with real-world variability. However, the prediction of edge flows showed significant deviation from the actual values due to the exclusion of edge-related losses in the training process. This underperformance was expected, given this initial model's lack of focus on edge dynamics.
+
+
+The introduction of edge-related losses in the second stage of the experiment significantly improved the GNN's performance. With optimized hyperparameters ($N\ channels=44$, $N\ layers=4$, and $N\ dense=4$), the GNN achieved an overall loss of 2.02, reflecting its enhanced ability to predict both nodal and edge flows. Significantly, the model's MSE in balancing actual and predicted flows dropped dramatically, from 284.764 to 1.719, highlighting the importance of including edge losses in the training objective. The comparison between scatter plots in \cref{fig:dummy_base_results} and \cref{fig:dummy_base_f_results} confirmed this improvement, with an impressive $R^2$ of 0.999 for edge flow predictions, nearly aligning with the actual data.
+
+The GNN model showed substantial advantages over the optimization model in terms of computational performance. The t-test results, with a T-statistic of 47.3 and a p-value of 3.7e-110, revealed that the GNN took significantly less time to make predictions, requiring just 0.148 seconds on average compared to 0.735 seconds for the optimization model. This increased speed and improved predictive accuracy make the GNN model an appealing option for real-time applications in natural gas system monitoring and control.
+
+
+
+
+
+The GNN's performance was tested on the more complex 63-node Colombian natural gas system. In this case, the model was initially optimized with only the nodal loss considered. The hyperparameter tuning produced a configuration with $N\ channels=43$, $N\ layers=2$, and $N\ dense=2$, yielding a total loss 10.598 for the nodal flows. However, the model's ability to capture the balance of flows in the system, represented by the gas balance loss, needed to be more accurate, with a value of 3426.659. This discrepancy is attributed to excluding edge flows in the model optimization process, similar to the first experiment in the 8-node network.
+
+
+Despite this initial limitation, the GNN demonstrated robust predictive accuracy for nodal flows, with an $R^2$ value of 0.996, as shown in \cref{fig:lineal_col_base_results}. This high correlation between the actual and predicted nodal flows indicates that the GNN effectively learned the distribution of gas injections across the system's nodes, identifying which nodes had active gas injections and which did not. However, the predictions for the edge flows, which were not included in the loss function, were significantly less accurate, showing that the model struggled to generalize to this aspect of the network without specific training on these elements.
+
+The computational efficiency of the GNN-based model in this scenario was remarkable. As detailed in the t-test results, the GNN significantly outperformed the optimization model regarding prediction time, with a highly significant T-statistic of 47.29 and a p-value of $3.87 \times 10^{-110}$. The mean prediction time for the GNN-based model was 0.136 seconds, compared to 5.01 seconds for the optimization model (\cref{tab:lineal_col_base_results}). 
+
+In the second experiment, where the loss function also included the flows through the edges of the network (pipelines and compressors), the performance of the GNN-based model improved significantly for predicting edge flows. \cref{fig:col_base_f_results} illustrates that by including the edge-related losses, the model achieved an $R^2$ value of 0.996 for edge flows, closely aligning the predicted flows with the actual data. This improvement demonstrates the importance of incorporating edge-related losses to enhance the model's performance across all network components.
+
+The comparison between the optimization and GNN-based models regarding nodal flows, edge flows, and gas balance, as presented in \cref{tab:col_base_f_results}, further highlights the close agreement between the two approaches. The mean and standard deviation values for both nodal and edge flows were nearly identical across the two models, indicating that the GNN-based model could replicate the predictions of the optimization model with much greater computational efficiency. Notably, the prediction times for the GNN-based model remained substantially lower, at just 0.139 seconds on average, compared to 5.01 seconds for the optimization model. This advantage makes the GNN model particularly well-suited for real-time or large-scale applications.
+
+
 

@@ -67,35 +67,7 @@ As a result of the optimization process for this first test, the following hyper
 
 To evaluate the performance of the optimization model and the graph neural network (GNN)-based model, a t-test was performed, comparing the time each took to generate 100 predictions for new, unseen cases. The results showed a T-statistic of 47.3 and a p-value of 3.7e-110, indicating that the optimization model took significantly longer than the GNN-based model, confirming its higher computational cost.
 
-% \begin{table}
-% \begin{tabular}{|c|c|c|c|c|}
-% \hline
-% Method & Node Value & Edge Value & Balance Value & Time \\ \hline
-% Opt & $4.84 \pm 12.9$ & $24.2 \pm 14.0$ & $-1.01 \times 10^{-3} \pm 3.82 \times 10^{-2}$ & $0.735 \pm 0.292$ \\ \hline
-% GNN & $4.84 \pm 12.8$ & $0.455 \pm 0.262$ & $-5.71 \times 10^{-3} \pm 16.9$ & $0.148 \pm 0.0925$ \\ \hline
-% \end{tabular}
-% \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
-% \label{tab:dummy_base_results}
-% \end{table}
-%
-\begin{table}
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Method & Node Value & Edge Value & Balance Value & Time \\ \hline
-Opt & 4.84 ± 12.9 & 24.2 ± 14.0 & -0.00101 ± 0.0382 & 0.735 ± 0.292 \\ \hline
-GNN & 4.84 ± 12.8 & 0.455 ± 0.262 & -0.00571 ± 16.9 & 0.148 ± 0.0925 \\ \hline
-\end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
-\label{tab:dummy_base_results}
-\end{table}
-
-The table following the t-test results compares the optimization and GNN-based models for various performance metrics over 100 samples. The metrics include the mean and standard deviation (std) of nodal flow values, edge flow values, nodal balance, and the time taken for predictions. The mean nodal flow is identical for both models, with an average of 4.84. However, the GNN-based model significantly outperforms the optimization model's edge flow values, showing a mean of $0.455 \pm 0.262$, compared to $24.2 \pm 14.0$ for the optimization model. This indicates that the GNN-based model more accurately captures the gas flows through pipelines and compressors.
-
-The optimization model performs slightly better regarding nodal balance, with an almost negligible mean balance of $-1.01 \times 10^{-3}$ and a smaller standard deviation than the GNN-based model. However, this difference in nodal balance is overshadowed by the GNN's much lower edge flow values, which are critical for accurate system-wide predictions. Finally, the prediction time shows a stark contrast, with the GNN model completing predictions much faster at $0.148 \pm 0.0925$ seconds, compared to $0.735 \pm 0.292$ seconds for the optimization model. This confirms the findings of the t-test, further highlighting the GNN's computational efficiency and potential for real-time applications.
-
-
-
+% The table was here !!
 
 
 
@@ -113,7 +85,7 @@ In the next stage of the experiment, the model was updated to account for the lo
         \subfloat [Actual vs predicted nodal flows.] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
         \subfloat [Actual vs predicted edge flows.] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
         % \includegraphics[width=0.45\textwidth]{figures/}
-    \caption{Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the 8-node network.}
+    % \caption{Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the 8-node network.}
     \label{fig:dummy_base_f_results}
 \end{figure}
 
@@ -153,33 +125,83 @@ To evaluate the computational performance when considering the loss associated w
 %     \label{tab:dummy_base_f_results}
 % \end{table}
 %
-\begin{table}
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Method & Node Value & Edge Value & Balance Value & Time \\ \hline
-Opt & 4.84 ± 12.9 & 24.2 ± 14.0 & -0.00101 ± 0.0382 & 0.735 ± 0.292 \\ \hline
-GNN & 4.77 ± 12.7 & 24.1 ± 14.1 & -0.0785 ± 1.17 & 0.143 ± 0.052 \\ \hline
-\end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
-\label{tab:dummy_base_f_results}
-
-\end{table}
 
 
 
+% \begin{table}
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|}
+%         \hline
+%         Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+%         Opt & 4.84 ± 12.9 & 24.2 ± 14.0 & -0.00101 ± 0.0382 & 0.735 ± 0.292 \\ \hline
+%         GNN & 4.84 ± 12.8 & 0.455 ± 0.262 & -0.00571 ± 16.9 & 0.148 ± 0.0925 \\ \hline
+%     \end{tabular}
+%     \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
+%     \label{tab:dummy_base_results}
+% \end{table}
+%
+% The table following the t-test results compares the optimization and GNN-based models for various performance metrics over 100 samples. The metrics include the mean and standard deviation (std) of nodal flow values, edge flow values, nodal balance, and the time taken for predictions. The mean nodal flow is identical for both models, with an average of 4.84. However, the GNN-based model significantly outperforms the optimization model's edge flow values, showing a mean of $0.455 \pm 0.262$, compared to $24.2 \pm 14.0$ for the optimization model. This indicates that the GNN-based model more accurately captures the gas flows through pipelines and compressors.
+%
+% The optimization model performs slightly better regarding nodal balance, with an almost negligible mean balance of $-1.01 \times 10^{-3}$ and a smaller standard deviation than the GNN-based model. However, this difference in nodal balance is overshadowed by the GNN's much lower edge flow values, which are critical for accurate system-wide predictions. Finally, the prediction time shows a stark contrast, with the GNN model completing predictions much faster at $0.148 \pm 0.0925$ seconds, compared to $0.735 \pm 0.292$ seconds for the optimization model. This confirms the findings of the t-test, further highlighting the GNN's computational efficiency and potential for real-time applications.
+%
+%
+%
+%
+%
+%
+% \begin{table}
+% \centering
+% \begin{tabular}{|c|c|c|c|c|}
+% \hline
+% Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+% Opt & 4.84 ± 12.9 & 24.2 ± 14.0 & -0.00101 ± 0.0382 & 0.735 ± 0.292 \\ \hline
+% GNN & 4.77 ± 12.7 & 24.1 ± 14.1 & -0.0785 ± 1.17 & 0.143 ± 0.052 \\ \hline
+% \end{tabular}
+% \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples.}
+% \label{tab:dummy_base_f_results}
+%
+% \end{table}
+%
+%
+%
+%
+% The \cref{tab:dummy_base_f_results} presents a comparison between the optimization model (Opt) and the GNN-based model (GNN) across four key metrics: nodal flows, edge flows, nodal balance, and prediction time. The mean and standard deviation are provided for each of these variables based on 100 samples. These results illustrate the accuracy of the models when predicting both the flows at the nodes and along the edges of the transportation system, as well as the overall balance of the system.
+%
+% The optimization model and the GNN-based model display nearly identical results for the nodal flow values, with a mean nodal flow of $4.84$ for the optimization model and $4.77$ for the GNN. The standard deviations are also comparable, with $12.9$ for the optimization model and $12.7$ for the GNN, indicating that both models capture the nodal flow behavior similarly. Moving to the edge flows, the two models also show similar performance, with mean values of $24.2$ and $24.1$ for the optimization and GNN models, respectively. The consistency in their edge flow predictions further suggests that the GNN model can achieve the same level of accuracy as the optimization model in this regard.
+%
+% However, the most notable difference between the two models can be observed in the nodal balance values. While the optimization model shows a near-zero balance mean ($-1.01 \times 10^{-3}$), the GNN model presents a more considerable mean variation of $-7.85 \times 10^{-2}$. Nevertheless, this larger mean is accompanied by a higher standard deviation in the GNN model ($1.17$), indicating some prediction variation. 
+%
+% A significant improvement in prediction speed is also observed, with the GNN model taking considerably less time to make predictions. The optimization model required an average of $0.735$ seconds per prediction, whereas the GNN model completed predictions in just $0.143$ seconds, showcasing the GNN's superior computational efficiency.
+%
 
-The \cref{tab:dummy_base_f_results} presents a comparison between the optimization model (Opt) and the GNN-based model (GNN) across four key metrics: nodal flows, edge flows, nodal balance, and prediction time. The mean and standard deviation are provided for each of these variables based on 100 samples. These results illustrate the accuracy of the models when predicting both the flows at the nodes and along the edges of the transportation system, as well as the overall balance of the system.
-
-The optimization model and the GNN-based model display nearly identical results for the nodal flow values, with a mean nodal flow of $4.84$ for the optimization model and $4.77$ for the GNN. The standard deviations are also comparable, with $12.9$ for the optimization model and $12.7$ for the GNN, indicating that both models capture the nodal flow behavior similarly. Moving to the edge flows, the two models also show similar performance, with mean values of $24.2$ and $24.1$ for the optimization and GNN models, respectively. The consistency in their edge flow predictions further suggests that the GNN model can achieve the same level of accuracy as the optimization model in this regard.
-
-However, the most notable difference between the two models can be observed in the nodal balance values. While the optimization model shows a near-zero balance mean ($-1.01 \times 10^{-3}$), the GNN model presents a more considerable mean variation of $-7.85 \times 10^{-2}$. Nevertheless, this larger mean is accompanied by a higher standard deviation in the GNN model ($1.17$), indicating some prediction variation. 
-
-A significant improvement in prediction speed is also observed, with the GNN model taking considerably less time to make predictions. The optimization model required an average of $0.735$ seconds per prediction, whereas the GNN model completed predictions in just $0.143$ seconds, showcasing the GNN's superior computational efficiency.
 
 % Compared to the results from the \cref{tab:dummy_base_results}, which did not account for flows associated with the pipelines and compressors, it is evident that the inclusion of these flows has led to better predictions, particularly in the edge flow values. The standard deviation in the nodal balance has also decreased, reflecting a reduction in the variability of the GNN model's predictions in this aspect. 
 
 
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        Method & Source & Node Value & Edge Value & Balance Value & Time \\ \hline
+        Opt & Base   & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+        GNN & Base   & 4.840 ± 12.794 & 0.455 ± 0.262   & -5.711 ± 16.854 & 0.144 ± 0.044 \\ \hline
+        Opt & Base-f & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+        GNN & Base-f & 4.767 ± 12.701 & 24.142 ± 14.083 & -0.079 ± 1.174  & 0.145 ± 0.060 \\ \hline
+    \end{tabular}
+    \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples for Base and Base-f.}
+    \label{tab:combined_results}
+\end{table}
+
+
+The \cref{tab:combined_results} presents a combined comparison of the optimization model (Opt) and the GNN-based model (GNN) across two sets of experiments: Base and Base-f. The comparison focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation values provided for each variable based on 100 samples.
+
+For both Base and Base-f, the optimization and GNN-based models show nearly identical results for the nodal flow values. The mean nodal flow for both models is around \(4.84\) in the Base set, and the standard deviations are also similar, indicating that both models capture the nodal flow behavior consistently. In the Base-f set, the GNN shows a slightly lower mean nodal flow at \(4.767 \pm 12.701\), but the overall difference is minimal.
+
+A more significant difference is observed in the edge flow values. In the Base experiment, the GNN-based model achieves much lower mean edge flow values of \(0.455 \pm 0.262\), compared to \(24.221 \pm 14.041\) for the optimization model. This highlights the GNN's ability to accurately capture gas flows through pipelines and compressors. However, in the Base-f set, the edge flow values for both models are comparable, with the optimization model showing \(24.221 \pm 14.041\) and the GNN showing \(24.142 \pm 14.083\), suggesting that the GNN can achieve similar levels of accuracy in edge flow predictions as the optimization model under certain conditions.
+
+Regarding nodal balance, the optimization model shows a near-zero balance mean across both Base and Base-f sets (\(-0.001\)), while the GNN-based model exhibits more variation. In the Base set, the GNN has a more considerable mean variation (\(-5.711 \pm 16.854\)), but this variation is reduced in the Base-f set (\(-0.079 \pm 1.174\)). This higher variation in the Base experiment suggests that the GNN's predictions can fluctuate more, though the consistency improves in Base-f.
+
+Finally, the GNN-based model significantly outperforms the optimization model regarding prediction time. In both sets, the GNN completes predictions much faster, taking approximately \(0.144\) seconds in the Base set and \(0.145\) seconds in the Base-f set, compared to the optimization model's \(0.792\) seconds in both cases. This highlights the GNN's superior computational efficiency, making it well-suited for real-time applications.
 
 
 
