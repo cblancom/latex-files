@@ -1,4 +1,4 @@
-\chapter{Power System - Censnet} \label{cap:mpcc}
+\chapter{Efficient Natural Gas System Prediction Using Graph Neural Networks} \label{cap:lienal-censnet}
 
 \section{Preliminaries}
 
@@ -326,15 +326,31 @@ Natural gas is a widely used energy resource, particularly for electricity gener
 
 Natural gas transportation requires coordination to manage the flow through the different elements to maintain safe operating ranges. In optimizing this network, mathematical models minimize overall operating costs associated with the various stages of natural gas transportation, compression, storage, and handling unsupplied demand, ensuring compliance with technical and physical constraints. The function is expressed as:
 
+% \begin{equation} \label{eq:obj_func_integrated}
+% \begin{split}
+% \min_{\mathcal{P}, \mathcal{F}} \quad  \sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t} + \sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t} + \sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t} + \\ \sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}} + \quad \sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}  + \sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}} + \sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}
+% \end{split}
+% \end{equation}
+
 \begin{equation} \label{eq:obj_func_integrated}
-\begin{split}
-\min_{\mathcal{P}, \mathcal{F}} \quad  \sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t} + \sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t} + \sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t} + \\ \sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}} + \quad \sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}  + \sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}} + \sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}
-\end{split}
+    \begin{split}
+    \min_{\mathcal{P}, \mathcal{F}} \quad  \sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t} + \sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t} + \sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t} + \sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}} 
+        % + \quad \sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}  + \sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}} + \sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}
+    \end{split}
 \end{equation}
+
+
+
+
+
 
 The term $\sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t}$ represents the total cost of gas production at the wells, where $C_{w}^t$ denotes the cost per unit flow of gas at a specific well $w$ during time period $t$, and $f_{w}^t$ corresponds to the flow of gas from well $w$. Similarly, the transportation of gas through pipelines is captured by the term $\sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t}$, where $C_{p}^t$ is the cost per unit flow through pipeline $p$ during time period $t$, and $f_{p}^t$ represents the flow of gas through pipeline $p$. In addition, the total cost associated with gas compression at compressor stations is accounted for by $\sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t}$, where $C_{c}^t$ is the cost per unit flow at compressor station $c$ during time period $t$, and $f_{c}^t$ is the flow of gas through compressor station $c$.
 
-Beyond production, transportation, and compression, the model also considers the costs related to unmet gas demand. The term $\sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}}$ reflects the penalty cost associated with unsupplied gas demand, where $C_{u}^{t}$ is the penalty cost per unit of unsupplied gas at location $u$ during time period $t$, and $f_{u}^{t}$ represents the volume of unmet demand. Additionally, the model includes costs related to storage operations. The term $\sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}$ represents the cost of injecting gas into storage facilities, where $C_{s+}^{t}$ is the cost per unit flow into storage during time period $t$, and $f_{s+}^{t}$ denotes the flow into storage at facility $s$. Conversely, the cost of withdrawing gas from storage is captured by $\sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}}$, where $C_{s-}^{t}$ is the cost per unit flow out of storage during time period $t$, and $f_{s-}^{t}$ represents the flow out of storage at facility $s$. Finally, the model accounts for the storage cost itself through the term $\sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}$, where $C_{s}^{t}$ is the cost per unit volume of gas stored at facility $s$ during time period $t$, and $V_{s}^{t}$ denotes the volume of gas stored. 
+Beyond production, transportation, and compression, the model also considers the costs related to unmet gas demand. The term $\sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}}$ reflects the penalty cost associated with unsupplied gas demand, where $C_{u}^{t}$ is the penalty cost per unit of unsupplied gas at location $u$ during time period $t$, and $f_{u}^{t}$ represents the volume of unmet demand. 
+
+
+
+% Additionally, the model includes costs related to storage operations. The term $\sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}$ represents the cost of injecting gas into storage facilities, where $C_{s+}^{t}$ is the cost per unit flow into storage during time period $t$, and $f_{s+}^{t}$ denotes the flow into storage at facility $s$. Conversely, the cost of withdrawing gas from storage is captured by $\sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}}$, where $C_{s-}^{t}$ is the cost per unit flow out of storage during time period $t$, and $f_{s-}^{t}$ represents the flow out of storage at facility $s$. Finally, the model accounts for the storage cost itself through the term $\sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}$, where $C_{s}^{t}$ is the cost per unit volume of gas stored at facility $s$ during time period $t$, and $V_{s}^{t}$ denotes the volume of gas stored. 
 
 
 % Lastly, \Cref{eq:weymouth_cons}, known as the Weymouth equation, summarizes the physical behavior of gas flow through pipelines by relating the gas flow through the pipeline $f_{p}^t$ to the pressures at the ends of the pipeline $\pi_{n}^t, \pi_{m}^t \ \forall \ p = (n,m) \in\mathcal{P}$. The Weymouth equation defines a nonlinear, nonconvex, disjunctive flow-pressure relationship that hampers the optimization of the gas transport system.
@@ -345,14 +361,16 @@ Beyond production, transportation, and compression, the model also considers the
     % \underline{\pi_{n}^t} \leq \pi_{n}^t \leq \overline{\pi_{n}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:press_limit} \\
     % \pi_{m}^t \leq \beta_{c}^t{\pi_{n}^t} &\quad \forall c=(n,m) \in \mathcal{C} \label{eq:comp_ratio} \\
     0 \leq f_{u}^{t} \leq \overline{f_{u}^{t}} &\quad \forall \ u \in \mathcal{U} \label{eq:dem_limit_gas} \\
-    \sum_{m:(m,n)\in\mathcal{A}}{f_{m}^t} = \sum_{m':(n,m')\in\mathcal{A}}{f_{m'}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:gas_balance} \\
-    0 \leq f_{s+}^t \leq V_{0s} - \underline{V_s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\ 
-    0 \leq f_{s-}^t \leq \overline{V_s} - V_{0s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\ 
-    V_{s}^t = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_time}\\
+    \sum_{m:(m,n)\in\mathcal{A}}{f_{m}^t} = \sum_{m':(n,m')\in\mathcal{A}}{f_{m'}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:gas_balance}
+    % 0 \leq f_{s+}^t \leq V_{0s} - \underline{V_s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\ 
+    % 0 \leq f_{s-}^t \leq \overline{V_s} - V_{0s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\ 
+    % V_{s}^t = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_time}\\
     % sgn(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2-(\pi_{m}^t)^2) &\quad \forall \ p =(n,m) \in\mathcal{P} \label{eq:weymouth_cons}
 \end{alignat}
 
-The constraint set models the gas transportation system: \Cref{eq:well_limits} forces each production well to inject the flow $f_{w}^t$ over the technical minimum $\underline{f_{w}^t}$ and under the maximum capacity $\overline{f_{w}^t}$. \Cref{eq:pipe_limits} upper-bounds the gas flow through pipelines $f_{p}^t$ to the structural capacity $\overline{f_{p}^t}$. \Cref{eq:dem_limit_gas} ensures that the unsupplied demand $f_{u}^{t}$ is lower than the corresponding user demand $\overline{f_{u}^{t}}$. The nodal gas balance in \Cref{eq:gas_balance} guarantees that the gas entering the node $n$ equals the gas leaving it. \Cref{eq:sto_limit1,eq:sto_limit2} limit the gas injection $f_{s+}$  and extraction $f_{s-}$ rates at storage facilities according to the feasible operating range determined by the currently stored volume $V_{s}^t$, respectively. In turn, \Cref{eq:sto_time} balances the gas storage unit such that gas volume at operation period $t$ $V_{s}^t$ equals the volume from period $V_{s}^{t-1}$ plus the difference between injected $f_{s+}^{t-1}$ and extracted $f_{s+}^{t-1}$ gas flow, a fundamental constraint for modeling the dynamics of gas storage over time. 
+The constraint set models the gas transportation system: \Cref{eq:well_limits} forces each production well to inject the flow $f_{w}^t$ over the technical minimum $\underline{f_{w}^t}$ and under the maximum capacity $\overline{f_{w}^t}$. \Cref{eq:pipe_limits} upper-bounds the gas flow through pipelines $f_{p}^t$ to the structural capacity $\overline{f_{p}^t}$. \Cref{eq:dem_limit_gas} ensures that the unsupplied demand $f_{u}^{t}$ is lower than the corresponding user demand $\overline{f_{u}^{t}}$. The nodal gas balance in \Cref{eq:gas_balance} guarantees that the gas entering the node $n$ equals the gas leaving it. 
+
+% \Cref{eq:sto_limit1,eq:sto_limit2} limit the gas injection $f_{s+}$  and extraction $f_{s-}$ rates at storage facilities according to the feasible operating range determined by the currently stored volume $V_{s}^t$, respectively. In turn, \Cref{eq:sto_time} balances the gas storage unit such that gas volume at operation period $t$ $V_{s}^t$ equals the volume from period $V_{s}^{t-1}$ plus the difference between injected $f_{s+}^{t-1}$ and extracted $f_{s+}^{t-1}$ gas flow, a fundamental constraint for modeling the dynamics of gas storage over time. 
 
 \section{Experimental Setup}
 
