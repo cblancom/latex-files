@@ -401,7 +401,7 @@ The loss functions ensure that the model accurately predicts the node and edge f
 \end{itemize}
 
 
-The network training was done under the following conditions: data was partitioned into training, validation, and test sets, with percentages of 60\%, 20\%, and 20\%. The learning rate schedule followed an Exponential Decay approach, with an initial learning rate of $1e^{-2}$ decay steps of 1000, and a decay rate of 0.9. The model was trained over 1500 epochs, ensuring the parameters had sufficient time to converge for both node- and edge-level predictions using a Leaky Relu activation function with an alpha parameter of 0.2.
+The network training was done under the following conditions: data was partitioned into training, validation, and test sets, with percentages of 60\%, 20\%, and 20\%. The learning rate schedule followed an Exponential Decay approach, with an initial learning rate of $1 \times 10^{-2}$ decay steps of 1000, and a decay rate of 0.9. The model was trained over 1500 epochs, ensuring the parameters had sufficient time to converge for both node- and edge-level predictions using a Leaky Relu activation function with an alpha parameter of 0.2.
 
 
 The model utilized several key hyperparameters: $N \ channels$, which corresponds to the units in the pre-dense and convolutional layers (CensNet), N Dense, representing the number of post-dense layers, and $N \ layers$, denoting the number of convolutional layers. Additionally, the model incorporated weights to penalize deviations in the network's response, specifically targeting MSE between the actual flow and the predicted flow at both the nodes and pipelines. Two tests were conducted to determine the optimal set of hyperparameters. The first test considered only the weight associated with node flow preconditions, while the second test included weights for both node and pipeline flows. In each test, the hyperparameters were optimized using the open-source Optuna framework \cite{optuna_2019}, with the following search space: $N \ channels$ ranged from 16 to 64, $N \ layers$ from 1 to 5, and $N \ dense$ from 2 to 32.
@@ -411,7 +411,7 @@ The model utilized several key hyperparameters: $N \ channels$, which correspond
 
 \section{Results}
 
-In this section, we present the results of the proposed graph neural network (GNN) model, focusing on the relationship between the predicted outputs and the actual observed values in the natural gas transportation networks. The evaluation includes both the 8-node test network and the Colombian natural gas system, with the goal of assessing the model's ability to predict key parameters under varying operational conditions. 
+In this section, we present the results of the proposed GNN model, focusing on the relationship between the predicted outputs and the actual observed values in the natural gas transportation networks. The evaluation includes both the 8-node test network and the Colombian natural gas system, with the goal of assessing the model's ability to predict key parameters under varying operational conditions. 
 
 
 %
@@ -446,7 +446,7 @@ As a result of the optimization process for this first test, the following hyper
 
 
 
-To evaluate the performance of the optimization model and the graph neural network (GNN)-based model, a t-test was performed, comparing the time each took to generate 100 predictions for new, unseen cases. The results showed a T-statistic of $14.94$, 198 degrees of freedom and a p-value of 1.32e-34, indicating that the optimization model took significantly longer than the GNN-based model, confirming its higher computational cost.
+To evaluate the performance of the optimization model and the GNN-based model, a t-test was performed, comparing the time each took to generate 100 predictions for new, unseen cases. The results showed a T-statistic of $14.94$, 198 degrees of freedom and a p-value of 1.32e-34, indicating that the optimization model took significantly longer than the GNN-based model, confirming its higher computational cost.
 
 % The table was here !!
 
@@ -487,7 +487,7 @@ To evaluate the computational performance when considering the loss associated w
 \end{table}
 
 
-The \cref{tab:lineal_dummy_results} presents a combined comparison of the optimization model (Opt) and the GNN-based model (GNN) across two sets of experiments: Base and Base-f. The comparison focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation values provided for each variable based on 100 samples.
+The \cref{tab:lineal_dummy_results} presents a combined comparison of the optimization model (Opt) and the GNN-based model across two sets of experiments: Base and Base-f. The comparison focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation values provided for each variable based on 100 samples.
 
 For both Base and Base-f, the optimization and GNN-based models show nearly identical results for the nodal flow values. The mean nodal flow for both models is around \(4.84\) in the Base set, and the standard deviations are also similar, indicating that both models capture the nodal flow behavior consistently. In the Base-f set, the GNN shows a slightly lower mean nodal flow at \(4.767 \pm 12.701\), but the overall difference is minimal.
 
@@ -554,13 +554,13 @@ In this stage, a t-test was performed to compare the computation times between t
     Opt    & Base-f & 11.41 ± 49.23 & 63.52 ± 81.62  & -2.15 ± 16.50 & 5.01 ± 5.59 \\ \hline
     GNN    & Base-f & 11.40 ± 48.97 & 63.45 ± 81.38  & -2.16 ± 16.60 & 0.14 ± 0.08 \\ \hline
 \end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model (Opt) and the GNN-based model (GNN), across 100 samples for Base and Base-f experiments.}
+\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model (Opt) and the GNN-based model, across 100 samples for Base and Base-f experiments.}
 \label{tab:lineal_col_results}
 \end{table}
 
 
 
-The \cref{tab:lineal_col_results} presents a combined comparison between the optimization model (Opt) and the GNN-based model (GNN) across two sets of experiments: Base and Base-f. Both models are evaluated based on nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation calculated over 100 samples.
+The \cref{tab:lineal_col_results} presents a combined comparison between the optimization model (Opt) and the GNN-based model across two sets of experiments: Base and Base-f. Both models are evaluated based on nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation calculated over 100 samples.
 
 In terms of nodal flows, both the optimization model and the GNN-based model deliver nearly identical results across the two experiments. For both Base and Base-f, the mean nodal flow is $11.41$, and the standard deviations are very close, at $49.23$ for the optimization model and $49.13$ and $48.97$ for the GNN model in Base and Base-f, respectively. This indicates a high level of consistency in nodal flow predictions between the two methods.
 

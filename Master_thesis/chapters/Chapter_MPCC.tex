@@ -140,6 +140,7 @@ The current section validates the proposed MPCC approach by comparing its perfor
 The considered validation aims to quantify the inherent errors and the cost--error trade-off of the contrasted approaches to support its real-world pertinence. Therefore, this work reports two performance metrics: the cost function in \Cref{eq:obj_func_integrated} that assesses the capacity for optimally operating an integrated system and the Weymouth error metric (${WE}_p^t\in\mathbb{R}^+$) for quantifying the required flow to guarantee equality for pipeline $p$ at time instant $t$ in~\Cref{eq:weymouth_cons}, as follows:
 \begin{equation}
     {WE}_p^t = \left|f_{p}^t - \left(K_{nm}|(\pi_{n}^t)^2-(\pi_{m}^t)^2|\right)^{1/2}\right| , \quad \forall \ p =(n,m) \in\mathcal{P}.
+    \label{eq:weymouth_cons}
 \end{equation}
 
 Hence, the ${WE}_p^t$ metric, measured in million standard cubic feet per day (MMSCFD), explains the approximations' inherent sensitivity and validates the significance of their differences.
