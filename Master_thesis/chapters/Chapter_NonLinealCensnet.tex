@@ -1,8 +1,5 @@
 \chapter{Gas System - Censnet} \label{cap:mpcc}
 
-\section{Formulation of Gas System} \label{sec:formulation}
-
-
 \section{Introduction to Physics-Informed Neural Networks (PINNs)}
 
 Physics-Informed Neural Networks (PINNs) represent a class of neural networks where physical laws are incorporated into the learning process, guiding the model to respect these constraints. Unlike traditional neural networks, where the loss function is typically based on the discrepancy between predicted and actual data, PINNs introduce additional terms in the loss function that penalize the model for deviating from known physical principles.
@@ -30,7 +27,7 @@ In this section, we incorporate the physical laws of the gas balance and Weymout
 
 \section{Experimental Setup}
 
-In this chapter, we build upon the experimental setup outlined in \cref{sec:LinealCensnet_ExperimentalSetup}, maintaining the same general approach while incorporating new elements that account for the physics of the natural gas system. As before, the optimization model generates samples by introducing noise into the base values of two gas networks: a small-scale test network of 8 nodes and the more extensive Colombian natural gas transportation system. The noise levels, ranging from 5\% to 25\%, simulate various operating conditions, providing diverse training data.
+In this chapter, we build upon the experimental setup outlined in \cref{sec:LinealCensnet_ExperimentalSetup}, maintaining the same general approach while incorporating new elements that account for the physics of the natural gas system. The samples are generated using the nonlinear natural gas network optimization model from \cref{cap:optimization_mpcc}. In this process, a power-interconnected system was considered, but since this study focuses on the gas system, the power system remained constant without any variation. As in the previous setup, noise is introduced into the base values of two gas networks: a small-scale test network of 8 nodes and the more extensive Colombian natural gas transportation system. The noise levels, ranging from 5\% to 25\%, simulate various operating conditions, providing diverse training data.
 
 While the GNN-based model from \cref{cap:lienal-censnet} was designed as a fast alternative to the optimization-based model, this chapter introduces physics-informed elements into the network architecture. Specifically, the model now includes loss terms based on the gas balance and Weymouth equations to ensure the predicted flows comply with the physical laws governing gas transportation. These constraints, integrated through additional layers in the model, guide the learning process, penalizing deviations from the gas balance equation (\cref{eq:gas_balance}) and the Weymouth equation (\cref{eq:weymouth_cons}). The modified model maintains the same structural components, such as input channels, convolutional layers, and loss functions for node and edge predictions, with the difference that the balance equation and the Weymouth equation are now considered loss functions. 
 
@@ -44,5 +41,14 @@ While the GNN-based model from \cref{cap:lienal-censnet} was designed as a fast 
     \caption{General outline of the CensNet-based model used.}
         \label{fig:nonlineal_model_description}
 \end{figure}
+
+\section{Results}
+
+
+
+
+
+
+
 
 
