@@ -12,10 +12,27 @@ In this case, the physical constraints are derived from the gas balance and the 
 The inclusion of these physics-informed layers allows the network to achieve better generalization, as it is not only trained on the data but also guided by the underlying physical laws. This approach can be seen as a specialized form of regularization, where the model is penalized if its predictions do not satisfy the physical constraints. The overall loss function can be expressed as:
 
 
-\[
-\mathcal{L}(\Theta) = \mathcal{L}_{\text{data}}(\Theta) + \lambda_1 \mathcal{L}_{\text{balance}}(\Theta) + \lambda_2 \mathcal{L}_{\text{weymouth}}(\Theta),
-\]
+\begin{equation}
+   \mathcal{L}(\Theta) = \mathcal{L}_{\text{data}}(\Theta) + \lambda_1 \mathcal{L}_{\text{balance}}(\Theta) + \lambda_2 \mathcal{L}_{\text{weymouth}}(\Theta),     
+    \label{eq:PINN_basic_definition}
+\end{equation}
+
+
+% \[
+% \mathcal{L}(\Theta) = \mathcal{L}_{\text{data}}(\Theta) + \lambda_1 \mathcal{L}_{\text{balance}}(\Theta) + \lambda_2 \mathcal{L}_{\text{weymouth}}(\Theta),
+% \]
 
 where \( \mathcal{L}_{\text{data}}(\Theta) \) represents the traditional data-driven loss, \( \mathcal{L}_{\text{balance}}(\Theta) \) is the loss associated with the gas balance constraint, and \( \mathcal{L}_{\text{weymouth}}(\Theta) \) is the loss associated with the Weymouth equation constraint. The parameters \( \lambda_1 \) and \( \lambda_2 \) control the importance of each physical constraint in the learning process.
+
+
+In this section, we incorporate the physical laws of the gas balance and Weymouth equations to guide the model's training process. The gas balance equation, represented by \cref{eq:gas_balance}, ensures that the flow into and out of each node in the network adheres to the principle of mass conservation. The Weymouth equation, referred to as \cref{eq:weymouth_cons}, establishes a relationship between the flow and pressure differences across pipelines. These two equations will be the foundation for introducing physics-based constraints into the neural network, ensuring the model's predictions respect the physical behavior of gas flow within the system.
+
+
+\section{Experimental Setup}
+
+In this chapter, we build upon the experimental setup outlined in \cref{sec:LinealCensnet_ExperimentalSetup}, maintaining the same general approach while incorporating new elements that account for the physics of the natural gas system. As before, the optimization model generates samples by introducing noise into the base values of two gas networks: a small-scale test network of 8 nodes and the more extensive Colombian natural gas transportation system. The noise levels, ranging from 5\% to 25\%, simulate various operating conditions, providing diverse training data.
+
+While the GNN-based model from \cref{cap:lienal-censnet} was designed as a fast alternative to the optimization-based model, this chapter introduces physics-informed elements into the network architecture. Specifically, the model now includes loss terms based on the gas balance and Weymouth equations to ensure the predicted flows comply with the physical laws governing gas transportation. These constraints, integrated through additional layers in the model, guide the learning process, penalizing deviations from the gas balance equation (\cref{eq:gas_balance}) and the Weymouth equation (\cref{eq:weymouth_cons}). The modified model maintains the same structural components, such as input channels, convolutional layers, and loss functions for node and edge predictions, with the difference that the balance equation and the Weymouth equation are now considered loss functions. 
+
 
 
