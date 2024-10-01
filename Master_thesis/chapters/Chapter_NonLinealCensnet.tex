@@ -35,4 +35,14 @@ In this chapter, we build upon the experimental setup outlined in \cref{sec:Line
 While the GNN-based model from \cref{cap:lienal-censnet} was designed as a fast alternative to the optimization-based model, this chapter introduces physics-informed elements into the network architecture. Specifically, the model now includes loss terms based on the gas balance and Weymouth equations to ensure the predicted flows comply with the physical laws governing gas transportation. These constraints, integrated through additional layers in the model, guide the learning process, penalizing deviations from the gas balance equation (\cref{eq:gas_balance}) and the Weymouth equation (\cref{eq:weymouth_cons}). The modified model maintains the same structural components, such as input channels, convolutional layers, and loss functions for node and edge predictions, with the difference that the balance equation and the Weymouth equation are now considered loss functions. 
 
 
+\begin{figure}
+    \centering
+    \setlength\figurewidth{1\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/model_description.tex}}
+    % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
+    \caption{General outline of the CensNet-based model used.}
+        \label{fig:nonlineal_model_description}
+\end{figure}
+
 
