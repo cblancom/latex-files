@@ -50,12 +50,12 @@ In this section, we present the results of the proposed model, which now incorpo
 \subsection{Case Study I: 8-node Network}
 
 
-In this chapter, we begin with experiments that account for both node and edge losses, as it was found that considering only the node loss did not produce adequate results. The best set of parameters identified for this experiment were $N channels=25$, $N layers=4$, and $N dense=11$. These settings yielded a total loss of 6.816, with a node loss of 2.794 and an edge loss of 4.021.
 
-The results corresponding to the nodes, shown in \cref{fig:results_nonlineal_dummy_base_node}, exhibit a similar behavior to that observed in \cref{cap:lienal-censnet}
-, demonstrating that the model accurately captures the injection pattern at the nodes. However, the edge flows tell a different story, as seen in \cref{fig:results_nonlineal_dummy_base_f}. The model needed help to predict the flows through the first pipeline connected to the injection field, resulting in deviations from the actual flow values. This underperformance is notable when compared to the more stable predictions for other pipelines. Despite these challenges, the model was able to predict edge flows for the remaining pipelines with greater accuracy, as reflected in the overall edge loss.
+In this chapter, we begin with experiments that account for both node and edge losses, as it was found that considering only the node loss did not produce adequate results. The best parameters identified for this experiment were $N channels=25$, $N layers =4$, and $N dense = 11$. These settings yielded a total loss of 6.816, with a node loss of 2.794 and an edge loss of 4.021.
 
-These observations highlight the model's capacity to capture the critical dynamics of gas transportation and underscore the complexity of accurately predicting flows in critical sections, such as the first pipeline connected to the injection field.
+The results corresponding to the nodes, shown in \cref{fig:results_nonlineal_dummy_base_node}, exhibit a similar behavior to that observed in \cref{cap:lienal-censnet}, demonstrating that the model accurately captures the injection pattern at the nodes. The correlation between the actual and predicted values is also strong, as indicated by an $R^2$ of 0.983.
+
+Edge flows show some variation, as seen in \cref{fig:results_nonlineal_dummy_base_f}, mainly when predicting the flows through the first pipeline connected to the injection field, where slight deviations from the actual flow values were observed. However, the model performed well overall, achieving an $R^2$ of 0.983 for the edge flows. While the first pipeline presents some prediction challenges, the accuracy in predicting flows across the rest of the pipelines remains high, demonstrating the model's ability to handle the complexity of gas transportation in this nonlinear system.
 
 
 \begin{figure}

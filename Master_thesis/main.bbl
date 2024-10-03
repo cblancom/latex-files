@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{Wilson_poly}
+S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
+  matpower-based tool for optimal power and natural gas flow analyses,'' {\em
+  IEEE Transactions on Power Systems}, pp.~1--9, 2022.
+
 \bibitem{ABBASI2011xv}
 M.~Abbasi, H.~Afshari, S.~Asadi, M.~{Bakhshayeshi Baygi}, F.~H. Benam,
   F.~Daneshzand, W.~Dullaert, M.~H. Ebrahimi, G.~Esmaeilian, B.~Fahimnia,
@@ -279,11 +284,6 @@ C.~Ordoudis, P.~Pinson, and J.~M. Morales, ``An integrated market for
 A.~Schwele, C.~Ordoudis, J.~Kazempour, and P.~Pinson, ``Coordination of power
   and natural gas systems: Convexification approaches for linepack modeling,''
   in {\em 2019 IEEE Milan PowerTech}, pp.~1--6, 2019.
-
-\bibitem{Wilson_poly}
-S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
-  matpower-based tool for optimal power and natural gas flow analyses,'' {\em
-  IEEE Transactions on Power Systems}, pp.~1--9, 2022.
 
 \bibitem{WANG201970}
 C.~Wang, W.~Wei, J.~Wang, and T.~Bi, ``Convex optimization based adjustable
