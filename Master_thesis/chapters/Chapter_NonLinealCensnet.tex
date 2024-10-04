@@ -78,6 +78,7 @@ The second part of this experiment involves the additional loss associated with 
 The prediction behavior at the nodes, as shown in \cref{fig:results_nonlineal_dummy_node_base_f_bal}, remained consistent with the results obtained in the previous experiment, where the balance loss was not included. The model accurately captured the gas injection pattern, with an $R^2$ of 0.983 for node flow predictions, identical to the earlier case.
 
 Similarly, the prediction of edge flows, shown in \cref{fig:results_nonlineal_dummy_edge_base_f_bal}, followed the same general trend as before, although a slight decrease in accuracy was observed, reflected by an $R^2$ of 0.973. While this represents a minor reduction in performance compared to the previous experiment, the model still demonstrated a strong ability to predict gas flows through the edges, maintaining a high level of accuracy.
+
 \begin{figure}
     \centering
     \setlength\figurewidth{.53\textwidth}        
@@ -90,5 +91,26 @@ Similarly, the prediction of edge flows, shown in \cref{fig:results_nonlineal_du
     \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
     \label{fig:dummy_base_results}
 \end{figure}
+
+
+In the following part of this experiment, we incorporated losses associated with node and edge flows, the gas balance, and the Weymouth equation. The hyperparameter optimization for this setup yielded the following best parameters: $N channels=17$, $N layers =1$, and $N dense =4$. These settings resulted in a total loss of 20.670, with the individual losses being a node loss of 3.000, an edge loss of 11.354, a balance loss of 2.724, and a Weymouth equation loss of 3.592.
+
+As shown in \cref{fig:results_nonlineal_dummy_node_base_f_bal_wey}, the behavior of the node flow predictions remained consistent with the previous experiments, with an $R^2$ of 0.983. The model continued to accurately capture the gas injection patterns at the nodes.
+
+However, the prediction accuracy for edge flows showed a notable deterioration, as seen in \cref{fig:results_nonlineal_dummy_edge_base_f_bal_wey}. The $R^2$ value for edge flow predictions dropped to 0.952. This decrease in performance is primarily due to the difficulties encountered in predicting flows along edges 1, 2, 6, and 7. Edges 1 and 2 correspond to pipelines that are part of a closed path in the network, while edges 6 and 7 correspond to compressors. These complexities in the network configuration likely contributed to the reduction in predictive accuracy for these specific edges.
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{.53\textwidth}        
+    \setlength\figureheight{0.36\textwidth} 
+    \subfloat[Actual vs predicted nodal flows.] 
+    {\label{fig:results_nonlineal_dummy_node_base_f_bal_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_dummy_base_f_bal_wey.tex}}}
+    \subfloat[Actual vs predicted edge flows.] 
+    {\label{fig:results_nonlineal_dummy_edge_base_f_bal_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_dummy_base_f_bal_wey.tex}}}
+    
+    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \label{fig:dummy_base_results}
+\end{figure}
+
 
 
