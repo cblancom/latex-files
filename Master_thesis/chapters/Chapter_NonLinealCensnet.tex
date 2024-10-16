@@ -180,6 +180,42 @@ B + W & 2.798  & 2.798  & 783.880  & 298.226 & 0.000 \\
 
 
 
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{\textbf{Experiment}} & \textbf{Total} & \textbf{Node} & \textbf{Edge} & \textbf{Balance} & \textbf{Weymouth} \\
+        \cline{1-5}        
+        \hline
+        \textbf{N} & \textbf{E} & \textbf{B} & \textbf{W} &   & \textbf{Value} & \textbf{Value} & \textbf{Value} & \textbf{Value} \\ \hline
+        \checkmark & \checkmark &   &   & 6.816  & 2.794  & 4.021  & 3.027 & $46.127 \times 10^9$ \\
+        \checkmark & \checkmark & \checkmark &   & 10.041 & 2.850  & 6.414  & 0.776 & $3.8 \times 10^9$ \\
+        \checkmark & \checkmark & \checkmark & \checkmark  & 20.670 & 3.000  & 11.354 & 2.724 & 3.592 \\
+        \checkmark &  & \checkmark & \checkmark  & 10.270 & 3.976  & 23.766 & 4.747 & 1.547 \\
+        \checkmark &  &  & \checkmark  & 2.798  & 2.798  & 783.880  & 298.226 & 0.000 \\
+        \hline
+    \end{tabular}
+    \caption{Summary of Losses for Different Experiment Configurations}
+    \label{tab:losses_summary}
+\end{table}
+
+% \begin{table}
+%     \centering
+%     \begin{tabular}{|c|p{0.8cm}|p{0.55cm}|c|c|c|c|}
+%         \hline
+%         Method & \multicolumn{2}{|c|}{Experiment} & Node Value & Edge Value & Balance Value & Time \\ \hline
+%                & \centering N & \centering B &  &  &  &  \\ \hline
+%         Opt & \makebox[0.8cm]{\centering \checkmark} &   & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+%         GNN & \makebox[0.8cm]{\centering \checkmark} &   & 4.840 ± 12.794 & 0.455 ± 0.262   & -5.711 ± 16.854 & 0.144 ± 0.044 \\ \hline
+%         Opt & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+%         GNN & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.767 ± 12.701 & 24.142 ± 14.083 & -0.079 ± 1.174  & 0.145 ± 0.060 \\ \hline
+%     \end{tabular}
+%     \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples for Base and Base-f.}
+%     \label{tab:lineal_dummy_results}
+% \end{table}
+%
+
+
 \subsection{Case Study II: 63-node Network (Colombia)}
 
 
