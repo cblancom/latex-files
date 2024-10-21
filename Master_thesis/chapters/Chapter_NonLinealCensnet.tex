@@ -196,8 +196,26 @@ B + W & 2.798  & 2.798  & 783.880  & 298.226 & 0.000 \\
         \hline
     \end{tabular}
     \caption{Summary of Losses for Different Experiment Configurations}
-    \label{tab:losses_summary}
+    \label{tab:non_lineal_dummy_losses_summary}
 \end{table}
+
+
+
+The \cref{tab:non_lineal_dummy_losses_summary} summarizes the total loss values and the specific contributions from nodal, edge, balance, and Weymouth equation losses across various experiment configurations. Each configuration is determined by the inclusion of specific terms in the loss function, represented by the columns labeled "N" (nodal loss), "E" (edge loss), "B" (balance loss), and "W" (Weymouth loss). Notably, in each experiment, the total loss only accounts for the losses corresponding to the terms used in that configuration.
+
+
+In the first experiment, where both nodal and edge losses are included, the total loss is 6.816, with the majority of the contribution coming from the edge loss (4.021), while the nodal loss is 2.794 and the balance and Weymouth losses are 3.027 and $46.127 \times 10^9$, respectively.
+
+The second experiment adds balance loss to the nodal and edge losses. The total loss increases to 10.041, with the edge loss rising to 6.414. The nodal loss remains close to the previous value (2.850), while the balance loss drops significantly to 0.776. The Weymouth loss also decreases to $3.8 \times 10^9$.
+
+In the third experiment, all four loss components (nodal, edge, balance, and Weymouth) are included. The total loss reaches 20.670, with a noticeable increase in the edge loss (11.354) and a moderate rise in the nodal loss (3.000). This configuration's balance and Weymouth losses are 2.724 and 3.592, respectively.
+
+
+In the fourth experiment, where only the nodal, balance and Weymouth losses are considered (without the edge loss), the total loss is 10.270. The balance loss is the highest observed at 4.747, while the nodal and Weymouth losses are 3.976 and 1.547, respectively. The edge loss is excluded from this experiment.
+
+Finally, in the fifth experiment, only the nodal and Weymouth losses are active, resulting in a total loss of 2.798. The nodal loss contributes entirely to this total (2.798), while the Weymouth loss is 0. There is a substantial edge loss value listed at 783.880, but since this term is not included in the active losses for this experiment, it does not affect the total. The balance loss is similarly high but does not impact the total loss.
+
+
 
 % \begin{table}
 %     \centering

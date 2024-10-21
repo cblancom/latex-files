@@ -504,11 +504,11 @@ To evaluate the computational performance when considering the loss associated w
     \centering
     \begin{tabular}{|c|p{0.8cm}|p{0.55cm}|c|c|c|c|}
         \hline
-        Method & \multicolumn{2}{|c|}{Experiment} & Node Value & Edge Value & Balance Value & Time \\ \hline
+        Method & \multicolumn{2}{|c|}{Configuration} & Node Value & Edge Value & Balance Value & Time \\ \hline
                & \centering N & \centering E &  &  &  &  \\ \hline
-        Opt & \makebox[0.8cm]{\centering \checkmark} &   & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+        APOPT & \makebox[0.8cm]{\centering \checkmark} &   & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
         GNN & \makebox[0.8cm]{\centering \checkmark} &   & 4.840 ± 12.794 & 0.455 ± 0.262   & -5.711 ± 16.854 & 0.144 ± 0.044 \\ \hline
-        Opt & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+        APOPT & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
         GNN & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.767 ± 12.701 & 24.142 ± 14.083 & -0.079 ± 1.174  & 0.145 ± 0.060 \\ \hline
     \end{tabular}
     \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples. The 'N' column refers to experiments considering the nodal loss, while the 'E' column refers to experiments considering the edge loss.}
@@ -517,16 +517,18 @@ To evaluate the computational performance when considering the loss associated w
 
 
 
-The \cref{tab:lineal_dummy_results} presents a combined comparison of the optimization model (Opt) and the GNN-based model across two sets of experiments: Base and Base-f. The comparison focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation values provided for each variable based on 100 samples.
+The \cref{tab:lineal_dummy_results} presents a combined comparison of the optimization model (APOPT) and the GNN-based model across four experiments. Each experiment has three degrees of freedom: the model method (APOPT or GNN), whether nodal loss (N) was included, and whether edge loss (E) was included. The table focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time. Mean and standard deviation values are reported based on 100 samples.
 
-For both Base and Base-f, the optimization and GNN-based models show nearly identical results for the nodal flow values. The mean nodal flow for both models is around \(4.84\) in the Base set, and the standard deviations are also similar, indicating that both models capture the nodal flow behavior consistently. In the Base-f set, the GNN shows a slightly lower mean nodal flow at \(4.767 \pm 12.701\), but the overall difference is minimal.
 
-A more significant difference is observed in the edge flow values. In the Base experiment, the GNN-based model achieves much lower mean edge flow values of \(0.455 \pm 0.262\), compared to \(24.221 \pm 14.041\) for the optimization model. This highlights the GNN's ability to accurately capture gas flows through pipelines and compressors. However, in the Base-f set, the edge flow values for both models are comparable, with the optimization model showing \(24.221 \pm 14.041\) and the GNN showing \(24.142 \pm 14.083\), suggesting that the GNN can achieve similar levels of accuracy in edge flow predictions as the optimization model under certain conditions.
+Both models display similar results for nodal flows in the experiments, considering only the nodal loss (N). For instance, the APOPT model consistently records a mean nodal flow of \(4.844 \pm 12.874\), while the GNN shows a slightly lower mean of \(4.767 \pm 12.701\) in experiments where both N and E were considered. 
 
-Regarding nodal balance, the optimization model shows a near-zero balance mean across both Base and Base-f sets (\(-0.001\)), while the GNN-based model exhibits more variation. In the Base set, the GNN has a more considerable mean variation (\(-5.711 \pm 16.854\)), but this variation is reduced in the Base-f set (\(-0.079 \pm 1.174\)). This higher variation in the Base experiment suggests that the GNN's predictions can fluctuate more, though the consistency improves in Base-f.
 
-Finally, the GNN-based model significantly outperforms the optimization model regarding prediction time. In both sets, the GNN completes predictions much faster, taking approximately \(0.144\) seconds in the Base set and \(0.145\) seconds in the Base-f set, compared to the optimization model's \(0.792\) seconds in both cases. This highlights the GNN's superior computational efficiency, making it well-suited for real-time applications.
+On the other hand, edge flow (E) values vary more significantly between the models. In experiments with only N, the GNN-based model achieves a much lower mean edge flow of \(0.455 \pm 0.262\) compared to the APOPT model’s \(24.221 \pm 14.041\). However, when both N and E were included, both models showed similar edge flow values (\(24.142 \pm 14.083\) for GNN and \(24.221 \pm 14.041\) for APOPT), demonstrating that under these conditions, the GNN model can match the accuracy of the optimization model in predicting edge flows.
 
+
+Regarding nodal balance, the APOPT model remains consistent across all experiments, showing a near-zero mean balance. The GNN-based model, however, fluctuates more, especially in the N-only experiment, with a mean balance of \(-5.711 \pm 16.854\), though this variance diminishes to \(-0.079 \pm 1.174\) when both N and E are included.
+
+Finally, the GNN model consistently outperforms APOPT in terms of prediction time. Across all experiments, the GNN-based model achieves much faster predictions (\(0.144\) to \(0.145\) seconds) compared to the APOPT model’s \(0.792\) seconds. This superior computational efficiency makes the GNN model particularly appealing for real-time applications.
 
 
 
@@ -573,33 +575,35 @@ In the next stage of this case study, predictions were made on the same system, 
 In this stage, a t-test was performed to compare the computation times between the optimization model and the GNN-based model. The results yielded a T-statistic of $47.25$, $198$ degrees of freedom and a p-value of $4.46 \times 10^{-110}$. These values confirm with high statistical confidence that the GNN-based model significantly outperforms the optimization model in terms of computational efficiency when predicting flows across the network.
 
 
-
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|p{0.8cm}|p{0.55cm}|c|c|c|c|}
     \hline
-    Method & Source & Node Value & Edge Value & Balance Value & Time \\ \hline
-    Opt    & Base   & 11.41 ± 49.23 & 63.52 ± 81.62  & -2.15 ± 16.49 & 5.01 ± 5.59 \\ \hline
-    GNN    & Base   & 11.38 ± 49.13 & 0.91 ± 1.26    & -2.19 ± 58.56 & 0.13 ± 0.07 \\ \hline
-    Opt    & Base-f & 11.41 ± 49.23 & 63.52 ± 81.62  & -2.15 ± 16.50 & 5.01 ± 5.59 \\ \hline
-    GNN    & Base-f & 11.40 ± 48.97 & 63.45 ± 81.38  & -2.16 ± 16.60 & 0.14 ± 0.08 \\ \hline
+    Method & \multicolumn{2}{|c|}{Experiment} & Node Value & Edge Value & Balance Value & Time \\ \hline
+           & \centering N & \centering E &  &  &  &  \\ \hline
+    Opt    & \makebox[0.8cm]{\centering \checkmark} &   & 11.41 ± 49.23 & 63.52 ± 81.62 & -2.15 ± 16.49 & 5.01 ± 5.59 \\ \hline
+    GNN    & \makebox[0.8cm]{\centering \checkmark} &   & 11.38 ± 49.13 & 0.91 ± 1.26   & -2.19 ± 58.56 & 0.13 ± 0.07 \\ \hline
+    Opt    & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 11.41 ± 49.23 & 63.52 ± 81.62 & -2.15 ± 16.50 & 5.01 ± 5.59 \\ \hline
+    GNN    & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 11.40 ± 48.97 & 63.45 ± 81.38 & -2.16 ± 16.60 & 0.14 ± 0.08 \\ \hline
 \end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model (Opt) and the GNN-based model, across 100 samples for Base and Base-f experiments.}
+\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model (Opt) and the GNN-based model, across 100 samples. The 'N' column refers to experiments considering the nodal loss, and the 'E' column refers to experiments considering the edge loss.}
 \label{tab:lineal_col_results}
 \end{table}
 
 
+The \cref{tab:lineal_col_results} presents a comparison between the optimization model (Opt) and the GNN-based model across four experiments, which vary based on the method used (Opt or GNN) and the inclusion of nodal loss (N) and edge loss (E). The comparison focuses on nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation calculated from 100 samples.
 
-The \cref{tab:lineal_col_results} presents a combined comparison between the optimization model (Opt) and the GNN-based model across two sets of experiments: Base and Base-f. Both models are evaluated based on nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation calculated over 100 samples.
 
-In terms of nodal flows, both the optimization model and the GNN-based model deliver nearly identical results across the two experiments. For both Base and Base-f, the mean nodal flow is $11.41$, and the standard deviations are very close, at $49.23$ for the optimization model and $49.13$ and $48.97$ for the GNN model in Base and Base-f, respectively. This indicates a high level of consistency in nodal flow predictions between the two methods.
+In terms of nodal flows, both the optimization model and the GNN-based model show almost identical results across all experiments. For both models, the mean nodal flow remains consistent at around $11.41$, with very similar standard deviations: $49.23$ for the optimization model and $49.13$ and $48.97$ for the GNN model in the experiments considering only nodal loss and both nodal and edge losses, respectively. This consistency highlights that both models perform similarly in predicting nodal flows.
 
-However, the edge flow values reveal more variation. In the Base experiment, the GNN-based model significantly outperforms the optimization model, achieving a much lower mean edge flow of $0.91 \pm 1.26$, compared to the optimization model’s $63.52 \pm 81.62$. This demonstrates the GNN’s improved ability to capture the flow behavior along edges with reduced variability. In the Base-f experiment, both models converge to almost identical edge flow predictions, with the GNN showing $63.45 \pm 81.38$ and the optimization model reporting $63.52 \pm 81.62$.
 
-Regarding the balance values, both models produce similar mean results, with the optimization model reporting $-2.15 \pm 16.49$ and the GNN model producing $-2.19 \pm 58.56$ in Base and $-2.16 \pm 16.58$ in Base-f. While the means are close, the higher variability in the GNN’s balance predictions in the Base experiment highlights some inconsistency, which is reduced in the Base-f experiment.
+However, the edge flow values present a more notable distinction between the two models. In the experiments without edge loss, the GNN-based model significantly outperforms the optimization model, achieving a much lower mean edge flow of $0.91 \pm 1.26$, compared to the optimization model’s $63.52 \pm 81.62$. This demonstrates the GNN’s improved capability to predict edge flows with reduced variability. In the experiments that include both nodal and edge losses, the edge flow predictions for both models converge, with the GNN reporting $63.45 \pm 81.38$ and the optimization model showing $63.52 \pm 81.62$.
 
-Finally, the prediction time clearly demonstrates the computational advantage of the GNN-based model. In both experiments, the GNN completes predictions significantly faster than the optimization model. In the Base set, the GNN takes just $0.13$ seconds on average, while the optimization model requires $5.01$ seconds. Similarly, in the Base-f experiment, the GNN reduces prediction time to $0.14$ seconds, compared to the same $5.01$ seconds for the optimization model. This substantial difference in prediction time reinforces the efficiency of the GNN for large-scale network predictions.
 
+
+Regarding the nodal balance, the models display similar mean results. In the experiments without edge loss, the optimization model reports a mean balance of $-2.15 \pm 16.49$, while the GNN produces $-2.19 \pm 58.56$. In the experiments considering both nodal and edge losses, the mean balance results become more consistent, with the GNN model showing $-2.16 \pm 16.60$ and the optimization model remaining at $-2.15 \pm 16.50$. The higher variability observed in the GNN’s predictions during the nodal-only experiments is reduced when edge loss is included, indicating improved consistency.
+
+Finally, the prediction time demonstrates the GNN’s computational efficiency. In all experiments, the GNN completes predictions significantly faster than the optimization model. In the nodal-only experiments, the GNN requires just $0.13$ seconds on average, compared to $5.01$ seconds for the optimization model. In the nodal and edge loss experiments, the GNN’s prediction time increases only slightly to $0.14$ seconds, whereas the optimization model maintains the same $5.01$ seconds. This significant reduction in prediction time underscores the GNN’s efficiency in handling large-scale network predictions.
 
 \section{Discussion and conclusions}
 
