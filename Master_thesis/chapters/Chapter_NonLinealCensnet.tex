@@ -156,85 +156,117 @@ However, the edge predictions, shown in \cref{fig:results_nonlineal_dummy_edge_b
 \end{figure}
 
 
-
-\begin{table}[htbp]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\textbf{Configuration} & \textbf{Total} & \textbf{Node} & \textbf{Edge} & \textbf{Balance} & \textbf{Weymouth} \\
-\hline
-N + E & 6.816  & 2.794  & 4.021  & 3.027 & $46.127 \times 10^9$ \\
-\hline
-N + E + B & 10.041 & 2.850  & 6.414  & 0.776 & $3.8 \times 10^9$ \\
-\hline
-N + E + B + W & 20.670 & 3.000  & 11.354 & 2.724 & 3.592 \\
-\hline
-N + B + W & 10.270 & 3.976  & 23.766 & 4.747 & 1.547 \\
-\hline
-B + W & 2.798  & 2.798  & 783.880  & 298.226 & 0.000 \\
-\hline
-\end{tabular}
-\caption{Summary of Losses for Different Experiment Configurations}
-\label{tab:losses_summary}
-\end{table}
-
-
-
-\begin{table}[htbp]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-        \hline
-        \multicolumn{4}{|c|}{\textbf{Experiment}} & \textbf{Total} & \textbf{Node} & \textbf{Edge} & \textbf{Balance} & \textbf{Weymouth} \\
-        \cline{1-5}        
-        \hline
-        \textbf{N} & \textbf{E} & \textbf{B} & \textbf{W} &   & \textbf{Value} & \textbf{Value} & \textbf{Value} & \textbf{Value} \\ \hline
-        \checkmark & \checkmark &   &   & 6.816  & 2.794  & 4.021  & 3.027 & $46.127 \times 10^9$ \\
-        \checkmark & \checkmark & \checkmark &   & 10.041 & 2.850  & 6.414  & 0.776 & $3.8 \times 10^9$ \\
-        \checkmark & \checkmark & \checkmark & \checkmark  & 20.670 & 3.000  & 11.354 & 2.724 & 3.592 \\
-        \checkmark &  & \checkmark & \checkmark  & 10.270 & 3.976  & 23.766 & 4.747 & 1.547 \\
-        \checkmark &  &  & \checkmark  & 2.798  & 2.798  & 783.880  & 298.226 & 0.000 \\
-        \hline
-    \end{tabular}
-    \caption{Summary of Losses for Different Experiment Configurations}
-    \label{tab:non_lineal_dummy_losses_summary}
-\end{table}
-
-
-
-The \cref{tab:non_lineal_dummy_losses_summary} summarizes the total loss values and the specific contributions from nodal, edge, balance, and Weymouth equation losses across various experiment configurations. Each configuration is determined by the inclusion of specific terms in the loss function, represented by the columns labeled "N" (nodal loss), "E" (edge loss), "B" (balance loss), and "W" (Weymouth loss). Notably, in each experiment, the total loss only accounts for the losses corresponding to the terms used in that configuration.
-
-
-In the first experiment, where both nodal and edge losses are included, the total loss is 6.816, with the majority of the contribution coming from the edge loss (4.021), while the nodal loss is 2.794 and the balance and Weymouth losses are 3.027 and $46.127 \times 10^9$, respectively.
-
-The second experiment adds balance loss to the nodal and edge losses. The total loss increases to 10.041, with the edge loss rising to 6.414. The nodal loss remains close to the previous value (2.850), while the balance loss drops significantly to 0.776. The Weymouth loss also decreases to $3.8 \times 10^9$.
-
-In the third experiment, all four loss components (nodal, edge, balance, and Weymouth) are included. The total loss reaches 20.670, with a noticeable increase in the edge loss (11.354) and a moderate rise in the nodal loss (3.000). This configuration's balance and Weymouth losses are 2.724 and 3.592, respectively.
-
-
-In the fourth experiment, where only the nodal, balance and Weymouth losses are considered (without the edge loss), the total loss is 10.270. The balance loss is the highest observed at 4.747, while the nodal and Weymouth losses are 3.976 and 1.547, respectively. The edge loss is excluded from this experiment.
-
-Finally, in the fifth experiment, only the nodal and Weymouth losses are active, resulting in a total loss of 2.798. The nodal loss contributes entirely to this total (2.798), while the Weymouth loss is 0. There is a substantial edge loss value listed at 783.880, but since this term is not included in the active losses for this experiment, it does not affect the total. The balance loss is similarly high but does not impact the total loss.
-
-
-
-% \begin{table}
+%
+% \begin{table}[htbp]
 %     \centering
-%     \begin{tabular}{|c|p{0.8cm}|p{0.55cm}|c|c|c|c|}
+%     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 %         \hline
-%         Method & \multicolumn{2}{|c|}{Experiment} & Node Value & Edge Value & Balance Value & Time \\ \hline
-%                & \centering N & \centering B &  &  &  &  \\ \hline
-%         Opt & \makebox[0.8cm]{\centering \checkmark} &   & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
-%         GNN & \makebox[0.8cm]{\centering \checkmark} &   & 4.840 ± 12.794 & 0.455 ± 0.262   & -5.711 ± 16.854 & 0.144 ± 0.044 \\ \hline
-%         Opt & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
-%         GNN & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.767 ± 12.701 & 24.142 ± 14.083 & -0.079 ± 1.174  & 0.145 ± 0.060 \\ \hline
+%         \multicolumn{4}{|c|}{\textbf{Experiment}} & \textbf{Total} & \textbf{Node} & \textbf{Edge} & \textbf{Balance} & \textbf{Weymouth} \\
+%         \cline{1-5}        
+%         \hline
+%         \textbf{N} & \textbf{E} & \textbf{B} & \textbf{W} &   & \textbf{Value} & \textbf{Value} & \textbf{Value} & \textbf{Value} \\ \hline
+%         \checkmark & \checkmark &   &   & 6.816  & 2.794  & 4.021  & 3.027 & $46.127 \times 10^9$ \\
+%         \checkmark & \checkmark & \checkmark &   & 10.041 & 2.850  & 6.414  & 0.776 & $3.8 \times 10^9$ \\
+%         \checkmark & \checkmark & \checkmark & \checkmark  & 20.670 & 3.000  & 11.354 & 2.724 & 3.592 \\
+%         \checkmark &  & \checkmark & \checkmark  & 10.270 & 3.976  & 23.766 & 4.747 & 1.547 \\
+%         \checkmark &  &  & \checkmark  & 2.798  & 2.798  & 783.880  & 298.226 & 0.000 \\
+%         \hline
 %     \end{tabular}
-%     \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples for Base and Base-f.}
-%     \label{tab:lineal_dummy_results}
+%     \caption{Summary of Losses for Different Experiment Configurations}
+%     \label{tab:non_lineal_dummy_losses_summary}
 % \end{table}
+%
+%
 %
 
 
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|c|c|c|c|}
+    \hline
+    Method & \centering N & \centering E & \centering B & \centering W & Node Value & Edge Value & Balance Value & Time \\ \hline
+    IPOPT  &  &  &  &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} &  &  &  & 4.81 ± 12.64 & 0.42 ± 2.36 & -0.016 ± 17.448 & 0.13 ± 0.03 \\ \hline
+    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  &  & 4.92 ± 13.02 & 22.96 ± 15.36 & 0.095 ± 1.678 & 0.14 ± 0.05 \\ \hline
+    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & 4.83 ± 12.65 & 23.20 ± 14.92 & 0.004 ± 0.845 & 0.14 ± 0.05 \\ \hline
+    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.76 ± 12.51 & 22.93 ± 14.64 & -0.070 ± 1.665 & 0.14 ± 0.05 \\ \hline
+    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & \makebox[0.55cm]{\centering \checkmark} & 4.88 ± 12.01 & 20.58 ± 12.99 & 0.046 ± 2.187 & 0.13 ± 0.03 \\ \hline
+    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} &  &  & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} &  &  & \makebox[0.55cm]{\centering \checkmark} & 4.91 ± 12.81 & -0.091 ± 0.185 & 0.079 ± 17.225 & 0.14 ± 0.05 \\ \hline
+\end{tabular}
+\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN across different loss configurations. The columns "N", "E", "B", and "W" indicate experiments where nodal, edge, balance, and Weymouth losses were considered.}
+\label{tab:base_nl_dummy_results_formatted}
+\end{table}
+
+
+
+
+The \cref{tab:lineal_col_results} presents a comparison between the IPOPT optimization model and the GNN-based model across four experiments, varying in the inclusion of nodal loss (N) and edge loss (E). The comparison focuses on nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation calculated from 100 random experiments.
+
+The IPOPT optimizer serves as the benchmark in this analysis. It achieves a mean nodal flow value of \( 4.81 \pm 12.81 \), a mean edge flow value of \( 23.18 \pm 15.25 \), and a balance value of \( -0.024 \pm 0.308 \). The prediction time for this model is \( 0.99 \pm 0.53 \) seconds. These results set the baseline for comparison against the GNN-based models.
+
+In the first GNN experiment, which only considers nodal loss, the model predicts a nodal flow value of \( 4.81 \pm 12.64 \), closely matching the IPOPT benchmark. However, its edge flow value is considerably lower, at \( 0.42 \pm 2.36 \), reflecting the absence of an edge loss in this experiment. The balance value exhibits high variability at \( -0.016 \pm 17.448 \), indicating the model's challenge in balancing flows without edge loss. Notably, the GNN significantly reduces prediction time, averaging \( 0.13 \pm 0.03 \) seconds, demonstrating its efficiency compared to the IPOPT model.
+
+The nodal flow prediction remains consistent in the second GNN experiment, which incorporates both nodal and edge losses, with a mean of \( 4.92 \pm 13.02 \). The edge flow prediction improves significantly to \( 22.96 \pm 15.36 \), aligning closely with the IPOPT benchmark. The balance value also improves, reducing variability with a mean of \( 0.095 \pm 1.678 \), and the prediction time remains efficient at \( 0.14 \pm 0.05 \) seconds.
+
+When balance loss is introduced alongside nodal and edge losses in the third experiment, the nodal flow value remains stable at \( 4.83 \pm 12.65 \). In comparison, the edge flow prediction improves to \( 23.20 \pm 14.92 \), closely matching the IPOPT results. The balance value becomes more consistent, with a mean of \( 0.004 \pm 0.845 \), indicating the model's enhanced ability to maintain network balance. The prediction time remains unaffected at \( 0.14 \pm 0.05 \) seconds.
+
+In the final GNN experiment, which includes the Weymouth loss along with nodal, edge, and balance losses, the nodal flow value slightly decreases to \( 4.76 \pm 12.51 \), and the edge flow value remains close to the benchmark at \( 22.93 \pm 14.64 \). The balance value, at \( -0.070 \pm 1.665 \), suggests a slight deviation from perfect balance, though still within acceptable variability. The prediction time remains efficient at \( 0.14 \pm 0.05 \) seconds, underscoring the GNN's capability to handle increasingly complex models without significantly increasing computational time.
+
+
+
+
+
 \subsection{Case Study II: 63-node Network (Colombia)}
+
+The following case considers the experiments corresponding to the Colombian gas system. 
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{.53\textwidth}        
+    \setlength\figureheight{0.36\textwidth} 
+    \subfloat[Actual vs predicted nodal flows.] 
+    {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f.tex}}}
+    \subfloat[Actual vs predicted edge flows.] 
+    {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f.tex}}}
+    
+    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \label{fig:col_base_results_non_lineal}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{.53\textwidth}        
+    \setlength\figureheight{0.36\textwidth} 
+    \subfloat[Actual vs predicted nodal flows.] 
+    {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_bal.tex}}}
+    \subfloat[Actual vs predicted edge flows.] 
+    {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_bal.tex}}}
+    
+    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \label{fig:col_base_results_non_lineal}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \setlength\figurewidth{.53\textwidth}        
+    \setlength\figureheight{0.36\textwidth} 
+    \subfloat[Actual vs predicted nodal flows.] 
+    {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f_bal.tex}}}
+    \subfloat[Actual vs predicted edge flows.] 
+    {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f_bal.tex}}}
+    
+    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \label{fig:col_base_results_non_lineal}
+\end{figure}
+
+
 
 
 \section{Discussion and conclusions}
