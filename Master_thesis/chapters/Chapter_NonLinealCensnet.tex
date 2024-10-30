@@ -225,49 +225,91 @@ In the final GNN experiment, which includes the Weymouth loss along with nodal, 
 
 \subsection{Case Study II: 63-node Network (Colombia)}
 
-The following case considers the experiments corresponding to the Colombian gas system. 
+
+This section addresses the second case study, focusing on the Colombian natural gas network. As in the previous cases, this analysis explores various configurations of loss functionals to evaluate the predictive performance of the GNN-based model. The first experiment examines the model's predictive capabilities when incorporating node and edge losses.
+
+
+This experiment used optimized hyperparameters, with \( N_{\text{channels}} = 21 \), \( N_{\text{layers}} = 5 \), and \( N_{\text{dense}} = 4 \), which were selected to enhance the model's performance. The experiment yielded a total loss of \( 267,600 \), encompassing node and edge losses, along with a calculated balance loss. Specifically, the node loss reached \( 17,537 \), while the edge loss was considerably higher at \( 250,063 \). Additionally, a balance loss of \( 338,729 \) was recorded. Notably, the balance loss was calculated to assess network consistency but was not incorporated into the model's cost function during training; instead, it serves as an independent evaluation metric. 
+
+The GNN-based model's predictive accuracy in this experiment was quantified using \( R^2 \) metrics, and the results are shown in \cref{fig:col_base_f_results_non_lineal}. The nodal predictions exhibited high accuracy, with an \( R^2 \) score of \( 0.993 \) in \cref{fig:results_nonlineal_col_node_base_f}, indicating that the model closely approximates the observed nodal flow values. Similarly, the edge predictions achieved an \( R^2 \) score of \( 0.963 \), demonstrating robust performance in predicting edge flows. This last value can be seen in \cref{fig:results_nonlineal_col_edge_base_f}.
+
 
 \begin{figure}
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
     \subfloat[Actual vs predicted nodal flows.] 
-    {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f.tex}}}
+    {\label{fig:results_nonlineal_col_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f.tex}}}
     \subfloat[Actual vs predicted edge flows.] 
-    {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f.tex}}}
+    {\label{fig:results_nonlineal_col_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f.tex}}}
     
     \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
-    \label{fig:col_base_results_non_lineal}
+    \label{fig:col_base_f_results_non_lineal}
 \end{figure}
+
+
+The second experiment evaluated the GNN-based model, focusing on losses associated with nodes and balance. Using the optimized hyperparameters \( N_{\text{channels}} = 49 \), \( N_{\text{layers}} = 5 \), and \( N_{\text{dense}} = 2 \), the model yielded a total loss of \( 24,888 \). This loss value includes a node loss of \( 17,019 \), a calculated edge loss of \( 2,912.201 \), and a balance loss of \( 7,868 \). In this experiment, only the node and balance losses were included in the model's cost function, while the edge loss was computed independently to assess prediction accuracy for edge flows.
+
+The predictive accuracy, evaluated using \( R^2 \) metrics, yielded \( R^2 = 0.993 \) for nodal predictions and \( R^2 = 0.569 \) for edge predictions, as shown in \cref{fig:results_nonlineal_col_node_base_bal} and \cref{fig:results_nonlineal_col_edge_base_bal}. The scatterplot in \cref{fig:results_nonlineal_col_node_base_bal} illustrates the accuracy of nodal predictions, with predicted values aligning closely to the true values. In contrast, the scatterplot in \cref{fig:results_nonlineal_col_edge_base_bal} reveals less consistency in edge predictions, likely due to the exclusion of edge loss from the cost function. Although a general linear trend is observable between predicted and true values in this scatterplot, a notable number of inaccurately predicted values diminish the overall \( R^2 \), impacting the edge loss and prediction accuracy.
+
+
+
 
 \begin{figure}
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
     \subfloat[Actual vs predicted nodal flows.] 
-    {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_bal.tex}}}
+    {\label{fig:results_nonlineal_col_node_base_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_bal.tex}}}
     \subfloat[Actual vs predicted edge flows.] 
-    {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_bal.tex}}}
+    {\label{fig:results_nonlineal_col_edge_base_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_bal.tex}}}
     
     \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
-    \label{fig:col_base_results_non_lineal}
+    \label{fig:col_base_bal_results_non_lineal}
 \end{figure}
+
+
+
+
+The third experiment evaluated the GNN-based model's predictive capabilities by incorporating losses associated with nodes, edges, and balance. With the optimized hyperparameters \( N_{\text{channels}} = 20 \), \( N_{\text{layers}} = 5 \), and \( N_{\text{dense}} = 2 \), the model achieved a total loss of \( 347,647 \), including a node loss of \( 37,684 \), an edge loss of \( 264,187 \), and a balance loss of \( 45,776 \). This experiment integrated all three losses into the model's cost function, allowing a more comprehensive assessment of its predictive performance.
+
+The predictive accuracy was quantified by \( R^2 \) values of \( 0.984 \) and \( 0.961 \) for nodes and edges, respectively, as shown in \cref{fig:results_nonlineal_col_node_base_f_bal} and \cref{fig:results_nonlineal_col_edge_base_f_bal}. In these scatterplots, the predictions demonstrate a clearer alignment with the true values, with both graphs illustrating shapes more similar to straight lines, which indicates improved model performance in capturing the underlying patterns of nodal and edge flows.
+
+This third experiment marks the final test conducted in this study. Attempts to include the Weymouth loss were hindered by significant computational complexity, preventing the acquisition of reliable results for the model when considering the Weymouth function loss. Therefore, further tests were not feasible within the current scope.
 
 \begin{figure}
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
     \subfloat[Actual vs predicted nodal flows.] 
-    {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f_bal.tex}}}
+    {\label{fig:results_nonlineal_col_node_base_f_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f_bal.tex}}}
     \subfloat[Actual vs predicted edge flows.] 
-    {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f_bal.tex}}}
+    {\label{fig:results_nonlineal_col_edge_base_f_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f_bal.tex}}}
     
     \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
-    \label{fig:col_base_results_non_lineal}
+    \label{fig:col_base_f_bal_results_non_lineal}
 \end{figure}
 
 
 
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|c|c|c|c|}
+    \hline
+    Method & \centering N & \centering E & \centering B & \centering W & Node Value & Edge Value & Balance Value & Time \\ \hline
+    \textbf{Base} & & & & & & & & \\ 
+    IPOPT  & \makebox[0.55cm]{\centering \checkmark} & & & & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) &  \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} & & & & \( 11.22 \pm 49.03 \) & \( 62.73 \pm 81.99 \) & \( -2.28 \pm 25.48 \) &  \\ \hline
+    \textbf{Base bal} & & & & & & & & \\ 
+    IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & & & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) &  \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & & & \( 12.47 \pm 48.90 \) & \( 88.32 \pm 73.55 \) & \( -1.03 \pm 1.90 \) &  \\ \hline
+    \textbf{Base f Bal} & & & & & & & & \\ 
+    IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) &  \\ \hline
+    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & & \( 12.33 \pm 48.64 \) & \( 63.06 \pm 81.32 \) & \( -1.17 \pm 7.38 \) &  \\ \hline
+\end{tabular}
+\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, and nodal balance between IPOPT and GNN across different loss configurations. The columns "N", "E", and "B" indicate experiments where nodal, edge, and balance losses were considered.}
+\label{tab:base_nl_dummy_results_formatted}
+\end{table}
 
 \section{Discussion and conclusions}
 
