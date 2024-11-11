@@ -1,0 +1,25 @@
+\chapter{Conclusions and future work}
+
+\section{Conslusions}
+This thesis has provided an analysis of the performance and application of GNN-based models and MPCC formulations for predicting and optimizing natural gas and interconnected energy systems. Through experiments across various network configurations and case studies, the findings underscore the capabilities and limitations of these models, with implications for both computational efficiency and predictive accuracy.
+
+In Chapter 2, a GNN-based model demonstrated remarkable computational efficiency and accuracy in predicting natural gas transportation system parameters. The model effectively balanced computational speed with prediction quality, proving especially beneficial for real-time and large-scale applications, as shown in an 8-node network and a 63-node representation of the Colombian natural gas system. Including edge-related losses significantly enhanced the model's predictive ability for nodal and edge flows, aligning predictions more closely with observed data and substantially improving gas balance accuracy. These results reveal the GNN model's potential to outperform traditional optimization methods in computational efficiency while delivering reliable predictions.
+
+In Chapter 3, the MPCC approach for representing the Weymouth constraint introduced a novel optimization formulation for interconnected power and gas systems. By using binary-behaving continuous variables, the MPCC avoided the use of mixed-integer approximations and outperformed traditional Taylor series and SOC programming methods regarding accuracy and operational cost. The MPCC's modeling of the Weymouth equation, validated across multiple case studies, showed its practical viability in real-world scheduling and optimization tasks. The approach successfully managed bidirectional flows and high-demand scenarios in a complex Colombian gas-power system, underscoring its robustness and accuracy for operational scheduling.
+
+Chapter 4 expanded on the GNN-based model's performance by exploring various combinations of loss functions for both simplified and complex networks. Introducing gas balance and the Weymouth equation, losses resulted in a model configuration that more closely aligns with physical constraints, improving consistency between predictions and observed data. The trade-off between accuracy in edge flow predictions and overall network consistency highlights the challenges of modeling complex, nonlinear constraints in GNN architectures. Notably, including these additional physical constraints in the loss function reduced balance variability, demonstrating that comprehensive constraint integration enhances the model's physical fidelity and predictive accuracy.
+
+Overall, this thesis confirms the potential of GNN-based models and MPCC formulations as computationally efficient, accurate solutions for gas network prediction and energy system optimization. The GNN model's adaptability to various network structures and MPCC's superior handling of complex, nonlinear relationships establish a foundation for further development in real-time energy system applications. Future work could integrate dynamic and stochastic constraints to handle transient conditions and uncertainties inherent in renewable energy sources. Extending these methods to distributed, multi-agent systems could further enhance their applicability to modern, interconnected energy systems.
+
+\section{Future Work}
+
+Future research can explore several directions to enhance the application and effectiveness of GNN-based models and MPCC formulations in natural gas and energy systems. One important avenue is extending the GNN-based model to handle transient dynamics and uncertainties, which is particularly valuable in applications that involve renewable energy integration. 
+
+Another potential direction involves the development of stochastic and distributed models. Integrating stochastic modeling into the MPCC formulation could achieve a more robust optimization framework under demand fluctuations and supply variability scenarios. 
+
+Improving the design of loss functions in GNN models is another promising area. As demonstrated in this work, the performance of GNN-based models can be improved by incorporating physical constraints.  In that sense, an area of interest could focus on implementing loss functions associated with the Weymouth equation with a lower computational complexity so that they can be used in complex systems. 
+
+
+
+
+

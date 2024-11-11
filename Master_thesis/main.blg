@@ -5,12 +5,13 @@ A level-1 auxiliary file: chapters/Chapter1_preliminaries.aux
 A level-1 auxiliary file: chapters/Chapter_LinealCensnet.aux
 A level-1 auxiliary file: chapters/Chapter_MPCC.aux
 A level-1 auxiliary file: chapters/Chapter_NonLinealCensnet.aux
+A level-1 auxiliary file: chapters/Chapter_Conclusions.aux
 The style file: ieeetr.bst
 Database file #1: biblio.bib
 Warning--empty year in GRLB_Hamilton
 You've used 58 entries,
             1876 wiz_defined-function locations,
-            856 strings with 16511 characters,
+            857 strings with 16543 characters,
 and the built_in function-call counts, 17757 in all, are:
 = -- 1756
 > -- 799

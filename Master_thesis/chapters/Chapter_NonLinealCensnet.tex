@@ -156,29 +156,6 @@ However, the edge predictions, shown in \cref{fig:results_nonlineal_dummy_edge_b
 \end{figure}
 
 
-%
-% \begin{table}[htbp]
-%     \centering
-%     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-%         \hline
-%         \multicolumn{4}{|c|}{\textbf{Experiment}} & \textbf{Total} & \textbf{Node} & \textbf{Edge} & \textbf{Balance} & \textbf{Weymouth} \\
-%         \cline{1-5}        
-%         \hline
-%         \textbf{N} & \textbf{E} & \textbf{B} & \textbf{W} &   & \textbf{Value} & \textbf{Value} & \textbf{Value} & \textbf{Value} \\ \hline
-%         \checkmark & \checkmark &   &   & 6.816  & 2.794  & 4.021  & 3.027 & $46.127 \times 10^9$ \\
-%         \checkmark & \checkmark & \checkmark &   & 10.041 & 2.850  & 6.414  & 0.776 & $3.8 \times 10^9$ \\
-%         \checkmark & \checkmark & \checkmark & \checkmark  & 20.670 & 3.000  & 11.354 & 2.724 & 3.592 \\
-%         \checkmark &  & \checkmark & \checkmark  & 10.270 & 3.976  & 23.766 & 4.747 & 1.547 \\
-%         \checkmark &  &  & \checkmark  & 2.798  & 2.798  & 783.880  & 298.226 & 0.000 \\
-%         \hline
-%     \end{tabular}
-%     \caption{Summary of Losses for Different Experiment Configurations}
-%     \label{tab:non_lineal_dummy_losses_summary}
-% \end{table}
-%
-%
-%
-
 
 
 
@@ -344,4 +321,49 @@ This table illustrates the GNN model's capability to maintain accurate predictio
 
 \section{Discussion and conclusions}
 
+
+This chapter's first set of experiments provides insights into the model's capability to handle gas network predictions with various loss function combinations. Including node and edge losses in the initial experiment demonstrated the model's capacity to accurately capture node behavior, as evidenced by a high $R^2$ value of 0.983 for nodal flow predictions. This result indicates the model's ability to learn injection patterns at the nodes, even under nonlinear system conditions.
+
+Incorporating the gas balance loss in subsequent experiments maintained the accuracy of nodal predictions, with no notable change in the $R^2$ for node flows. However, the slight reduction in the $R^2$ for edge flows to 0.973 suggests that while the gas balance constraint improved overall network consistency, it introduced additional complexity that slightly affected edge prediction performance. This outcome highlights a trade-off between accurate node predictions and balanced edge flows, indicating robust model performance with some sensitivity to changes in loss function configurations.
+
+Further exploration of the model's response to including the Weymouth equation loss introduced more pronounced effects, particularly on edge flow predictions. The decline in $R^2$ to 0.952 for edge flows indicates increased difficulty in accurately modeling flow through specific network paths, particularly in regions with closed loops or compressor installations. This outcome underscores the challenge of incorporating multiple nonlinear physical constraints, especially in complex configurations.
+
+In the experiment where only the Weymouth equation and node losses were considered, the model maintained a high $R^2$ for nodal flows. However, the extremely low $R^2$ for edge predictions, reaching negative values, suggests the model struggled to generalize edge flows effectively when isolated from balancing and edge losses. This finding reinforces the need for a comprehensive loss framework incorporating node and edge dynamics to ensure robust network performance, highlighting the challenges of predicting edge flows under limited constraints.
+
+Comparing the results from \cref{cap:lienal-censnet} with those in \cref{cap:non_linealcensnet} reveals that the addition of physical constraints in \cref{cap:non_linealcensnet} improves model performance, particularly in terms of balancing accuracy.
+
+The losses presented in \cref{cap:lienal-censnet} (Table \ref{tab:lineal_dummy_results}) reflect initial configurations with only nodal and edge losses. In these setups, while nodal and edge values show reasonable consistency with the APOPT optimizer, the balance values exhibit higher variability, especially in the GNN configurations. For example, when both nodal and edge losses are applied, the GNN model in \cref{cap:lienal-censnet} produces a balance error of \(-5.711 \pm 16.854\), which differs significantly from the APOPT optimizer's near-zero balance error (\(-0.001 \pm 0.038\)). This difference indicates that the simpler GNN models in \cref{cap:lienal-censnet} lack additional constraints to replicate the physical conditions accurately.
+
+In \cref{cap:non_linealcensnet}, adding constraints related to balance and the Weymouth equation (Table \ref{tab:base_nl_dummy_results_formatted}) leads to improved balance accuracy. For instance, the GNN model with nodal, edge, and balance losses achieves a balance error of \(0.004 \pm 0.845\), considerably lower and more consistent with the IPOPT optimizer. This improvement demonstrates how adding balance constraints reduces variability and error associated with balance. Additionally, GNN configurations that include balance and Weymouth constraints (i.e., N, E, B, W) sustain this balance improvement while closely aligning with APOPT, which results in nodal and edge values.
+
+% Overall, the experiments in \cref{cap:non_linealcensnet} show that by introducing these physical constraints, the GNN model achieves lower balance errors and maintains high-quality responses across all evaluated metrics. This finding confirms that incorporating additional constraints in the model configuration leads to more accurate and physically consistent results, bringing model performance closer to optimizer methods.
+
+
+
+In the second experiment, the performance of the GNN-based model was evaluated in three configurations with different combinations of loss functions applied to the Colombian natural gas network. For each configuration, it was possible to consider the nodal losses, the losses associated with the edges, and the gas balance dede. The analysis provides information on the trade-offs and improvements observed with each additional loss function.
+
+The first configuration of the GNN model, which incorporated nodal and edge losses, achieved high accuracy in predicting nodal flows with an $R^2$ score of $0.993$ while maintaining an edge prediction $R^2$ of $0.963$. This configuration showed strong performance in nodal predictions,  suggesting that focusing on this loss combination allows a good approximation of nodal flows in the system. The balance loss value, calculated independently, highlighted minimal deviation, indicating that nodal accuracy alone could achieve network consistency for this setup. These results underscore the model's capacity to generalize nodal flow predictions while capturing nodal behaviors, making this configuration efficient for applications where nodal flow prediction is prioritized.
+
+The second configuration evaluated the impact of including nodal and balance losses in the model's cost function. The results demonstrated a stable nodal prediction performance, with an $R^2$ score consistent at $0.993$, while edge predictions dropped to an $R^2$ of $0.569$. This reduction in edge prediction accuracy suggests that excluding edge loss from the cost function introduced inconsistencies in the edge flows, as reflected in the decreased $R^2$ value. Despite the moderate accuracy in edge flow predictions, the balance loss value remained relatively low, indicating stable nodal balance but highlighting a trade-off when optimizing only nodal and balance aspects. 
+
+% This configuration suggests that while balance loss contributes to network consistency, it may only sufficiently capture edge flow dynamics with edge-specific optimization.
+
+In the third configuration, the GNN model included all three loss types: nodal, edge, and balance. This approach achieved a slightly lower $R^2$ of $0.984$ for nodal predictions but improved the edge prediction accuracy, yielding an $R^2$ of $0.961$. The overall alignment of predictions observed in the scatterplots suggests that incorporating all three loss functions enabled the model to more comprehensively capture the patterns of both nodal and edge flows. This approach demonstrated the most balanced trade-off between nodal and edge prediction accuracy, supporting the hypothesis that optimizing all three aspects simultaneously enhances the model's capacity to predict flows in the Colombian natural gas network. 
+
+
+% These findings provide valuable insights into the effects of different loss function combinations on the predictive accuracy and computational efficiency of GNN models for natural gas networks. The results highlight the balance between optimizing nodal, edge, and balance losses to meet specific predictive requirements in network modeling.
+
+Finally, the performance of the GNN-based model for the Colombian natural gas network is compared in two experimental configurations: Chapter 2 and Chapter 4. Each experiment considered nodal, edge, and balance loss combinations, assessing their effects on prediction accuracy and computational efficiency. Notably, due to high computational demands, the experiments in Chapter 4 did not include the Weymouth equation loss.
+
+In Chapter 2 (Table \ref{tab:lineal_col_results}), the GNN-based model, when only the nodal loss was applied, achieved a Node Value of \(11.38 \pm 49.13\) and an Edge Value of \(0.91 \pm 1.26\), with a Balance Value of \(-2.19 \pm 58.56\). The model showed relatively high accuracy in nodal predictions and achieved minimal edge prediction errors, highlighting the model’s effectiveness in capturing nodal flows without explicitly optimizing for edge loss.
+
+In Chapter 4 (Table \ref{tab:base_nl_dummy_results_formatted}), the experiments showed varied performance depending on the losses included:
+
+1. In the configuration considering only nodal loss, the GNN achieved a Node Value of \(11.22 \pm 49.03\) and an Edge Value of \(62.73 \pm 81.99\), with a Balance Value of \(-2.28 \pm 25.48\). Compared to Chapter 2, this configuration demonstrated a higher edge error, suggesting that solely optimizing nodal loss did not generalize as effectively for edge predictions as observed previously.
+
+2. When both nodal and edge losses were included, the GNN model’s Node Value increased to \(12.47 \pm 48.89\), with a significant rise in Edge Value error to \(88.32 \pm 73.55\). The Balance Value was reduced to \(-1.03 \pm 1.90\), indicating improved nodal balance but an unfavorable impact on edge prediction. This result diverges from Chapter 2, where the inclusion of edge loss contributed to more consistent results in both nodal and edge values.
+
+3. In the configuration considering nodal, edge, and balance losses, the GNN model achieved a Node Value of \(12.33 \pm 48.64\), with an Edge Value of \(63.06 \pm 81.32\) and a Balance Value of \(-1.17 \pm 7.38\). This approach achieved better balance accuracy but did not markedly improve edge error over configurations excluding balance loss, contrasting with Chapter 2, where combined losses had more favorable outcomes.
+
+Across both chapters, it is clear that optimizing for multiple loss functions introduces complexity, with varied impacts on nodal and edge prediction accuracy. The Chapter 4 results indicate that including balance and edge losses improves nodal balance but can lead to edge-accuracy trade-offs. Further optimization strategies or alternative methods may be required to balance all metrics.
 
