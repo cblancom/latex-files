@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2023/Fedora 40)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
+A level-1 auxiliary file: chapters/Chapter_Abstract.aux
 A level-1 auxiliary file: chapters/Chapter1_preliminaries.aux
 A level-1 auxiliary file: chapters/Chapter_LinealCensnet.aux
 A level-1 auxiliary file: chapters/Chapter_MPCC.aux
@@ -11,7 +12,7 @@ Database file #1: biblio.bib
 Warning--empty year in GRLB_Hamilton
 You've used 58 entries,
             1876 wiz_defined-function locations,
-            857 strings with 16543 characters,
+            858 strings with 16572 characters,
 and the built_in function-call counts, 17757 in all, are:
 = -- 1756
 > -- 799

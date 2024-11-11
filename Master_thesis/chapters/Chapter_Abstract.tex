@@ -1,0 +1,17 @@
+\chapter*{Abstract} 
+
+
+This thesis explores novel approaches to modeling and optimizing natural gas network systems, focusing on integrating Graph Neural Networks (GNNs) and Mathematical Programs with Complementarity Constraints (MPCCs). The increasing complexity of natural gas networks and energy systems demands predictive models that capture detailed system behaviors while adhering to physical laws. Traditional models often need help to account for intricate network dynamics and interconnected pipelines under diverse operating conditions. This research addresses these limitations through a multi-chapter progression, with each chapter advancing the modeling framework based on the unique strengths of GNNs and MPCCs.
+
+In the second chapter, a GNN-based model was developed to learn the system responses obtained from a linear optimization model of the natural gas network, which modeled flow conditions without incorporating pressures. The GNN demonstrated the ability to approximate these responses effectively and generalize to cases not seen in the training phase, highlighting its potential for rapid, approximate solutions when computational efficiency is a priority.
+
+The third chapter introduces an MPCC-based optimization model tailored for natural gas systems. It extends the modeling framework to include the Weymouth equation, which governs pressure-flow relationships in interconnected networks. This MPCC model provides a highly accurate solution by embedding non-linear pressure constraints directly into the optimization process, improving accuracy compared to traditional approaches.
+
+Building on these advancements, the fourth chapter integrates the strengths of both approaches by using the MPCC-based model to generate accurate training data for a new, enhanced GNN-based model that incorporates pressure considerations. This hybrid model benefits from the robust physical fidelity of the MPCC-based approach, enabling the GNN to learn pressure-related responses effectively. As a result, this GNN-based model can generate predictions for scenarios not previously encountered in training, a feature it shares with the initial GNN model from the second chapter but now with greater accuracy due to the inclusion of pressure constraints.
+
+The results demonstrate that, while the GNN-based model may offer slightly lower accuracy than the MPCC model, it achieves predictions with a significant reduction in computational time, making it valuable for applications requiring rapid response. The MPCC-based optimization model, in contrast, provides the lowest error response, with superior accuracy in modeling non-linear pressure dynamics. 
+
+This thesis establishes that combining MPCC and GNN-based modeling, particularly with physics-informed loss functions, offers a scalable and computationally efficient framework for optimizing natural gas networks. Future research could extend this approach to incorporate transient dynamics, implement high-complexity Weymouth loss functions, and adopt a fully physics-informed neural network (PINN) approach, advancing predictive capabilities for resilient energy system operations under variable conditions.
+
+
+
