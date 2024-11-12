@@ -6,14 +6,11 @@ S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
   IEEE Transactions on Power Systems}, pp.~1--9, 2022.
 
 \bibitem{ABBASI2011xv}
-M.~Abbasi, H.~Afshari, S.~Asadi, M.~{Bakhshayeshi Baygi}, F.~H. Benam,
-  F.~Daneshzand, W.~Dullaert, M.~H. Ebrahimi, G.~Esmaeilian, B.~Fahimnia,
-  S.~Fallah, R.~Z. Farahani, M.~Hamedi, S.~Hosseini, M.~Jamshidi, L.~Kardar,
-  Z.~Khooban, R.~Molaei, S.~{Mostafa Mousavi}, E.~Nikbakhsh, M.~Parvini,
-  M.~Rajabi, F.~Ranaiefar, A.~Regan, S.~Rezapour, Z.~Rouhollahi, H.~Sadjady,
-  S.-A. Seyed-Alagheband, M.~SteadieSeifi, and A.~Zakery, ``List of
-  contributors,'' in {\em Logistics Operations and Management} (R.~Z. Farahani,
-  S.~Rezapour, and L.~Kardar, eds.), pp.~xv--xvi, London: Elsevier, 2011.
+E.~Commission, J.~R. Centre, H.~Calisto, L.~Gandossi, N.~Rodríguez~Gómez, and
+  R.~Bolado~Lavín, {\em EU gas transmission network facilities review –
+  Inventory, operation and failure modes of the main components of the EU gas
+  system – An information source to gas risk assessments}.
+\newblock Publications Office, 2020.
 
 \bibitem{review}
 E.~Raheli, Q.~Wu, M.~Zhang, and C.~Wen, ``Optimal coordinated operation of
@@ -84,15 +81,18 @@ M.~Aydin, ``Natural gas consumption and economic growth nexus for top 10
   natural gas–consuming countries: A granger causality analysis in the
   frequency domain,'' {\em Energy}, vol.~165, p.~179–186, 2018.
 
-\bibitem{eia}
-``U.s. energy information administration - eia - independent statistics and
-  analysis.''
+\bibitem{IEA_2024}
+IEA, ``Global gas demand set for stronger growth in 2024 despite heightened
+  geopolitical uncertainty - news,'' 2024.
 
-\bibitem{ideam}
-``Política nacional de cambio climático - ideam.''
+\bibitem{Promigas_2021}
+Promigas, ``Informe del sector gas natural 2021,'' 2021.
 
-\bibitem{creg_2021}
-``Estructura del sector de gas natural en colombia,'' Dec 2021.
+\bibitem{Restrepo-Trujillo_Moreno-Chuquen_Jiménez-García_Flores_Chamorro_2022}
+J.~Restrepo-Trujillo, R.~Moreno-Chuquen, F.~Jiménez-García, W.~Flores, and
+  H.~Chamorro, ``Scenario analysis of an electric power system in colombia
+  considering the el niño phenomenon and the inclusion of renewable
+  energies,'' {\em Energies}, vol.~15, p.~6690, Sep 2022.
 
 \bibitem{paper-col}
 J.~Restrepo-Trujillo, R.~Moreno-Chuquen, and F.~N. Jiménez-García,
@@ -101,11 +101,18 @@ J.~Restrepo-Trujillo, R.~Moreno-Chuquen, and F.~N. Jiménez-García,
   International Journal of Energy Economics and Policy}, vol.~10, no.~6,
   p.~66–74, 2020.
 
-\bibitem{xm-generacion}
-``Oferta y generación.''
+\bibitem{Arango-Aramburo_Turner_Daenzer_Ríos-Ocampo_Hejazi_Kober_Álvarez-Espinosa_Romero-Otalora_vanderZwaan_2019}
+S.~Arango-Aramburo, S.~W. Turner, K.~Daenzer, J.~P. Ríos-Ocampo, M.~I. Hejazi,
+  T.~Kober, A.~C. Álvarez Espinosa, G.~D. Romero-Otalora, and B.~van~der
+  Zwaan, ``Climate impacts on hydropower in colombia: A multi-model assessment
+  of power sector adaptation pathways,'' {\em Energy Policy}, vol.~128,
+  p.~179–188, May 2019.
 
-\bibitem{fenomeno_niño}
-``Fenomeno niño y niña.''
+\bibitem{Villa-Loaiza_Taype-Huaman_Benavides-Franco_Buenaventura-Vera_Carabalí-Mosquera_2023}
+C.~Villa-Loaiza, I.~Taype-Huaman, J.~Benavides-Franco, G.~Buenaventura-Vera,
+  and J.~Carabalí-Mosquera, ``Does climate impact the relationship between the
+  energy price and the stock market? the colombian case,'' {\em Applied
+  Energy}, vol.~336, p.~120800, Apr 2023.
 
 \bibitem{Ignacio_Fariza_2022}
 M.~P. Ignacio~Fariza, ``La sequía desploma la generación hidroeléctrica

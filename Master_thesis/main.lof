@@ -1,31 +1,31 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Types of graphs\relax }}{6}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces General diagram of a multilayer perceptron, showing the input layers in green, the hidden layers in blue and the outputs in red.\relax }}{8}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces General outline of the CensNet-based model used.\relax }}{19}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{20}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Model results using the losses associated with the flows in nodes and edges predictions in the 8-node network.\relax }}{22}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the colombian 63-node network.\relax }}{24}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the colombian 63-node network.\relax }}{25}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Types of graphs\relax }}{7}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces General diagram of a multilayer perceptron, showing the input layers in green, the hidden layers in blue and the outputs in red.\relax }}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces General outline of the CensNet-based model used.\relax }}{20}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Model results using the losses associated with the flows in nodes and edges predictions in the 8-node network.\relax }}{23}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the colombian 63-node network.\relax }}{25}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the colombian 63-node network.\relax }}{26}{figure.caption.18}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Integrated system 9/8 used in Case Study I, modified from the MPNG software.~\cite {Wilson_poly}\relax }}{38}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Cost function histogram for the Taylor, SOC, and MPCC Weymouth approximation approaches in the 9-bus 8-node system.\relax }}{39}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Boxplot of Weymouth error distribution for each pipeline in the 9/8 system attained by contrasted approximation approaches.\relax }}{39}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.\relax }}{40}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Weymouth approximation errors for each pipeline $p$ reached by the contrasted approaches in the 118/48 study case.\relax }}{41}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.\relax }}{42}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Weymouth error density on the Colombian case versus the gas flow and operation day.\relax }}{43}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Output-to-input pressure ratio at the compressor in the 96/63 system. \relax }}{44}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Outlying connection of well-compressor-pipeline on the system 96/63 used in Case Study III.\relax }}{45}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Integrated system 9/8 used in Case Study I, modified from the MPNG software.~\cite {Wilson_poly}\relax }}{39}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Cost function histogram for the Taylor, SOC, and MPCC Weymouth approximation approaches in the 9-bus 8-node system.\relax }}{40}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Boxplot of Weymouth error distribution for each pipeline in the 9/8 system attained by contrasted approximation approaches.\relax }}{40}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.\relax }}{41}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Weymouth approximation errors for each pipeline $p$ reached by the contrasted approaches in the 118/48 study case.\relax }}{42}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.\relax }}{43}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Weymouth error density on the Colombian case versus the gas flow and operation day.\relax }}{44}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Output-to-input pressure ratio at the compressor in the 96/63 system. \relax }}{45}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Outlying connection of well-compressor-pipeline on the system 96/63 used in Case Study III.\relax }}{46}{figure.caption.28}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces General outline of the CensNet-based model used.\relax }}{49}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{50}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{51}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{52}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{53}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{54}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{56}{figure.caption.36}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{57}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{58}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces General outline of the CensNet-based model used.\relax }}{50}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{51}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{52}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{53}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{54}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{55}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{57}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{58}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{59}{figure.caption.38}%
 \addvspace {10\p@ }

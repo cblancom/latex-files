@@ -12,43 +12,43 @@ Database file #1: biblio.bib
 Warning--empty year in GRLB_Hamilton
 You've used 58 entries,
             1876 wiz_defined-function locations,
-            858 strings with 16572 characters,
-and the built_in function-call counts, 17757 in all, are:
-= -- 1756
-> -- 799
+            862 strings with 17070 characters,
+and the built_in function-call counts, 18045 in all, are:
+= -- 1822
+> -- 782
 < -- 0
-+ -- 289
-- -- 231
-* -- 1119
-:= -- 2332
-add.period$ -- 58
++ -- 283
+- -- 225
+* -- 1117
+:= -- 2373
+add.period$ -- 63
 call.type$ -- 58
-change.case$ -- 56
+change.case$ -- 55
 chr.to.int$ -- 0
 cite$ -- 59
-duplicate$ -- 1063
-empty$ -- 1450
-format.name$ -- 231
-if$ -- 4504
+duplicate$ -- 1104
+empty$ -- 1445
+format.name$ -- 225
+if$ -- 4588
 int.to.chr$ -- 0
 int.to.str$ -- 58
-missing$ -- 55
-newline$ -- 181
-num.names$ -- 55
-pop$ -- 186
+missing$ -- 59
+newline$ -- 182
+num.names$ -- 58
+pop$ -- 175
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1006
+skip$ -- 1031
 stack$ -- 0
-substring$ -- 851
-swap$ -- 627
+substring$ -- 866
+swap$ -- 662
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 114
+while$ -- 119
 width$ -- 60
-write$ -- 557
+write$ -- 574
 (There was 1 warning)
