@@ -197,6 +197,34 @@ When balance loss is introduced alongside nodal and edge losses in the third exp
 In the final GNN experiment, which includes the Weymouth loss along with nodal, edge, and balance losses, the nodal flow value slightly decreases to \( 4.76 \pm 12.51 \), and the edge flow value remains close to the benchmark at \( 22.93 \pm 14.64 \). The balance value, at \( -0.070 \pm 1.665 \), suggests a slight deviation from perfect balance, though still within acceptable variability. The prediction time remains efficient at \( 0.14 \pm 0.05 \) seconds, underscoring the GNN's capability to handle increasingly complex models without significantly increasing computational time.
 
 
+\subsubsection{Stochastic Analysis}
+To study the uncertainty inherent in the network further, we first computed the joint probability density functions (PDFs) for the variables used as inputs to the network. For training, each node was assigned five inputs (numbered 0 to 4), corresponding respectively to the lower limit of gas injection capacity, the upper limit of gas injection capacity, the demanded flow, the lower limit of pressure, and the upper limit of pressure. Since the lower limits are permanently fixed at zero, these two variables were excluded from the analysis. Although the training data were initially sampled from a uniform distribution, only the successfully converged samples during the optimization process were retained. Consequently, the resulting PDFs do not exhibit a uniform distribution; instead, they display a variety of distribution shapes.
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=1\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_input_input}
+\end{figure}
+     
+
+
+Figure~\ref{fig:joint_distributions_input_input} shows the first group of joint distributions identified in this study. These distributions are characterized by two distinct modes, which likely indicate two different operational regimes of the system. Notably, none of these distributions correspond to any pair that includes node 1 (the input node of the first compressor) or node 5 (the node immediately preceding one of the demand nodes).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
