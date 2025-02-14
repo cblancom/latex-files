@@ -203,24 +203,39 @@ To study the uncertainty inherent in the network further, we first computed the 
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=1\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
+        \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
     \end{center}
     \caption{}\label{fig:joint_distributions_input_input}
 \end{figure}
      
 
 
-Figure~\ref{fig:joint_distributions_input_input} shows the first group of joint distributions identified in this study. These distributions are characterized by two distinct modes, which likely indicate two different operational regimes of the system. Notably, none of these distributions correspond to any pair that includes node 1 (the input node of the first compressor) or node 5 (the node immediately preceding one of the demand nodes).
 
+Figure~\cref{fig:joint_distributions_input_input} presents the first group of joint distributions identified in this study, characterized by the presence of two distinct modes, which probably correspond to the two main operating regimes of the system. In this group, several relationships arise involving the injection node (N0), the demand nodes (N6 and N7), and the pass-through nodes (N3, N4, N5, and N2, where N2 represents a pass-through node between compressors).
 
+For example, the distributions relating N0 to the variable I1 (upper injection limit) reveal a clear dependence between the maximum injection capacity and the maximum nodal pressure at nodes N3 and N4. Likewise, a relationship between this variable and demand (I2) is observed at nodes N6 and N7. Also noteworthy is the relationship between variable I4 (maximum nodal pressure) at node N0 with the maximum pressures at N3 and N4 and with demand at N2.
 
+Other variables within this group include the relationship between the maximum pressure at N2 and the demand and pressure at N7 and N4, respectively. In addition, a correlation between the upper-pressure limit between nodes N4 and N7 is identified. Finally, the relationship between the pressure limits of N5 and N6 and between the demanded flows at N6 and N7 should be mentioned.
 
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_input_input_no_mode}
+\end{figure}
+ 
 
+Another group of joint distributions exhibiting an interesting pattern was identified, as shown in figure~\cref{fig:joint_distributions_input_input_no_mode}. These PDFs are characterized by a lower concentration in their extreme regions, visually represented by lighter colors, which indicate a lower peak in the distribution. In this group, a clear relationship emerges between the upper limit of nodal pressure and the demanded flow. This pattern is evident in the distributions corresponding to node pairs N3 and N7, N4 and N6, N4 and N7, N5 and N6, and within node N6 itself. The only exception is the distribution corresponding to the upper nodal pressure limits between N0 and N6, where this relationship is not observed.
 
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_wide_mode.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_input_input_wide_mode}
+\end{figure}
+ 
 
-
-
-
+A third group of distributions was identified and can be seen in Figure~\cref{fig:joint_distributions_input_input_wide_mode}, characterized by a considerably large opaque zone in the density plots. This opaque region suggests an intense probability mass concentration in the distribution's central part, indicating robust interactions between the paired variables. In this group, the identified pairs include the relationship between the upper injection limit at node N0 (I1) and the upper nodal pressure at node N1 (I4), between N0-I1 and N5-I4, between the upper nodal pressure at N0 (I4) and that at N2 (I4), and between the upper nodal pressures at nodes N1 and N4 (both measured with I4).
 
 
 
