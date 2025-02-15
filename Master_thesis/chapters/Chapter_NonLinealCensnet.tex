@@ -238,6 +238,74 @@ Another group of joint distributions exhibiting an interesting pattern was ident
 A third group of distributions was identified and can be seen in Figure~\cref{fig:joint_distributions_input_input_wide_mode}, characterized by a considerably large opaque zone in the density plots. This opaque region suggests an intense probability mass concentration in the distribution's central part, indicating robust interactions between the paired variables. In this group, the identified pairs include the relationship between the upper injection limit at node N0 (I1) and the upper nodal pressure at node N1 (I4), between N0-I1 and N5-I4, between the upper nodal pressure at N0 (I4) and that at N2 (I4), and between the upper nodal pressures at nodes N1 and N4 (both measured with I4).
 
 
+Joint PDFs for the various output variables were generated to analyze the system behavior further. In this analysis, the node nomenclature was maintained; however, it is important to note that there are three types of outputs: the flow injected at each node, the pressure at each node, and the flow transported by each edge (whether pipeline or compressor).
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_1.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_output_output_1}
+\end{figure}
+ 
+The first group of distributions identified appears to follow a Gaussian pattern or at least a similar distribution, as shown in Figure~\cref{fig:joint_distributions_output_output_1}. Among these, one subgroup comprises the relationship between the injected flow at node N0 and the pressures at the remaining nodes. The flow through the first pipeline exhibits a similar pattern when correlated with all nodal pressures. This behavior is logical because, in the network studied, node N0—the only injection node—is connected exclusively to pipeline E0, meaning that the outlet O0 at node N0 and the outlet O2 at pipeline E0 correspond to the same flow. Moreover, this group also includes the distributions generated from the O2 variables of edges E6 and E7 when compared with all nodal pressures. These two edges represent the compressors in the system, which are connected in series so that the O2 outputs of edges E6 and E7 correspond to the same flow.
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_output_output_2}
+\end{figure}
+ 
+The second group of joint PDFs exhibits an elongated, diagonal shape that indicates a linear relationship between the corresponding variables, which can be seen in Figure~\cref{fig:joint_distributions_output_output_2}. In this group, one central pair is the relationship between the nodal pressure at node N2—responsible for connecting the first compressor's output with the second's input—and the pressures at the remaining nodes. This linear trend suggests that variations in the pressure at N2 are directly associated with proportional changes in the pressures observed across the network. Additionally, this group includes the relationship between the flow injected at node N0 and the flow transported by edge E5, which is connected to node N6, a demand node.  
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_3.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_output_output_3}
+\end{figure}
+ 
+
+
+A third group of joint distributions was identified, characterized by slightly elongated normal distributions (see Figure 7). Unlike the first group, which exhibited strongly Gaussian shapes, and the second group, which showed linear relationships, the distributions in this group display moderate elongation along the diagonal. This suggests that the correlation between the variables is less pronounced and not strictly linear. In particular, these distributions arise from the relationship between the outlet pressure at the injection node (N0) and the pressures at the downstream compressor nodes. Similarly, they capture the relationship between the pressure at the compressor inlet node (N1) and the pressures at the downstream compressor nodes.
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_linear.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_output_output_linear}
+\end{figure}
+ 
+
+Figure~\ref{fig:outputs_outputs_linear} illustrates a group of joint distributions exhibiting a markedly linear behavior, almost as straight lines with a clear slope. These distributions capture the relationships between the pressures at a given node and those at downstream nodes, starting with node N4, which is positioned at the outlet of the compressors. This linear trend is expected because, in order to maintain unidirectional gas flow, the pressures throughout the network must decrease gradually. 
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_5.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_output_output_5}
+\end{figure}
+ 
+
+Another group of joint distributions, which can be seen in Figure~\cref{fig:joint_distributions_output_output_5}, was observed to resemble a normal distribution closely but with much lower dispersion, indicating smaller covariances among the variables. These distributions were obtained by correlating the flow through the first pipeline with the pressures measured at all nodes in the network. Similar patterns are also observed when the nodal pressures are compared with the flows through edges E6 and E7; however, these images are omitted because the three edges are connected sequentially and share the same gas flow, their behavior is as expected.
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_6.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_output_output_5}
+\end{figure}
+ 
+
+
+
+
+
+
 
 
 
