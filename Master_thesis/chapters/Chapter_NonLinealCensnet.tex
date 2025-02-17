@@ -203,9 +203,9 @@ To study the uncertainty inherent in the network further, we first computed the 
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
+        \includegraphics[width=0.67\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_input_input}
+    \caption{Joint PDFs between the inputs used in the 8-node network, which have two modes. }\label{fig:joint_distributions_input_input}
 \end{figure}
      
 
@@ -219,9 +219,9 @@ Other variables within this group include the relationship between the maximum p
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_input_input_no_mode}
+    \caption{Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode. }\label{fig:joint_distributions_input_input_no_mode}
 \end{figure}
  
 
@@ -229,9 +229,9 @@ Another group of joint distributions exhibiting an interesting pattern was ident
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_wide_mode.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_wide_mode.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_input_input_wide_mode}
+    \caption{Joint PDFs between the inputs used in the 8-node network, which have a considerably wide mode with respect to the entire distribution }\label{fig:joint_distributions_input_input_wide_mode}
 \end{figure}
  
 
@@ -243,9 +243,9 @@ Joint PDFs for the various output variables were generated to analyze the system
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_1.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_1.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_output_output_1}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a behavior quite similar to that of a Gaussian distribution.}\label{fig:joint_distributions_output_output_1}
 \end{figure}
  
 The first group of distributions identified appears to follow a Gaussian pattern or at least a similar distribution, as shown in Figure~\cref{fig:joint_distributions_output_output_1}. Among these, one subgroup comprises the relationship between the injected flow at node N0 and the pressures at the remaining nodes. The flow through the first pipeline exhibits a similar pattern when correlated with all nodal pressures. This behavior is logical because, in the network studied, node N0—the only injection node—is connected exclusively to pipeline E0, meaning that the outlet O0 at node N0 and the outlet O2 at pipeline E0 correspond to the same flow. Moreover, this group also includes the distributions generated from the O2 variables of edges E6 and E7 when compared with all nodal pressures. These two edges represent the compressors in the system, which are connected in series so that the O2 outputs of edges E6 and E7 correspond to the same flow.
@@ -253,9 +253,9 @@ The first group of distributions identified appears to follow a Gaussian pattern
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_output_output_2}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a linear behavior, with a slight dispersion.}\label{fig:joint_distributions_output_output_2}
 \end{figure}
  
 The second group of joint PDFs exhibits an elongated, diagonal shape that indicates a linear relationship between the corresponding variables, which can be seen in Figure~\cref{fig:joint_distributions_output_output_2}. In this group, one central pair is the relationship between the nodal pressure at node N2—responsible for connecting the first compressor's output with the second's input—and the pressures at the remaining nodes. This linear trend suggests that variations in the pressure at N2 are directly associated with proportional changes in the pressures observed across the network. Additionally, this group includes the relationship between the flow injected at node N0 and the flow transported by edge E5, which is connected to node N6, a demand node.  
@@ -263,9 +263,9 @@ The second group of joint PDFs exhibits an elongated, diagonal shape that indica
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_3.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_3.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_output_output_3}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a behavior similar to a skewed Gaussian . }\label{fig:joint_distributions_output_output_3}
 \end{figure}
  
 
@@ -275,19 +275,19 @@ A third group of joint distributions was identified, characterized by slightly e
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_linear.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_linear.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_output_output_linear}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a quite marked linear behavior.}\label{fig:joint_distributions_output_output_linear}
 \end{figure}
  
 
-Figure~\ref{fig:outputs_outputs_linear} illustrates a group of joint distributions exhibiting a markedly linear behavior, almost as straight lines with a clear slope. These distributions capture the relationships between the pressures at a given node and those at downstream nodes, starting with node N4, which is positioned at the outlet of the compressors. This linear trend is expected because, in order to maintain unidirectional gas flow, the pressures throughout the network must decrease gradually. 
+Figure~\ref{fig:joint_distributions_output_output_linear} illustrates a group of joint distributions exhibiting a markedly linear behavior, almost as straight lines with a clear slope. These distributions capture the relationships between the pressures at a given node and those at downstream nodes, starting with node N4, which is positioned at the outlet of the compressors. This linear trend is expected because, in order to maintain unidirectional gas flow, the pressures throughout the network must decrease gradually. 
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_5.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_5.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_output_output_5}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a Gaussian behavior with small covariances }\label{fig:joint_distributions_output_output_5}
 \end{figure}
  
 
@@ -295,12 +295,46 @@ Another group of joint distributions, which can be seen in Figure~\cref{fig:join
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_6.png}
+        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_6.png}
     \end{center}
-    \caption{}\label{fig:joint_distributions_output_output_5}
+    \caption{Joint PDFs among the outputs used in the 8-node network, which are quite dispersed along the variable associated with the N7 node flow.}\label{fig:joint_distributions_output_output_6}
 \end{figure}
  
 
+Figure~\cref{fig:joint_distributions_output_output_6} shows the group characterized by distributions that are elongated along the axis of the first variable used in constructing the joint PDF while exhibiting a narrower spread along the second variable's axis. In our study, this subgroup includes the distributions that relate the gas flow on edge E4—which carries gas to the N7 demand node—to the pressures measured at each node. This behavior suggests that variations in the gas flow on E4 are more strongly influenced by the pressure variable, resulting in a pronounced elongation in that direction. 
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_7.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_output_output_7}
+\end{figure}
+ 
+
+A final group of joint distributions can be seen in Figure~\cref{fig:joint_distributions_output_output_7}. This group is characterized by distributions with an inversely proportional behavior. The joint PDFs in this group are associated with the relationship between the flow transported by edge E3 and the flows transported by the other edges, except those corresponding to edges E4 and E5. This result is interesting, as it reflects a distinct behavior of the system: edges E1, E2, and E3 form a closed trajectory, and according to the initially assumed flow direction, there were instances in which edge E3 exhibited a flow opposite to that expected. In contrast, the flows that do not display this inverse relationship leave the closed trajectory to feed the demand nodes.
+
+
+The relationships between input and output variables were further analyzed to conclude the study of the joint distributions obtained from the variables in this case study. As in previous analyses, several groups of distributions with similar behavior were visually identified. \begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_inputs_outputs_1}
+\end{figure}
+
+The first group can be seen in Figure~\cref{fig:joint_distributions_inputs_outputs_1} and corresponds to distributions exhibiting high dispersion, although the mode (or modes, in some cases) varies depending on the variables considered. In this group, the distributions include those constructed between the flow on edge E4—which directly supplies the demand node N6—and the upper-pressure limits at the other nodes. Additionally, this group encompasses the distributions generated from the relationship between the flow injected at node N0 and the demanded flow at node N7.
+
+
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_2.png}
+    \end{center}
+    \caption{}\label{fig:joint_distributions_inputs_outputs_2}
+\end{figure}
+ 
+
+The second group of joint distributions (Figure~\cref{fig:joint_distributions_inputs_outputs_2}) is characterized by an apparent linear behavior among the variables, as shown by the almost linear trends of the diagrams. In some cases, the dispersion of the distribution itself made the line look wider but without losing its linear characteristic. These distributions primarily arise from the relationships between the gas demand at nodes N6 and N7—represented by the variable I2 (the gas demanded)—and the flows transported by all edges but E3, denoted by O2, as well as the nodal injection flow, denoted by O0, at node N0. These relationships indicate that as the gas demand increases at the demand nodes, the corresponding flows in the edges (and at the injection node) adjust proportionally, reflecting the underlying physical constraints that govern flow direction and consistency in the network.
 
 
 
@@ -308,7 +342,11 @@ Another group of joint distributions, which can be seen in Figure~\cref{fig:join
 
 
 
+A stochastic analysis was performed to assess further the robustness of the trained GNN-based model and its ability to generalize under uncertainty. This analysis is motivated by the need to simulate and evaluate the model's responses in scenarios that were not explicitly present in the training data, thereby providing a means to quantify the variability and reliability of the model's predictions.
 
+Initially, a kernel density estimate (KDE) was fitted to the input training data used for the GNN model. From this estimated distribution, a set of synthetic input samples, denoted as \( X_{\text{sample}} \), was generated. These synthetic inputs were then propagated forward through the trained network, taking into account all loss components, to yield a corresponding set of output predictions, denoted as \( y_{\text{sample}} \). In parallel, the original training inputs were propagated through the network to obtain output predictions, denoted as \(\bar{y}_{\text{train}}\). A second KDE was then fitted using the training output data (hereafter referred to as \(y_{\text{train}}\)). Two log-likelihoods were calculated based on this second KDE: one using \(y_{\text{sample}}\) and the other using \(\bar{y}_{\text{train}}\). The log-likelihood for the synthetic outputs, \(y_{\text{sample}}\), was found to be \(-6,696,247.56\), while the log-likelihood for the training outputs, \(\bar{y}_{\text{train}}\), was \(-6,657,534.62\). The closeness of these two values suggests that the synthetic outputs generated from the input KDE closely resemble the distribution of the training outputs.
+
+To further evaluate the goodness-of-fit between the distributions of \( y_{\text{sample}} \) and \( \bar{y}_{\text{train}} \), a Kolmogorov–Smirnov (K–S) test was conducted using three alternatives: two-sided, less, and more significant. The test results were as follows: a two-sided test yielded a statistic of \( 0.01833 \) with a p-value of \( 0.81482 \) (statistic location \(-0.34018\), sign \(1\)); the 'less' alternative produced a statistic of \( 0.01167 \) with a p-value of \( 0.72137 \) (statistic location \(0.30738\), sign \(-1\)); and the 'greater' alternative returned a statistic of \( 0.01833 \) with a p-value of \( 0.44640 \) (statistic location \(-0.34018\), sign \(1\)). These statistical measures provide an initial indication that the synthetic outputs generated via the KDE-based sampling are consistent with the distribution of outputs observed during training, thereby supporting the model's capability to generalize to new, unseen scenarios.
 
 
 \subsection{Case Study II: 63-node Network (Colombia)}
@@ -427,6 +465,15 @@ In the second GNN experiment, both nodal and edge losses are incorporated. The n
 The third GNN experiment includes nodal, edge, and balance losses. Here, the nodal flow means it is \( 12.33 \pm 48.64 \), and the edge flow means returns to a closer alignment with IPOPT at \( 63.06 \pm 81.32 \). The balance value stabilizes, reaching \( -1.17 \pm 7.38 \), while the prediction time remains consistent at \( 0.15 \pm 0.04 \) seconds.
 
 This table illustrates the GNN model's capability to maintain accurate predictions and achieve lower computational time than IPOPT, especially when incorporating more loss components.
+
+
+
+
+An uncertainty analysis similar to the previous case was performed for the Colombian natural gas transportation network. Using the same methodology, a second kernel density estimate (KDE) was fitted to the training output data, and synthetic outputs were generated. The log-likelihood computed from the synthetic outputs was \(-104,413,419.34\), while that computed from the training outputs was \(-104,037,047.58\). In addition, a Kolmogorov–Smirnov (K–S) test was carried out under three different alternatives, yielding the following results: a test statistic of \(0.00527\) with a p-value of \(0.95556\) (statistic location \(0.52109\), statistic sign \(-1\)); a test statistic of \(0.00527\) with a p-value of \(0.59061\) (statistic location \(0.52109\), statistic sign \(-1\)); and a test statistic of \(0.00324\) with a p-value of \(0.81777\) (statistic location \(-0.73443\), statistic sign \(1\)). These findings indicate a high similarity between the synthetic and training outputs, as the low test statistics and high p-values suggest that the two distributions are statistically indistinguishable. The slight differences in log-likelihood values further confirm that the synthetic data effectively capture the essential characteristics of the training data, thereby validating the robustness of the stochastic sampling approach for this network.
+
+
+
+
 
 
 
