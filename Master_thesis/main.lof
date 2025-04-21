@@ -29,15 +29,11 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode. \relax }}{58}{figure.caption.38}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Joint PDFs between the inputs used in the 8-node network, which have a considerably wide mode with respect to the entire distribution \relax }}{59}{figure.caption.39}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which have a behavior quite similar to that of a Gaussian distribution.\relax }}{60}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which have a linear behavior, with a slight dispersion.\relax }}{60}{figure.caption.41}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which have a behavior similar to a skewed Gaussian . \relax }}{61}{figure.caption.42}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which have a quite marked linear behavior.\relax }}{62}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which have a Gaussian behavior with small covariances \relax }}{63}{figure.caption.44}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Joint PDFs among the outputs used in the 8-node network, which are quite dispersed along the variable associated with the N7 node flow.\relax }}{63}{figure.caption.45}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which show a negative linear behavior. \relax }}{64}{figure.caption.46}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Joint PDFs between the inputs and outputs used in the 8-node network, which present a wide dispersion along both variables. \relax }}{65}{figure.caption.47}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Joint PDFs between the inputs and outputs used in the 8-node network, which present a linear behavior, although with different dispersions among them. \relax }}{66}{figure.caption.48}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{68}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{69}{figure.caption.50}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{70}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which have a negative flow.\relax }}{61}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Joint PDFs between the outputs used in the 8-node network, which... \relax }}{63}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Joint PDFs between the inputs and outputs used in the 8-node network, which present a wide dispersion along second variable. \relax }}{65}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Joint PDFs between the inputs and outputs used in the 8-node network, which present a linear behavior, although with different dispersions among them. \relax }}{66}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{69}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{70}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the 8-node network.\relax }}{70}{figure.caption.47}%
 \addvspace {10\p@ }

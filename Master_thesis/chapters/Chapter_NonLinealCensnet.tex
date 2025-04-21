@@ -203,130 +203,163 @@ To study the uncertainty inherent in the network further, we first computed the 
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=0.67\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
+        \includegraphics[width=0.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
     \end{center}
     \caption{Joint PDFs between the inputs used in the 8-node network, which have two modes. }\label{fig:joint_distributions_input_input}
 \end{figure}
      
 
 
+Figure~\cref{fig:joint_distributions_input_input} presents the first group of joint distributions identified in this study, characterized by the presence of two distinct modes, which likely correspond to the two main operating regimes of the system. This group includes joint patterns involving the injection node (N0), the demand nodes (N6 and N7), and several intermediate or pass-through nodes (N2, N4, and N5). The observed relationships reflect the physical and topological structure of the network, particularly the connections among injection, compression, and demand points.
 
-Figure~\cref{fig:joint_distributions_input_input} presents the first group of joint distributions identified in this study, characterized by the presence of two distinct modes, which probably correspond to the two main operating regimes of the system. In this group, several relationships arise involving the injection node (N0), the demand nodes (N6 and N7), and the pass-through nodes (N3, N4, N5, and N2, where N2 represents a pass-through node between compressors).
+A relation is observed between the maximum pressure at node N4 and the maximum pressure at node N2. This is consistent with their connection via the compressor chain, where N2 is the output of compressor 1 and N4 is part of the main pipeline trajectory. Similarly, the relationship between the maximum pressures at N6 and N5 suggests a pressure dependency between this demand node and its adjacent pass-through node.
 
-For example, the distributions relating N0 to the variable I1 (upper injection limit) reveal a clear dependence between the maximum injection capacity and the maximum nodal pressure at nodes N3 and N4. Likewise, a relationship between this variable and demand (I2) is observed at nodes N6 and N7. Also noteworthy is the relationship between variable I4 (maximum nodal pressure) at node N0 with the maximum pressures at N3 and N4 and with demand at N2.
+A group of distributions reveals strong associations between the maximum demand at node N7 ($\overline{fu}$) and upstream variables. Specifically, N7's maximum flow shows dependence on the maximum injection flow at node N0 ($\overline{fw}$), and on the maximum pressures at nodes N0, N1 (compressor 1 input), and N5. These patterns suggest that the flow capacity at the far end of the system (N7) is conditioned by both supply and compression states at the upstream nodes. 
 
-Other variables within this group include the relationship between the maximum pressure at N2 and the demand and pressure at N7 and N4, respectively. In addition, a correlation between the upper-pressure limit between nodes N4 and N7 is identified. Finally, the relationship between the pressure limits of N5 and N6 and between the demanded flows at N6 and N7 should be mentioned.
+Also, a direct relationship is identified between the pressure limits of node N7 and node N4. Given their physical connection, this correlation likely reflects the way pressure constraints propagate between adjacent sections of the network.
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode.png}
+        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode.png}
     \end{center}
-    \caption{Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode. }\label{fig:joint_distributions_input_input_no_mode}
+    \caption{Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode. }
+    \label{fig:joint_distributions_input_input_no_mode}
 \end{figure}
  
 
-Another group of joint distributions exhibiting an interesting pattern was identified, as shown in figure~\cref{fig:joint_distributions_input_input_no_mode}. These PDFs are characterized by a lower concentration in their extreme regions, visually represented by lighter colors, which indicate a lower peak in the distribution. In this group, a clear relationship emerges between the upper limit of nodal pressure and the demanded flow. This pattern is evident in the distributions corresponding to node pairs N3 and N7, N4 and N6, N4 and N7, N5 and N6, and within node N6 itself. The only exception is the distribution corresponding to the upper nodal pressure limits between N0 and N6, where this relationship is not observed.
+Figure~\cref{fig:joint_distributions_input_input_no_mode} presents a second group of joint distributions identified in the study, which are characterized by low probability concentrations at their extreme values. This behavior, visually represented by lighter colors in the joint probability density functions, suggests a weaker or more dispersed correlation structure between the involved variables.
 
-\begin{figure}
+Several of these relationships involve the injection node N0 and its connection to both upstream and downstream nodes in terms of maximum pressure ($\overline{p}$) and maximum injection flow ($\overline{fw}$). For instance, the joint distributions between the maximum pressure at N2 and N0, as well as between the maximum pressures at N3, N4, and N6 with that of N0, reveal a broadly scattered pattern. This indicates that while these variables are structurally related, their extreme values do not consistently co-occur.
+
+A similar pattern is observed in the distributions involving the maximum pressure at N3 and the injection capacity at N0. Despite the proximity of these nodes within the system’s trajectory, the weak concentration suggests a more flexible operational regime or buffering effect along the path.
+
+Further examples include the relationships between N5 and both N0 and N2, where again, the lack of sharp density at the extremes hints at variability in how pressure is maintained or transmitted through these nodes. Lastly, the distributions between the maximum pressure at N6 and both N0 and N3 continue this trend, reinforcing the interpretation that, in these cases, the system does not exhibit a strong deterministic link in the upper operational ranges of the involved variables.\begin{figure}
+
+
     \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_wide_mode.png}
+        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_wide_mode.png}
     \end{center}
-    \caption{Joint PDFs between the inputs used in the 8-node network, which have a considerably wide mode with respect to the entire distribution }\label{fig:joint_distributions_input_input_wide_mode}
+    \caption{Joint PDFs between the inputs used in the 8-node network, which have a considerably wide mode with respect to the entire distribution }
+    \label{fig:joint_distributions_input_input_wide_mode}
 \end{figure}
  
 
-A third group of distributions was identified and can be seen in Figure~\cref{fig:joint_distributions_input_input_wide_mode}, characterized by a considerably large opaque zone in the density plots. This opaque region suggests an intense probability mass concentration in the distribution's central part, indicating robust interactions between the paired variables. In this group, the identified pairs include the relationship between the upper injection limit at node N0 (I1) and the upper nodal pressure at node N1 (I4), between N0-I1 and N5-I4, between the upper nodal pressure at N0 (I4) and that at N2 (I4), and between the upper nodal pressures at nodes N1 and N4 (both measured with I4).
+Figure~\cref{fig:joint_distributions_input_input_wide_mode} presents a third group of joint distributions distinguished by the presence of large dark zones in the joint probability density functions, indicating regions of high probability concentration. These distributions suggest strong dependencies between the involved variables, particularly around certain typical operating conditions of the system.
+A clear example is the distribution involving the maximum injection flow at node N0 and the maximum pressure at node N1, which corresponds to the input of the first compressor. The high-probability region observed here suggests a consistent relationship between the capacity to inject gas into the network and the pressure conditions at the compressor’s intake, possibly reflecting operational constraints or control strategies that maintain a stable relationship between these variables.
 
 
-Joint PDFs for the various output variables were generated to analyze the system behavior further. In this analysis, the node nomenclature was maintained; however, it is important to note that there are three types of outputs: the flow injected at each node, the pressure at each node, and the flow transported by each edge (whether pipeline or compressor).
+Similarly, the joint distribution between the maximum pressure at node N1 and the pressure at node N4 — a pass-through node connected downstream — also shows a dense concentration of probability. This implies a strong coupling between the input conditions of the first compressor and the downstream pressure, likely due to the system’s physical configuration and flow continuity.
+Lastly, a comparable pattern is observed in the joint distribution between the maximum demand at node N6 and the pressure at node N4. The high-probability zone here may indicate a regulatory relationship, where variations in demand at N6 are closely associated with pressure conditions at N4, possibly due to their direct physical connection and the influence of demand on local pressure levels.
+
 
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_1.png}
+        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_1.png}
     \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which have a behavior quite similar to that of a Gaussian distribution.}\label{fig:joint_distributions_output_output_1}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a behavior quite similar to that of a Gaussian distribution.}
+    \label{fig:joint_distributions_output_output_1}
+\end{figure}
+
+
+To continue with the stochastic analysis, this section discusses the joint probability density functions (PDFs) that exhibit noteworthy behaviors, obtained from the output variables of the optimization model when it was supplied with the various scenarios generated through the previously described sampling process. It is important to note that, at this stage, each output variable was normalized with respect to the maximum capacity used in the corresponding scenario. That is, the values of the variables shown in this section are expressed relative to the maximum value that the variable could reach under that specific configuration.
+
+
+Figure~\ref{fig:joint_distributions_output_output_1} presents the joint distributions that, at first glance, exhibit a Gaussian-like shape. However, it should be noted that these distributions tend to show greater dispersion along the first variable compared to the second. In this case, the X-axis corresponds to the normalized flow transported through pipeline E1, which connects nodes N3 and N4 and forms part of the system’s closed-loop trajectory. The Y-axis in each of the four subplots represents the normalized nodal pressure at nodes N3, N4, N6, and N7, respectively.
+Nodes N3 and N4 are part of a compact subsystem of pass-through nodes that define the core loop of the network. N6 and N7, while functioning as demand nodes, are connected downstream of this region, with N7 specifically being supplied via node N4. This spatial arrangement suggests that the observed distributions highlight the interdependence between the transported flow through this central pipeline and the pressure conditions at nearby or downstream nodes. In particular, although N6 is slightly more distant, its role as a demand node may explain its inclusion in this group of correlated behaviors.
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2.png}
+    \end{center}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a negative flow.}
+    \label{fig:joint_distributions_output_output_2}
 \end{figure}
  
-The first group of distributions identified appears to follow a Gaussian pattern or at least a similar distribution, as shown in Figure~\cref{fig:joint_distributions_output_output_1}. Among these, one subgroup comprises the relationship between the injected flow at node N0 and the pressures at the remaining nodes. The flow through the first pipeline exhibits a similar pattern when correlated with all nodal pressures. This behavior is logical because, in the network studied, node N0—the only injection node—is connected exclusively to pipeline E0, meaning that the outlet O0 at node N0 and the outlet O2 at pipeline E0 correspond to the same flow. Moreover, this group also includes the distributions generated from the O2 variables of edges E6 and E7 when compared with all nodal pressures. These two edges represent the compressors in the system, which are connected in series so that the O2 outputs of edges E6 and E7 correspond to the same flow.
+Figure~\ref{fig:joint_distributions_output_output_2} presents another group of joint probability density functions that, similar to the previous case, also exhibit a seemingly Gaussian-like behavior. However, a key difference in this case is that the X-axis in all subplots takes on negative values, ranging between 10\% and 30\% of the maximum limit. The variable associated with this axis in all the figures corresponds to the normalized flow transported through pipeline E3, which is the component responsible for closing the loop in the system’s network structure.
+The variables plotted along the Y-axis correspond to various system outputs, including the normalized gas injection flow from the injection field, the nodal pressures at every node in the system and and the flow transported by each pipeline.
+
+The consistent behavior observed across these joint PDFs can be interpreted through two main considerations. First, although pipeline E3 is not essential for guaranteeing the operability of the system, it plays a key role in minimizing operational costs. As a result, its usage remains relatively low across most scenarios. Second, the negative values of the flow are due to the fact that, during the formulation of the optimization model, the assumed flow direction for this pipeline was opposite to the one actually needed to satisfy the optimal operation. Consequently, the model resolved this mismatch by assigning negative values to the transported flow in E3.
 
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2.png}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_3.png}
     \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which have a linear behavior, with a slight dispersion.}\label{fig:joint_distributions_output_output_2}
-\end{figure}
- 
-The second group of joint PDFs exhibits an elongated, diagonal shape that indicates a linear relationship between the corresponding variables, which can be seen in Figure~\cref{fig:joint_distributions_output_output_2}. In this group, one central pair is the relationship between the nodal pressure at node N2—responsible for connecting the first compressor's output with the second's input—and the pressures at the remaining nodes. This linear trend suggests that variations in the pressure at N2 are directly associated with proportional changes in the pressures observed across the network. Additionally, this group includes the relationship between the flow injected at node N0 and the flow transported by edge E5, which is connected to node N6, a demand node.  
-
-
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_3.png}
-    \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which have a behavior similar to a skewed Gaussian . }\label{fig:joint_distributions_output_output_3}
-\end{figure}
- 
-
-
-A third group of joint distributions was identified, characterized by slightly elongated normal distributions (see Figure 7). Unlike the first group, which exhibited strongly Gaussian shapes, and the second group, which showed linear relationships, the distributions in this group display moderate elongation along the diagonal. This suggests that the correlation between the variables is less pronounced and not strictly linear. In particular, these distributions arise from the relationship between the outlet pressure at the injection node (N0) and the pressures at the downstream compressor nodes. Similarly, they capture the relationship between the pressure at the compressor inlet node (N1) and the pressures at the downstream compressor nodes.
-
-
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_linear.png}
-    \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which have a quite marked linear behavior.}\label{fig:joint_distributions_output_output_linear}
-\end{figure}
- 
-
-Figure~\ref{fig:joint_distributions_output_output_linear} illustrates a group of joint distributions exhibiting a markedly linear behavior, almost as straight lines with a clear slope. These distributions capture the relationships between the pressures at a given node and those at downstream nodes, starting with node N4, which is positioned at the outlet of the compressors. This linear trend is expected because, in order to maintain unidirectional gas flow, the pressures throughout the network must decrease gradually. 
-
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_5.png}
-    \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which have a Gaussian behavior with small covariances }\label{fig:joint_distributions_output_output_5}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which... }
+    \label{fig:joint_distributions_output_output_3}
 \end{figure}
  
 
-Another group of joint distributions, which can be seen in Figure~\cref{fig:joint_distributions_output_output_5}, was observed to resemble a normal distribution closely but with much lower dispersion, indicating smaller covariances among the variables. These distributions were obtained by correlating the flow through the first pipeline with the pressures measured at all nodes in the network. Similar patterns are also observed when the nodal pressures are compared with the flows through edges E6 and E7; however, these images are omitted because the three edges are connected sequentially and share the same gas flow, their behavior is as expected.
+
+Figure~\ref{fig:joint_distributions_output_output_3} displays a third group of joint probability density functions that exhibit another notable pattern. In these distributions, both variables tend to take values within a range—approximately between 25\% and 70\% of their respective maximum capacities. Despite this wide span, the distributions do not resemble uniform patterns. Instead, they appear to exhibit a clear concentration of higher probability in a more restricted interval, specifically when both variables fall between 30\% and 40\% of their normalized limits.
+
+This behavior is particularly evident in the joint PDFs that relate nodal pressures across different yet structurally connected regions of the system. One set of these distributions involves the pressure at the injection node ($N_0$) and the pressures observed at downstream nodes, including the compressor-connected nodes ($N_1$, $N_2$, and $N_3$), as well as the nodes forming the closed loop ($N_3$, $N_4$, and $N_5$) and the final demand nodes ($N_6$ and $N_7$). These distributions suggest a degree of coordination in the pressure values that extends from the injection point through the compression stages and into the rest of the system.
+
+The tendency of these variables to cluster within a narrower operational range may indicate that the system's optimal configurations favor pressure levels that are not too close to the lower or upper bounds, but rather stabilized in a middle region that ensures both efficiency and reliability. This is especially relevant in subsystems like the closed-loop segment formed by nodes $N_3$, $N_4$, and $N_5$, which play a critical role in redistributing flow toward the demand points. The same applies to the pressures at the terminal load nodes ($N_6$ and $N_7$), which depend on adequate upstream conditions to meet demand.
+
+Overall, the visual clustering observed in these distributions reinforces the idea that, even under uncertainty, the system tends to operate in a relatively consistent pressure regime, particularly in areas that are tightly interconnected either structurally or functionally. This behavior reflects the influence of both physical network constraints and the economic optimization objectives embedded in the problem formulation.
+
+
+
+% \begin{figure}
+%     \begin{center}
+%         \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_linear.png}
+%     \end{center}
+%     \caption{Joint PDFs between the outputs used in the 8-node network, which have a quite marked linear behavior.}\label{fig:joint_distributions_output_output_linear}
+% \end{figure}
+%  
+%
+% Figure~\ref{fig:joint_distributions_output_output_linear} illustrates a group of joint distributions exhibiting a markedly linear behavior, almost as straight lines with a clear slope. These distributions capture the relationships between the pressures at a given node and those at downstream nodes, starting with node N4, which is positioned at the outlet of the compressors. This linear trend is expected because, in order to maintain unidirectional gas flow, the pressures throughout the network must decrease gradually. 
+%
+% \begin{figure}
+%     \begin{center}
+%         \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_5.png}
+%     \end{center}
+%     \caption{Joint PDFs between the outputs used in the 8-node network, which have a Gaussian behavior with small covariances }\label{fig:joint_distributions_output_output_5}
+% \end{figure}
+%  
+%
+% Another group of joint distributions, which can be seen in Figure~\cref{fig:joint_distributions_output_output_5}, was observed to resemble a normal distribution closely but with much lower dispersion, indicating smaller covariances among the variables. These distributions were obtained by correlating the flow through the first pipeline with the pressures measured at all nodes in the network. Similar patterns are also observed when the nodal pressures are compared with the flows through edges E6 and E7; however, these images are omitted because the three edges are connected sequentially and share the same gas flow, their behavior is as expected.
+%
+% \begin{figure}
+%     \begin{center}
+%         \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_6.png}
+%     \end{center}
+%     \caption{Joint PDFs among the outputs used in the 8-node network, which are quite dispersed along the variable associated with the N7 node flow.}\label{fig:joint_distributions_output_output_6}
+% \end{figure}
+%  
+%
+% Figure~\cref{fig:joint_distributions_output_output_6} shows the group characterized by distributions that are elongated along the axis of the first variable used in constructing the joint PDF while exhibiting a narrower spread along the second variable's axis. In our study, this subgroup includes the distributions that relate the gas flow on edge E4—which carries gas to the N7 demand node—to the pressures measured at each node. This behavior suggests that variations in the gas flow on E4 are more strongly influenced by the pressure variable, resulting in a pronounced elongation in that direction. 
+%
+% \begin{figure}
+%     \begin{center}
+%         \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_7.png}
+%     \end{center}
+%     \caption{Joint PDFs between the outputs used in the 8-node network, which show a negative linear behavior. }\label{fig:joint_distributions_output_output_7}
+% \end{figure}
+%  
+%
+% A final group of joint distributions can be seen in Figure~\cref{fig:joint_distributions_output_output_7}. This group is characterized by distributions with an inversely proportional behavior. The joint PDFs in this group are associated with the relationship between the flow transported by edge E3 and the flows transported by the other edges, except those corresponding to edges E4 and E5. This result is interesting, as it reflects a distinct behavior of the system: edges E1, E2, and E3 form a closed trajectory, and according to the initially assumed flow direction, there were instances in which edge E3 exhibited a flow opposite to that expected. In contrast, the flows that do not display this inverse relationship leave the closed trajectory to feed the demand nodes.
+%
+%
+% The relationships between input and output variables were further analyzed to conclude the study of the joint distributions obtained from the variables in this case study. As in previous analyses, several groups of distributions with similar behavior were visually identified. 
+%
+%
+
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.67\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_6.png}
+        \includegraphics[width=.65\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1.png}
     \end{center}
-    \caption{Joint PDFs among the outputs used in the 8-node network, which are quite dispersed along the variable associated with the N7 node flow.}\label{fig:joint_distributions_output_output_6}
-\end{figure}
- 
-
-Figure~\cref{fig:joint_distributions_output_output_6} shows the group characterized by distributions that are elongated along the axis of the first variable used in constructing the joint PDF while exhibiting a narrower spread along the second variable's axis. In our study, this subgroup includes the distributions that relate the gas flow on edge E4—which carries gas to the N7 demand node—to the pressures measured at each node. This behavior suggests that variations in the gas flow on E4 are more strongly influenced by the pressure variable, resulting in a pronounced elongation in that direction. 
-
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_7.png}
-    \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which show a negative linear behavior. }\label{fig:joint_distributions_output_output_7}
-\end{figure}
- 
-
-A final group of joint distributions can be seen in Figure~\cref{fig:joint_distributions_output_output_7}. This group is characterized by distributions with an inversely proportional behavior. The joint PDFs in this group are associated with the relationship between the flow transported by edge E3 and the flows transported by the other edges, except those corresponding to edges E4 and E5. This result is interesting, as it reflects a distinct behavior of the system: edges E1, E2, and E3 form a closed trajectory, and according to the initially assumed flow direction, there were instances in which edge E3 exhibited a flow opposite to that expected. In contrast, the flows that do not display this inverse relationship leave the closed trajectory to feed the demand nodes.
-
-
-The relationships between input and output variables were further analyzed to conclude the study of the joint distributions obtained from the variables in this case study. As in previous analyses, several groups of distributions with similar behavior were visually identified. 
-
-
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1.png}
-    \end{center}
-    \caption{Joint PDFs between the inputs and outputs used in the 8-node network, which present a wide dispersion along both variables. }\label{fig:joint_distributions_inputs_outputs_1}
+    \caption{Joint PDFs between the inputs and outputs used in the 8-node network, which present a wide dispersion along second variable. }
+    \label{fig:joint_distributions_inputs_outputs_1}
 \end{figure}
 
-The first group can be seen in Figure~\cref{fig:joint_distributions_inputs_outputs_1} and corresponds to distributions exhibiting high dispersion, although the mode (or modes, in some cases) varies depending on the variables considered. In this group, the distributions include those constructed between the flow on edge E4—which directly supplies the demand node N6—and the upper-pressure limits at the other nodes. Additionally, this group encompasses the distributions generated from the relationship between the flow injected at node N0 and the demanded flow at node N7.
+To close this section, it is also relevant to examine the joint probability distributions between input and output variables (Figure~\cref{fig:joint_distributions_inputs_outputs_1}), particularly those in which the input variables exhibit significantly broader dispersion compared to the outputs. This behavior can be observed in a group of joint PDFs where the outputs—specifically, the flow through pipeline $E_4$—tend to remain concentrated within the 20\% to 40\% range of their normalized capacities, while the corresponding input variables vary much more widely. It is important to highlight that, in this case, normalization was only applied to the output variables. The inputs, being defined as upper bounds or operational limits (such as the maximum allowable injection flow or pressure limits), were not normalized. Doing so would have resulted in all values being fixed at 1, effectively eliminating their variability and obscuring the nature of their influence.
 
-
+The most illustrative examples of this pattern involve joint distributions between the upper bound of the injection flow at node $N_0$ and the flow in $E_4$, as well as between the upper nodal pressure bounds at nodes $N_0$ through $N_7$ and the same pipeline output. Pipeline $E_4$ corresponds to the final segment delivering gas to one of the system’s demand nodes. The limited range of variation in this output, despite the broad dispersion in input conditions, suggests that the optimizer consistently resolves the system by prioritizing stable and relatively low utilization of this pipeline. This might reflect either a structural limitation downstream or a strategic use of capacity to reduce operational costs, irrespective of the allowable upper bounds in the network's configuration.
 
 
 \begin{figure}
@@ -337,9 +370,9 @@ The first group can be seen in Figure~\cref{fig:joint_distributions_inputs_outpu
 \end{figure}
  
 
-The second group of joint distributions (Figure~\cref{fig:joint_distributions_inputs_outputs_2}) is characterized by an apparent linear behavior among the variables, as shown by the almost linear trends of the diagrams. In some cases, the dispersion of the distribution itself made the line look wider but without losing its linear characteristic. These distributions primarily arise from the relationships between the gas demand at nodes N6 and N7—represented by the variable I2 (the gas demanded)—and the flows transported by all edges but E3, denoted by O2, as well as the nodal injection flow, denoted by O0, at node N0. These relationships indicate that as the gas demand increases at the demand nodes, the corresponding flows in the edges (and at the injection node) adjust proportionally, reflecting the underlying physical constraints that govern flow direction and consistency in the network. The remaining joint distributions, derived from various input-output combinations, exhibit a similar pattern: they tend to be more dispersed along the output variable than the input variable. 
+Another remarkable group of joint PDFs arises from the relationship between input and output variables that exhibit a seemingly linear behavior, shows in Figure~\cref{fig:joint_distributions_inputs_outputs_2}. In these distributions, an increase in the input variable tends to be associated with an increase in the output variable, suggesting a positively correlated relationship. This pattern is especially evident in the pairs formed by the upper bound of the demand flow at nodes $N_6$ and $N_7$, and the flow transported through pipelines $E_4$, $E_5$, $E_6$, and $E_7$. These pipelines are directly or indirectly responsible for supplying gas to the demand nodes, meaning that as the upper flow limits at the consumption points increase, the optimizer adjusts the flows along these pipelines accordingly, typically utilizing a larger fraction of their capacity. This suggests a direct and predictable response of the system when facing more flexible demand conditions.
 
-
+However, it is important to note an exception within this group: the pair formed by the upper flow bound at node $N_7$ and the flow through pipeline $E_3$ presents a negative linear relationship. In this case, an increase in the upper demand limit at $N_7$ is associated with a decrease in the use of pipeline $E_3$. This inverse behavior can be explained by the system's looped configuration, where $E_3$ contributes to a closed trajectory. Under higher demand at $N_7$, the optimizer might favor alternative paths that more directly satisfy the load, such as pipelines $E_5$ through $E_7$, reducing the role of $E_3$ in transporting gas.
 
 
 
