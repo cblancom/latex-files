@@ -387,6 +387,44 @@ Initially, a kernel density estimate (KDE) was fitted to the input training data
 
 To further evaluate the goodness-of-fit between the distributions of \( y_{\text{sample}} \) and \( \bar{y}_{\text{train}} \), a Kolmogorov–Smirnov (K–S) test was conducted using three alternatives: two-sided, less, and more significant. The test results were as follows: a two-sided test yielded a statistic of \( 0.01833 \) with a p-value of \( 0.81482 \) (statistic location \(-0.34018\), sign \(1\)); the 'less' alternative produced a statistic of \( 0.01167 \) with a p-value of \( 0.72137 \) (statistic location \(0.30738\), sign \(-1\)); and the 'greater' alternative returned a statistic of \( 0.01833 \) with a p-value of \( 0.44640 \) (statistic location \(-0.34018\), sign \(1\)). These statistical measures provide an initial indication that the synthetic outputs generated via the KDE-based sampling are consistent with the distribution of outputs observed during training, thereby supporting the model's capability to generalize to new, unseen scenarios.
 
+After completing the stochastic analysis of the variables associated with the optimization model—both input and output variables—the next step involves leveraging the KDE fitted to the training data. This fitted KDE was used to generate a new set of input samples that represent the learned probability distribution of the optimization model's inputs. These samples were then propagated forward through the trained neural network model. Using the resulting network outputs, a new joint analysis was conducted, analogous to the previous one performed with the variables of the optimization model. This approach allows for evaluating the network's ability to reproduce the statistical behavior of the system, offering an understanding of how the learned model captures the underlying probabilistic structure of the original problem.
+
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs (Sampled).png}
+    \end{center}
+    \caption{Joint PDFs between the entries used in the 8-node network, which have two modes in the KDE sampled variables}
+    \label{fig:joint_distributions_input_input_KDE}
+\end{figure}
+     
+
+Following the same structure presented in the first part of this analysis, we begin by highlighting the relationships that exhibit two distinct modes of operation according to their joint probability density functions. In this case, as shown in Figure~\cref{fig:joint_distributions_input_input_KDE}, only two variable pairs present this bimodal behavior when the analysis is performed using the inputs propagated through the trained neural network. These pairs are: the nodal pressure limits of $N_4$ and $N_2$, and those of $N_6$ and $N_5$. In both cases, the joint PDFs suggest the existence of two operational regimes, potentially associated with alternative configurations or routing strategies within the network that are learned by the neural model. 
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode (KDE).png}
+    \end{center}
+    \caption{Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode in the KDE sampled variables. }
+    \label{fig:joint_distributions_input_input_no_mode_KDE}
+\end{figure}
+ 
+Continuing with the distributions that exhibit a very small high-probability region, four pairs of variables were identified in this case whose joint PDFs display this characteristic. These pairs are: the nodal pressure limits between $N_2$ and $N_0$; between $N_3$ and $N_0$ for both pressure and injected flow limit; and between $N_5$ and $N_2$ for nodal pressures. These distributions are characterized by a concentrated and sharply defined region of high probability, suggesting that the neural network tends to favor very specific combinations of input values during prediction. It is worth noting that, unlike in the previous analysis based on the optimization model, no distributions with broad and clearly defined high-probability zones (i.e., darker and more extensive areas) were observed.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Case Study II: 63-node Network (Colombia)}
 
