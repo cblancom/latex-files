@@ -299,8 +299,6 @@ This behavior is particularly evident in the joint PDFs that relate nodal pressu
 
 The tendency of these variables to cluster within a narrower operational range may indicate that the system's optimal configurations favor pressure levels that are not too close to the lower or upper bounds, but rather stabilized in a middle region that ensures both efficiency and reliability. This is especially relevant in subsystems like the closed-loop segment formed by nodes $N_3$, $N_4$, and $N_5$, which play a critical role in redistributing flow toward the demand points. The same applies to the pressures at the terminal load nodes ($N_6$ and $N_7$), which depend on adequate upstream conditions to meet demand.
 
-Overall, the visual clustering observed in these distributions reinforces the idea that, even under uncertainty, the system tends to operate in a relatively consistent pressure regime, particularly in areas that are tightly interconnected either structurally or functionally. This behavior reflects the influence of both physical network constraints and the economic optimization objectives embedded in the problem formulation.
-
 
 
 % \begin{figure}
@@ -405,13 +403,56 @@ Following the same structure presented in the first part of this analysis, we be
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode (KDE).png}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode (KDE).png}
     \end{center}
     \caption{Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode in the KDE sampled variables. }
     \label{fig:joint_distributions_input_input_no_mode_KDE}
 \end{figure}
  
 Continuing with the distributions that exhibit a very small high-probability region, four pairs of variables were identified in this case whose joint PDFs display this characteristic. These pairs are: the nodal pressure limits between $N_2$ and $N_0$; between $N_3$ and $N_0$ for both pressure and injected flow limit; and between $N_5$ and $N_2$ for nodal pressures. These distributions are characterized by a concentrated and sharply defined region of high probability, suggesting that the neural network tends to favor very specific combinations of input values during prediction. It is worth noting that, unlike in the previous analysis based on the optimization model, no distributions with broad and clearly defined high-probability zones (i.e., darker and more extensive areas) were observed.
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2 (KDE).png}
+    \end{center}
+    \caption{Joint PDFs between the outputs used in the 8-node network, which have a negative flow in the KDE sampled variables.}
+    \label{fig:joint_distributions_output_output_2_KDE}
+\end{figure}
+ 
+
+Figure~\ref{fig:joint_distributions_output_output_2_KDE} presents a group of joint probability density functions that, while resembling Gaussian-like distributions, often exhibit some degree of skewness. A particularly striking feature in these plots is the consistent behavior of the flow transported through pipeline $E_3$, the segment that completes the loop in the system’s topology. In every case, this variable—represented on the X-axis—takes on negative values, typically between 10\% and 30\% of its normalized capacity.
+
+This consistent negative trend can be interpreted as the network having learned that, under optimal conditions, the flow through pipeline $E_3$ should operate in the direction opposite to the one originally assumed in the problem formulation. The reversal in direction is not only coherent with the physical and economic constraints of the system, but also mirrors the behavior found in the optimization model. Furthermore, this pattern is robust across a diverse set of operating scenarios, as evidenced by the variables plotted along the Y-axis, which include the total injection at node $N_0$ and the flows through pipelines $E_0$, $E_1$, $E_2$, $E_4$, and $E_5$. 
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.65\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1 KDE.png}
+    \end{center}
+    \caption{Joint PDFs between the inputs and outputs used in the 8-node network, which present a wide dispersion along second variable. }
+    \label{fig:joint_distributions_inputs_outputs_1_KDE}
+\end{figure}
+
+Continuing with the comparison between input and output variables, a similar pattern to that observed in the optimization model reappears in the neural network predictions. As shown in Figure~\cref{fig:joint_distributions_inputs_outputs_1_KDE}, there is a group of joint probability distributions where the input variables span a wide range of values, while the corresponding output—specifically, the flow through pipeline $E_4$—remains narrowly concentrated between 20\% and 40\% of its normalized capacity. This behavior mirrors what was previously discussed for the optimization model, suggesting that, even under the learned data distribution, the network consistently predicts a relatively low and stable utilization of this particular pipeline.
+
+The pairs exhibiting this characteristic include the upper bound on injection flow at node $N_0$ and the upper bounds on nodal pressures at nodes $N_0$ through $N_7$, all compared against the predicted flow through pipeline $E_4$. As in the previous case, normalization was only applied to the output variables, while the inputs were left in their original scale, reflecting their interpretation as operational constraints rather than actual realizations. The similarity in joint distribution patterns between the optimization model and the neural network predictions indicates that the trained model effectively internalized a similar resolution strategy, favoring stable usage of pipeline $E_4$ regardless of the variability in input conditions.
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_2 KDE.png}
+    \end{center}
+    \caption{Joint PDFs between the inputs and outputs used in the 8-node network, which present a linear behavior, although with different dispersions among them. }
+    \label{fig:joint_distributions_inputs_outputs_2_KDE}
+\end{figure}
+ 
+
+A final group of joint distributions worth highlighting involves input and output variables that exhibit a linear relationship, similar to the patterns observed in the optimization model (Figure~\cref{fig:joint_distributions_inputs_outputs_2_KDE}). In particular, two of the joint PDFs show a positive correlation, where increases in the input variable are associated with proportional increases in the output. This behavior is seen in the pairs formed by the upper bound of the demand flow at node $N_6$ and the predicted flow in pipeline $E_4$, as well as between the same bound at node $N_7$ and the predicted flow in pipeline $E_5$. These relationships suggest that the network has captured a coherent system response, in which more flexible demand conditions at the consumption nodes lead to higher utilization of the pipelines supplying them—closely resembling the optimizer’s behavior.
+
+A third pair—formed by the upper demand bound at node $N_7$ and the flow in pipeline $E_3$—also shows a strong linear pattern, though in this case the correlation is negative. That is, an increase in the input variable corresponds to a decrease in the pipeline’s predicted utilization. This result mirrors the exception found in the optimization model, and can again be attributed to the presence of a loop in the network’s structure. Under increasing demand at $N_7$, the network tends to shift the flow away from pipeline $E_3$, likely in favor of more direct paths that connect to the demand node. This further confirms that the trained model not only replicates the general operating tendencies of the optimization scheme but also reflects more subtle topological effects embedded in the system configuration.
+
+
 
 
 
