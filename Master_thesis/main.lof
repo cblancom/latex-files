@@ -9,7 +9,7 @@
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Model results using only the loss associated with nodal flow predictions in the colombian 63-node network.\relax }}{25}{figure.caption.17}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Model results using the losses associated with the predicted flows injected at the nodes and transported by the pipelines and compressors in the colombian 63-node network.\relax }}{26}{figure.caption.18}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Integrated system 9/8 used in Case Study I, modified from the MPNG software.~\cite {Wilson_poly}\relax }}{38}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Integrated system 9/8 used in Case Study I, modified from the MPNG software.\relax }}{38}{figure.caption.20}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Cost function histogram for the Taylor, SOC, and MPCC Weymouth approximation approaches in the 9-bus 8-node system.\relax }}{39}{figure.caption.21}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Boxplot of Weymouth error distribution for each pipeline in the 9/8 system attained by contrasted approximation approaches.\relax }}{39}{figure.caption.22}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.\relax }}{40}{figure.caption.23}%

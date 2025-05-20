@@ -1,63 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Wilson_poly}
-S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
-  matpower-based tool for optimal power and natural gas flow analyses,'' {\em
-  IEEE Transactions on Power Systems}, pp.~1--9, 2022.
-
-\bibitem{ABBASI2011xv}
-E.~Commission, J.~R. Centre, H.~Calisto, L.~Gandossi, N.~Rodríguez~Gómez, and
-  R.~Bolado~Lavín, {\em EU gas transmission network facilities review –
-  Inventory, operation and failure modes of the main components of the EU gas
-  system – An information source to gas risk assessments}.
-\newblock Publications Office, 2020.
-
-\bibitem{review}
-E.~Raheli, Q.~Wu, M.~Zhang, and C.~Wen, ``Optimal coordinated operation of
-  integrated natural gas and electric power systems: A review of modeling and
-  solution methods,'' {\em Renewable and Sustainable Energy Reviews}, vol.~145,
-  p.~111134, 2021.
-
-\bibitem{Conejo}
-S.~Chen, A.~J. Conejo, R.~Sioshansi, and Z.~Wei, ``Unit commitment with an
-  enhanced natural gas-flow model,'' {\em IEEE Transactions on Power Systems},
-  vol.~34, no.~5, pp.~3729--3738, 2019.
-
-\bibitem{Byeon_Van_Hentenryck_2020}
-G.~Byeon and P.~Van~Hentenryck, ``Unit commitment with gas network awareness,''
-  {\em IEEE Transactions on Power Systems}, vol.~35, no.~2, p.~1327–1339,
-  2020.
-
-\bibitem{Morcillo_Angulo_Franco_2020a}
-J.~D. Morcillo, F.~Angulo, and C.~J. Franco, ``Analyzing the hydroelectricity
-  variability on power markets from a system dynamics and dynamic systems
-  perspective: Seasonality and enso phenomenon,'' May 2020.
-
-\bibitem{droughts_colombia}
-C.~Villa-Loaiza, I.~Taype-Huaman, J.~Benavides-Franco, G.~Buenaventura-Vera,
-  and J.~Carabalí-Mosquera, ``Does climate impact the relationship between the
-  energy price and the stock market? the colombian case,'' {\em Applied
-  Energy}, vol.~336, p.~120800, Apr 2023.
-
-\bibitem{Cuartas_Cunha_Alves_Parra_Deusdará_Leal_Costa_Molina_Amore_Broedel_Seluchi_et_al_2022}
-L.~A. Cuartas, A.~P. Cunha, J.~A. Alves, L.~M. Parra, K.~Deusdará-Leal, L.~C.
-  Costa, R.~D. Molina, D.~Amore, E.~Broedel, M.~E. Seluchi, and et~al.,
-  ``Recent hydrological droughts in brazil and their impact on hydropower
-  generation,'' {\em Water}, vol.~14, p.~601, Feb 2022.
-
-\bibitem{YANG2020106023}
-L.~Yang, X.~Zhao, and Y.~Xu, ``A convex optimization and iterative solution
-  based method for optimal power-gas flow considering power and gas losses,''
-  {\em International Journal of Electrical Power \& Energy Systems}, vol.~121,
-  p.~106023, 2020.
-
-\bibitem{JIANG2021106460}
-T.~Jiang, C.~Yuan, R.~Zhang, L.~Bai, X.~Li, H.~Chen, and G.~Li, ``Exploiting
-  flexibility of combined-cycle gas turbines in power system unit commitment
-  with natural gas transmission constraints and reserve scheduling,'' {\em
-  International Journal of Electrical Power \& Energy Systems}, vol.~125,
-  p.~106460, 2021.
-
 \bibitem{Alam_M}
 M.~S. Alam, S.~R. Paramati, M.~Shahbaz, and M.~Bhattacharya, ``Natural gas,
   trade and sustainable growth: empirical evidence from the top gas consumers
@@ -123,6 +65,52 @@ X.~Shan, W.~Yu, J.~Gong, W.~Huang, K.~Wen, H.~Wang, S.~Ren, D.~Wang, Y.~Shi,
   and C.~Liu, ``A methodology to evaluate gas supply reliability of natural gas
   pipeline network considering the effects of natural gas resources,'' {\em
   Reliability Engineering \&amp;amp; System Safety}, vol.~238, p.~109431, 2023.
+
+\bibitem{review}
+E.~Raheli, Q.~Wu, M.~Zhang, and C.~Wen, ``Optimal coordinated operation of
+  integrated natural gas and electric power systems: A review of modeling and
+  solution methods,'' {\em Renewable and Sustainable Energy Reviews}, vol.~145,
+  p.~111134, 2021.
+
+\bibitem{Conejo}
+S.~Chen, A.~J. Conejo, R.~Sioshansi, and Z.~Wei, ``Unit commitment with an
+  enhanced natural gas-flow model,'' {\em IEEE Transactions on Power Systems},
+  vol.~34, no.~5, pp.~3729--3738, 2019.
+
+\bibitem{Byeon_Van_Hentenryck_2020}
+G.~Byeon and P.~Van~Hentenryck, ``Unit commitment with gas network awareness,''
+  {\em IEEE Transactions on Power Systems}, vol.~35, no.~2, p.~1327–1339,
+  2020.
+
+\bibitem{Morcillo_Angulo_Franco_2020a}
+J.~D. Morcillo, F.~Angulo, and C.~J. Franco, ``Analyzing the hydroelectricity
+  variability on power markets from a system dynamics and dynamic systems
+  perspective: Seasonality and enso phenomenon,'' May 2020.
+
+\bibitem{droughts_colombia}
+C.~Villa-Loaiza, I.~Taype-Huaman, J.~Benavides-Franco, G.~Buenaventura-Vera,
+  and J.~Carabalí-Mosquera, ``Does climate impact the relationship between the
+  energy price and the stock market? the colombian case,'' {\em Applied
+  Energy}, vol.~336, p.~120800, Apr 2023.
+
+\bibitem{Cuartas_Cunha_Alves_Parra_Deusdará_Leal_Costa_Molina_Amore_Broedel_Seluchi_et_al_2022}
+L.~A. Cuartas, A.~P. Cunha, J.~A. Alves, L.~M. Parra, K.~Deusdará-Leal, L.~C.
+  Costa, R.~D. Molina, D.~Amore, E.~Broedel, M.~E. Seluchi, and et~al.,
+  ``Recent hydrological droughts in brazil and their impact on hydropower
+  generation,'' {\em Water}, vol.~14, p.~601, Feb 2022.
+
+\bibitem{YANG2020106023}
+L.~Yang, X.~Zhao, and Y.~Xu, ``A convex optimization and iterative solution
+  based method for optimal power-gas flow considering power and gas losses,''
+  {\em International Journal of Electrical Power \& Energy Systems}, vol.~121,
+  p.~106023, 2020.
+
+\bibitem{JIANG2021106460}
+T.~Jiang, C.~Yuan, R.~Zhang, L.~Bai, X.~Li, H.~Chen, and G.~Li, ``Exploiting
+  flexibility of combined-cycle gas turbines in power system unit commitment
+  with natural gas transmission constraints and reserve scheduling,'' {\em
+  International Journal of Electrical Power \& Energy Systems}, vol.~125,
+  p.~106460, 2021.
 
 \bibitem{Trudeau_2015}
 R.~J. Trudeau, {\em Introduction to graph theory}.
@@ -291,6 +279,11 @@ C.~Ordoudis, P.~Pinson, and J.~M. Morales, ``An integrated market for
 A.~Schwele, C.~Ordoudis, J.~Kazempour, and P.~Pinson, ``Coordination of power
   and natural gas systems: Convexification approaches for linepack modeling,''
   in {\em 2019 IEEE Milan PowerTech}, pp.~1--6, 2019.
+
+\bibitem{Wilson_poly}
+S.~García-Marín, W.~González-Vanegas, and C.~Murillo-Sánchez, ``Mpng: A
+  matpower-based tool for optimal power and natural gas flow analyses,'' {\em
+  IEEE Transactions on Power Systems}, pp.~1--9, 2022.
 
 \bibitem{WANG201970}
 C.~Wang, W.~Wei, J.~Wang, and T.~Bi, ``Convex optimization based adjustable

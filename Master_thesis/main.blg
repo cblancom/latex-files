@@ -10,45 +10,45 @@ A level-1 auxiliary file: chapters/Chapter_Conclusions.aux
 The style file: ieeetr.bst
 Database file #1: biblio.bib
 Warning--empty year in GRLB_Hamilton
-You've used 58 entries,
+You've used 57 entries,
             1876 wiz_defined-function locations,
-            862 strings with 17070 characters,
-and the built_in function-call counts, 18045 in all, are:
-= -- 1822
-> -- 782
+            857 strings with 16723 characters,
+and the built_in function-call counts, 17829 in all, are:
+= -- 1807
+> -- 762
 < -- 0
-+ -- 283
-- -- 225
-* -- 1117
-:= -- 2373
-add.period$ -- 63
-call.type$ -- 58
++ -- 276
+- -- 219
+* -- 1101
+:= -- 2337
+add.period$ -- 61
+call.type$ -- 57
 change.case$ -- 55
 chr.to.int$ -- 0
-cite$ -- 59
-duplicate$ -- 1104
-empty$ -- 1445
-format.name$ -- 225
-if$ -- 4588
+cite$ -- 58
+duplicate$ -- 1095
+empty$ -- 1425
+format.name$ -- 219
+if$ -- 4538
 int.to.chr$ -- 0
-int.to.str$ -- 58
-missing$ -- 59
-newline$ -- 182
-num.names$ -- 58
-pop$ -- 175
+int.to.str$ -- 57
+missing$ -- 57
+newline$ -- 178
+num.names$ -- 57
+pop$ -- 169
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1031
+skip$ -- 1030
 stack$ -- 0
 substring$ -- 866
-swap$ -- 662
+swap$ -- 661
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 119
-width$ -- 60
-write$ -- 574
+while$ -- 118
+width$ -- 59
+write$ -- 565
 (There was 1 warning)
