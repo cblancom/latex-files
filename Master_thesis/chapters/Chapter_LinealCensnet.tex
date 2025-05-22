@@ -1,26 +1,14 @@
 \chapter{Natural Gas System Prediction Using Graph Neural Networks} \label{cap:lienal-censnet}
 
-\section{Preliminaries}
+\section{mathematical framework}
 
 \subsection{Graph definition}
 
 
-A graph $G$ is a mathematical structure that represents a set of interconnected objects. These objects are known as vertices (or nodes), denoted by the set $V(G)$, and the connections between them are called edges (or arcs), denoted by the set $E(G)$. Formally, a graph is defined as an ordered pair $G = (V, E)$, where $V(G)$ is a non-empty set of vertices, and $E(G) \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is a set of edges, where each edge connects two distinct vertices \cite{Trudeau_2015}.
+A graph $G$ is a mathematical structure that represents a set of interconnected objects. These objects are known as vertices (or nodes), denoted by the set $V$, and the connections between them are called edges (or arcs), denoted by the set $E$. Formally, a graph is defined as an ordered pair $G = (V, E)$, where $V$ is a non-empty set of vertices, and $E \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is the set of edges, where each edge connects two distinct vertices \cite{Trudeau_2015}.
 
-Graphs can be categorized based on the properties of their edges. An undirected graph has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a directed graph (or digraph), each edge $(u, v) \in E(G)$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$ \cite{Bender_Williamson_2010}.
+Graphs can be categorized based on the properties of their edges. An undirected graph has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a directed graph (or digraph), each edge $(u, v) \in E$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$ \cite{Bender_Williamson_2010}.
 
- %
-% \begin{figure}
-%     \begin{center}
-%         \setlength\figurewidth{.5\textwidth}        
-%             \setlength\figureheight{0.4\textwidth}
-%         \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/graph_def}}
-%         % \input{figures/Chapter_LinealCensnet/graph_def}
-%         % \includegraphics[width=0.95\textwidth]{figures/}
-%     \end{center}
-%     \caption{Directed graph}\label{fig:graph_definition}
-% \end{figure}
-%
 \begin{figure}
     \centering
         \setlength\figurewidth{.53\textwidth}        
@@ -31,34 +19,27 @@ Graphs can be categorized based on the properties of their edges. An undirected 
     \caption{Types of graphs}\label{fig:graph_definition}
 \end{figure}
 
-In \cref{fig:graph_definition}, two graphs are represented, each composed of four nodes labeled $1$, $2$, $3$, and $4$, and six edges labeled $A$, $B$, $C$, $D$, $E$, and $F$. The difference between them lies in the type of graph they represent. For example, in \cref{fig:undirected_graph_def}, the edge c shows a connection between nodes 2 and 4. However, in \cref{fig:direc_graph_def}, this connection provides additional information: a direction, which, in the context of this study, could represent the direction of a specific element, such as electric power or gas flow.
+In \Cref{fig:graph_definition}, two graphs are represented, each composed of four nodes labeled $1$, $2$, $3$, and $4$, and six edges labeled $A$, $B$, $C$, $D$, $E$, and $F$. The difference between them lies in the type of graph they represent. For example, in \Cref{fig:undirected_graph_def}, the edge C connects nodes 2 and 4. However, in \Cref{fig:direc_graph_def}, this connection provides additional information: a direction, which, in the context of this study, could represent the direction of a specific element, such as electric power or gas flow.
 
 
-A graph can be represented in various ways using matrices, each capturing different aspects of the graph's structure. The two most common matrix representations are the adjacency matrix and the incidence matrix.
+A graph can be represented in various ways using matrices, each capturing different aspects of the graph structure. The two most common matrix representations are the adjacency matrix and the incidence matrix.
 
 The adjacency matrix of a graph is a square matrix used to represent the connections between vertices \cite{wilson_1972}. For a graph $G$ with $n$ vertices, the adjacency matrix $A$ is an $n \times n$ matrix where the entry $a_{ij}$ is defined as follows:
 
 \begin{equation}
  a_{ij} = 
 \begin{cases}
-1 & \text{if there is an edge from vertex } i \text{ to vertex } j, \\
+1 & \text{if there is an edge from vertex } $u$ \text{ to vertex } $v$, \\
 0 & \text{otherwise}.
 \end{cases}
     \label{eq:adjacency_matrix_definition}
 \end{equation}
 
-% \[
-% a_{ij} =
-% \begin{cases}
-% 1 & \text{if there is an edge from vertex } i \text{ to vertex } j, \\
-% 0 & \text{otherwise}.
-% \end{cases}
-% \]
 
 For a directed graph, the adjacency matrix captures the direction of the edges. Below is the adjacency matrix for the directed graph shown earlier:
 
 \[
-A = \begin{pmatrix}
+\mathbf{A} = \begin{pmatrix}
 0 & 1 & 0 & 1 \\
 1 & 0 & 0 & 1 \\
 0 & 1 & 0 & 1 \\
@@ -70,7 +51,7 @@ A = \begin{pmatrix}
 The incidence matrix of a graph represents the relationship between vertices and edges \cite{wilson_1972}. For a graph $G$ with $n$ vertices and $m$ edges, the incidence matrix $I$ is an $n \times m$ matrix where the entry $i_{ij}$ is defined as follows:
 
 \begin{equation}
- B_{ij} =
+ b_{ij} =
 \begin{cases}
 1 & \text{if vertex } i \text{ is the starting point of edge } j \text{ in a directed graph}, \\
 -1 & \text{if vertex } i \text{ is the endpoint of edge } j \text{ in a directed graph}, \\
@@ -83,7 +64,7 @@ The incidence matrix of a graph represents the relationship between vertices and
 For the directed graph previously described, the incidence matrix is given by:
 
 \[
-B = \begin{pmatrix}
+\mathbf{B} = \begin{pmatrix}
 1 & -1 & 0 & 0 \\
 -1 & 0 & -1 & 0 \\
 0 & 0 & 0 & 1  \\
@@ -91,11 +72,9 @@ B = \begin{pmatrix}
 \end{pmatrix}
 \]
 
-\subsection{Neural networks}
+\subsection{Multi-Layered Perceptrons}
 
-\subsubsection{Multi-Layered Perceptrons}
-
-A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network, often regarded as one of the building blocks of deep learning. At its core, an MLP consists of multiple layers of nodes, or neurons, where each layer is fully connected to the next one. The architecture typically includes an input layer, one or more hidden layers, and an output layer, as can be seen in the \cref{fig:FCNN_representation}.
+A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network, often regarded as one of the building blocks of deep learning. At its core, an MLP consists of multiple layers of nodes, or neurons, where each layer is fully connected to the next one. The architecture typically includes an input layer, one or more hidden layers, and an output layer, as can be seen in the \Cref{fig:FCNN_representation}.
 
 
 \begin{figure}
@@ -109,9 +88,9 @@ A Multilayer Perceptron (MLP) is a fundamental type of artificial neural network
 
 
 
-The neurons in each layer are connected to the neurons in the subsequent layer through weighted connections, the key parameters learned during the training process \cite{Hippert_Pedreira_Souza_2001}. One of the most significant properties of an MLP is its ability to function as a universal approximator. Given sufficient neurons in the hidden layers, an MLP can approximate any continuous function to an arbitrary degree of accuracy, provided the network is trained correctly \cite{Zhang_Eddy_Patuwo_Y_Hu_1998}.
+The neurons in each layer are connected to the neurons in the subsequent layer through weighted connections, the key parameters learned during the training process \cite{Hippert_Pedreira_Souza_2001}. One of the most significant properties of an MLP is its ability to work as a universal approximator. Given sufficient neurons in the hidden layers, an MLP can approximate any continuous function to an arbitrary degree of accuracy, provided the network is correctly trained \cite{Zhang_Eddy_Patuwo_Y_Hu_1998}.
 
-Mathematically, an MLP can be defined as follows. Let $\mathbf{x} \in \mathbb{R}^n$ represent the input vector, where $n$ is the number of features. The output of each neuron in the first hidden layer is calculated as:
+Mathematically, an MLP can be defined as follows. Let $\mathbf{x} \in \mathbb{R}^n$ the input vector, where $n$ is the number of features. The output of each neuron in the first hidden layer is calculated as:
 
 \begin{equation}
  \mathbf{z}^{(1)} = \sigma\left(\mathbf{W}^{(1)}\mathbf{x} + \mathbf{b}^{(1)}\right)   
@@ -120,12 +99,12 @@ Mathematically, an MLP can be defined as follows. Let $\mathbf{x} \in \mathbb{R}
 
 
 
-where $\mathbf{W}^{(1)} \in \mathbb{R}^{m_1 \times n}$ is the weight matrix for the first hidden layer, with $m_1$ being the number of neurons in this layer, $\mathbf{b}^{(1)} \in \mathbb{R}^{m_1}$ is the bias vector, and $\sigma(\cdot)$ is the activation function, typically a non-linear function such as the ReLU (Rectified Linear Unit) or sigmoid function.
+\noindent where $\mathbf{W}^{(1)} \in \mathbb{R}^{m_1 \times n}$ is the weighting matrix for the first hidden layer, with $m_1$ being the number of neurons in this layer, $\mathbf{b}^{(1)} \in \mathbb{R}^{m_1}$ is the bias vector, and $\sigma(\cdot)$ is the activation function, typically a non-linear function such as a ReLU (Rectified Linear Unit) or sigmoid function.
 
 This process is repeated for each subsequent hidden layer $k$, where the output of the $k$-th layer is given by:
 
 \begin{equation}
- \mathbf{z}^{(k)} = \sigma\left(\mathbf{W}^{(k)}\mathbf{z}^{(k-1)} + \mathbf{b}^{(k)}\right) 
+ \mathbf{z}^{(k)} = \sigma\left(\mathbf{W}^{(k)}\mathbf{z}^{(k-1)} + \mathbf{b}^{(k)}\right) \quad \forall i \in \{ 2, ..., L-1 \} 
     \label{eq:hidden_layers_output}
 \end{equation}
 
@@ -135,24 +114,23 @@ Here, $\mathbf{W}^{(k)} \in \mathbb{R}^{m_k \times m_{k-1}}$ represents the weig
 Finally, the output layer produces the final prediction $\mathbf{\hat{y}}$:
 
 \begin{equation}
- \mathbf{\hat{y}} = \sigma\left(\mathbf{W}^{(L)}\mathbf{z}^{(L-1)} + \mathbf{b}^{(L)}\right)   
+    \mathbf{\hat{y}} = \sigma\left(\mathbf{W}^{(L)}\mathbf{z}^{(L-1)} + \mathbf{b}^{(L)}\right) 
     \label{eq:output_layer}
 \end{equation}
 
-where $L$ denotes the number of layers in the network, including the input and output layers. Depending on the nature of the problem (e.g., classification or regression), the activation function $\sigma(\cdot)$ used in the output layer can vary, with softmax being common in multi-class classification problems, and a linear activation for regression tasks. The entire MLP is trained using a process called backpropagation, combined with an optimization algorithm like gradient descent, to minimize a loss function $J(\mathbf{y}, \mathbf{\hat{y}})$, which measures the difference between the true outputs $\mathbf{y}$ and the predicted outputs $\mathbf{\hat{y}}$. 
+\noindent where $L$ denotes the number of layers in the network, including the input and output layers. Depending on the nature of the problem (e.g., classification or regression), the activation function $\sigma(\cdot)$ used in the output layer can vary, with softmax being common in multi-class classification problems, and a linear activation for regression tasks. The entire MLP is trained using a process called backpropagation, combined with an optimization algorithm like gradient descent, to minimize a loss function $\mathcal{L}(\mathbf{y}, \mathbf{\hat{y}})$, which compares the true outputs $\mathbf{y}$ and the predicted outputs $\mathbf{\hat{y}}$. 
 
 
-\subsubsection{Graph Neural Networks}
+\subsection{Graph Neural Networks}
 
 In recent years, Graph Neural Networks (GNNs) have emerged as a powerful tool in machine learning, particularly for tasks involving data that can be naturally represented as graphs. Graphs are a universal data structure that can model various systems in numerous fields, including social networks, biological networks, knowledge graphs, and physical systems. Because of their ability to represent relationships and interactions between entities, graphs are used extensively to model complex structures where the data points are not independent but interconnected \cite{Jia_Wang_Shou_Hosseini_Bai_2023}.
 
 GNNs are important because they can directly operate on graph-structured data, extending neural networks' success from grid-like data structures, such as images and sequences, to more general and irregular structures \cite{Jia_Wang_Shou_Hosseini_Bai_2023a} . Traditional neural networks, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), are designed to work with data that has a fixed structure. However, many real-world problems involve data that can be better described by graphs, where nodes represent entities and edges represent relationships between those entities \cite{Gupta_Matta_Pant_2021}. 
 
-Graph Neural Networks can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let $G = (V, E)$ represent a graph, where $V$ is the set of nodes (or vertices) and $E$ is the set of edges. Each node $v \in V$ can be associated with a feature vector $\mathbf{x}_v$, and each edge $(u, v) \in E$ may have an associated weight or feature vector $\mathbf{e}_{uv}$. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
+Graph Neural Networks can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let $G = (V, E)$ represent a graph, where $V$ is the set of nodes (or vertices) and $E$ is the set of edges. Each node $v \in V$ can be associated with a feature vector $\mathbf{x}_v \in \mathbb{R}$, and each edge $(u, v) \in E$ may have an associated weighting or feature vector $\mathbf{e}_{uv} \in \mathbb{R}$. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
 
 
-In the GNN framework, message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. To move from the abstract concept to a practical implementation, the specific functions used for updating and aggregating node features must be defined \cite{Liu_Wu_Liu_Hu_2021}.
-
+ To move from the abstract concept to a practical implementation, the specific functions used for updating and aggregating node features must be defined \cite{Liu_Wu_Liu_Hu_2021}. In the GNN framework, message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. 
 
 The basic message passing operation, which simplifies the original GNN model proposed by \cite{GRLB_Hamilton}, is expressed by the following equation:
 \begin{equation}
@@ -162,8 +140,8 @@ The basic message passing operation, which simplifies the original GNN model pro
 
 In this equation:
 \begin{itemize}
-    \item \( \mathbf{h}_u^{(k)} \) represents the updated feature vector of node \( u \) at layer \( k \).
-    \item The term \( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} \) applies a transformation to the node's own feature vector from the previous layer, enabling the node to retain and modify its self-information. 
+    \item \( \mathbf{h}_u^{(k)} \in \mathbb{R} \) represents the updated feature vector of node \( u \) at layer \( k \).
+    \item The term \( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} \) transforms the node's own feature vector from the previous layer, enabling the node to retain and modify its own information. 
     \item The term \( \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} \) aggregates the feature vectors of the neighboring nodes \( v \) in the set \( \mathcal{N}(u) \), and then applies a transformation via the weight matrix \( \mathbf{W}_{\text{neigh}}^{(k)} \) 
     \item \( \mathbf{b}^{(k)} \) is a bias term that can be added to the weighted sum, though it is sometimes omitted for simplicity. 
     \item  The non-linear function \( \sigma(\cdot) \), such as ReLU or tanh, is applied elementwise to introduce non-linearity into the model, which is essential for capturing complex patterns in the data.

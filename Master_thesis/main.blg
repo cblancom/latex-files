@@ -12,7 +12,7 @@ Database file #1: biblio.bib
 Warning--empty year in GRLB_Hamilton
 You've used 57 entries,
             1876 wiz_defined-function locations,
-            857 strings with 16723 characters,
+            857 strings with 16763 characters,
 and the built_in function-call counts, 17829 in all, are:
 = -- 1807
 > -- 762
