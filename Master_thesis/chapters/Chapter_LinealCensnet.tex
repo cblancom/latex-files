@@ -144,7 +144,7 @@ In this equation:
     \item The term \( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} \) transforms the node's own feature vector from the previous layer, enabling the node to retain and modify its own information. 
     \item The term \( \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} \) aggregates the feature vectors of the neighboring nodes \( v \) in the set \( \mathcal{N}(u) \), and then applies a transformation via the weight matrix \( \mathbf{W}_{\text{neigh}}^{(k)} \) 
     \item \( \mathbf{b}^{(k)} \) is a bias term that can be added to the weighted sum, though it is sometimes omitted for simplicity. 
-    \item  The non-linear function \( \sigma(\cdot) \), such as ReLU or tanh, is applied elementwise to introduce non-linearity into the model, which is essential for capturing complex patterns in the data.
+    \item  The non-linear function \( \sigma(\cdot) \) is elementwise applied  to introduce non-linearity into the model, which is essential for capturing complex patterns in the data.
 
 \end{itemize}
 
@@ -152,6 +152,27 @@ In this equation:
 
 
 In the context of Graph Neural Networks (GNNs), a Graph Convolutional Network (GCN) is a specialized model that applies the concept of convolution, widely used in image processing, to graphs. First introduced by \cite{Kipf:2016tc}, GCNs offer a method to perform deep learning on graph-structured data by extending traditional convolution operations to the irregular domain of graphs.
+
+Specifically, the adjacency matrix \( \tilde{\mathbf{A}} \) is defined as:
+
+\begin{equation}
+ \tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}   
+    \label{eq:modified_adjacency_matrix}
+\end{equation}
+
+\noindent where \( \mathbf{A} \) is the original adjacency matrix, and \( \mathbf{I} \) is the identity matrix. The identity matrix \( \mathbf{I} \) ensures that each node considers its own features when aggregating information from its neighbors.
+
+The degree matrix \( \tilde{\mathbf{D}} \) is defined as:
+
+\begin{equation}
+    \tilde{D}_{vv} = \sum_{{v'} \in V} \tilde{A}_{vv^{'}}   
+    \label{eq:degree_matrix}
+\end{equation}
+%
+where \( V \) represents the set of all nodes in the graph. The diagonal entries of \( \tilde{\mathbf{D}} \) correspond to the degree of each node, adjusted to account for the added self-loops.
+
+
+
 
 The fundamental idea behind GCNs is to create a spectral filter that operates on graph data. The filter's purpose is to combine features from a node's local neighborhood, taking into account the graph's structure. This process is mathematically formalized in the following way:
 
@@ -174,31 +195,15 @@ Where:
 
 The expression \( \tilde{\mathbf{D}}^{-\frac{1}{2}} \tilde{\mathbf{A}} \tilde{\mathbf{D}}^{-\frac{1}{2}} \) is a normalized version of the adjacency matrix, ensuring that the eigenvalues of the operation are bounded between 0 and 1. This normalization step is crucial as it prevents issues such as exploding or vanishing gradients during the training of deep networks.
 
-Specifically, the adjacency matrix \( \tilde{\mathbf{A}} \) is defined as:
-
-\begin{equation}
- \tilde{\mathbf{A}} = \mathbf{A} + \mathbf{I}   
-    \label{eq:modified_adjacency_matrix}
-\end{equation}
-
-where \( \mathbf{A} \) is the original adjacency matrix, and \( \mathbf{I} \) is the identity matrix. The identity matrix \( \mathbf{I} \) ensures that each node considers its own features when aggregating information from its neighbors.
-
-The degree matrix \( \tilde{\mathbf{D}} \) is defined as:
-
-\begin{equation}
- \tilde{D}_{ii} = \sum_{j \in V} \tilde{A}_{ij}   
-    \label{eq:degree_matrix}
-\end{equation}
-%
-where \( V \) represents the set of all nodes in the graph. The diagonal entries of \( \tilde{\mathbf{D}} \) correspond to the degree of each node, adjusted to account for the added self-loops.
-
-\subsubsection{Convolution with Edge-Node Switching (CensNet)}
+\subsection{Convolution with Edge-Node Switching (Cens Block)}
 
 Graph Convolutional Networks (GCNs) have demonstrated considerable success in various graph-based machine learning tasks, particularly in their ability to generalize convolution operations to non-Euclidean data structures like graphs \cite{Fu_Wang_Liu_Liu_Zhou_You_Peng_Jing_2022} . GCNs operate by aggregating features from a node's neighbors, thereby capturing local neighborhood information and propagating it through the network layers. Despite their effectiveness, GCNs possess certain limitations that hinder their performance in more complex scenarios.
 
-One notable limitation of GCNs is their reliance solely on node features during the convolution process. This approach disregards the information contained within edge features. By neglecting edge features, GCNs fail to fully exploit the underlying structure of the graph, potentially missing out on critical insights that could enhance model performance \cite{8954414}.
 
-Furthermore, GCNs typically aggregate information from immediate neighbors only, which can limit their ability to capture long-range dependencies in large or densely connected graphs. This restriction can lead to an oversimplified representation of the graph structure, particularly in cases where the graph contains intricate patterns that require deeper and more nuanced analysis \cite{Guo_Zhang_Teng_Lu_2019}.
+
+% One notable limitation of GCNs is their reliance solely on node features during the convolution process. This approach disregards the information contained within edge features \cite{8954414}. By neglecting edge features, GCNs fail to fully exploit the underlying graph structure, potentially missing out on critical insights that could enhance model performance \cite{8954414}.
+
+One notable limitation of GCNs is their reliance on node features during the convolution process, which overlooks the information encoded in edge features. This limitation prevents the model from fully capturing the complexity of the graph structure and may reduce its overall effectiveness \cite{8954414}. Furthermore, GCNs typically aggregate information from immediate neighbors only, which can limit their ability to capture long-range dependencies in large or densely connected graphs. This restriction can lead to an oversimplified representation of the graph structure, particularly in cases where the graph contains intricate patterns that require deeper and more nuanced analysis \cite{Guo_Zhang_Teng_Lu_2019}.
 
 To overcome the limitations of traditional GCNs, which focus primarily on node features, CensNet introduces a novel approach that integrates both node and edge features into the graph convolution process. The CensNet framework consists of two primary types of layers: the \textit{node layer} and the \textit{edge layer}. These layers work in concert to update node and edge embeddings alternately, leveraging the information from both nodes and edges in the graph \cite{9224195}.
 
@@ -209,7 +214,7 @@ The propagation rules in CensNet are designed to incorporate edge features into 
     \label{eq:normalized_node_adjacency}
 \end{equation}
 
-where $\mathbf{D}_v$ is the diagonal degree matrix of $\mathbf{A}_v + \mathbf{I}_{N_v}$.
+\noindent where $\mathbf{D}_v$ is the diagonal degree matrix of $\mathbf{A}_v + \mathbf{I}_{N_v}$.
 
 \paragraph{Node Layer Propagation:}
 
@@ -222,11 +227,11 @@ In the $(l+1)$-th layer, the node features are updated using the following propa
     \label{eq:CensNet_propagation}
 \end{equation}
 
-Where, 
+\noindent Where, 
 
 \begin{itemize}
-    \item \( \mathbf{T} \in \mathbb{R}^{N_v \times N_e} \) is a binary transformation matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( \mathbf{T} \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
-    \item \( \mathbf{H}^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( \mathbf{P}_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \( \Phi(\mathbf{H}^{(l)}_e \mathbf{P}_e) \) denotes the diagonalization of the vector \( \mathbf{H}^{(l)}_e \mathbf{P}_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
+    \item \( \mathbf{T} \in \{0, 1\}^{N_v \times N_e} \) is an incidence matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( \mathbf{T} \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
+    \item \( \mathbf{H}^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( \mathbf{p}_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \(  \textup{diag}(\mathbf{H}^{(l)}_e \mathbf{p}_e) \) denotes the diagonalization of the vector \( \mathbf{H}^{(l)}_e \mathbf{p}_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
     \item The Hadamard product, denoted by \( \odot \), represents element-wise multiplication between matrices. In this context, it combines the transformed edge features with the node adjacency matrix, integrating information from both the original graph and its line graph.
     \item \( \tilde{\mathbf{A}}_v\) is the normalized adjacency matrix for nodes, as shown in \cref{eq:normalized_node_adjacency}, where \( \mathbf{A}_v \) is the original node adjacency matrix and \( \mathbf{I}_{N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
     \item \( \mathbf{H}^{(l)}_v \) represents the node feature matrix from the \( l \)-th layer. \( \mathbf{W}_v \) is a learnable weight matrix that is applied to the node features during the propagation process. 
@@ -240,7 +245,7 @@ This expression can be understood as a mechanism for integrating node and edge i
 
 \paragraph{Edge Layer Propagation:}
 
-Similarly, the normalized (Laplacianized) edge adjacency matrix is defined as:
+Similarly, the normalized edge adjacency matrix is defined as:
 
 \begin{equation}
     \tilde{\mathbf{A}}_e = \mathbf{D}_e^{-\frac{1}{2}} \left(\mathbf{A}_e + \mathbf{I}_{N_e}\right) \mathbf{D}_e^{-\frac{1}{2}},
@@ -248,7 +253,7 @@ Similarly, the normalized (Laplacianized) edge adjacency matrix is defined as:
 \end{equation}
 
 
-where \( D_e \) is the degree matrix corresponding to the edge adjacency matrix \( A_e + I_{N_e} \). The matrix \( \tilde{A}_e \) serves as the normalized version of the edge adjacency matrix, similar to how the node adjacency matrix is normalized. This normalization ensures that the influence of each edge is scaled appropriately, which is crucial for the stability of the propagation process.
+\noindent where \( \mathbf{D}_e \) is the degree matrix corresponding to the edge adjacency matrix \( \mathbf{A}_e + \mathbf{I}_{N_e} \). The matrix \( \tilde{\mathbf{A}}_e \) serves as the normalized version of the edge adjacency matrix, similarly to the node adjacency normalization. This normalization ensures that the influence of each edge is scaled appropriately, which is crucial for the stability of the propagation process.
 
 The propagation rule for edge features is defined as follows:
 
@@ -261,22 +266,22 @@ In this expression, the following components are involved:
 
 \begin{itemize}
     \item \textbf{\( \mathbf{T}^\top \)} is the transpose of the binary transformation matrix \( \mathbf{T} \) used in the node layer propagation. The matrix \( \mathbf{T}^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
-    \item \( \mathbf{H}^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( \mathbf{P}_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(\mathbf{H}^{(l)}_v \mathbf{P}_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation.
+    \item \( \mathbf{H}^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( \mathbf{p}_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation.
     \item The matrix \( \tilde{\mathbf{A}}_e \) is the normalized edge adjacency matrix, as defined in \cref{eq:normalized_edge_adjacency}. This matrix integrates information about the connections between edges, analogous to how \( \tilde{\mathbf{A}}_v \) handles connections between nodes.
-    \item \( \mathbf{H}^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( \mathbf{W}_e \) is a learnable weight matrix that is applied to the edge features during the propagation.
+    \item \( \mathbf{H}^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( \mathbf{W}_e \) is a learnable weighting matrix that is applied to the edge features during the propagation.
     \item The Hadamard product \( \odot \) element-wise multiplies the transformed node features with the edge adjacency matrix, merging the information from both domains.
     \item As in the node layer propagation, the activation function \( \sigma \) is applied element-wise to introduce non-linearity.
 \end{itemize}
 
 
-This propagation rule updates the edge embeddings by integrating information from the node features and the edge structure, thereby enhancing the expressiveness of the edge representations. The alternating updates between node and edge embeddings allow the model to effectively bridge signals across nodes and edges, leading to more robust and informative graph embeddings.
+This propagation rule updates the edge embeddings by integrating information from the node features and the edge structure, thereby enhancing the expressiveness of the edge representations. The alternating updates between node and edge embeddings allow the model to effectively bridge signals across nodes and edges, leading to more robust and informative graph embeddings compared to other neural network approaches.
 
 
 
 
 \subsection{Task-Dependent Loss Functions}
 
-The output layer and corresponding loss functions in CensNet are designed to be task-dependent. For regression tasks, the loss function can be formalized as a regularized mean square error (MSE) loss. The MSE loss measures the difference between the predicted outcomes and the actual continuous values, providing a natural fit for regression problems.
+The output layer and corresponding loss functions in CensNet are designed to be task-dependent. For regression tasks, the loss function can be formalized as a regularized mean square error (MSE) loss. The MSE loss measures the difference between the predicted outcomes and the actual values, providing a natural fit for regression problems.
 
 
 We define the loss function for graph regression as follows:
@@ -296,10 +301,10 @@ where:
 
 
 
-\section{Linear formulation of the natural gas system} \label{sec:LinealCensnet_formulation}
+\section{Gas flow estimation through CensNet} \label{sec:LinealCensnet_formulation}
 
 
-Natural gas is a widely used energy resource, particularly for electricity generation. The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $\mathcal{G}_f = \left\{\mathcal{N}_f, \mathcal{E}_f\right\}$ where $\mathcal{N}_f$ is the set of units within the gas system, and $ \mathcal{E}_f$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset \mathcal{N}_{f}$, gas demand nodes or users $\mathcal{U} \subset \mathcal{N}_{f}$, and gas storage facilities $\mathcal{S} \subset \mathcal{N}_{f}$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in\mathcal{N}_f \right\} \subset \mathcal{E}$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in\mathcal{N}_f \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m\in\mathcal{N}_f \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
+The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $\mathcal{G}_f = \left\{\mathcal{N}_f, \mathcal{E}_f\right\}$ where $\mathcal{N}_f$ is the set of units within the gas system, and $ \mathcal{E}_f$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset \mathcal{N}_{f}$, gas demand nodes or users $\mathcal{U} \subset \mathcal{N}_{f}$, and gas storage facilities $\mathcal{S} \subset \mathcal{N}_{f}$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in\mathcal{N}_f \right\} \subset \mathcal{E}$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in\mathcal{N}_f \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m\in\mathcal{N}_f \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
 
 
 Natural gas transportation requires coordination to manage the flow through the different elements to maintain safe operating ranges. In optimizing this network, mathematical models minimize overall operating costs associated with the various stages of natural gas transportation, compression, storage, and handling unsupplied demand, ensuring compliance with technical and physical constraints. The function is expressed as:
