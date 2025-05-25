@@ -1,6 +1,6 @@
 \chapter{Natural Gas System Prediction Using Graph Neural Networks} \label{cap:lienal-censnet}
 
-\section{mathematical framework}
+\section{Mathematical framework}
 
 \subsection{Graph definition}
 
@@ -127,10 +127,11 @@ In recent years, Graph Neural Networks (GNNs) have emerged as a powerful tool in
 
 GNNs are important because they can directly operate on graph-structured data, extending neural networks' success from grid-like data structures, such as images and sequences, to more general and irregular structures \cite{Jia_Wang_Shou_Hosseini_Bai_2023a} . Traditional neural networks, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), are designed to work with data that has a fixed structure. However, many real-world problems involve data that can be better described by graphs, where nodes represent entities and edges represent relationships between those entities \cite{Gupta_Matta_Pant_2021}. 
 
-Graph Neural Networks can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let $G = (V, E)$ represent a graph, where $V$ is the set of nodes (or vertices) and $E$ is the set of edges. Each node $v \in V$ can be associated with a feature vector $\mathbf{x}_v \in \mathbb{R}$, and each edge $(u, v) \in E$ may have an associated weighting or feature vector $\mathbf{e}_{uv} \in \mathbb{R}$. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
+
+Graph Neural Networks can be broadly defined as a class of neural networks designed to perform inference on data described by graphs. Formally, let \( G = (V, E) \) represent a graph, where \( V \) is the set of nodes (or vertices) and \( E \) is the set of edges. Each node \( v \in V \) can be associated with a feature vector \( \mathbf{x}_v \in \mathbb{R}^{D_v} \), where \( D_v \) is the number of features per node, and each edge \( (u, v) \in E \) may have an associated weighting or feature vector \( \mathbf{e}_{uv} \in \mathbb{R}^{D_e} \), where \( D_e \) is the number of features per edge. The goal of a GNN is to learn a representation for each node (or sometimes for the entire graph) by aggregating and transforming the feature information from the node's local neighborhood in the graph.
 
 
- To move from the abstract concept to a practical implementation, the specific functions used for updating and aggregating node features must be defined \cite{Liu_Wu_Liu_Hu_2021}. In the GNN framework, message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. 
+To move from the abstract concept to a practical implementation, the specific functions used for updating and aggregating node features must be defined \cite{Liu_Wu_Liu_Hu_2021}. In the GNN framework, message passing is understood as a series of iterations in which each node updates its representation by exchanging information with its neighbors. 
 
 The basic message passing operation, which simplifies the original GNN model proposed by \cite{GRLB_Hamilton}, is expressed by the following equation:
 \begin{equation}
@@ -138,18 +139,15 @@ The basic message passing operation, which simplifies the original GNN model pro
     \label{eq:message_passing}
 \end{equation}
 
-In this equation:
+
+\noindent In this equation:
 \begin{itemize}
-    \item \( \mathbf{h}_u^{(k)} \in \mathbb{R} \) represents the updated feature vector of node \( u \) at layer \( k \).
-    \item The term \( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} \) transforms the node's own feature vector from the previous layer, enabling the node to retain and modify its own information. 
-    \item The term \( \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} \) aggregates the feature vectors of the neighboring nodes \( v \) in the set \( \mathcal{N}(u) \), and then applies a transformation via the weight matrix \( \mathbf{W}_{\text{neigh}}^{(k)} \) 
-    \item \( \mathbf{b}^{(k)} \) is a bias term that can be added to the weighted sum, though it is sometimes omitted for simplicity. 
-    \item  The non-linear function \( \sigma(\cdot) \) is elementwise applied  to introduce non-linearity into the model, which is essential for capturing complex patterns in the data.
-
+    \item \( \mathbf{h}_u^{(k)} \in \mathbb{R}^{D_h^{(k)}} \) represents the updated feature vector of node \( u \) at layer \( k \), where \( D_h^{(k)} \) is the dimensionality of the hidden representation at that layer.
+    \item The term \( \mathbf{W}_{\text{self}}^{(k)} \mathbf{h}_u^{(k-1)} \), where \( \mathbf{W}_{\text{self}}^{(k)} \in \mathbb{R}^{D_h^{(k)} \times D_h^{(k-1)}} \) and \( \mathbf{h}_u^{(k-1)} \in \mathbb{R}^{D_h^{(k-1)}} \), transforms the node's own feature vector from the previous layer, enabling the node to retain and modify its own information. 
+    \item The term \( \mathbf{W}_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}(u)} \mathbf{h}_v^{(k-1)} \), where \( \mathbf{W}_{\text{neigh}}^{(k)} \in \mathbb{R}^{D_h^{(k)} \times D_h^{(k-1)}} \), aggregates the feature vectors of the neighboring nodes \( v \) in the set \( \mathcal{N}(u) \), and then applies a transformation via the weighting matrix. 
+    \item \( \mathbf{b}^{(k)} \in \mathbb{R}^{D_h^{(k)}} \) is a bias term that can be added to the weighted sum, though it is sometimes omitted for simplicity. 
+    \item The non-linear function \( \sigma(\cdot) \) is elementwise applied to introduce non-linearity into the model, which is essential for capturing complex patterns in the data.
 \end{itemize}
-
-% . This aggregation step is crucial as it allows the node to incorporate information from its local neighborhood.
-
 
 In the context of Graph Neural Networks (GNNs), a Graph Convolutional Network (GCN) is a specialized model that applies the concept of convolution, widely used in image processing, to graphs. First introduced by \cite{Kipf:2016tc}, GCNs offer a method to perform deep learning on graph-structured data by extending traditional convolution operations to the irregular domain of graphs.
 
@@ -160,7 +158,7 @@ Specifically, the adjacency matrix \( \tilde{\mathbf{A}} \) is defined as:
     \label{eq:modified_adjacency_matrix}
 \end{equation}
 
-\noindent where \( \mathbf{A} \) is the original adjacency matrix, and \( \mathbf{I} \) is the identity matrix. The identity matrix \( \mathbf{I} \) ensures that each node considers its own features when aggregating information from its neighbors.
+\noindent with \( \mathbf{A} \) is the original adjacency matrix, and \( \mathbf{I} \) is the identity matrix. The identity matrix \( \mathbf{I} \) ensures that each node considers its own features when aggregating information from its neighbors.
 
 The degree matrix \( \tilde{\mathbf{D}} \) is defined as:
 
@@ -181,17 +179,17 @@ The fundamental idea behind GCNs is to create a spectral filter that operates on
     \label{eq:GCN_filter}
 \end{equation}
 
-Where:
+\noindent Here:
+
 \begin{itemize}
-    \item \( \mathbf{H} \) represents the matrix of node representations after applying the GCN layer. Each row \( \mathbf{h}_u \) in \( \mathbf{H} \) corresponds to the updated feature vector for node \( u \). 
-    \item \( \mathbf{X} \) is the matrix of input node features, where each row \( \mathbf{x}_u \) corresponds to the feature vector for node \( u \) before applying the GCN layer. 
-    \item \( \sigma(\cdot) \) denotes a non-linear activation function, such as ReLU, applied elementwise to introduce non-linearity into the model. 
-    \item \( \tilde{\mathbf{A}} \) is the adjacency matrix of the graph, with added self-loops to account for the node itself in the aggregation. 
-    \item \( \tilde{\mathbf{D}} \) is the degree matrix of the graph, modified to include the self-loops. The degree matrix is diagonal, with each diagonal entry \( \tilde{D}_{ii} \) representing the degree of node \( i \) in the graph. 
-    \item \( \mathbf{\Theta} \) is a matrix of trainable parameters, which is learned during the training process to optimize the model's performance.
-
-
+    \item \( \mathbf{H} \in \mathbb{R}^{N_v \times D_h} \) represents the matrix of node representations after applying the GCN layer. Each row \( \mathbf{h}_u \in \mathbb{R}^{D_h} \) in \( \mathbf{H} \) corresponds to the updated feature vector for node \( u \). 
+    \item \( \mathbf{X} \in \mathbb{R}^{N_v \times D_v} \) is the matrix of input node features, where each row \( \mathbf{x}_u \in \mathbb{R}^{D_v} \) corresponds to the feature vector for node \( u \) before applying the GCN layer. 
+    \item \( \sigma(\cdot) \) denotes a non-linear activation function elementwise applied to introduce non-linearity into the model. 
+    \item \( \tilde{\mathbf{A}} \in \mathbb{R}^{N_v \times N_v} \) is the adjacency matrix of the graph, with added self-loops to account for the node itself in the aggregation. 
+    \item \( \tilde{\mathbf{D}} \in \mathbb{R}^{N_v \times N_v} \) is the degree matrix of the graph, modified to include the self-loops. The degree matrix is diagonal, with each diagonal entry \( \tilde{D}_{ii} \in \mathbb{R} \) representing the degree of node \( i \) in the graph. 
+    \item \( \mathbf{\Theta} \in \mathbb{R}^{D_v \times D_h} \) is a matrix of trainable parameters, which is learned during the training process to optimize the model's performance.
 \end{itemize}
+
 
 The expression \( \tilde{\mathbf{D}}^{-\frac{1}{2}} \tilde{\mathbf{A}} \tilde{\mathbf{D}}^{-\frac{1}{2}} \) is a normalized version of the adjacency matrix, ensuring that the eigenvalues of the operation are bounded between 0 and 1. This normalization step is crucial as it prevents issues such as exploding or vanishing gradients during the training of deep networks.
 
@@ -214,7 +212,11 @@ The propagation rules in CensNet are designed to incorporate edge features into 
     \label{eq:normalized_node_adjacency}
 \end{equation}
 
-\noindent where $\mathbf{D}_v$ is the diagonal degree matrix of $\mathbf{A}_v + \mathbf{I}_{N_v}$.
+
+
+\noindent In this expression \( \mathbf{A}_v \in \mathbb{R}^{N_v \times N_v} \) is the adjacency matrix for the nodes, and \( \mathbf{I}_{N_v} \in \mathbb{R}^{N_v \times N_v} \) is the identity matrix that introduces self-loops. The matrix \( \mathbf{D}_v \in \mathbb{R}^{N_v \times N_v} \) is the diagonal degree matrix of \( \mathbf{A}_v + \mathbf{I}_{N_v} \), where each diagonal entry corresponds to the degree of a node (i.e., the number of neighbors, including itself). The term \( N_v \) denotes the number of nodes in the graph. Consequently, the sum \( \mathbf{A}_v + \mathbf{I}_{N_v} \) is a matrix of size \( N_v \times N_v \), and so is \( \mathbf{D}_v \).
+
+% \noindent where $\mathbf{D}_v$ is the diagonal degree matrix of $\mathbf{A}_v + \mathbf{I}_{N_v}$.
 
 \paragraph{Node Layer Propagation:}
 
@@ -227,17 +229,30 @@ In the $(l+1)$-th layer, the node features are updated using the following propa
     \label{eq:CensNet_propagation}
 \end{equation}
 
-\noindent Where, 
+\noindent With, 
 
 \begin{itemize}
-    \item \( \mathbf{T} \in \{0, 1\}^{N_v \times N_e} \) is an incidence matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( \mathbf{T} \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
-    \item \( \mathbf{H}^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( \mathbf{p}_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \(  \textup{diag}(\mathbf{H}^{(l)}_e \mathbf{p}_e) \) denotes the diagonalization of the vector \( \mathbf{H}^{(l)}_e \mathbf{p}_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
-    \item The Hadamard product, denoted by \( \odot \), represents element-wise multiplication between matrices. In this context, it combines the transformed edge features with the node adjacency matrix, integrating information from both the original graph and its line graph.
-    \item \( \tilde{\mathbf{A}}_v\) is the normalized adjacency matrix for nodes, as shown in \cref{eq:normalized_node_adjacency}, where \( \mathbf{A}_v \) is the original node adjacency matrix and \( \mathbf{I}_{N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
-    \item \( \mathbf{H}^{(l)}_v \) represents the node feature matrix from the \( l \)-th layer. \( \mathbf{W}_v \) is a learnable weight matrix that is applied to the node features during the propagation process. 
+    \item \( \mathbf{T} \in \{0, 1\}^{N_v \times N_e} \) is an incidence matrix that represents the connections between nodes and edges. Each element \( T_{v,e} \) indicates whether edge \( e \) connects to node \( v \). Specifically, if edge \( e \) is connected to node \( v \), then \( T_{v,e} = 1 \); otherwise, \( T_{v,e} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( \mathbf{T} \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
+
+    \item \( \mathbf{H}^{(l)}_e \in \mathbb{R}^{N_e \times D_e} \) is the edge feature matrix from the \( l \)-th layer, where \( D_e \) is the dimensionality of the edge features. \( \mathbf{p}_e \in \mathbb{R}^{D_e} \) is a learnable vector of weights that projects the edge features into a scalar value per edge. The matrix-vector product \( \mathbf{H}^{(l)}_e \mathbf{p}_e \in \mathbb{R}^{N_e} \) results in a vector with one scalar value per edge. The operation \( \textup{diag}(\mathbf{H}^{(l)}_e \mathbf{p}_e) \in \mathbb{R}^{N_e \times N_e} \) converts this vector into a diagonal matrix where each element of the vector is placed on the diagonal.
+   
+       \item The Hadamard product, denoted by \( \odot \), represents element-wise multiplication between matrices. In this context, it combines the transformed edge features with the node adjacency matrix, integrating information from both the original graph and its line graph.
+    \item \( \tilde{\mathbf{A}}_v \in \mathbb{R}^{N_v \times N_v} \) is the normalized adjacency matrix for nodes, as shown in \cref{eq:normalized_node_adjacency}, where \( \mathbf{A}_v \in \mathbb{R}^{N_v \times N_v} \) is the original node adjacency matrix and \( \mathbf{I}_{N_v} \in \mathbb{R}^{N_v \times N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
+
+    \item \( \mathbf{H}^{(l)}_v \in \mathbb{R}^{N_v \times D_v} \) represents the node feature matrix from the \( l \)-th layer. \( \mathbf{W}_v \in \mathbb{R}^{D_v \times D_v'} \) is a learnable weight matrix that is applied to the node features during the propagation process.
+    
     \item The activation function \( \sigma \) (typically a non-linear function such as ReLU) is applied element-wise to the resulting matrix to introduce non-linearity into the model.
 \end{itemize}
 
+
+% \begin{itemize}
+%     \item \( \mathbf{T} \in \{0, 1\}^{N_v \times N_e} \) is an incidence matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( \mathbf{T} \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
+%     \item \( \mathbf{H}^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( \mathbf{p}_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \(  \textup{diag}(\mathbf{H}^{(l)}_e \mathbf{p}_e) \) denotes the diagonalization of the vector \( \mathbf{H}^{(l)}_e \mathbf{p}_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
+%     \item The Hadamard product, denoted by \( \odot \), represents element-wise multiplication between matrices. In this context, it combines the transformed edge features with the node adjacency matrix, integrating information from both the original graph and its line graph.
+%     \item \( \tilde{\mathbf{A}}_v\) is the normalized adjacency matrix for nodes, as shown in \cref{eq:normalized_node_adjacency}, where \( \mathbf{A}_v \) is the original node adjacency matrix and \( \mathbf{I}_{N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
+%     \item \( \mathbf{H}^{(l)}_v \) represents the node feature matrix from the \( l \)-th layer. \( \mathbf{W}_v \) is a learnable weight matrix that is applied to the node features during the propagation process. 
+%     \item The activation function \( \sigma \) (typically a non-linear function such as ReLU) is applied element-wise to the resulting matrix to introduce non-linearity into the model.
+% \end{itemize}
 
 This expression can be understood as a mechanism for integrating node and edge information. The matrix \( \mathbf{T} \) is responsible for transferring edge features into the node domain, allowing these edge-derived features to be merged with the normalized node adjacency matrix \( \tilde{\mathbf{A}}_v \). 
 
