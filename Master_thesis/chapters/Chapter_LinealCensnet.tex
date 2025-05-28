@@ -225,7 +225,7 @@ In the $(l+1)$-th layer, the node features are updated using the following propa
 
 
 \begin{equation}
-    \mathbf{H}^{(l+1)}_v = \sigma\left(\mathbf{T} \Phi\left(\mathbf{H}^{(l)}_e \mathbf{P}_e\right)\mathbf{T}^\top \odot \tilde{\mathbf{A}}_v \mathbf{H}^{(l)}_v \mathbf{W}_v\right) 
+    \mathbf{H}^{(l+1)}_v = \sigma\left(\mathbf{T} \Phi\left(\mathbf{H}^{(l)}_e \mathbf{p}_e\right)\mathbf{T}^\top \odot \tilde{\mathbf{A}}_v \mathbf{H}^{(l)}_v \mathbf{W}_v\right) 
     \label{eq:CensNet_propagation}
 \end{equation}
 
@@ -257,7 +257,6 @@ In the $(l+1)$-th layer, the node features are updated using the following propa
 This expression can be understood as a mechanism for integrating node and edge information. The matrix \( \mathbf{T} \) is responsible for transferring edge features into the node domain, allowing these edge-derived features to be merged with the normalized node adjacency matrix \( \tilde{\mathbf{A}}_v \). 
 
 
-
 \paragraph{Edge Layer Propagation:}
 
 Similarly, the normalized edge adjacency matrix is defined as:
@@ -268,7 +267,10 @@ Similarly, the normalized edge adjacency matrix is defined as:
 \end{equation}
 
 
-\noindent where \( \mathbf{D}_e \) is the degree matrix corresponding to the edge adjacency matrix \( \mathbf{A}_e + \mathbf{I}_{N_e} \). The matrix \( \tilde{\mathbf{A}}_e \) serves as the normalized version of the edge adjacency matrix, similarly to the node adjacency normalization. This normalization ensures that the influence of each edge is scaled appropriately, which is crucial for the stability of the propagation process.
+% \noindent where \( \mathbf{D}_e \) is the degree matrix corresponding to the edge adjacency matrix \( \mathbf{A}_e + \mathbf{I}_{N_e} \). The matrix \( \tilde{\mathbf{A}}_e \) serves as the normalized version of the edge adjacency matrix, similarly to the node adjacency normalization. This normalization ensures that the influence of each edge is scaled appropriately, which is crucial for the stability of the propagation process.
+
+
+\noindent where \( \mathbf{D}_e \in \mathbb{R}^{N_e \times N_e} \) is the degree matrix corresponding to the edge adjacency matrix \( \mathbf{A}_e + \mathbf{I}_{N_e} \), with \( \mathbf{A}_e \in \mathbb{R}^{N_e \times N_e} \) and \( \mathbf{I}_{N_e} \in \mathbb{R}^{N_e \times N_e} \). The matrix \( \tilde{\mathbf{A}}_e \in \mathbb{R}^{N_e \times N_e} \) serves as the normalized version of the edge adjacency matrix, similarly to the node adjacency normalization. This normalization ensures that the influence of each edge is scaled appropriately, which is crucial for the stability of the propagation process.
 
 The propagation rule for edge features is defined as follows:
 
@@ -277,52 +279,73 @@ The propagation rule for edge features is defined as follows:
     \mathbf{H}^{(l+1)}_e = \sigma\left(\mathbf{T}^\top \Phi\left(\mathbf{H}^{(l)}_v \mathbf{P}_v\right) \mathbf{T} \odot \tilde{\mathbf{A}}_e \mathbf{H}^{(l)}_e \mathbf{W}_e\right),
 \end{equation}
 
+% \begin{equation}
+%     \mathbf{H}^{(l+1)}_e = \sigma\left(\left[\mathbf{T}^\top \Phi\left(\mathbf{H}^{(l)}_v \mathbf{p}_v\right) \mathbf{T}\right] \odot \tilde{\mathbf{A}}_e \, \mathbf{H}^{(l)}_e \mathbf{W}_e\right),
+% \end{equation}
+
+
 In this expression, the following components are involved:
 
+% \begin{itemize}
+%     \item \textbf{\( \mathbf{T}^\top \)} is the transpose of the binary transformation matrix \( \mathbf{T} \) used in the node layer propagation. The matrix \( \mathbf{T}^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
+%     \item \( \mathbf{H}^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( \mathbf{p}_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation.
+%     \item The matrix \( \tilde{\mathbf{A}}_e \) is the normalized edge adjacency matrix, as defined in \cref{eq:normalized_edge_adjacency}. This matrix integrates information about the connections between edges, analogous to how \( \tilde{\mathbf{A}}_v \) handles connections between nodes.
+%     \item \( \mathbf{H}^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( \mathbf{W}_e \) is a learnable weighting matrix that is applied to the edge features during the propagation.
+%     \item The Hadamard product \( \odot \) element-wise multiplies the transformed node features with the edge adjacency matrix, merging the information from both domains.
+%     \item As in the node layer propagation, the activation function \( \sigma \) is applied element-wise to introduce non-linearity.
+% \end{itemize}
+
+
 \begin{itemize}
-    \item \textbf{\( \mathbf{T}^\top \)} is the transpose of the binary transformation matrix \( \mathbf{T} \) used in the node layer propagation. The matrix \( \mathbf{T}^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
-    \item \( \mathbf{H}^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( \mathbf{p}_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation.
-    \item The matrix \( \tilde{\mathbf{A}}_e \) is the normalized edge adjacency matrix, as defined in \cref{eq:normalized_edge_adjacency}. This matrix integrates information about the connections between edges, analogous to how \( \tilde{\mathbf{A}}_v \) handles connections between nodes.
-    \item \( \mathbf{H}^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( \mathbf{W}_e \) is a learnable weighting matrix that is applied to the edge features during the propagation.
-    \item The Hadamard product \( \odot \) element-wise multiplies the transformed node features with the edge adjacency matrix, merging the information from both domains.
+    \item \textbf{\( \mathbf{T}^\top \in \{0,1\}^{N_e \times N_v} \)} is the transpose of the binary transformation matrix \( \mathbf{T} \in \{0,1\}^{N_v \times N_e} \) used in the node layer propagation. The matrix \( \mathbf{T}^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
+    
+    \item \( \mathbf{H}^{(l)}_v \in \mathbb{R}^{N_v \times D_v} \) is the node feature matrix from the \( l \)-th layer, and \( \mathbf{p}_v \in \mathbb{R}^{D_v} \) is a learnable vector that projects each node's features to a scalar. The operation \( \mathbf{H}^{(l)}_v \mathbf{p}_v \in \mathbb{R}^{N_v} \) results in a scalar per node. The function \( \Phi(\cdot) \) produces the diagonal matrix \( \Phi\left(\mathbf{H}^{(l)}_v \mathbf{p}_v\right) \in \mathbb{R}^{N_v \times N_v} \), which is used to scale each node's influence in the projection.
+    
+    \item The matrix product \( \mathbf{T}^\top \Phi\left(\mathbf{H}^{(l)}_v \mathbf{p}_v\right) \mathbf{T} \in \mathbb{R}^{N_e \times N_e} \) maps this node-level scalar information into the edge domain. This matrix has the same dimensions as the normalized edge adjacency matrix \( \tilde{\mathbf{A}}_e \in \mathbb{R}^{N_e \times N_e} \), which ensures the Hadamard product is dimensionally valid.
+    
+    \item \( \mathbf{H}^{(l)}_e \in \mathbb{R}^{N_e \times D_e} \) represents the edge feature matrix from the \( l \)-th layer, while \( \mathbf{W}_e \in \mathbb{R}^{D_e \times D_e'} \) is a learnable weight matrix. Their product \( \mathbf{H}^{(l)}_e \mathbf{W}_e \in \mathbb{R}^{N_e \times D_e'} \) results in the updated edge features before aggregation, where \( D_e' \) denotes the dimensionality of the edge features in the \( l+1 \)-th layer.
+    
+    \item The Hadamard product \( \odot \) element-wise multiplies the matrix \( \mathbf{T}^\top \Phi\left(\mathbf{H}^{(l)}_v \mathbf{p}_v\right) \mathbf{T} \in \mathbb{R}^{N_e \times N_e} \) with \( \tilde{\mathbf{A}}_e \in \mathbb{R}^{N_e \times N_e} \), producing a filtered adjacency matrix in the edge domain.
+    
+    \item The resulting matrix (after Hadamard product) multiplies the transformed edge features \( \mathbf{H}^{(l)}_e \mathbf{W}_e \in \mathbb{R}^{N_e \times D_e'} \), resulting in an output matrix in \( \mathbb{R}^{N_e \times D_e'} \), consistent with the desired shape of \( \mathbf{H}^{(l+1)}_e \).
+    
     \item As in the node layer propagation, the activation function \( \sigma \) is applied element-wise to introduce non-linearity.
 \end{itemize}
 
-
-This propagation rule updates the edge embeddings by integrating information from the node features and the edge structure, thereby enhancing the expressiveness of the edge representations. The alternating updates between node and edge embeddings allow the model to effectively bridge signals across nodes and edges, leading to more robust and informative graph embeddings compared to other neural network approaches.
-
+This propagation rule updates the edge embeddings by integrating information from the node features and the edge structure, thereby enhancing the expressiveness of the edge representations. The alternating updates between node and edge embeddings allow the model to effectively bridge signals across nodes and edges, resulting in more informative graph embeddings compared to other neural network approaches.
 
 
+% \subsection{Task-Dependent Loss Functions}
+%
+% The output layer and corresponding loss functions in CensNet are designed to be task-dependent. For regression tasks, the loss function can be formalized as a regularized mean square error (MSE) loss. The MSE loss measures the difference between the predicted outcomes and the actual values, providing a natural fit for regression problems.
+%
+%
+% We define the loss function for graph regression as follows:
+%
+% \begin{equation}
+%     \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 + \lambda \|\Theta\|_p,
+% \end{equation}
+%
+% \noindent where:
+%
+% \begin{itemize}
+%     \item \( Y_r \in \mathbb{R} \) is the ground-truth value for the \( r \)-th regression target.
+%     \item \( \hat{Y}_r \in \mathbb{R} \) is the predicted value for the same feature, computed from the final node representation of the graph.
+%     \item \( \| Y_f - \hat{Y}_r \|^2_2 \) is the squared error for feature \( r \), and the sum is taken over all \( R \) output features.
+%     \item \( \Theta \in \mathbb{R}^{P} \) is the set of learnable parameters in the model, and \( \|\Theta\|_p \) denotes the \( L_p \) norm regularization term.
+%     \item \( \lambda \in \mathbb{R}_+ \) is a regularization coefficient that penalizes overly complex models to reduce overfitting.
+% \end{itemize}
 
-\subsection{Task-Dependent Loss Functions}
-
-The output layer and corresponding loss functions in CensNet are designed to be task-dependent. For regression tasks, the loss function can be formalized as a regularized mean square error (MSE) loss. The MSE loss measures the difference between the predicted outcomes and the actual values, providing a natural fit for regression problems.
-
-
-We define the loss function for graph regression as follows:
-
-\begin{equation}
-    \mathcal{L}(\Theta) = \sum_{l \in \mathcal{Y}_L} \sum_{f=1}^{F} \| Y_{lf} - \hat{Y}_{lf} \|^2_2 + \lambda \|\Theta\|_p,
-\end{equation}
-
-where:
-
-\begin{itemize}
-    \item \( Y_{lf} \) represents the true continuous value for the \( f \)-th feature of the \( l \)-th graph in the training set.
-    \item \( \hat{Y}_{lf} \) is the predicted outcome generated from the final node hidden layer of the CensNet model.
-    \item \( \| Y_{lf} - \hat{Y}_{lf} \|^2_2 \) is the squared difference between the true and predicted values, summed across all features and all graphs in the training set.
-    \item \( \lambda \|\Theta\|_p \) is the regularization term, which helps control the model's complexity and prevents overfitting by penalizing large weights. The parameter \( \lambda \) controls the strength of the regularization, while \( p \) determines the type of regularization norm (e.g., \( p=2 \) for \( L_2 \) regularization).
-\end{itemize}
-
-
-
-\section{Gas flow estimation through CensNet} \label{sec:LinealCensnet_formulation}
+\subsection{Gas flow estimation through CensNet} \label{sec:LinealCensnet_formulation}
 
 
-The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $\mathcal{G}_f = \left\{\mathcal{N}_f, \mathcal{E}_f\right\}$ where $\mathcal{N}_f$ is the set of units within the gas system, and $ \mathcal{E}_f$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset \mathcal{N}_{f}$, gas demand nodes or users $\mathcal{U} \subset \mathcal{N}_{f}$, and gas storage facilities $\mathcal{S} \subset \mathcal{N}_{f}$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in\mathcal{N}_f \right\} \subset \mathcal{E}$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in\mathcal{N}_f \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m\in\mathcal{N}_f \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
+% $G = (V, E)$, where $V$ is a non-empty set of vertices, and $E \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is the set of edges,
 
+% The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $\mathcal{G}_f = \left\{\mathcal{N}_f, \mathcal{E}_f\right\}$ where $\mathcal{N}_f$ is the set of units within the gas system, and $ \mathcal{E}_f$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset \mathcal{N}_{f}$, gas demand nodes or users $\mathcal{U} \subset \mathcal{N}_{f}$, and gas storage facilities $\mathcal{S} \subset \mathcal{N}_{f}$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in\mathcal{N}_f \right\} \subset \mathcal{E}$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in\mathcal{N}_f \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m\in\mathcal{N}_f \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
 
-Natural gas transportation requires coordination to manage the flow through the different elements to maintain safe operating ranges. In optimizing this network, mathematical models minimize overall operating costs associated with the various stages of natural gas transportation, compression, storage, and handling unsupplied demand, ensuring compliance with technical and physical constraints. The function is expressed as:
+The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $ G = (V, E)$ where $V$ is the set of units within the gas system, and $E$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset V$, gas demand nodes or users $\mathcal{U} \subset V$, and gas storage facilities $\mathcal{S} \subset V$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in V \right\} \subset E$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in V \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m \in V \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
+
+Natural gas transportation requires coordination to manage the flow through the different elements to maintain safe operating ranges. In optimizing this network, mathematical models minimize overall operating costs associated with the various stages of natural gas transportation, compression, storage, and handling unsupplied demand, ensuring compliance with technical and physical constraints. The cost function to minimize is expressed as:
 
 % \begin{equation} \label{eq:obj_func_integrated}
 % \begin{split}
@@ -366,7 +389,31 @@ The constraint set models the gas transportation system: \Cref{eq:well_limits} f
 
 % \Cref{eq:sto_limit1,eq:sto_limit2} limit the gas injection $f_{s+}$  and extraction $f_{s-}$ rates at storage facilities according to the feasible operating range determined by the currently stored volume $V_{s}^t$, respectively. In turn, \Cref{eq:sto_time} balances the gas storage unit such that gas volume at operation period $t$ $V_{s}^t$ equals the volume from period $V_{s}^{t-1}$ plus the difference between injected $f_{s+}^{t-1}$ and extracted $f_{s+}^{t-1}$ gas flow, a fundamental constraint for modeling the dynamics of gas storage over time. 
 
-\section{Experimental Setup} \label{sec:LinealCensnet_ExperimentalSetup}
+\subsection{Task-Dependent Loss Functions}
+
+The output layer and corresponding loss functions in CensNet are designed to be task-dependent. For regression tasks, the loss function can be formalized as a regularized mean square error (MSE) loss. The MSE loss measures the difference between the predicted outcomes and the actual values, providing a natural fit for regression problems.
+
+
+We define the loss function for graph regression as follows:
+
+\begin{equation}
+    \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 + \lambda \|\Theta\|_p,
+\end{equation}
+
+\noindent where:
+
+\begin{itemize}
+    \item \( Y_r \in \mathbb{R} \) is the ground-truth value for the \( r \)-th regression target.
+    \item \( \hat{Y}_r \in \mathbb{R} \) is the predicted value for the same feature, computed from the final node representation of the graph.
+    \item \( \| Y_f - \hat{Y}_r \|^2_2 \) is the squared error for feature \( r \), and the sum is taken over all \( R \) output features.
+    \item \( \Theta \in \mathbb{R}^{P} \) is the set of learnable parameters in the model, and \( \|\Theta\|_p \) denotes the \( L_p \) norm regularization term.
+    \item \( \lambda \in \mathbb{R}_+ \) is a regularization coefficient that penalizes overly complex models to reduce overfitting.
+\end{itemize}
+
+
+
+
+\section{Experimental Setup and Results} \label{sec:LinealCensnet_ExperimentalSetup}
 
 
 
