@@ -338,11 +338,6 @@ This propagation rule updates the edge embeddings by integrating information fro
 
 \subsection{Gas flow estimation through CensNet} \label{sec:LinealCensnet_formulation}
 
-
-% $G = (V, E)$, where $V$ is a non-empty set of vertices, and $E \subseteq \{(u, v) \mid u, v \in V(G), u \neq v\}$ is the set of edges,
-
-% The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $\mathcal{G}_f = \left\{\mathcal{N}_f, \mathcal{E}_f\right\}$ where $\mathcal{N}_f$ is the set of units within the gas system, and $ \mathcal{E}_f$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset \mathcal{N}_{f}$, gas demand nodes or users $\mathcal{U} \subset \mathcal{N}_{f}$, and gas storage facilities $\mathcal{S} \subset \mathcal{N}_{f}$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in\mathcal{N}_f \right\} \subset \mathcal{E}$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in\mathcal{N}_f \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m\in\mathcal{N}_f \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
-
 The natural gas system consists of a network of production centers, pipelines, compressor stations, storage facilities, and distribution points that ensure reliable gas delivery from producers to consumers. Mathematically, this system can be represented as a directed graph defined as $ G = (V, E)$ where $V$ is the set of units within the gas system, and $E$ is the set of different elements linking them. This set of units includes gas supply nodes or wells $\mathcal{W} \subset V$, gas demand nodes or users $\mathcal{U} \subset V$, and gas storage facilities $\mathcal{S} \subset V$. Similarly, the set of directed gas adjacency edges $\mathcal{A} = \left\{(n,m) \mid n,m\in V \right\} \subset E$ delineates the network structure through two kinds of transmission elements: transport pipelines $\mathcal{P} = \left\{p=(n,m) \mid n,m\in V \right\}$ and compressing stations $\mathcal{C} = \left\{c=(n,m) \mid n,m \in V \right\}$, so that $\mathcal{P}\cup\mathcal{C}=\mathcal{A}$ and $\mathcal{P}\cap\mathcal{C}=\emptyset$.
 
 Natural gas transportation requires coordination to manage the flow through the different elements to maintain safe operating ranges. In optimizing this network, mathematical models minimize overall operating costs associated with the various stages of natural gas transportation, compression, storage, and handling unsupplied demand, ensuring compliance with technical and physical constraints. The cost function to minimize is expressed as:
@@ -356,26 +351,6 @@ Natural gas transportation requires coordination to manage the flow through the 
 
 
 Here, $\mathcal{T}$ denotes the set of discrete time periods considered in the optimization model. The term $\sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t}$ represents the total cost of gas production at the wells, where $C_{w}^t$ denotes the cost per unit flow of gas at a specific well $w$ during time period $t$, and $f_{w}^t$ corresponds to the flow of gas from well $w$. Similarly, the transportation of gas through pipelines is captured by the term $\sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t}$, where $C_{p}^t$ is the cost per unit flow through pipeline $p$ during time period $t$, and $f_{p}^t$ represents the flow of gas through pipeline $p$. In addition, the total cost associated with gas compression at compressor stations is accounted for by $\sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t}$, where $C_{c}^t$ is the cost per unit flow at compressor station $c$ during time period $t$, and $f_{c}^t$ is the flow of gas through compressor station $c$. Beyond production, transportation, and compression, the model also considers the costs related to unmet gas demand. The term $\sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}}$ reflects the penalty cost associated with unsupplied gas demand, where $C_{u}^{t}$ is the penalty cost per unit of unsupplied gas at location $u$ during time period $t$, and $f_{u}^{t}$ represents the volume of unmet demand. 
-
-
-
-% Additionally, the model includes costs related to storage operations. The term $\sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}$ represents the cost of injecting gas into storage facilities, where $C_{s+}^{t}$ is the cost per unit flow into storage during time period $t$, and $f_{s+}^{t}$ denotes the flow into storage at facility $s$. Conversely, the cost of withdrawing gas from storage is captured by $\sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}}$, where $C_{s-}^{t}$ is the cost per unit flow out of storage during time period $t$, and $f_{s-}^{t}$ represents the flow out of storage at facility $s$. Finally, the model accounts for the storage cost itself through the term $\sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}$, where $C_{s}^{t}$ is the cost per unit volume of gas stored at facility $s$ during time period $t$, and $V_{s}^{t}$ denotes the volume of gas stored. 
-
-
-% Lastly, \Cref{eq:weymouth_cons}, known as the Weymouth equation, summarizes the physical behavior of gas flow through pipelines by relating the gas flow through the pipeline $f_{p}^t$ to the pressures at the ends of the pipeline $\pi_{n}^t, \pi_{m}^t \ \forall \ p = (n,m) \in\mathcal{P}$. The Weymouth equation defines a nonlinear, nonconvex, disjunctive flow-pressure relationship that hampers the optimization of the gas transport system.
-% \begin{subequations}
-% \begin{alignat}{4}
-%     \underline{f_{w}^t} \leq f_{w}^t \leq \overline{f_{w}^t} &\quad \forall \ w \in \mathcal{W} \label{eq:well_limits} \\
-%     -\overline{f_{p}^t} \leq f_{p}^t \leq \overline{f_{p}^t} &\quad \forall \ p \in \mathcal{P} \label{eq:pipe_limits} \\
-%     % \underline{\pi_{n}^t} \leq \pi_{n}^t \leq \overline{\pi_{n}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:press_limit} \\
-%     % \pi_{m}^t \leq \beta_{c}^t{\pi_{n}^t} &\quad \forall c=(n,m) \in \mathcal{C} \label{eq:comp_ratio} \\
-%     0 \leq f_{u}^{t} \leq \overline{f_{u}^{t}} &\quad \forall \ u \in \mathcal{U} \label{eq:dem_limit_gas} \\
-%     \sum_{m:(m,n)\in\mathcal{A}}{f_{m}^t} = \sum_{m':(n,m')\in\mathcal{A}}{f_{m'}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:gas_balance}
-%     % 0 \leq f_{s+}^t \leq V_{0s} - \underline{V_s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\ 
-%     % 0 \leq f_{s-}^t \leq \overline{V_s} - V_{0s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\ 
-%     % V_{s}^t = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_time}\\
-%     % sgn(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2-(\pi_{m}^t)^2) &\quad \forall \ p =(n,m) \in\mathcal{P} \label{eq:weymouth_cons}
-% \end{alignat}
 
     The constraint set models the gas architecture of the transportation system and its technical limits: \Cref{eq:well_limits} forces each production well to inject the flow $f_{w}^t \in \mathbb{R}^{N_v} $ over the technical minimum $\underline{f_{w}^t}  \in \mathbb{R}^{N_v}$ and under the maximum capacity $\overline{f_{w}^t} \in \mathbb{R}^{N_v}$. \Cref{eq:pipe_limits} upper-bounds the gas flow through pipelines $f_{p}^t \in \mathbb{R}^{N_e} $ to the structural capacity $\overline{f_{p}^t} \in \mathbb{R}^{N_e} $. \Cref{eq:dem_limit_gas} ensures that the unsupplied demand $f_{u}^{t}\in \mathbb{R}^{N_v}$ is lower than the corresponding user demand $\overline{f_{u}^{t}}\in \mathbb{R}^{N_v}$. The nodal gas balance in \Cref{eq:gas_balance} guarantees that the gas entering the node $n$ equals the gas leaving it. 
 
@@ -392,10 +367,17 @@ Here, $\mathcal{T}$ denotes the set of discrete time periods considered in the o
     % sgn(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2-(\pi_{m}^t)^2) &\quad \forall \ p =(n,m) \in\mathcal{P} \label{eq:weymouth_cons}
 \end{alignat}
 
+The optimization model described above is used to generate flow scenarios across the network. These scenarios serve as supervised training data for a CensNet-based model that approximates the mapping between the structural and technical parameters of the network and the resulting gas flows. The CensNet architecture is designed to learn these mappings by taking as input a set of graph-based features and predicting the flow behavior directly through a regression task. Specifically, the network receives the following input data:
 
+\begin{itemize}
+    \item \textbf{Node Features:} A matrix $\in \mathbb{R}^{N_v \times 3}$. Each node feature includes the lower and upper limits for injected flow, as well as demanded flow.
+    \item \textbf{Node Laplacian:} An adjacency matrix of size $N_e \times N_e$ encoding the graph structure of the nodes.
+    \item \textbf{Edge Laplacian:} A matrix of size $N_e \times N_e$ encoding the connections between edges.
+    \item \textbf{Incidence Matrix:} A matrix of size $N_v \times N_e$ representing the node-edge incidence relationship, mapping the flow of gas between nodes through edges.
+    \item \textbf{Edge Features:} A matrix $\in \mathbb{R}^{N_e \times 5}$ that includes the features of pipelines and compressors in the gas network. Each edge feature includes the $K$ constant, the maximum compression ratio $\beta$, and the upper and lower flow limits.
+\end{itemize}
 
-
-% \Cref{eq:sto_limit1,eq:sto_limit2} limit the gas injection $f_{s+}$  and extraction $f_{s-}$ rates at storage facilities according to the feasible operating range determined by the currently stored volume $V_{s}^t$, respectively. In turn, \Cref{eq:sto_time} balances the gas storage unit such that gas volume at operation period $t$ $V_{s}^t$ equals the volume from period $V_{s}^{t-1}$ plus the difference between injected $f_{s+}^{t-1}$ and extracted $f_{s+}^{t-1}$ gas flow, a fundamental constraint for modeling the dynamics of gas storage over time. 
+The model outputs include node-level predictions corresponding to the injected flow at each node and edge-level predictions representing the transported flow across the network edges.
 
 \subsection{Task-Dependent Loss Functions}
 
@@ -432,18 +414,9 @@ The model explicitly penalizes deviations in node and edge losses, which directl
 A general outline of the model can be seen in \cref{fig:model_description} and the basic components of the model are explained below:
 
 \begin{itemize}
-    \item \textbf{Input Channels:} The model receives five types of input data:
         
-        
-    \begin{itemize}
-        \item Node Features: A matrix $\in \mathbb{R}^{N_v \times 3}$. Each node feature includes the lower and upper limits for injected flow, as well as demanded flow.
-        \item Node Laplacian: An adjacency matrix of size $N_e \times N_e$ encoding the graph structure of the nodes.
-        \item Edge Laplacian: A matrix of size $N_e \times N_e$ encoding the connections between edges.
-        \item Incidence Matrix: A matrix of size $N_v \times N_e$ representing the node-edge incidence relationship, mapping the flow of gas between nodes through edges.
-        \item Edge Features: A matrix $\in \mathbb{R}^{N_e \times 5}$ that includes the features of pipelines and compressors in the gas network. Each edge feature includes the $K$ constant, the maximum compression ratio $\beta$, and the upper and lower flow limits.
-    \end{itemize}
+    \item \textbf{Normalization and Pre\-dense Layers:} The node and edge inputs receive feature-wise normalization to standardize the data. Following this, the inputs are passed through two dense layers, each with $N$ channels. The purpose of these pre-dense layers is to transform the feature space before applying the convolutional layers, enabling the network to project the raw input data into a higher-dimensional latent space that facilitates more expressive and effective learning in the subsequent convolutional stages.
 
-    \item \textbf{Normalization and Pre\-dense Layers:} The node and edge inputs receive feature-wise normalization to standardize the data. Following this, the inputs are passed through two dense layers, each with $N \ channels$. The purpose of these pre-dense layers is to transform the feature space before applying the convolutional layers 
 
     \item \textbf{CensNet Blocks Layers:} The main body of the network consists of \(N\) convolutional blocks. Each block applies a CensNet convolution, which updates both node and edge features by considering the structural relationships encoded in the node and edge Laplacians, as well as the incidence matrix. Batch normalization follows each convolution to stabilize learning. This structure allows the model to capture complex interactions between nodes and edges and propagate information across the graph, learning how local features influence the broader system.
    
@@ -466,15 +439,16 @@ The loss functions ensure that the model accurately predicts the node and edge f
 \end{itemize}
 
 
-The network training was done under the following conditions: data was partitioned into training, validation, and test sets, with percentages of 60\%, 20\%, and 20\%. The learning rate schedule followed an Exponential Decay approach, with an initial learning rate of $1 \times 10^{-2}$ decay steps of 1000, and a decay rate of 0.9. The model was trained over 1500 epochs, ensuring the parameters had sufficient time to converge for both node- and edge-level predictions using a Leaky Relu activation function with an alpha parameter of 0.2.
+The network training was done under the following conditions: data was partitioned into training, validation, and test sets, with percentages of 60\%, 20\%, and 20\% using 2000 samples for the 8-node network and 2400 for the 63-node network. The learning rate schedule followed an Exponential Decay approach, with an initial learning rate of $1 \times 10^{-2}$ decay steps of 1000, and a decay rate of 0.9. The model was trained over 1500 epochs, ensuring the parameters had sufficient time to converge for both node- and edge-level predictions using a Leaky Relu activation function with an alpha parameter of 0.2.
 
 
-The model utilized several key hyperparameters: $N \ channels$, which corresponds to the units in the pre-dense and convolutional layers (CensNet), N Dense, representing the number of post-dense layers, and $N \ layers$, denoting the number of convolutional layers. Additionally, the model incorporated weights to penalize deviations in the network's response, specifically targeting MSE between the actual flow and the predicted flow at both the nodes and pipelines. Two tests were conducted to determine the optimal set of hyperparameters. The first test considered only the weight associated with node flow preconditions, while the second test included weights for both node and pipeline flows. In each test, the hyperparameters were optimized using the open-source Optuna framework \cite{optuna_2019}, with the following search space: $N \ channels$ ranged from 16 to 64, $N \ layers$ from 1 to 5, and $N \ dense$ from 2 to 32.
+The model utilized several key hyperparameters: $N \ channels$, which corresponds to the units in the pre-dense and convolutional layers (CensNet), N Dense, representing the number of post-dense layers, and $N \ layers$, denoting the number of convolutional layers. Additionally, the model penalizes deviations in the network's response, specifically targeting MSE between the actual flow and the predicted flow at both the nodes and pipelines. Two tests were performed to determine the optimal set of hyperparameters. The objective was to compare the effect of using different combinations of loss functions during training. In the first test, only the weight associated with the nodal flow loss was considered, while in the second test, both nodal and edge flow losses were included. A test using only the edge loss was not conducted, as it was considered inappropriate to disregard the nodal flow loss. This is because the nodal flows represent the injection and demand values, which are essential for the physical consistency of the system and are directly associated with the behavior of the network at each node. In each test, the hyperparameters were optimized using the open-source Optuna framework \cite{optuna_2019}, with the following search space: $N \ channels$ ranged from 16 to 64, $N \ layers$ from 1 to 5, and $N \ dense$ from 2 to 32.
 
 
+% Two tests were performed to determine the optimal set of hyperparameters. The objective was to compare the effect of using different combinations of loss functions during training. In the first test, only the weight associated with the nodal flow loss was considered, while in the second test, both nodal and edge flow losses were included. A test using only the edge loss was not conducted, as it was considered inappropriate to disregard the nodal flow loss. This is because the nodal flows represent the injection and demand values, which are essential for the physical consistency of the system and are directly associated with the behavior of the network at each node.
 
 
-\section{Results}
+\subsection{Results}
 
 In this section, we present the results of the proposed GNN model, focusing on the relationship between the predicted outputs and the actual observed values in the natural gas transportation networks. The evaluation includes both the 8-node test network and the Colombian natural gas system, with the goal of assessing the model's ability to predict key parameters under varying operational conditions. 
 
@@ -490,7 +464,7 @@ In this section, we present the results of the proposed GNN model, focusing on t
 \subsection{Case Study I: 8-node Network}
 
 
-As a result of the optimization process for this first test, the following hyperparameters were obtained: $N \ channels=21$, $N \ layers=5$, and $N \ dense=4$. With these optimized values, the model achieved an MSE of 1.98. In \cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
+As a result of the optimization process for this first test, the following hyperparameters were obtained: $N \ channels=21$, $N \ layers=5$, and $N \ dense=4$. With these optimized values, the model achieved an MSE of 1.98. In \Cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
 
 
 \Cref{fig:results_dummy_base_f} displays the relationship between the actual gas flows through the edges and the predictions made by the neural network. In this case, the model struggled to predict the flow values accurately, demonstrating a significant deviation from the actual data. This result is not unexpected, as the model used in this experiment focused solely on the losses related to gas flows at the injection nodes without accounting for the gas transported through the edges. As such, the absence of edge-related loss consideration likely contributed to the poor prediction performance for edge flows.
