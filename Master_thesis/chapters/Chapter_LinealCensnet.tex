@@ -369,13 +369,19 @@ Here, $\mathcal{T}$ denotes the set of discrete time periods considered in the o
 
 The optimization model described above is used to generate flow scenarios across the network. These scenarios serve as supervised training data for a CensNet-based model that approximates the mapping between the structural and technical parameters of the network and the resulting gas flows. The CensNet architecture is designed to learn these mappings by taking as input a set of graph-based features and predicting the flow behavior directly through a regression task. Specifically, the network receives the following input data:
 
+
 \begin{itemize}
-    \item \textbf{Node Features:} A matrix $\in \mathbb{R}^{N_v \times 3}$. Each node feature includes the lower and upper limits for injected flow, as well as demanded flow.
-    \item \textbf{Node Laplacian:} An adjacency matrix of size $N_e \times N_e$ encoding the graph structure of the nodes.
-    \item \textbf{Edge Laplacian:} A matrix of size $N_e \times N_e$ encoding the connections between edges.
-    \item \textbf{Incidence Matrix:} A matrix of size $N_v \times N_e$ representing the node-edge incidence relationship, mapping the flow of gas between nodes through edges.
-    \item \textbf{Edge Features:} A matrix $\in \mathbb{R}^{N_e \times 5}$ that includes the features of pipelines and compressors in the gas network. Each edge feature includes the $K$ constant, the maximum compression ratio $\beta$, and the upper and lower flow limits.
+    \item \textbf{Node Features \(\mathbf{X} \in \mathbb{R}^{N_v \times 3}\):} A matrix where each row corresponds to a node in the graph, and each column represents a node-level attribute. Each node feature vector includes the lower and upper limits for injected flow, as well as demanded flow.
+
+    \item \textbf{Node Laplacian \(\mathbf{L}_v \in \mathbb{R}^{N_v \times N_v}\):} An adjacency-based Laplacian matrix encoding the graph structure of the nodes. This matrix captures the relational topology among nodes and is used in spectral formulations of GNNs.
+
+    \item \textbf{Edge Laplacian \(\mathbf{L}_e \in \mathbb{R}^{N_e \times N_e}\):} A Laplacian matrix defined over the edges, capturing connectivity patterns between edges, relevant in edge-based message passing formulations.
+
+    \item \textbf{Incidence Matrix \(\mathbf{T} \in \{0,1\}^{N_v \times N_e}\):} A binary matrix representing the node-edge incidence relationship. Each column corresponds to an edge and contains ones in the rows of its incident nodes, enabling the mapping of flows through the network.
+
+    \item \textbf{Edge Features \(\mathbf{E} \in \mathbb{R}^{N_e \times 5}\):} A matrix where each row corresponds to an edge in the graph, and each column represents an edge-level attribute. Each edge feature includes the \(K\) constant, the maximum compression ratio \(\beta\), and the upper and lower flow limits.
 \end{itemize}
+
 
 The model outputs include node-level predictions corresponding to the injected flow at each node and edge-level predictions representing the transported flow across the network edges.
 
@@ -422,7 +428,9 @@ A general outline of the model can be seen in \cref{fig:model_description} and t
    
     \item \textbf{Post-dense Layer:} After passing through the convolutional blocks, the node and edge features are further processed by a series of dense layers. The number of dense layers $N \ dense$ is adjustable. These layers further refine the learned features, enabling the model to output node and edge-level predictions. 
    
-    \item \textbf{Losses and Outputs:} The final outputs of the network are the node-level and edge-level predictions. The node predictions correspond to the estimated flow at each node, while the edge predictions represent the flow along the edges. Both outputs are penalized based on their respective losses, which are calculated by comparing the predicted values to ground truth values and evaluating how well the physical constraints are respected.
+    
+    \item \textbf{Losses and Outputs:} The final outputs of the network are the node-level and edge-level predictions, denoted by \(\hat{\mathbf{X}}_v\) and \(\hat{\mathbf{X}}_e\), respectively. The node predictions \(\hat{\mathbf{X}}_v\) correspond to the estimated flow at each node, while the edge predictions \(\hat{\mathbf{X}}_e\) represent the flow along the edges. Both outputs are penalized based on their respective losses, which are calculated by comparing the predicted values to ground truth values and evaluating how well the physical constraints are respected.
+
 
 The loss functions ensure that the model accurately predicts the node and edge flows while satisfying the physical constraints of the system. These constraints are essential for ensuring that the predicted flows are feasible within the operational limitations of the network. 
     \item \textbf{Model Optimization:} The model is trained using backpropagation with the Adam optimizer. The training process involves minimizing the node and edge loss functions, which penalize incorrect flow predictions and deviations from the expected behavior of the network.
@@ -464,19 +472,19 @@ In this section, we present the results of the proposed GNN model, focusing on t
 \subsection{Case Study I: 8-node Network}
 
 
-As a result of the optimization process for this first test, the following hyperparameters were obtained: $N \ channels=21$, $N \ layers=5$, and $N \ dense=4$. With these optimized values, the model achieved an MSE of 1.98. In \Cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual values, indicating that the model's predictions are more concentrated around a certain point.
+As a result of the optimization process for this first test, the following hyperparameters were obtained: $N \ channels=21$, $N \ layers=5$, and $N \ dense=4$. With these optimized values, the model achieved an MSE of 1.98. In \Cref{fig:results_dummy_base_node}, a scatter plot illustrates the relationship between the actual values of gas generation at the nodes and the corresponding values predicted by the trained neural network, considering only the losses at the nodes. The plot highlights how effectively the network captures the fact that only one of the nodes in the system has gas generation, specifically the one with the associated gas injection field. However, while the network successfully identifies the generating node, the predicted values exhibit less dispersion than the actual value, indicating that the model's predictions are more concentrated around a certain value.
 
 
-\Cref{fig:results_dummy_base_f} displays the relationship between the actual gas flows through the edges and the predictions made by the neural network. In this case, the model struggled to predict the flow values accurately, demonstrating a significant deviation from the actual data. This result is not unexpected, as the model used in this experiment focused solely on the losses related to gas flows at the injection nodes without accounting for the gas transported through the edges. As such, the absence of edge-related loss consideration likely contributed to the poor prediction performance for edge flows.
+\Cref{fig:results_dummy_base_f} displays the relationship between the actual gas flows through the edges and the predictions made by the neural network. In this case, the model struggled to predict the flow values accurately, demonstrating a significant deviation from the actual data. This result is not unexpected, as the model used in this experiment focused solely on the losses related to gas flows at the injection nodes without accounting for the gas transported thvalue the edges. As such, the absence of edge-related loss consideration likely contributed to the poor prediction performance for edge flows.
 
 
 \begin{figure}
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
-    \subfloat[Actual vs predicted nodal flows.] 
+    \subfloat[Nodal flows.] 
     {\label{fig:results_dummy_base_node}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base.tex}}}
-    \subfloat[Actual vs predicted edge flows.] 
+    \subfloat[Edge flows.] 
     {\label{fig:results_dummy_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_f.tex}}}
     
     \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
@@ -485,7 +493,7 @@ As a result of the optimization process for this first test, the following hyper
 
 
 
-To evaluate the performance of the optimization model and the GNN-based model, a t-test was performed, comparing the time each took to generate 100 predictions for new, unseen cases. The results showed a T-statistic of $14.94$, 198 degrees of freedom and a p-value of 1.32e-34, indicating that the optimization model took significantly longer than the GNN-based model, confirming its higher computational cost.
+To compare the computational times of the natural gas linear optimization model and the GNN-based model, a t-test was performed, comparing the time each took to generate 100 predictions for new, unseen cases. The results showed a T-statistic of $14.94$, 198 degrees of freedom, and a p-value of 1.32e-34, indicating that the optimization model took significantly longer than the GNN-based model, confirming its higher computational cost.
 
 % The table was here !!
 

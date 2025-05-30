@@ -9,11 +9,12 @@
     \tikzstyle{arrow} = [->, thick]
 
     % Input Layer
-    \node[input] (node_features) at (0,0) {Node Features}; %\\ $\mathbb{R}^{N \times 3}$};
-    \node[input] (node_laplacian) [below of=node_features] {Node Laplacian}; %\\ $N \times N$};
-    \node[input] (edge_laplacian) [below of=node_laplacian] {Edge Laplacian}; %\\ $E \times E$};
-    \node[input] (incidence_matrix) [below of=edge_laplacian] {Incidence Matrix}; %\\ $N \times E$};
-    \node[input] (edge_features) [below of=incidence_matrix] {Edge Features}; %\\ $\mathbb{R}^{N \times 3}$};
+    \node[input] (node_features) at (0,0) {\(\mathbf{X}\)}; % Node Features
+    \node[input] (node_laplacian) [below of=node_features] {\(\mathbf{L}_v\)}; % Node Laplacian
+    \node[input] (edge_laplacian) [below of=node_laplacian] {\(\mathbf{L}_e\)}; % Edge Laplacian
+    \node[input] (incidence_matrix) [below of=edge_laplacian] {\(\mathbf{T}\)}; % Incidence Matrix
+    \node[input] (edge_features) [below of=incidence_matrix] {\(\mathbf{E}\)}; % Edge Features
+
 
     % Normalization and Pre-dense Layer
     \node[dense] (norm_pre_dense) [right of=edge_laplacian, xshift=3cm] {Normalization \\ \& Pre-dense Layers};
@@ -25,8 +26,10 @@
     \node[dense] (post_dense) [right of=conv_layers, xshift=3cm] {Post-dense Layers};
 
     % Outputs
-    \node[output] (node_output) [right of=post_dense, xshift=3cm, yshift=1cm] {Node Predictions};
-    \node[output] (edge_output) [right of=post_dense, xshift=3cm, yshift=-1cm] {Edge Predictions};
+
+    \node[output] (node_output) [right of=post_dense, xshift=3cm, yshift=1cm] {\(\hat{\mathbf{X}}_v\)}; % Node Predictions
+    \node[output] (edge_output) [right of=post_dense, xshift=3cm, yshift=-1cm] {\(\hat{\mathbf{X}}_e\)}; % Edge Predictions
+
 
     % Losses
     \node[loss] (node_loss) [right of=node_output, xshift=3cm] {Node Loss};
