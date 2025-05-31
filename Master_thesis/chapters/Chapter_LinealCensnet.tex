@@ -497,10 +497,10 @@ To compare the computational times of the natural gas linear optimization model 
 
 % The table was here !!
 
-In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This allowed the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. In this case, the hyperparameter tuning revealed that the best combination was $N channels=44$, $N Layers=4$, and $N Dense=4$, with a test data loss of 2.02, where 1.996 corresponds to the loss associated with the prediction of flows injected at the nodes, and 0.207 corresponds to the loss related to the prediction of flows through the edges. Additionally, the MSE between the gas balance based on actual flows and predicted flows was calculated, resulting in a loss of 1.719. It is essential to highlight that, in the previous experiment, this same loss was 284.764. This loss was computed outside the training stage, so it did not influence the optimization of parameters or hyperparameters.
+In the next stage of the experiment, the model was updated to account for the loss associated with edge flow predictions. This allowed the network to better capture the dynamics of gas transportation across the entire network, not just at the nodes. In this case, the hyperparameter tuning revealed that the best combination was $N \ channels=44$, $N \ layers=4$, and $N \ dense=4$, with a test data loss of 2.02, where 1.996 corresponds to the loss associated with the prediction of flows injected at the nodes, and 0.207 corresponds to the loss related to the prediction of flows through the edges. Additionally, the MSE between the gas balance based on actual flows and predicted flows was calculated, resulting in a loss of 1.719. It is essential to highlight that, in the previous experiment, this same loss was 284.764. This loss was computed outside the training stage, so it did not influence the optimization of parameters or hyperparameters.
 
 
-\Cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \Cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an $R^2$ of 0.999. The near-perfect scatter plot in \cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
+\Cref{fig:results_dummy_node_base_f} shows the relationship between the actual injection values at the nodes and the corresponding predictions. As in the previous experiment, the model successfully recognizes that gas injection occurs only at a single node, although the predicted values differ slightly from the actual data. However, a significant improvement is observed when analyzing the flows through the edges. \Cref{fig:results_dummy_edge_base_f} highlights this, where the network's predictions for edge flows are almost perfectly aligned with the actual test data, as evidenced by an $R^2$ of 0.999. The near-perfect scatter plot in \Cref{fig:results_dummy_edge_base_f} demonstrates the network's ability to make highly accurate predictions for gas flows through the edges in this updated experiment.
 
 
 
@@ -508,8 +508,8 @@ In the next stage of the experiment, the model was updated to account for the lo
     \centering
         \setlength\figurewidth{.53\textwidth}        
         \setlength\figureheight{0.36\textwidth} 
-        \subfloat [Actual vs predicted nodal flows.] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
-        \subfloat [Actual vs predicted edge flows.] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
+        \subfloat [Nodal flows.] {\label{fig:results_dummy_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/yn_dummy_base_f.tex}}}
+        \subfloat [Edge flows.] {\label{fig:results_dummy_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/ye_dummy_base_f.tex}}}
         \caption{Model results using the losses associated with the flows in nodes and edges predictions in the 8-node network.}
         \label{fig:dummy_base_f_results}
 \end{figure}
@@ -533,24 +533,39 @@ To evaluate the computational performance when considering the loss associated w
 %     \label{tab:lineal_dummy_results}
 % \end{table}
 
-\begin{table}
+% \begin{table}
+%     \centering
+%     \begin{tabular}{|c|p{0.8cm}|p{0.55cm}|c|c|c|c|}
+%         \hline
+%         Method & \multicolumn{2}{|c|}{Configuration} & Node Loss & Edge Loss & Balance Loss & Time \\ \hline
+%                & \centering N & \centering E &  &  &  &  \\ \hline
+%         APOPT & \makebox[0.8cm]{\centering \checkmark} &   & 4.84 ± 12.87 & 24.22 ± 14.04 & 0 ± 0.04 & 0.79 ± 0.44 \\ \hline
+%         GNN & \makebox[0.8cm]{\centering \checkmark} &   & 4.84 ± 12.79 & 0.46 ± 0.26   & -5.71 ± 16.85 & 0.14 ± 0.04 \\ \hline
+%         % APOPT & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
+%         GNN & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.77 ± 12.7 & 24.14 ± 14.08 & -0.08 ± 1.17  & 0.15 ± 0.06 \\ \hline
+%     \end{tabular}
+%     \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples. The 'N' column refers to experiments considering the nodal loss, while the 'E' column refers to experiments considering the edge loss.}
+%     \label{tab:lineal_dummy_results}
+% \end{table}
+
+
+\begin{table}[H]
     \centering
-    \begin{tabular}{|c|p{0.8cm}|p{0.55cm}|c|c|c|c|}
+    \begin{tabular}{|l|c|c|c|c|}
         \hline
-        Method & \multicolumn{2}{|c|}{Configuration} & Node Value & Edge Value & Balance Value & Time \\ \hline
-               & \centering N & \centering E &  &  &  &  \\ \hline
-        APOPT & \makebox[0.8cm]{\centering \checkmark} &   & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
-        GNN & \makebox[0.8cm]{\centering \checkmark} &   & 4.840 ± 12.794 & 0.455 ± 0.262   & -5.711 ± 16.854 & 0.144 ± 0.044 \\ \hline
-        % APOPT & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.844 ± 12.874 & 24.221 ± 14.041 & -0.001 ± 0.038 & 0.792 ± 0.436 \\ \hline
-        GNN & \makebox[0.8cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.767 ± 12.701 & 24.142 ± 14.083 & -0.079 ± 1.174  & 0.145 ± 0.060 \\ \hline
+        Method & Node Loss & Edge Loss & Balance Loss & Time \\ \hline
+        APOPT & 4.84 ± 12.87 & 24.22 ± 14.04 & 0 ± 0.04 & 0.79 ± 0.44 \\ \hline
+        GNN (N) & 4.84 ± 12.79 & 0.46 ± 0.26 & -5.71 ± 16.85 & 0.14 ± 0.04 \\ \hline
+        GNN (N+E) & 4.77 ± 12.7 & 24.14 ± 14.08 & -0.08 ± 1.17 & 0.15 ± 0.06 \\ \hline
     \end{tabular}
-    \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples. The 'N' column refers to experiments considering the nodal loss, while the 'E' column refers to experiments considering the edge loss.}
+    \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, across 100 samples. The notation \textbf{GNN (N)} refers to experiments considering only the nodal loss, and \textbf{GNN (N+E)} to experiments considering both nodal and edge losses.}
     \label{tab:lineal_dummy_results}
 \end{table}
 
+\Cref{fig:results_dummy_node_base_f} illustrates the relationship between the actual gas injection values at the nodes and the corresponding predictions. As in the previous experiment, the mode identifies that gas injection occurs at only one node, although the predicted values exhibit minor deviations from the actual data. An improvement is observed when analyzing the flows along the edges. \Cref{fig:results_dummy_edge_base_f} demonstrates this, showing that the network’s edge flow predictions are almost aligned with the actual test values, as reflected by an $R^2$ score of 0.999. 
 
 
-The \cref{tab:lineal_dummy_results} presents a combined comparison of the optimization model (APOPT) and the GNN-based model across four experiments. Each experiment has three degrees of freedom: the model method (APOPT or GNN), whether nodal loss (N) was included, and whether edge loss (E) was included. The table focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time. Mean and standard deviation values are reported based on 100 samples.
+% The \Cref{tab:lineal_dummy_results} presents a combined comparison of the optimization model (APOPT) and the GNN-based model across four experiments. Each experiment has three degrees of freedom: the model method (APOPT or GNN), whether nodal loss (N) was included, and whether edge loss (E) was included. The table focuses on four key metrics: nodal flows, edge flows, nodal balance, and prediction time. Mean and standard deviation values are reported based on 100 samples.
 
 
 Both models display similar results for nodal flows in the experiments, considering only the nodal loss (N). For instance, the APOPT model consistently records a mean nodal flow of \(4.844 \pm 12.874\), while the GNN shows a slightly lower mean of \(4.767 \pm 12.701\) in experiments where both N and E were considered. 

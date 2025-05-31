@@ -34,15 +34,19 @@ tick align=outside,
 tick pos=left,
 title={},
 x grid style={darkgray176},
-xlabel={yn true},
+xlabel={True},
 xmajorgrids,
 xmin=-2.3894448262, xmax=50.1783413502,
+xtick={0, 10, 20, 30, 40, 50}, % Definir los ticks en el eje x
+xticklabels={0, 10, 20, 30, 40, $f_e$}, % Añadir f_n al final de los ticks
 xtick style={color=black},
 y grid style={darkgray176},
-ylabel={yn pred},
+ylabel={Predicted},
 ymajorgrids,
 ymin=-2.18335563540459, ymax=41.8559507787228,
-ytick style={color=black}
+ytick={0,10,20,30,40}, % Ticks en el eje y
+yticklabels={0,10,20,30,$f_n$}, % Añadir f_n al final de los ticks
+ytick style={color=black},
 ]
 \addplot [
   colormap={mymap}{[1pt]
