@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Fedora 40)  (format=lualatex 2024.8.17)  4 OCT 2024 15:17
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.3.24)  2 JUN 2025 18:16
  system commands enabled.
 **\def\tikzexternalrealjob{main}\input{main}
 Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
@@ -1323,65 +1323,71 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
+\providecommand\hyper@newdestlabel[2]{}
+(./chapters/Chapter_Abstract.tex)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
 No file figures/external_figs/main-figure23.toc.
 No file figures/external_figs/main-figure23.lof.
+
+Package natbib Warning: Citation `Alam_M' undefined on input line 72.
+
 \providecommand\hyper@newdestlabel[2]{}
 (./chapters/chapter1_preliminaries.tex
 Chapter 1.
 
-Package natbib Warning: Citation `ABBASI2011xv' on page 1 undefined on input li
-ne 6.
+Package natbib Warning: Citation `Alam_M' on page 1 undefined on input line 5.
 
 
-Package natbib Warning: Citation `review' on page 1 undefined on input line 6.
+Package natbib Warning: Citation `china_natural_gas' on page 1 undefined on inp
+ut line 5.
 
 
-Package natbib Warning: Citation `Conejo' on page 1 undefined on input line 6.
+Package natbib Warning: Citation `Yin_Wen_Wu_Han_Mukhtar_Gong_2022' on page 1 u
+ndefined on input line 5.
 
 
-Package natbib Warning: Citation `Byeon_Van_Hentenryck_2020' on page 1 undefine
-d on input line 9.
+Package natbib Warning: Citation `Aydin_2018' on page 1 undefined on input line
+ 5.
 
 
-Package natbib Warning: Citation `Morcillo_Angulo_Franco_2020a' on page 1 undef
-ined on input line 9.
+Package natbib Warning: Citation `IEA_2024' on page 1 undefined on input line 1
+0.
 
 
-Package natbib Warning: Citation `droughts_colombia' on page 1 undefined on inp
-ut line 9.
+Package natbib Warning: Citation `Promigas_2021' on page 1 undefined on input l
+ine 15.
 
 
-Package natbib Warning: Citation `Cuartas_Cunha_Alves_Parra_Deusdará_Leal_Cost
-a_Molina_Amore_Broedel_Seluchi_et_al_2022' on page 1 undefined on input line 9.
+Package natbib Warning: Citation `Arango-Aramburo_Turner_Daenzer_Ríos-Ocampo_H
+ejazi_Kober_Álvarez-Espinosa_Romero-Otalora_vanderZwaan_2019' on page 2 undefi
+ned on input line 18.
 
 
-
-Package natbib Warning: Citation `YANG2020106023' on page 2 undefined on input 
-line 13.
-
-
-Package natbib Warning: Citation `JIANG2021106460' on page 2 undefined on input
- line 13.
+Package natbib Warning: Citation `Villa-Loaiza_Taype-Huaman_Benavides-Franco_Bu
+enaventura-Vera_Carabalí-Mosquera_2023' on page 2 undefined on input line 18.
 
 
-Package natbib Warning: Citation `review' on page 2 undefined on input line 13.
+Package natbib Warning: Citation `Ignacio_Fariza_2022' on page 2 undefined on i
+nput line 18.
 
 
-
-Package natbib Warning: Citation `Alam_M' on page 2 undefined on input line 38.
-
-
-
-Package natbib Warning: Citation `china_natural_gas' on page 2 undefined on inp
-ut line 38.
+Package natbib Warning: Citation `Shan_Yu_Gong_Huang_Wen_Wang_Ren_Wang_Shi_Liu_
+2023' on page 2 undefined on input line 18.
 
 
-Package natbib Warning: Citation `Yin_Wen_Wu_Han_Mukhtar_Gong_2022' on page 2 u
-ndefined on input line 38.
+Package natbib Warning: Citation `Restrepo-Trujillo_Moreno-Chuquen_Jiménez-Gar
+cía_Flores_Chamorro_2022' on page 2 undefined on input line 23.
 
 
-Package natbib Warning: Citation `Aydin_2018' on page 2 undefined on input line
- 38.
+Package natbib Warning: Citation `paper-col' on page 2 undefined on input line 
+23.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1392,34 +1398,49 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 
-Package natbib Warning: Citation `eia' on page 3 undefined on input line 40.
+Package natbib Warning: Citation `review' on page 3 undefined on input line 32.
 
 
-Package natbib Warning: Citation `ideam' on page 3 undefined on input line 40.
+
+Package natbib Warning: Citation `Conejo' on page 3 undefined on input line 32.
 
 
-Package natbib Warning: Citation `creg_2021' on page 3 undefined on input line 
-40.
+
+Package natbib Warning: Citation `Byeon_Van_Hentenryck_2020' on page 3 undefine
+d on input line 36.
 
 
-Package natbib Warning: Citation `paper-col' on page 3 undefined on input line 
-40.
+Package natbib Warning: Citation `Morcillo_Angulo_Franco_2020a' on page 3 undef
+ined on input line 36.
 
 
-Package natbib Warning: Citation `xm-generacion' on page 3 undefined on input l
-ine 42.
+Package natbib Warning: Citation `droughts_colombia' on page 3 undefined on inp
+ut line 36.
 
 
-Package natbib Warning: Citation `fenomeno_niño' on page 3 undefined on input 
-line 42.
+Package natbib Warning: Citation `Cuartas_Cunha_Alves_Parra_Deusdará_Leal_Cost
+a_Molina_Amore_Broedel_Seluchi_et_al_2022' on page 3 undefined on input line 36
+.
 
 
-Package natbib Warning: Citation `Ignacio_Fariza_2022' on page 3 undefined on i
-nput line 42.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 
-Package natbib Warning: Citation `Shan_Yu_Gong_Huang_Wen_Wang_Ren_Wang_Shi_Liu_
-2023' on page 3 undefined on input line 42.
+Package natbib Warning: Citation `YANG2020106023' on page 4 undefined on input 
+line 40.
+
+
+Package natbib Warning: Citation `JIANG2021106460' on page 4 undefined on input
+ line 40.
+
+
+Package natbib Warning: Citation `review' on page 4 undefined on input line 40.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1442,11 +1463,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (./chapters/Chapter_LinealCensnet.tex
 Chapter 2.
 
-Package natbib Warning: Citation `Trudeau_2015' on page 5 undefined on input li
+Package natbib Warning: Citation `Trudeau_2015' on page 6 undefined on input li
 ne 8.
 
 
-Package natbib Warning: Citation `Bender_Williamson_2010' on page 5 undefined o
+Package natbib Warning: Citation `Bender_Williamson_2010' on page 6 undefined o
 n input line 10.
 
 (./figures/Chapter_LinealCensnet/un_graph_def.tex
@@ -1456,29 +1477,29 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 28--31
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 16--19
  [][][] 
  []
 
 
 LaTeX Warning: Reference `fig:graph_definition' on page 1 undefined on input li
-ne 34.
+ne 22.
 
 
 LaTeX Warning: Reference `fig:undirected_graph_def' on page 1 undefined on inpu
-t line 34.
+t line 22.
 
 
 LaTeX Warning: Reference `fig:direc_graph_def' on page 1 undefined on input lin
-e 34.
+e 22.
 
 
-Package natbib Warning: Citation `wilson_1972' on page 6 undefined on input lin
-e 39.
+Package natbib Warning: Citation `wilson_1972' on page 7 undefined on input lin
+e 27.
 
 
-Package natbib Warning: Citation `wilson_1972' on page 6 undefined on input lin
-e 70.
+Package natbib Warning: Citation `wilson_1972' on page 7 undefined on input lin
+e 51.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1490,27 +1511,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:FCNN_representation' on page 1 undefined on input
- line 98.
+ line 77.
 
 (./figures/Chapter_LinealCensnet/MLP_def.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-Package natbib Warning: Citation `Hippert_Pedreira_Souza_2001' on page 7 undefi
-ned on input line 112.
+Package natbib Warning: Citation `Hippert_Pedreira_Souza_2001' on page 8 undefi
+ned on input line 91.
 
 
-Package natbib Warning: Citation `Zhang_Eddy_Patuwo_Y_Hu_1998' on page 7 undefi
-ned on input line 112.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+Package natbib Warning: Citation `Zhang_Eddy_Patuwo_Y_Hu_1998' on page 8 undefi
+ned on input line 91.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1521,16 +1534,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package natbib Warning: Citation `Jia_Wang_Shou_Hosseini_Bai_2023' on page 9 un
-defined on input line 147.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package natbib Warning: Citation `Jia_Wang_Shou_Hosseini_Bai_2023a' on page 9 u
-ndefined on input line 149.
+Package natbib Warning: Citation `Jia_Wang_Shou_Hosseini_Bai_2023' on page 10 u
+ndefined on input line 126.
 
 
-Package natbib Warning: Citation `Gupta_Matta_Pant_2021' on page 9 undefined on
- input line 149.
+Package natbib Warning: Citation `Jia_Wang_Shou_Hosseini_Bai_2023a' on page 10 
+undefined on input line 128.
+
+
+Package natbib Warning: Citation `Gupta_Matta_Pant_2021' on page 10 undefined o
+n input line 128.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1541,16 +1562,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package natbib Warning: Citation `Liu_Wu_Liu_Hu_2021' on page 10 undefined on i
-nput line 154.
+Package natbib Warning: Citation `Liu_Wu_Liu_Hu_2021' on page 11 undefined on i
+nput line 134.
 
 
-Package natbib Warning: Citation `GRLB_Hamilton' on page 10 undefined on input 
-line 157.
+Package natbib Warning: Citation `GRLB_Hamilton' on page 11 undefined on input 
+line 136.
 
 
-Package natbib Warning: Citation `Kipf:2016tc' on page 10 undefined on input li
-ne 176.
+Package natbib Warning: Citation `Kipf:2016tc' on page 11 undefined on input li
+ne 152.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1570,19 +1591,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 Package natbib Warning: Citation `Fu_Wang_Liu_Liu_Zhou_You_Peng_Jing_2022' on p
-age 12 undefined on input line 219.
+age 13 undefined on input line 198.
 
 
-Package natbib Warning: Citation `8954414' on page 12 undefined on input line 2
-21.
+Package natbib Warning: Citation `8954414' on page 13 undefined on input line 2
+04.
 
 
-Package natbib Warning: Citation `Guo_Zhang_Teng_Lu_2019' on page 12 undefined 
-on input line 223.
+Package natbib Warning: Citation `Guo_Zhang_Teng_Lu_2019' on page 13 undefined 
+on input line 204.
 
 
-Package natbib Warning: Citation `9224195' on page 12 undefined on input line 2
-25.
+Package natbib Warning: Citation `9224195' on page 13 undefined on input line 2
+06.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1594,19 +1615,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `eq:normalized_node_adjacency' on page 1 undefined on 
-input line 253.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-LaTeX Warning: Reference `eq:normalized_edge_adjacency' on page 1 undefined on 
-input line 287.
+input line 240.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1633,24 +1642,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-LaTeX Warning: Reference `eq:well_limits' on page 1 undefined on input line 367
+LaTeX Warning: Reference `eq:well_limits' on page 1 undefined on input line 355
 .
 
 
-LaTeX Warning: Reference `eq:pipe_limits' on page 1 undefined on input line 367
+LaTeX Warning: Reference `eq:pipe_limits' on page 1 undefined on input line 355
 .
 
 
 LaTeX Warning: Reference `eq:dem_limit_gas' on page 1 undefined on input line 3
-67.
+55.
 
 
-LaTeX Warning: Reference `eq:gas_balance' on page 1 undefined on input line 367
+LaTeX Warning: Reference `eq:gas_balance' on page 1 undefined on input line 355
 .
-
-
-LaTeX Warning: Reference `fig:model_description' on page 1 undefined on input l
-ine 381.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1659,6 +1664,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package natbib Warning: Citation `Beal_Hill_Martin_Hedengren_2018' on page 19 u
+ndefined on input line 418.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+LaTeX Warning: Reference `fig:model_description' on page 1 undefined on input l
+ine 423.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1673,20 +1702,8 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-Package natbib Warning: Citation `optuna_2019' on page 20 undefined on input li
-ne 421.
-
-
-LaTeX Warning: Reference `fig:results_dummy_base_node' on page 1 undefined on i
-nput line 442.
+Package natbib Warning: Citation `optuna_2019' on page 21 undefined on input li
+ne 456.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1697,8 +1714,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-LaTeX Warning: Reference `fig:results_dummy_base_f' on page 1 undefined on inpu
-t line 445.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 (./figures/Chapter_LinealCensnet/yn_dummy_base.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -1707,81 +1728,9 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 453--456
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 617--620
  [][][] 
  []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-LaTeX Warning: Reference `fig:results_dummy_node_base_f' on page 1 undefined on
- input line 470.
-
-
-LaTeX Warning: Reference `fig:results_dummy_edge_base_f' on page 1 undefined on
- input line 470.
-
-
-LaTeX Warning: Reference `fig:results_dummy_edge_base_f' on page 1 undefined on
- input line 470.
-
-(./figures/Chapter_LinealCensnet/yn_dummy_base_f.tex
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-) (./figures/Chapter_LinealCensnet/ye_dummy_base_f.tex
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-)
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 478--480
- [][][] 
- []
-
-
-Overfull \hbox (11.76189pt too wide) in paragraph at lines 491--499
- [][] 
- []
-
-
-LaTeX Warning: Reference `tab:lineal_dummy_results' on page 1 undefined on inpu
-t line 504.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-LaTeX Warning: Reference `fig:yn_col_base' on page 1 undefined on input line 52
-3.
-
-
-LaTeX Warning: Reference `fig:ye_col_base' on page 1 undefined on input line 52
-4.
 
 (./figures/Chapter_LinealCensnet/yn_col_base.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -1790,25 +1739,28 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 530--532
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 629--631
  [][][] 
  []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+LaTeX Warning: Reference `fig:lineal_col_base_results' on page 1 undefined on i
+nput line 635.
 
 
-LaTeX Warning: Reference `fig:yn_col_base_f' on page 1 undefined on input line 
-542.
+LaTeX Warning: Reference `fig:dummy_base_results' on page 1 undefined on input 
+line 635.
 
-
-LaTeX Warning: Reference `fig:ye_col_base_f' on page 1 undefined on input line 
-542.
+(./figures/Chapter_LinealCensnet/yn_dummy_base_f.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+) (./figures/Chapter_LinealCensnet/ye_dummy_base_f.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+)
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 643--645
+ [][][] 
+ []
 
 (./figures/Chapter_LinealCensnet/yn_col_base_f.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -1817,13 +1769,73 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 549--552
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 654--657
  [][][] 
  []
 
 
+LaTeX Warning: Reference `fig:ye_col_base' on page 1 undefined on input line 66
+2.
+
+
+LaTeX Warning: Reference `fig:results_dummy_base_f' on page 1 undefined on inpu
+t line 662.
+
+
+LaTeX Warning: Reference `fig:col_base_f_results' on page 1 undefined on input 
+line 662.
+
+
+LaTeX Warning: Reference `fig:dummy_base_f_results' on page 1 undefined on inpu
+t line 662.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
 LaTeX Warning: Reference `tab:lineal_col_results' on page 1 undefined on input 
-line 577.
+line 696.
+
+
+LaTeX Warning: Reference `tab:lineal_dummy_results' on page 1 undefined on inpu
+t line 696.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1834,12 +1846,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+LaTeX Warning: Reference `tab:lineal_dummy_results' on page 1 undefined on inpu
+t line 700.
 
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+LaTeX Warning: Reference `tab:lineal_col_results' on page 1 undefined on input 
+line 700.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1851,15 +1863,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:dummy_base_results' on page 1 undefined on input 
-line 596.
+line 714.
 
 
 LaTeX Warning: Reference `fig:dummy_base_f_results' on page 1 undefined on inpu
-t line 596.
+t line 714.
 
 
 LaTeX Warning: Reference `tab:lineal_dummy_results' on page 1 undefined on inpu
-t line 600.
+t line 716.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1871,19 +1883,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:lineal_col_base_results' on page 1 undefined on i
-nput line 609.
+nput line 722.
 
 
 LaTeX Warning: Reference `tab:lineal_col_results' on page 1 undefined on input 
-line 611.
+line 724.
 
 
 LaTeX Warning: Reference `fig:col_base_f_results' on page 1 undefined on input 
-line 613.
+line 726.
 
 
 LaTeX Warning: Reference `tab:lineal_col_results' on page 1 undefined on input 
-line 615.
+line 728.
 
 )
 
@@ -1898,15 +1910,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (./chapters/Chapter_MPCC.tex
 Chapter 3.
 
-Package natbib Warning: Citation `WANG2019113410' on page 31 undefined on input
+Package natbib Warning: Citation `WANG2019113410' on page 32 undefined on input
  line 6.
 
 
-Package natbib Warning: Citation `DC_flow' on page 31 undefined on input line 6
+Package natbib Warning: Citation `DC_flow' on page 32 undefined on input line 6
 .
 
 
-Package natbib Warning: Citation `DC_flow2' on page 31 undefined on input line 
+Package natbib Warning: Citation `DC_flow2' on page 32 undefined on input line 
 6.
 
 
@@ -1997,11 +2009,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package natbib Warning: Citation `weymouth_nonconvex' on page 34 undefined on i
+Package natbib Warning: Citation `weymouth_nonconvex' on page 35 undefined on i
 nput line 74.
 
 
-Package natbib Warning: Citation `baumrucker_renfro_biegler_2008' on page 34 un
+Package natbib Warning: Citation `baumrucker_renfro_biegler_2008' on page 35 un
 defined on input line 74.
 
 
@@ -2009,15 +2021,15 @@ LaTeX Warning: Reference `eq:complementarity' on page 1 undefined on input line
  86.
 
 
-Package natbib Warning: Citation `MPCC_advantages' on page 34 undefined on inpu
+Package natbib Warning: Citation `MPCC_advantages' on page 35 undefined on inpu
 t line 86.
 
 
-Package natbib Warning: Citation `Hintermüller_Kopacka_2009' on page 34 undefi
+Package natbib Warning: Citation `Hintermüller_Kopacka_2009' on page 35 undefi
 ned on input line 86.
 
 
-Package natbib Warning: Citation `Hante_Schmidt_2019' on page 34 undefined on i
+Package natbib Warning: Citation `Hante_Schmidt_2019' on page 35 undefined on i
 nput line 86.
 
 
@@ -2029,11 +2041,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package natbib Warning: Citation `MPCC_lack_properties' on page 35 undefined on
+Package natbib Warning: Citation `MPCC_lack_properties' on page 36 undefined on
  input line 101.
 
 
-Package natbib Warning: Citation `Bergmann_Herzog_2019' on page 35 undefined on
+Package natbib Warning: Citation `Bergmann_Herzog_2019' on page 36 undefined on
  input line 105.
 
 
@@ -2051,19 +2063,19 @@ Overfull \hbox (9.18613pt too wide) in paragraph at lines 118--118
  []
 
 
-Package natbib Warning: Citation `BertsekasDimitriP1999Np/D' on page 36 undefin
+Package natbib Warning: Citation `BertsekasDimitriP1999Np/D' on page 37 undefin
 ed on input line 120.
 
 
-Package natbib Warning: Citation `Bouza_Still_2007' on page 36 undefined on inp
+Package natbib Warning: Citation `Bouza_Still_2007' on page 37 undefined on inp
 ut line 136.
 
 
-Package natbib Warning: Citation `Scholtes_2001' on page 36 undefined on input 
+Package natbib Warning: Citation `Scholtes_2001' on page 37 undefined on input 
 line 136.
 
 
-Package natbib Warning: Citation `Scheel_Scholtes_2000' on page 36 undefined on
+Package natbib Warning: Citation `Scheel_Scholtes_2000' on page 37 undefined on
  input line 136.
 
 
@@ -2075,15 +2087,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package natbib Warning: Citation `Ralph_Wright_2004' on page 37 undefined on in
+Package natbib Warning: Citation `Ralph_Wright_2004' on page 38 undefined on in
 put line 150.
 
 
-Package natbib Warning: Citation `ORDOUDIS2019642' on page 37 undefined on inpu
+Package natbib Warning: Citation `ORDOUDIS2019642' on page 38 undefined on inpu
 t line 153.
 
 
-Package natbib Warning: Citation `soc_paper' on page 37 undefined on input line
+Package natbib Warning: Citation `soc_paper' on page 38 undefined on input line
  153.
 
 
@@ -2106,17 +2118,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: Reference `fig:8-9 network' on page 1 undefined on input line 16
 6.
 
+
+Package natbib Warning: Citation `Wilson_poly' on page 39 undefined on input li
+ne 166.
+
 The command '\includegraphics [scale=0.7]{figures/Chapter_MPCC/8 node 9 bus net
 work.png}' has been optimized away. Use '/tikz/external/optimize=false' to disa
 ble this.
-
-Package natbib Warning: Citation `Wilson_poly' on page 38 undefined on input li
-ne 170.
-
-
-Package natbib Warning: Citation `Wilson_poly' on page 38 undefined on input li
-ne 170.
-
 
 LaTeX Warning: Reference `fig:blue_test_cost' on page 1 undefined on input line
  175.
@@ -2138,11 +2146,11 @@ n optimized away. Use '/tikz/external/optimize=false' to disable this.
 The command '\includegraphics [scale=0.98]{figures/Chapter_MPCC/g002.pdf}' has 
 been optimized away. Use '/tikz/external/optimize=false' to disable this.
 
-Package natbib Warning: Citation `WANG201970' on page 39 undefined on input lin
+Package natbib Warning: Citation `WANG201970' on page 40 undefined on input lin
 e 199.
 
 
-Package natbib Warning: Citation `Conejo' on page 39 undefined on input line 19
+Package natbib Warning: Citation `Conejo' on page 40 undefined on input line 19
 9.
 
 
@@ -2150,7 +2158,7 @@ LaTeX Warning: Reference `fig:green_test_cost' on page 1 undefined on input lin
 e 201.
 
 
-Package natbib Warning: Citation `ZHAO2023129010' on page 39 undefined on input
+Package natbib Warning: Citation `ZHAO2023129010' on page 40 undefined on input
  line 201.
 
 The command '\includegraphics [scale=1]{figures/Chapter_MPCC/g003.pdf}' has bee
@@ -2251,7 +2259,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package natbib Warning: Citation `DING2024123275' on page 43 undefined on input
+Package natbib Warning: Citation `DING2024123275' on page 44 undefined on input
  line 288.
 
 )
@@ -2275,32 +2283,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (./chapters/Chapter_NonLinealCensnet.tex
 Chapter 4.
 
-LaTeX Warning: Reference `eq:gas_balance' on page 1 undefined on input line 25.
+LaTeX Warning: Reference `eq:gas_balance_GNN' on page 1 undefined on input line
+ 49.
 
 
-
-LaTeX Warning: Reference `eq:weymouth_cons' on page 1 undefined on input line 2
-5.
-
-
-LaTeX Warning: Reference `sec:LinealCensnet_ExperimentalSetup' on page 1 undefi
-ned on input line 30.
-
-
-LaTeX Warning: Reference `cap:optimization_mpcc' on page 1 undefined on input l
-ine 30.
-
-
-LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
- 32.
-
-
-LaTeX Warning: Reference `eq:gas_balance' on page 1 undefined on input line 32.
-
-
-
-LaTeX Warning: Reference `eq:weymouth_cons' on page 1 undefined on input line 3
-2.
+LaTeX Warning: Reference `eq:Weymouth_cons_GNN' on page 1 undefined on input li
+ne 49.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2309,6 +2297,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+LaTeX Warning: Reference `sec:LinealCensnet_ExperimentalSetup' on page 1 undefi
+ned on input line 54.
+
+
+LaTeX Warning: Reference `cap:optimization_mpcc' on page 1 undefined on input l
+ine 54.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 56.
+
+
+LaTeX Warning: Reference `eq:gas_balance' on page 1 undefined on input line 56.
+
+
+
+LaTeX Warning: Reference `eq:weymouth_cons' on page 1 undefined on input line 5
+6.
 
 (./figures/Chapter_NonLinealCensnet/model_description.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2324,15 +2332,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_base_node' on page 1 unde
-fined on input line 56.
+fined on input line 80.
 
 
 LaTeX Warning: Reference `fig:results_dummy_node_base_f' on page 1 undefined on
- input line 57.
+ input line 81.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_base_f' on page 1 undefin
-ed on input line 59.
+ed on input line 83.
 
 (./figures/Chapter_NonLinealCensnet/yn_dummy_base_f.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2341,17 +2349,33 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 67--70
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 91--94
  [][][] 
  []
 
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_node_base_f_bal' on page 
-1 undefined on input line 78.
+1 undefined on input line 102.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_edge_base_f_bal' on page 
-1 undefined on input line 80.
+1 undefined on input line 104.
 
 (./figures/Chapter_NonLinealCensnet/yn_dummy_base_f_bal.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2360,25 +2384,9 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 87--90
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 111--114
  [][][] 
  []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2390,11 +2398,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_node_base_f_bal_wey' on p
-age 1 undefined on input line 98.
+age 1 undefined on input line 122.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_edge_base_f_bal_wey' on p
-age 1 undefined on input line 100.
+age 1 undefined on input line 124.
 
 (./figures/Chapter_NonLinealCensnet/yn_dummy_base_f_bal_wey.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2403,7 +2411,7 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 107--110
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 131--134
  [][][] 
  []
 
@@ -2417,11 +2425,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_node_base_bal_wey' on pag
-e 1 undefined on input line 119.
+e 1 undefined on input line 143.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_edge_base_bal_wey' on pag
-e 1 undefined on input line 121.
+e 1 undefined on input line 145.
 
 (./figures/Chapter_NonLinealCensnet/yn_dummy_base_bal_wey.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2430,17 +2438,17 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 129--132
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 153--156
  [][][] 
  []
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_node_base_wey' on page 1 
-undefined on input line 141.
+undefined on input line 165.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_edge_base_wey' on page 1 
-undefined on input line 143.
+undefined on input line 167.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2458,11 +2466,397 @@ isable this.
 
 Package pgfplots info on input line 3300: Using 'lua backend=false' for plot 0 
 (type 'graphics'): plot handler does not support LUA.
-[53
+[54
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
-Overfull \hbox (26.6175pt too wide) in paragraph at lines 150--153
+Overfull \hbox (26.6175pt too wide) in paragraph at lines 174--177
  [][][] 
+ []
+
+
+Overfull \hbox (45.0422pt too wide) in paragraph at lines 188--204
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `tab:lineal_col_results' on page 1 undefined on input 
+line 211.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=0.75\textwidth ]{figures/Chapter_NonLineal
+Censnet/PDF_inputs_inputs.png}' has been optimized away. Use '/tikz/external/op
+timize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_input_input' on page 1 undefi
+ned on input line 237.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=.75\textwidth ]{figures/Chapter_NonLinealC
+ensnet/PDF_inputs_inputs_no_mode.png}' has been optimized away. Use '/tikz/exte
+rnal/optimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_input_input_no_mode' on page 
+1 undefined on input line 254.
+
+The command '\includegraphics [width=.75\textwidth ]{figures/Chapter_NonLinealC
+ensnet/PDF_inputs_inputs_wide_mode.png}' has been optimized away. Use '/tikz/ex
+ternal/optimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_input_input_wide_mode' on pag
+e 1 undefined on input line 271.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=.75\textwidth ]{figures/Chapter_NonLinealC
+ensnet/outputs_outputs_1.png}' has been optimized away. Use '/tikz/external/opt
+imize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_output_output_1' on page 58 u
+ndefined on input line 292.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/outputs_outputs_2.png}' has been optimized away. Use '/tikz/external/opti
+mize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_output_output_2' on page 59 u
+ndefined on input line 304.
+
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/outputs_outputs_3.png}' has been optimized away. Use '/tikz/external/opti
+mize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_output_output_3' on page 59 u
+ndefined on input line 320.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=.65\textwidth ]{figures/Chapter_NonLinealC
+ensnet/inputs_outputs_1.png}' has been optimized away. Use '/tikz/external/opti
+mize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_1' on page 1 u
+ndefined on input line 382.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/inputs_outputs_2.png}' has been optimized away. Use '/tikz/external/optim
+ize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_2' on page 1 u
+ndefined on input line 395.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=0.75\textwidth ]{figures/Chapter_NonLineal
+Censnet/PDF_inputs_inputs (Sampled).png}' has been optimized away. Use '/tikz/e
+xternal/optimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_input_input_KDE' on page 1 un
+defined on input line 425.
+
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/PDF_inputs_inputs_no_mode (KDE).png}' has been optimized away. Use '/tikz
+/external/optimize=false' to disable this.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/outputs_outputs_2 (KDE).png}' has been optimized away. Use '/tikz/externa
+l/optimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_output_output_2_KDE' on page 
+64 undefined on input line 448.
+
+The command '\includegraphics [width=.65\textwidth ]{figures/Chapter_NonLinealC
+ensnet/inputs_outputs_1 KDE.png}' has been optimized away. Use '/tikz/external/
+optimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_1_KDE' on page
+ 1 undefined on input line 461.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/inputs_outputs_2 KDE.png}' has been optimized away. Use '/tikz/external/o
+ptimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_2_KDE' on page
+ 1 undefined on input line 475.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+LaTeX Warning: Reference `fig:col_base_f_results_non_lineal' on page 1 undefine
+d on input line 502.
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_f' on page 1 unde
+fined on input line 502.
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_f' on page 1 unde
+fined on input line 502.
+
+(./figures/Chapter_NonLinealCensnet/yn_col_base_f.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+) (./figures/Chapter_NonLinealCensnet/ye_col_base_f.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+)
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 510--513
+ [][][] 
+ []
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_bal' on page 1 un
+defined on input line 521.
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_bal' on page 1 un
+defined on input line 521.
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_bal' on page 1 un
+defined on input line 521.
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_bal' on page 1 un
+defined on input line 521.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+(./figures/Chapter_NonLinealCensnet/yn_col_base_bal.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+) (./figures/Chapter_NonLinealCensnet/ye_col_base_bal.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+)
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 531--534
+ [][][] 
+ []
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_f_bal' on page 1 
+undefined on input line 544.
+
+
+LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_f_bal' on page 1 
+undefined on input line 544.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+(./figures/Chapter_NonLinealCensnet/yn_col_base_f_bal.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+) (./figures/Chapter_NonLinealCensnet/ye_col_base_f_bal.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+)
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 553--556
+ [][][] 
+ []
+
+
+Overfull \hbox (10.82748pt too wide) in paragraph at lines 586--594
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 1 undefi
+ned on input line 599.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 633.
+
+
+LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
+ine 633.
+
+
+LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
+ine 633.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 635.
+
+
+LaTeX Warning: Reference `tab:lineal_dummy_results' on page 71 undefined on inp
+ut line 635.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 635.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 635.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
+ine 637.
+
+
+LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 72 undef
+ined on input line 637.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+LaTeX Warning: Reference `tab:lineal_col_results' on page 73 undefined on input
+ line 658.
+
+
+LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 73 undef
+ined on input line 660.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+Overfull \hbox (6.7197pt too wide) in paragraph at lines 673--674
+\TU/lmr/m/n/12 In this case, the log-likelihood com-puted from the syn-thetic ou
+t-puts was $\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 104\OML/cmm/m/it/12 ; \OT1/cmr/
+m/n/12 413\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 419\OML/cmm/m/it/12 :\OT1/cmr/m/n/
+12 34$
  []
 
 )
@@ -2474,7 +2868,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
+\providecommand\hyper@newdestlabel[2]{}
+(./chapters/Chapter_Conclusions.tex
 Chapter 5.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
 No file figures/external_figs/main-figure23.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -2485,14 +2898,14 @@ LaTeX Warning: There were undefined references.
 )
 
 Here is how much of LuaTeX's memory you used:
- 59245 strings out of 478285
- 745203,7087374 words of node,token memory allocated
- 881 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 110 attribute
-, 65 glue_spec, 56 attribute_list, 2 write nodes
-   avail lists: 1:21,2:128708,3:117670,4:66,5:443,6:35,7:11832,8:60,9:1297,10:24
+ 59392 strings out of 478285
+ 745194,7087374 words of node,token memory allocated
+ 923 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 122 attribute
+, 65 glue_spec, 62 attribute_list, 4 write nodes
+   avail lists: 1:16,2:128702,3:117668,4:66,5:497,6:78,7:11832,8:60,9:1297,10:21
 ,11:735
- 77630 multiletter control sequences out of 65536+600000
+ 77705 multiletter control sequences out of 65536+600000
  57 fonts using 4367071 bytes
  103i,23n,118p,2160b,3066s stack positions out of 10000i,1000n,20000p,251849b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></
@@ -2500,7 +2913,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on figures/external_figs/main-figure23.pdf (1 page, 311104 bytes)
+Output written on figures/external_figs/main-figure23.pdf (1 page, 311086 bytes)
 .
 
 PDF statistics: 41 PDF objects out of 1000 (max. 8388607)
