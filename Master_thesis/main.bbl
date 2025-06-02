@@ -186,6 +186,10 @@ X.~Jiang, R.~Zhu, P.~Ji, and S.~Li, ``Co-embedding of nodes and edges with
   graph neural networks,'' {\em IEEE Transactions on Pattern Analysis and
   Machine Intelligence}, vol.~45, no.~6, pp.~7075--7086, 2023.
 
+\bibitem{Beal_Hill_Martin_Hedengren_2018}
+L.~D.~R. Beal, D.~C. Hill, R.~A. Martin, and J.~D. Hedengren, ``Gekko
+  optimization suite,'' Jul 2018.
+
 \bibitem{optuna_2019}
 T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``Optuna: A
   next-generation hyperparameter optimization framework,'' in {\em Proceedings

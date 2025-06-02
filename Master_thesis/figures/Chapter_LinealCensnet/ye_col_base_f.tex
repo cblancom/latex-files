@@ -36,12 +36,16 @@ title={},
 x grid style={darkgray176},
 xlabel={ye true},
 xmajorgrids,
-xmin=-102.83625613855, xmax=292.38127904755,
+xmin=-102.83625613855, xmax=302.38127904755,
+xtick={-100,0,100,200,300}, % Definir los ticks en el eje x
+xticklabels={-100,0,100,200,$f_e$},
 xtick style={color=black},
 y grid style={darkgray176},
 ylabel={ye pred},
 ymajorgrids,
 ymin=-93.9971912384033, ymax=273.49553565979,
+ytick={0,100, 200}, % Definir los ticks en el eje x
+yticklabels={0,100,$f_e$}, % Añadir f_n al final de los ticks
 ytick style={color=black}
 ]
 \addplot [

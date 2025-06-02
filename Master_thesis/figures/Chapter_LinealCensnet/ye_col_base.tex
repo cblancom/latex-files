@@ -27,14 +27,18 @@ tick align=outside,
 tick pos=left,
 title={},
 x grid style={darkgray176},
-xlabel={ye true},
+xlabel={True},
 xmajorgrids,
-xmin=-102.83625613855, xmax=292.38127904755,
+xmin=-102.83625613855, xmax=301.38127904755,
+xtick={-100,0,100,200,300}, % Definir los ticks en el eje x
+xticklabels={-100,0,100,200,$f_e$}, % Añadir f_n al final de los ticks
 xtick style={color=black},
 y grid style={darkgray176},
-ylabel={ye pred},
+ylabel={Predicted},
 ymajorgrids,
 ymin=-0.74451944231987, ymax=12.9457553327084,
+ytick={0,2,4,6,8,10,12}, % Definir los ticks en el eje x
+yticklabels={0,2,4,6,8,10,$f_e$}, % Añadir f_n al final de los ticks
 ytick style={color=black}
 ]
 \addplot [
