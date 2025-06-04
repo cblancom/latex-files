@@ -100,6 +100,17 @@ L.~A. Cuartas, A.~P. Cunha, J.~A. Alves, L.~M. Parra, K.~Deusdará-Leal, L.~C.
   ``Recent hydrological droughts in brazil and their impact on hydropower
   generation,'' {\em Water}, vol.~14, p.~601, Feb 2022.
 
+\bibitem{Bessa_Moreira_Silva_Matos_2019}
+R.~Bessa, C.~Moreira, B.~Silva, and M.~Matos, ``Handling renewable energy
+  variability and uncertainty in power system operation,'' {\em Advances in
+  Energy Systems}, p.~1–26, Feb 2019.
+
+\bibitem{9831787}
+V.~Sharifi, A.~Abdollahi, M.~Rashidinejad, E.~Heydarian-Forushani, and H.~H.
+  Alhelou, ``Integrated electricity and natural gas demand response in
+  flexibility-based generation maintenance scheduling,'' {\em IEEE Access},
+  vol.~10, pp.~76021--76030, 2022.
+
 \bibitem{YANG2020106023}
 L.~Yang, X.~Zhao, and Y.~Xu, ``A convex optimization and iterative solution
   based method for optimal power-gas flow considering power and gas losses,''
@@ -112,6 +123,12 @@ T.~Jiang, C.~Yuan, R.~Zhang, L.~Bai, X.~Li, H.~Chen, and G.~Li, ``Exploiting
   with natural gas transmission constraints and reserve scheduling,'' {\em
   International Journal of Electrical Power \& Energy Systems}, vol.~125,
   p.~106460, 2021.
+
+\bibitem{9031712}
+C.~Wang, S.~Wang, F.~Liu, T.~Bi, and T.~Wang, ``Risk-loss coordinated
+  admissibility assessment of wind generation for integrated electric-gas
+  systems,'' {\em IEEE Transactions on Smart Grid}, vol.~11, no.~5,
+  pp.~4454--4465, 2020.
 
 \bibitem{Trudeau_2015}
 R.~J. Trudeau, {\em Introduction to graph theory}.
