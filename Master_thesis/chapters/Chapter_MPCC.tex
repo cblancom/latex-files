@@ -147,24 +147,25 @@ It is widely recognized that conventional constraint qualifications in nonlinear
 Theoretically, the relaxed problem offers fundamental properties that tackle challenging MPCC problems~\citep{Ralph_Wright_2004}. Firstly, the relaxed approach guarantees the convergence to the true MPCC solution as $\epsilon\to0$. Additionally, the boundedness of Lagrange multipliers ensures numerical stability and avoids issues with infinitely large values during optimization. Lastly, the local uniqueness of the $\mathcal{O}_{\epsilon}$ solution under specific conditions guarantees a single and well-defined solution. Therefore, the proposed relaxed optimization problem deals with the non-convexity in the Weymouth equation while guaranteeing the KKT conditions around $\epsilon$, posing a standard optimization problem, and avoiding ambiguity in interpreting results.
 
 \section{Case studies} \label{sec:case_study}
-The current section validates the proposed MPCC approach by comparing its performance against two well-established methods for approximating the Weymouth equation: i) The Taylor series approach that piecewise approximates Weymouth with line segments~\cite{ORDOUDIS2019642} and ii) The SOC programming that introduces a two-stage optimization, namely, flow direction estimation and cost minimization~\cite{soc_paper}. The validation contrasts Taylor, SOC, and MPCC approaches in three case studies of interconnected systems with different complexities.
+The current section validates the proposed MPCC approach by comparing its performance against two well-established methods for approximating the Weymouth equation: i) The Taylor series approach that piecewise approximates Weymouth with line segments~\cite{ORDOUDIS2019642} and ii) The SOC programming that introduces a two-stage optimization, namely, flow direction estimation and cost minimization~\cite{soc_paper}. 
 
-The considered validation aims to quantify the inherent errors and the cost--error trade-off of the contrasted approaches to support its real-world pertinence. Therefore, this work reports two performance metrics: the cost function in \Cref{eq:obj_func_integrated} that assesses the capacity for optimally operating an integrated system and the Weymouth error metric (${WE}_p^t\in\mathbb{R}^+$) for quantifying the required flow to guarantee equality for pipeline $p$ at time instant $t$ in~\Cref{eq:weymouth_cons}, as follows:
+The validation aims to quantify the inherent errors and the relationship between cost and error in the contrasted approaches to support their real-world pertinence. Therefore, this work reports two performance metrics: the cost function in \Cref{eq:obj_func_integrated} that assesses the capacity for optimally operating an integrated system and the Weymouth error metric (${WE}_p^t\in\mathbb{R}^+$) for quantifying the required flow to guarantee equality for pipeline $p$ at time instant $t$ in~\Cref{eq:weymouth_cons}:
 \begin{equation}
     {WE}_p^t = \left|f_{p}^t - \left(K_{nm}|(\pi_{n}^t)^2-(\pi_{m}^t)^2|\right)^{1/2}\right| , \quad \forall \ p =(n,m) \in\mathcal{P}.
     \label{eq:weymouth_cons}
 \end{equation}
 
-Hence, the ${WE}_p^t$ metric, measured in million standard cubic feet per day (MMSCFD), explains the approximations' inherent sensitivity and validates the significance of their differences.
+\noindent Hence, the ${WE}_p^t$ metric, measured in million standard cubic feet per day (MMSCFD), explains the approximations' inherent sensitivity and validates the significance of their differences. The validation contrasts Taylor, SOC, and MPCC approaches in three case studies of interconnected systems with different complexities.
 
 \subsection{Case Study I: 9/8 System}
 
 
 The network depicted in \Cref{fig:8-9 network}~\cite{Wilson_poly} interconnects a nine-bus power system and an eight-node natural gas network. The small size of case 9/8 enables fast execution, efficient analysis, and rigorous validation of the contrasted approaches. The 9/8 network also features a closed trajectory and bidirectional pipelines, allowing looped infrastructure with potential flow reversals.
+
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{figures/Chapter_MPCC/8 node 9 bus network.png}
-    \caption{Integrated system 9/8 used in Case Study I, modified from the MPNG software.}
+    \caption{Integrated system 9/8 used in Case Study I, modified from the MATPOWER-NATURAL GAS (MPNG) software.}
     \label{fig:8-9 network}
 \end{figure}
 
@@ -181,7 +182,6 @@ The boxplots in~\Cref{fig:blue_test_boxplot} show the Weymouth approximation err
     \caption{Cost function histogram for the Taylor, SOC, and MPCC Weymouth approximation approaches in the 9-bus 8-node system.}
     \label{fig:blue_test_cost}
 \end{figure}
-
 
 \vspace{-10pt}
 \begin{figure}[H]
