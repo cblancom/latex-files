@@ -163,9 +163,9 @@ The validation aims to quantify the inherent errors and the relationship between
 The first case study analyzes a small-scale integrated energy system with a closed-loop topology that necessitates modeling bidirectional flows. The electrical component of the system has $\left| \mathcal{G} \right| = 3$ generators, $\left| \mathcal{N}_p \right| = 9$ buses, $\left| \mathcal{B} \right| = 9$ branches, and $\left| \mathcal{D} \right| = 3$ demand nodes. This electricity network is coupled with a natural gas network comprising 8 nodes, including $\left| \mathcal{W} \right| = 1$ gas supply well, $\left| \mathcal{P} \right| = 6$ pipelines, $\left| \mathcal{C} \right| = 2$ compressor stations, and $\left| \mathcal{U} \right| = 2$ gas demand nodes. The integration is achieved through $\left| \mathcal{I} \right| = 1$ interconnection point between the two networks~\citep{Wilson_poly}. 
 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[scale=0.7]{figures/Chapter_MPCC/8 node 9 bus network.png}
+    \includegraphics[scale=0.6]{figures/Chapter_MPCC/8 node 9 bus network.png}
     \caption{Integrated system 9/8 used in Case Study I, modified from the MATPOWER-NATURAL GAS (MPNG) software.}
     \label{fig:8-9 network}
 \end{figure}
@@ -173,9 +173,9 @@ The first case study analyzes a small-scale integrated energy system with a clos
 To assess the performance of Weymouth approximation approaches on the 9/8 system, a Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one day ($\mathcal{T}=\left\lbrace 1\right\rbrace$) one hundred times with uniformly sampled natural gas demands. Further network parameter details can be found in the publicly available repository OptiGasFlow ({\url{https://github.com/cblancom/optigasflow}}, accessed on 05 April 2024). 
  \Cref{fig:blue_test_cost} depicts the cost function histogram for Taylor, SOC, and MPCC approaches. Remarkably, the three histograms evidence identical distribution patterns, leading to regular solutions across approaches.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[scale=1]{figures/Chapter_MPCC/g001.pdf}
+    \includegraphics[scale=0.8]{figures/Chapter_MPCC/g001.pdf}
     % \input{figures/Chapter_MPCC/blue_test_costs}
     \caption{Cost function histogram for the Taylor, SOC, and MPCC Weymouth approximation approaches in the 9-bus 8-node system.}
     \label{fig:blue_test_cost}
@@ -209,78 +209,81 @@ The boxplots in~\Cref{fig:blue_test_boxplot} show the Weymouth approximation err
 
 The following case simulates a complex, large-scale electric grid system, the widely studied IEEE 118 bus system~\citep{WANG201970}, consisting of 54 generator buses, 9 fed by the gas system, 186 transmission lines, and 99 users, that is, $\left| \mathcal{G} \right| = 54, \left| \mathcal{B} \right| = 186, \left| \mathcal{D} \right| = 99$. This electric grid interconnects with a 48-node natural gas system featuring 9 supply wells, 46 pipelines, eight compressor stations, and 22 user nodes through 9 connection points, i.e., $\left| \mathcal{W} \right| = 9, \left| \mathcal{P} \right| = 46, \left| \mathcal{C} \right| = 8, \left| \mathcal{U} \right| = 22, \left| \mathcal{I} \right| = 9$~\citep{Conejo}. The network topology deliberately introduces closed flow loops to stress the solver and the constraint approximations, as do real-world systems.
 
-\Cref{fig:green_test_cost} depicts the histogram of relative cost differences for the MPCC proposal to Taylor and SOC baselines from a hundred trials of the Monte Carlo experiment and a considered operation of one day ($T=1$). It is worth noting that both baselines yielded the same cost function values. The relative difference between MPCC and the baselines is always positive, indicating that the complementarity constraint formulation consistently produces larger cost values in this system. However, the maximum difference of 6\% falls within the range of real-world variations due to the dispatcher's practical decisions in line with the actual pressure--flow relationship~\citep{ZHAO2023129010}. 
-
-\begin{figure}[H]
-    \centering
-    
-   \includegraphics[scale=1]{figures/Chapter_MPCC/g003.pdf}
+\begin{figure}[h]
+    \centering 
+   \includegraphics[scale=0.85]{figures/Chapter_MPCC/g003.pdf}
     \caption{Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
     \label{fig:green_test_cost}
 \end{figure}
 
-Contrarily to cost function analysis, results in \Cref{fig:green_test_error} reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints. As an additional benefit, MPCC exhibits a shorter error dispersion than Taylor and SOC at most of the 46 pipelines in the network. Such behavior in the 118/48 system, also evidenced in the small 9/8 case study, proves the reliability of MPCC in effectively addressing more complex network configurations and interconnected dynamics.
 
 
-\vspace{-6pt}
-\begin{figure}[H]
+\Cref{fig:green_test_cost} depicts the histogram of relative cost differences for the MPCC proposal to Taylor and SOC baselines from a hundred trials of the Monte Carlo experiment and a considered operation of one day ($T=1$). It is worth noting that both baselines yielded the same cost function values. The relative difference between MPCC and the baselines is always positive, indicating that the complementarity constraint formulation consistently produces larger cost values in this system. However, the maximum difference of 6\% falls within the range of real-world variations due to the dispatcher's practical decisions in line with the actual pressure--flow relationship~\citep{ZHAO2023129010}. 
+
+\begin{figure}[h]
 % \begin{adjustwidth}{-\extralength}{0cm}
 \centering    
-    \includegraphics[scale=1.05]{figures/Chapter_MPCC/g004.pdf}
+    \includegraphics[scale=1]{figures/Chapter_MPCC/g004.pdf}
 % \end{adjustwidth}
 \caption{Weymouth approximation errors for each pipeline $p$ reached by the contrasted approaches in the 118/48 study case.} 
 \label{fig:green_test_error}
 \end{figure}
+
+
+Contrarily to cost function analysis, results in \Cref{fig:green_test_error} reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints. As an additional benefit, MPCC exhibits a shorter error dispersion than Taylor and SOC at most of the 46 pipelines in the network. Such behavior in the 118/48 system, also evidenced in the small 9/8 case study, proves the reliability of MPCC in effectively addressing more complex network configurations and interconnected dynamics.
+
 
 \subsection{Case Study III: 96/63 System}
 
 The last case study focuses on the Colombian power system, a complex network comprising 96 nodes ($\left | \mathcal{N}_P \right | = 96 $), 49 generators ($\left | \mathcal{G} \right | = 49 $), 207 transmission lines ($\left | \mathcal{F} \right | = 207 $), and 80 power users ($\left | \mathcal{D} \right | = 80 $). From the 49 generators, 10 are thermal power plants ($\left | \mathcal{I} \right | = 10 $) fed by the natural gas transportation system, including 13 wells ($\left | \mathcal{W} \right | = 13 $), \mbox{48 pipelines} ($\left | \mathcal{P} \right | = 48 $), 14 compressor stations ($\left | \mathcal{C} \right | = 14 $), and 26 consuming users (\mbox{$\left | \mathcal{U} \right | = 26 $}), yielding 63 nodes ($\left | \mathcal{N}_{F} \right | = 63 $). Despite its radial structure, the gas system supports bidirectional flows in its pipelines due to the highly varying demand by thermal power plants influenced by meteorological conditions: On rainy seasons, thermal power plants dramatically reduce their demand; while on dry seasons, a large amount of gas must flow to them. 
 
 
+\begin{figure}[h]
+    \centering
+   % \hspace{-6pt}  
+    \includegraphics[scale=0.85]{figures/Chapter_MPCC/g005.pdf}
+    \caption{Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
+    \label{fig:red_test_cost}
+\end{figure}
+
+
 Instead of estimating the distributions of the cost function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs. Such a complementary validation strategy allows the interconnected system to reduce gas transportation costs by exploiting its single storage station, extending the performance analysis to scheduling scenarios.
 \Cref{fig:red_test_cost} illustrates the daily optimized operating cost of the integrated system over the ten-day scheduling horizon for each tested approach. The daily cost values reveal notable similarities between the Taylor series and SOC relaxations. In average, the MPCC approach yields a 2.7\% more expensive solution, from 8\% cheaper to 12\% more expensive, with a difference standard deviation of 6\%. The above results indicate that the difference between the proposed MPCC and baseline approximations is statistically negligible and will disappear after the empirical corrections.
 
-\begin{figure}[H]
-   \hspace{-6pt}  \includegraphics[scale=0.98]{figures/Chapter_MPCC/g005.pdf}
-    \caption{Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
-    \label{fig:red_test_cost}
+\begin{figure}[h]
+   \includegraphics[scale=0.98]{figures/Chapter_MPCC/g006.pdf}
+\caption{Weymouth error density on the Colombian case versus the gas flow and operation day.}\label{fig:red_test_error}
 \end{figure}
 
 
 Regarding the Weymouth approximation analysis, \Cref{fig:red_test_error} presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC. Firstly, the error histogram in \Cref{fig:red_test_error}a proves that the proposed MPCC formulation (in orange) exhibits superior approximation accuracy to Taylor and SOC for most pipelines and days. Secondly, the scatter plot in~\Cref{fig:red_test_error}b  illustrates the relationship between Weymouth error and gas pipeline flow for each approach. Note that the benchmark techniques of Taylor (blue) and SOC (green) hold a steady error regardless of the flow rate. In the case of MPCC (orange), the larger the flow rate, the shorter the error dispersion. In addition, despite a larger error dispersion at low flow rates, MPCC still delivers much lower errors than benchmark methodologies. Hence, the complementarity constraints improve the error rates of Taylor and SOC and become more reliable for higher gas \mbox{flow rates}.
 
 
-\begin{figure}[H]
-   \includegraphics[scale=0.98]{figures/Chapter_MPCC/g006.pdf}
-\caption{Weymouth error density on the Colombian case versus the gas flow and operation day.}\label{fig:red_test_error}
-\end{figure}
 
 Lastly, \Cref{fig:red_test_error}c suggests independence between the Weymouth error and each scheduled day, with a stationary error distribution for all approximations. Nonetheless, MPCC holds two groups of outlying errors. The higher ones align with typical magnitudes of the benchmark techniques. The second group of errors, lying around $10^{-2}$, corresponds to pipelines connected to injection wells (denoted as dots in \Cref{fig:red_test_heatmaps}c). Since the wells are technically regulated, their fixed injection pressure hampers the flexibility of MPCC for approximating the Weymouth equation.
 
-The heatmaps in \Cref{fig:red_test_heatmaps} illustrate the output-to-input pressure ratio for each of the 14 compressors over the ten days of the scheduled operation. The baseline approaches of Taylor and SOC (\Cref{fig:red_test_heatmaps}a,b) yield constant pressure ratios stemming from an over-relaxation of the Weymouth equation that extends the feasible region to unpractical solutions. In contrast, the MPCC approach in \Cref{fig:red_test_heatmaps}c exhibits day-to-day pressure ratio changes within each compressor. The above is because the complementarity constraints closely align with the gas transport system's real physics, restraining the range of the feasible pressure values to trade off the daily varying injection cost.
-
-\vspace{-4pt}
-\begin{figure}[H]
-
+\begin{figure}[h]
 % \begin{adjustwidth}{-\extralength}{0cm}
 \centering %% If there is a figure in wide page, please release command \centering
- \includegraphics[scale=1.03]{figures/Chapter_MPCC/g007.pdf}
+ \includegraphics[scale=0.8]{figures/Chapter_MPCC/g007.pdf}
 % \end{adjustwidth}
 \caption{Output-to-input pressure ratio at the compressor in the  96/63 system. }
 \label{fig:red_test_heatmaps}
 \end{figure}
 
 
-As a remark, compressor nine in \Cref{fig:red_test_heatmaps}c reaches large pressure ratios on Days 0, 1, 2, 4, and 7, overlapping with the time instants with the highest approximation errors for MPCC in \Cref{fig:red_test_error}c. A detailed examination of these outcomes detects that compressor nine and the outlying pipeline are the two outputs of a bifurcation, the latter being followed by an injection well. \Cref{fig:96 63partial network} exemplifies that such an interconnection is the sole over the gas network. As a hypothesis, fixing the pressure at the injection well and the flow direction at compressor nine pushes the complementarity constraints to the limits and forces the compressor to augment the pressure ratio to satisfy the forthcoming branch demand.
+The heatmaps in \Cref{fig:red_test_heatmaps} illustrate the output-to-input pressure ratio for each of the 14 compressors over the ten days of the scheduled operation. The baseline approaches of Taylor and SOC (\Cref{fig:red_test_heatmaps}a,b) yield constant pressure ratios stemming from an over-relaxation of the Weymouth equation that extends the feasible region to unpractical solutions. In contrast, the MPCC approach in \Cref{fig:red_test_heatmaps}c exhibits day-to-day pressure ratio changes within each compressor. The above is because the complementarity constraints closely align with the gas transport system's real physics, restraining the range of the feasible pressure values to trade off the daily varying injection cost.
 
-
-\begin{figure}[H]
-    \centering
-    
-    \includegraphics[scale=1.5]{figures/Chapter_MPCC/partial_network}
+\begin{figure}[h]
+    \centering 
+    \includegraphics[scale=1.1]{figures/Chapter_MPCC/partial_network}
     \caption{Outlying connection of well-compressor-pipeline on the system 96/63 used in Case Study III.}
     \label{fig:96 63partial network}
 \end{figure}
+
+As a remark, compressor nine in \Cref{fig:red_test_heatmaps}c reaches large pressure ratios on Days 0, 1, 2, 4, and 7, overlapping with the time instants with the highest approximation errors for MPCC in \Cref{fig:red_test_error}c. A detailed examination of these outcomes detects that compressor nine and the outlying pipeline are the two outputs of a bifurcation, the latter being followed by an injection well. \Cref{fig:96 63partial network} exemplifies that such an interconnection is the sole over the gas network. As a hypothesis, fixing the pressure at the injection well and the flow direction at compressor nine pushes the complementarity constraints to the limits and forces the compressor to augment the pressure ratio to satisfy the forthcoming branch demand.
+
+
 
 \section{Discussion} \label{sec: conclusion}
 
