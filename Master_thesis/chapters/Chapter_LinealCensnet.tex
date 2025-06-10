@@ -1,5 +1,9 @@
 \chapter{Natural Gas System Prediction Using Graph Neural Networks} \label{cap:lienal-censnet}
 
+In recent years, the increasing complexity of natural gas transportation systems has driven the need for more efficient and scalable methods to estimate their operational behavior. Traditional optimization approaches, while accurate, can become computationally expensive, particularly when applied to large-scale or real-time scenarios. This chapter examines the application of Graph Neural Networks (GNNs) as a surrogate modeling technique for forecasting the operational state of natural gas networks. By leveraging the inherent graph structure of these systems, where nodes represent physical elements such as wells or demand points, and edges represent pipelines or compressors. The GNN model is trained to approximate nodal and edge-level variables with high accuracy. Special attention is given to incorporating physical constraints into the learning objective, particularly losses at both the node and edge levels, to ensure consistency with the underlying physics. The approach is validated on two test systems of varying complexity: a small 8-node network and a 63-node model representing the Colombian gas infrastructure. The results demonstrate that this topology-aware GNN framework can significantly reduce computation times while maintaining high prediction quality.
+
+
+
 \section{Mathematical framework}
 
 \subsection{Graph definition}
@@ -9,10 +13,10 @@ A graph $G$ is a mathematical structure that represents a set of interconnected 
 
 Graphs can be categorized based on the properties of their edges. An undirected graph has edges that do not have a direction, so the pair $(u, v) = (v, u)$ represents an edge that simply connects vertices $u$ and $v$. In contrast, in a directed graph (or digraph), each edge $(u, v) \in E$ has a direction, meaning it goes from vertex $u$ to vertex $v$. This implies that $(u, v) \neq (v, u)$ unless $u = v$ \cite{Bender_Williamson_2010}.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
-        \setlength\figurewidth{.53\textwidth}        
-        \setlength\figureheight{0.36\textwidth} 
+        \setlength\figurewidth{.4\textwidth}        
+        \setlength\figureheight{0.26\textwidth} 
         \subfloat [Undirected graph] {\label{fig:undirected_graph_def}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/un_graph_def}}}
         \subfloat [Directed graph] {\label{fig:direc_graph_def}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_LinealCensnet/di_graph_def}}}
         % \includegraphics[width=0.45\textwidth]{figures/}

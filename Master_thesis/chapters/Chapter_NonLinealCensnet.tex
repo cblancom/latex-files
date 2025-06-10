@@ -1,20 +1,22 @@
-\chapter{Enhanced Natural Gas Flow Predictions Using Physics-Guided Neural Networks} \label{cap:non_linealcensnet}
+% \chapter{Enhanced Natural Gas Flow Predictions Using Physics-Guided Neural Networks} 
+\chapter{Stochastic Modeling of Natural Gas Flows Using Physics-Guided Neural Networks} \label{cap:non_linealcensnet}
+
+This chapter aims to explore the integration of physical knowledge and stochastic modeling into graph-based neural network architectures to improve natural gas flow predictions under uncertainty. Building upon previous deterministic configurations, the proposed approach introduces physical constraints, such as nodal balances and the Weymouth equation, directly into the model’s loss function to enhance prediction accuracy. Additionally, a stochastic framework is developed to quantify the uncertainty in both objective and decision variables related to gas system operations. Through a series of experiments, including applications to a simplified 8-node network and the Colombian national gas network, the chapter evaluates the trade-offs introduced by different loss function combinations and demonstrates the model’s ability to generalize under stochastic sampling, thereby advancing the development of a physics-guided and uncertainty-aware gas dispatch optimization strategy.
+
+\section{Methodology}
 
 Physics-Informed Neural Networks (PINNs) represent a class of neural networks where physical laws are incorporated into the learning process, guiding the model to respect these constraints. Unlike traditional neural networks, where the loss function is typically based on the discrepancy between predicted and actual data, PINNs introduce additional terms in the loss function that penalize the model for deviating from known physical principles.
 
-In this case, the physical constraints are derived from the gas balance and the Weymouth equations, which describe the flow and pressure behavior within the gas transportation network. These constraints are integrated into our neural network as additional loss terms. Specifically, we define two layers within the network: one that calculates the error in gas balance and another that calculates the error in the Weymouth equation. The outputs of these layers are then used to adjust the network's predictions, ensuring that they adhere to the physical laws governing the system.
-
-
-
+In this case, the physical constraints are derived from the gas balance and the Weymouth equations, which describe the flow and pressure behavior within the gas transportation network. These constraints are integrated into the neural network model introduced in \Cref{cap:lienal-censnet} as additional loss terms. Specifically, we define two layers within the network: one that calculates the error in gas balance and another that calculates the error in the Weymouth equation. The outputs of these layers are then used to adjust the network's predictions, ensuring that they adhere to the physical laws governing the system.
 
 The inclusion of these physics-informed layers allows the network to achieve better generalization, as it is not only trained on the data but also guided by the underlying physical laws. This approach can be seen as a specialized form of regularization, where the model is penalized if its predictions do not satisfy the physical constraints. The overall loss function can be expressed as:
 
 \begin{equation}
-   \mathcal{L}(\Theta) = \mathcal{L}_{\text{data}}(\Theta) +  \mathcal{L}_{\text{balance}}(\Theta) +  \mathcal{L}_{\text{weymouth}}(\Theta),     
+   \mathcal{J}(\Theta) = \mathcal{J}_{\text{data}}(\Theta) +  \mathcal{J}_{\text{balance}}(\Theta) +  \mathcal{J}_{\text{weymouth}}(\Theta),     
     \label{eq:PINN_basic_definition}
 \end{equation}
 
-where \( \mathcal{L}_{\text{data}}(\Theta) \) represents the traditional data-driven loss, \( \mathcal{L}_{\text{balance}}(\Theta) \) is the loss associated with the gas balance constraint, and \( \mathcal{L}_{\text{weymouth}}(\Theta) \) is the loss associated with the Weymouth equation constraint. 
+\noindent with \( \mathcal{J}_{\text{data}}(\Theta) \) represents the traditional data-driven loss, \( \mathcal{J}_{\text{balance}}(\Theta) \) is the loss associated with the gas balance constraint, and \( \mathcal{J}_{\text{weymouth}}(\Theta) \) is the loss associated with the Weymouth equation constraint. 
 
 The gas balance constraint is enforced using a custom layer that compares the flow conservation at each node. For every node, the incoming and outgoing flows must match the net demand. This is computed by summing the edge flows using the incidence matrix \( \mathbf{IR} \), subtracting the actual demand \( \mathbf{X}_{\text{demand}} \), and adding the predicted injection \( \mathbf{f}^{\text{in}}_n \). The output of this layer, \( \mathbf{b} \), is given by:
 
@@ -38,13 +40,6 @@ Together, these physics-informed components guide the neural network toward solu
 
 
 
-
-
-
-
-
-
-\section{Methodology}
 
 In this section, we incorporate the physical laws of the gas balance and Weymouth equations to guide the model's training process. The gas balance equation, represented by \cref{eq:gas_balance_GNN}, ensures that the flow into and out of each node in the network adheres to the principle of mass conservation. The Weymouth equation, referred to as \cref{eq:Weymouth_cons_GNN}, establishes a relationship between the flow and pressure differences across pipelines. These two equations will be the foundation for introducing physics-based constraints into the neural network, ensuring the model's predictions respect the physical behavior of gas flow within the system.
 
