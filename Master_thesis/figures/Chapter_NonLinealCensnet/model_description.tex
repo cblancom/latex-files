@@ -9,26 +9,26 @@
     \tikzstyle{arrow} = [->, thick]
 
     % Input Layer
-    \node[input] (node_features) at (0,0) {Node Features}; %\\ $\mathbb{R}^{N \times 3}$};
-    \node[input] (node_laplacian) [below of=node_features] {Node Laplacian}; %\\ $N \times N$};
-    \node[input] (edge_laplacian) [below of=node_laplacian] {Edge Laplacian}; %\\ $E \times E$};
-    \node[input] (incidence_matrix) [below of=edge_laplacian] {Incidence Matrix}; %\\ $N \times E$};
-    \node[input] (edge_features) [below of=incidence_matrix] {Edge Features}; %\\ $\mathbb{R}^{N \times 3}$};
+    \node[input] (node_features) at (0,0) {\(\mathbf{X}\)};
+    \node[input] (node_laplacian) [below of=node_features] {\(\mathbf{L}_v\)};
+    \node[input] (edge_laplacian) [below of=node_laplacian] {\(\mathbf{L}_e\)};
+    \node[input] (incidence_matrix) [below of=edge_laplacian] {\(\mathbf{T}\)};
+    \node[input] (edge_features) [below of=incidence_matrix] {\(\mathbf{E}\)};
 
     % Normalization and Pre-dense Layer
     \node[dense] (norm_pre_dense) [right of=edge_laplacian, xshift=3cm] {Normalization \\ \& Pre-dense Layers};
 
     % Convolutional Layers
-    \node[conv] (conv_layers) [right of=norm_pre_dense, xshift=3cm] {Censnet Blocks \\ (Convolutional layers)};
+    \node[conv] (conv_layers) [right of=norm_pre_dense, xshift=3cm] {CensNet Blocks \\ (Convolutional Layers)};
 
     % Post-dense Layer
     \node[dense] (post_dense) [right of=conv_layers, xshift=3cm] {Post-dense Layers};
 
     % Outputs
-    \node[output] (node_output) [right of=post_dense, xshift=3cm, yshift=3cm] {Node Predictions};
-    \node[output] (edge_output) [right of=post_dense, xshift=3cm, yshift=1cm] {Edge Predictions};
-    \node[output] (balance_output) [right of=post_dense, xshift=3cm, yshift=-1cm] {Balance Layer};
-    \node[output] (weymouth_output) [right of=post_dense, xshift=3cm, yshift=-3cm] {Weymouth Layer};
+    \node[output] (node_output) [right of=post_dense, xshift=3cm, yshift=3cm] {\(\hat{\mathbf{X}}_v\)};
+    \node[output] (edge_output) [right of=post_dense, xshift=3cm, yshift=1cm] {\(\hat{\mathbf{X}}_e\)};
+    \node[output] (balance_output) [right of=post_dense, xshift=3cm, yshift=-1cm] {\(\mathcal{J}_{\text{balance}}\)};
+    \node[output] (weymouth_output) [right of=post_dense, xshift=3cm, yshift=-3cm] {\(\mathcal{J}_{\text{Weymouth}}\)};
 
     % Losses
     \node[loss] (node_loss) [right of=node_output, xshift=3cm] {Node Loss};
@@ -44,7 +44,6 @@
     \draw[arrow] (edge_features) -- (norm_pre_dense);
 
     \draw[arrow] (norm_pre_dense) -- (conv_layers);
-
     \draw[arrow] (conv_layers) -- (post_dense);
 
     \draw[arrow] (post_dense) -- (node_output);
@@ -56,7 +55,6 @@
     \draw[arrow] (edge_output) -- (edge_loss);
     \draw[arrow] (balance_output) -- (balance_loss);
     \draw[arrow] (weymouth_output) -- (weymouth_loss);
-
 
 \end{tikzpicture}
 

@@ -1,7 +1,9 @@
 % \chapter{Enhanced Natural Gas Flow Predictions Using Physics-Guided Neural Networks} 
 \chapter{Stochastic Modeling of Natural Gas Flows Using Physics-Guided Neural Networks} \label{cap:non_linealcensnet}
 
-This chapter aims to explore the integration of physical knowledge and stochastic modeling into graph-based neural network architectures to improve natural gas flow predictions under uncertainty. Building upon previous deterministic configurations, the proposed approach introduces physical constraints, such as nodal balances and the Weymouth equation, directly into the model’s loss function to enhance prediction accuracy. Additionally, a stochastic framework is developed to quantify the uncertainty in both objective and decision variables related to gas system operations. Through a series of experiments, including applications to a simplified 8-node network and the Colombian national gas network, the chapter evaluates the trade-offs introduced by different loss function combinations and demonstrates the model’s ability to generalize under stochastic sampling, thereby advancing the development of a physics-guided and uncertainty-aware gas dispatch optimization strategy.
+% While the GNN-based model from \cref{cap:lienal-censnet} was designed as a fast alternative to the optimization-based model, this chapter introduces physics-informed elements into the network architecture. Specifically, the model now includes loss terms based on the gas balance and Weymouth equations to ensure the predicted flows comply with the physical laws governing gas transportation. These constraints, integrated through additional layers in the model, guide the learning process, penalizing deviations from the gas balance equation (\cref{eq:gas_balance}) and the Weymouth equation (\cref{eq:weymouth_cons}). The modified model maintains the same structural components, such as input channels, convolutional layers, and loss functions for node and edge predictions, with the difference that the balance equation and the Weymouth equation are now considered loss functions. 
+This chapter aims to explore the integration of physical knowledge and stochastic modeling into graph-based neural network architectures to improve natural gas flow predictions under uncertainty. Building upon previous deterministic configurations, the proposed approach introduces physical constraints, such as nodal balances and the Weymouth equation, directly into the model’s loss function to enhance prediction accuracy. Additionally, a stochastic framework is developed to quantify the uncertainty in both objective and decision variables related to gas system operations. Through a series of experiments, including applications to a simplified 8-node network and the Colombian national gas network, the chapter evaluates the trade-offs introduced by different loss function combinations It demonstrates the model’s ability to generalize under stochastic sampling, thereby advancing the development of a physics-guided and uncertainty-aware gas dispatch optimization strategy.
+
 
 \section{Methodology}
 
@@ -18,46 +20,39 @@ The inclusion of these physics-informed layers allows the network to achieve bet
 
 \noindent with \( \mathcal{J}_{\text{data}}(\Theta) \) represents the traditional data-driven loss, \( \mathcal{J}_{\text{balance}}(\Theta) \) is the loss associated with the gas balance constraint, and \( \mathcal{J}_{\text{weymouth}}(\Theta) \) is the loss associated with the Weymouth equation constraint. 
 
-The gas balance constraint is enforced using a custom layer that compares the flow conservation at each node. For every node, the incoming and outgoing flows must match the net demand. This is computed by summing the edge flows using the incidence matrix \( \mathbf{IR} \), subtracting the actual demand \( \mathbf{X}_{\text{demand}} \), and adding the predicted injection \( \mathbf{f}^{\text{in}}_n \). The output of this layer, \( \mathbf{b} \), is given by:
+
+
+The gas balance constraint is enforced at each node through the following loss function:
 
 \begin{equation} \label{eq:gas_balance_GNN}
-\mathbf{b} = \mathbf{IR} \cdot \hat{\mathbf{f}}_e - \mathbf{d} + \hat{\mathbf{f}}_n,
+\mathcal{J}_{\text{balance}} =  \mathbf{T} \cdot \hat{\mathbf{f}}_e - \mathbf{d} + \hat{\mathbf{f}}_n .
 \end{equation}
 
-where \( \hat{\mathbf{f}}_e \) is the predicted edge flow, \( \hat{\mathbf{f}}_n \) is the predicted nodal injection, and \( \mathbf{d} \) is the demand extracted from the input data. The corresponding loss is calculated as the mean squared error of \( \mathbf{b} \).
+\noindent In here \( \hat{\mathbf{f}}_e \in \mathbb{R}^{N_e} \) is the predicted edge flow, \( \hat{\mathbf{f}}_n \in \mathbb{R}^{N_v} \) is the predicted nodal injection, and \( \mathbf{d} \in \mathbb{R}^{N_v} \) is the actual demand. The associated loss is given by:
 
-The Weymouth equation constraint is implemented as another custom layer that evaluates whether the predicted flows and nodal pressures satisfy the nonlinear physical relationship between them. Specifically, this relation links the squared pressure drop across a pipe to the square of the flow, scaled by a known constant \( Z \) associated with each pipeline. The output of this layer is computed as:
 
-\begin{equation} \label{eq:Weymouth_cons_GNN}
-\mathbf{w} = Z \cdot \left( \hat{\mathbf{f}}_e^2 \cdot \mathrm{sign}(\hat{\mathbf{f}}_e) \right) - Z^2 \cdot \left( \mathbf{IR}^T \cdot \hat{\mathbf{p}}_n^2 \right),
+The Weymouth constraint relates the gas flow to the difference of squared pressures between connected nodes through this loss function:
+
+\begin{equation} \label{eq:Weymouth_GNN}
+\mathcal{J}_{\text{weymouth}} =  \mathbf{M}_{\mathcal{P}} \left( \hat{\mathbf{f}}_e^{\circ 2} - \mathbf{K} \circ \left( \mathbf{T} \cdot \hat{\boldsymbol{\pi}}^{\circ 2} \right) \right),
 \end{equation}
 
-where \( \hat{\mathbf{f}}_e \) is the predicted flow through each edge, and \( \hat{\mathbf{p}}_n \) is the predicted nodal pressure. This loss penalizes any deviation from the expected nonlinear pressure-flow relationship, also using a mean squared error formulation.
+
+\noindent with \( \hat{\boldsymbol{\pi}} \in \mathbb{R}^{N_v} \) is the predicted pressure at each node, \( \hat{\mathbf{f}}_e^{\circ 2} \) is the element-wise square of edge flows, \( \mathbf{T} \in \mathbb{R}^{N_e \times N_v} \) is the signed incidence matrix, the vector \( \mathbf{K} \in \mathbb{R}^{N_e} \) contains the Weymouth constants for each edge and is zero for compressors, and \( \mathbf{M}_{\mathcal{P}} \in \mathbb{R}^{N_e \times N_e} \) is a diagonal matrix that selects only the pipeline edges \( p \in \mathcal{P} \).
 
 Together, these physics-informed components guide the neural network toward solutions that not only fit the data but also obey the operational and physical laws of gas transport.
 
 
+In this chapter, we build upon the experimental setup outlined in \Cref{sec:LinealCensnet_ExperimentalSetup}, maintaining the same general approach while incorporating new elements that account for the physics of the natural gas system represented in \Cref{eq:gas_balance_GNN,eq:Weymouth_GNN} following the scheme shown in \Cref{fig:nonlineal_model_description}. The samples are generated using the nonlinear natural gas network optimization model from \Cref{cap:optimization_mpcc}. In this process, a power-interconnected system was considered; however, since this study focuses on the gas system, the power system remained constant without variation. As in the previous setup, noise was introduced into the base values of two gas networks: a small-scale test network of 8 nodes and the more extensive Colombian natural gas transportation system. The noise levels, ranging from 5\% to 25\%, simulate various operating conditions, providing diverse training data.
 
 
-
-
-In this section, we incorporate the physical laws of the gas balance and Weymouth equations to guide the model's training process. The gas balance equation, represented by \cref{eq:gas_balance_GNN}, ensures that the flow into and out of each node in the network adheres to the principle of mass conservation. The Weymouth equation, referred to as \cref{eq:Weymouth_cons_GNN}, establishes a relationship between the flow and pressure differences across pipelines. These two equations will be the foundation for introducing physics-based constraints into the neural network, ensuring the model's predictions respect the physical behavior of gas flow within the system.
-
-
-
-
-In this chapter, we build upon the experimental setup outlined in \cref{sec:LinealCensnet_ExperimentalSetup}, maintaining the same general approach while incorporating new elements that account for the physics of the natural gas system. The samples are generated using the nonlinear natural gas network optimization model from \cref{cap:optimization_mpcc}. In this process, a power-interconnected system was considered, but since this study focuses on the gas system, the power system remained constant without any variation. As in the previous setup, noise is introduced into the base values of two gas networks: a small-scale test network of 8 nodes and the more extensive Colombian natural gas transportation system. The noise levels, ranging from 5\% to 25\%, simulate various operating conditions, providing diverse training data.
-
-While the GNN-based model from \cref{cap:lienal-censnet} was designed as a fast alternative to the optimization-based model, this chapter introduces physics-informed elements into the network architecture. Specifically, the model now includes loss terms based on the gas balance and Weymouth equations to ensure the predicted flows comply with the physical laws governing gas transportation. These constraints, integrated through additional layers in the model, guide the learning process, penalizing deviations from the gas balance equation (\cref{eq:gas_balance}) and the Weymouth equation (\cref{eq:weymouth_cons}). The modified model maintains the same structural components, such as input channels, convolutional layers, and loss functions for node and edge predictions, with the difference that the balance equation and the Weymouth equation are now considered loss functions. 
-
-
-\begin{figure}
+\begin{figure}[h]
     \centering
     \setlength\figurewidth{1\textwidth}        
     \setlength\figureheight{0.4\textwidth}
     \resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/model_description.tex}}
     % \input{figures/Chapter_LinealCensnet/MLP_def.tex}
-    \caption{General outline of the CensNet-based model used.}
+    \caption{General outline of the CensNet-based model used with physics guidance.}
         \label{fig:nonlineal_model_description}
 \end{figure}
 
@@ -70,10 +65,10 @@ In this section, we present the results of the proposed model, which now incorpo
 
 
 
-In this chapter, we begin with experiments that account for both node and edge losses, as it was found that considering only the node loss did not produce adequate results. The best parameters identified for this experiment were $N channels=25$, $N layers =4$, and $N dense = 11$. These settings yielded a total loss of 6.816, with a node loss of 2.794 and an edge loss of 4.021.
+In this chapter, we begin with experiments that account for both node and edge losses, as it was found that considering only the node loss did not produce adequate results. The best parameters identified for this experiment were $N \ channels=25$, $N \ layers =4$, and $N \ dense = 11$. These settings yielded a total loss of 6.8, with a node loss of 2.8 and an edge loss of 4.02.
 
-The results corresponding to the nodes, shown in \cref{fig:results_nonlineal_dummy_base_node}, exhibit a similar behavior to that observed in 
-\cref{fig:results_dummy_node_base_f}, demonstrating that the model accurately captures the injection pattern at the nodes. The correlation between the actual and predicted values is also strong, as indicated by an $R^2$ of 0.983.
+The results corresponding to the nodes, shown in \Cref{fig:results_nonlineal_dummy_base_node}, exhibit a similar behavior to that observed in 
+\Cref{fig:results_dummy_node_base_f}, demonstrating that the model accurately captures the injection pattern at the nodes. The correlation between the actual and predicted values is also strong, as indicated by an $R^2$ of 0.983.
 
 Edge flows show some variation, as seen in \cref{fig:results_nonlineal_dummy_base_f}, mainly when predicting the flows through the first pipeline connected to the injection field, where slight deviations from the actual flow values were observed. However, the model performed well overall, achieving an $R^2$ of 0.983 for the edge flows. While the first pipeline presents some prediction challenges, the accuracy in predicting flows across the rest of the pipelines remains high, demonstrating the model's ability to handle the complexity of gas transportation in this nonlinear system.
 
