@@ -125,9 +125,7 @@ However, the prediction accuracy for edge flows showed a notable deterioration, 
     \label{fig:dummy_base_results}
 \end{figure}
 
-In the subsequent experiment, the losses associated with node flows and the physical equations—namely, the gas balance and the Weymouth equation—were considered. The hyperparameter optimization process resulted in the best parameters being $N \ channels=18$, $N \ layers=1$, and $N \ dense=5$. These settings led to a total loss of 10.270, with a node loss of 3.976, a balance loss of 4.75, and a Weymouth equation loss of 1.55. The prediction at the nodes, shown in \Cref{fig:results_nonlineal_dummy_node_base_bal_wey}, remained largely consistent with previous experiments, though there was a slight decrease in accuracy, with the $R^2$ value dropping to 0.976. This minor reduction indicates that the model continues to perform well in predicting gas injection patterns at the nodes.
-
-However, the prediction accuracy for edge flows, as seen in \cref{fig:results_nonlineal_dummy_edge_base_bal_wey}, experienced another decline. The $R^2$ value dropped to 0.899, reflecting increased difficulties in predicting flows through the compressors and the pipeline connected to the injection field. 
+In the subsequent experiment, the losses associated with node flows and the physical equations—namely, the gas balance and the Weymouth equation—were considered. The hyperparameter optimization process resulted in the best parameters being $N \ channels=18$, $N \ layers=1$, and $N \ dense=5$. These settings led to a total loss of 10.270, with a node loss of 3.976, a balance loss of 4.75, and a Weymouth equation loss of 1.55. The prediction at the nodes, shown in \Cref{fig:results_nonlineal_dummy_node_base_bal_wey}, remained largely consistent with previous experiments, though there was a slight decrease in accuracy, with the $R^2$ value dropping to 0.976. This minor reduction indicates that the model continues to perform well in predicting gas injection patterns at the nodes. However, the prediction accuracy for edge flows, as seen in \cref{fig:results_nonlineal_dummy_edge_base_bal_wey}, experienced another decline. The $R^2$ value dropped to 0.899, reflecting increased difficulties in predicting flows through the compressors and the pipeline connected to the injection field. 
 
 
 
@@ -140,13 +138,13 @@ However, the prediction accuracy for edge flows, as seen in \cref{fig:results_no
     \subfloat[Actual vs predicted edge flows.] 
     {\label{fig:results_nonlineal_dummy_edge_base_bal_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_dummy_base_bal_wey.tex}}}
     
-    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \caption{Model results using the loss associated with nodal flow predictions along with the gas balance and Weymouth losses in the 8-node network.}
     \label{fig:dummy_base_results}
 \end{figure}
 
 
 
-In the final stage of the experiment, only the losses associated with nodal flows and the Weymouth equation were considered. The optimal hyperparameters for this configuration were $ N channels=22$, $ N layers=1$, and $ N dense=19$. These parameters yielded a total loss of 2.798, entirely attributed to the node loss, while the Weymouth loss was effectively zero.
+In the final stage of the experiment, only the losses associated with nodal flows and the Weymouth equation were considered. The optimal hyperparameters for this configuration were $ N \ channels=22$, $ N \ layers=1$, and $ N \ dense=19$. These parameters yielded a total loss of 2.798, entirely attributed to the node loss, while the Weymouth loss was effectively zero.
 
 The node predictions, as depicted in \cref{fig:results_nonlineal_dummy_node_base_wey}, continued to perform similarly to most of the previous tests, with an $R^2$ of 0.983, indicating consistent and accurate predictions of gas injection patterns at the nodes.
 

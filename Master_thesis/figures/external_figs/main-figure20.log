@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.3.24)  11 JUN 2025 22:57
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  26 JUN 2025 21:46
  system commands enabled.
 **\def\tikzexternalrealjob{main}\input{main}
 Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
@@ -2373,7 +2373,7 @@ isable this.
 ) (./figures/Chapter_NonLinealCensnet/ye_dummy_base_f_bal_wey.tex
 \openout4 = figures/external_figs/main-figure20.dpth
 
-Package pgfplots info on input line 3300: Using 'lua backend=false' for plot 0 
+Package pgfplots info on input line 3304: Using 'lua backend=false' for plot 0 
 (type 'graphics'): plot handler does not support LUA.
 [50
 
@@ -2391,7 +2391,7 @@ e 1 undefined on input line 128.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_edge_base_bal_wey' on pag
-e 1 undefined on input line 130.
+e 1 undefined on input line 128.
 
 (./figures/Chapter_NonLinealCensnet/yn_dummy_base_bal_wey.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2400,7 +2400,7 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 139--142
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 137--140
  [][][] 
  []
 
@@ -2414,11 +2414,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_node_base_wey' on page 1 
-undefined on input line 151.
+undefined on input line 149.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_dummy_edge_base_wey' on page 1 
-undefined on input line 153.
+undefined on input line 151.
 
 (./figures/Chapter_NonLinealCensnet/yn_dummy_base_wey.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2427,18 +2427,18 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 160--163
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 158--161
  [][][] 
  []
 
 
-Overfull \hbox (45.0422pt too wide) in paragraph at lines 174--190
+Overfull \hbox (45.0422pt too wide) in paragraph at lines 172--188
  [][] 
  []
 
 
 LaTeX Warning: Reference `tab:lineal_col_results' on page 1 undefined on input 
-line 197.
+line 195.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2477,14 +2477,14 @@ Censnet/PDF_inputs_inputs.png}' has been optimized away. Use '/tikz/external/op
 timize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_input_input' on page 1 undefi
-ned on input line 223.
+ned on input line 221.
 
 The command '\includegraphics [width=.75\textwidth ]{figures/Chapter_NonLinealC
 ensnet/PDF_inputs_inputs_no_mode.png}' has been optimized away. Use '/tikz/exte
 rnal/optimize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_input_input_no_mode' on page 
-1 undefined on input line 240.
+1 undefined on input line 238.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2499,7 +2499,7 @@ ensnet/PDF_inputs_inputs_wide_mode.png}' has been optimized away. Use '/tikz/ex
 ternal/optimize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_input_input_wide_mode' on pag
-e 1 undefined on input line 257.
+e 1 undefined on input line 255.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2514,7 +2514,7 @@ ensnet/outputs_outputs_1.png}' has been optimized away. Use '/tikz/external/opt
 imize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_output_output_1' on page 57 u
-ndefined on input line 278.
+ndefined on input line 276.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2529,14 +2529,14 @@ nsnet/outputs_outputs_2.png}' has been optimized away. Use '/tikz/external/opti
 mize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_output_output_2' on page 58 u
-ndefined on input line 290.
+ndefined on input line 288.
 
 The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
 nsnet/outputs_outputs_3.png}' has been optimized away. Use '/tikz/external/opti
 mize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_output_output_3' on page 58 u
-ndefined on input line 306.
+ndefined on input line 304.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2551,7 +2551,7 @@ ensnet/inputs_outputs_1.png}' has been optimized away. Use '/tikz/external/opti
 mize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_1' on page 1 u
-ndefined on input line 368.
+ndefined on input line 366.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2566,7 +2566,7 @@ nsnet/inputs_outputs_2.png}' has been optimized away. Use '/tikz/external/optim
 ize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_2' on page 1 u
-ndefined on input line 381.
+ndefined on input line 379.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2589,7 +2589,7 @@ Censnet/PDF_inputs_inputs (Sampled).png}' has been optimized away. Use '/tikz/e
 xternal/optimize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_input_input_KDE' on page 1 un
-defined on input line 411.
+defined on input line 409.
 
 The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
 nsnet/PDF_inputs_inputs_no_mode (KDE).png}' has been optimized away. Use '/tikz
@@ -2599,7 +2599,7 @@ nsnet/outputs_outputs_2 (KDE).png}' has been optimized away. Use '/tikz/externa
 l/optimize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_output_output_2_KDE' on page 
-62 undefined on input line 434.
+62 undefined on input line 432.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2614,7 +2614,7 @@ ensnet/inputs_outputs_1 KDE.png}' has been optimized away. Use '/tikz/external/
 optimize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_1_KDE' on page
- 1 undefined on input line 447.
+ 1 undefined on input line 445.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2629,7 +2629,7 @@ nsnet/inputs_outputs_2 KDE.png}' has been optimized away. Use '/tikz/external/o
 ptimize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_2_KDE' on page
- 1 undefined on input line 461.
+ 1 undefined on input line 459.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2641,15 +2641,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:col_base_f_results_non_lineal' on page 1 undefine
-d on input line 488.
+d on input line 486.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_f' on page 1 unde
-fined on input line 488.
+fined on input line 486.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_f' on page 1 unde
-fined on input line 488.
+fined on input line 486.
 
 (./figures/Chapter_NonLinealCensnet/yn_col_base_f.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2658,25 +2658,25 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 496--499
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 494--497
  [][][] 
  []
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_bal' on page 1 un
-defined on input line 507.
+defined on input line 505.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_bal' on page 1 un
-defined on input line 507.
+defined on input line 505.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_bal' on page 1 un
-defined on input line 507.
+defined on input line 505.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_bal' on page 1 un
-defined on input line 507.
+defined on input line 505.
 
 (./figures/Chapter_NonLinealCensnet/yn_col_base_bal.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2685,7 +2685,7 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 517--520
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 515--518
  [][][] 
  []
 
@@ -2715,11 +2715,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_f_bal' on page 1 
-undefined on input line 530.
+undefined on input line 528.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_f_bal' on page 1 
-undefined on input line 530.
+undefined on input line 528.
 
 (./figures/Chapter_NonLinealCensnet/yn_col_base_f_bal.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2728,18 +2728,18 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 539--542
+Overfull \hbox (26.61829pt too wide) in paragraph at lines 537--540
  [][][] 
  []
 
 
-Overfull \hbox (10.82748pt too wide) in paragraph at lines 572--580
+Overfull \hbox (10.82748pt too wide) in paragraph at lines 570--578
  [][] 
  []
 
 
 LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 1 undefi
-ned on input line 585.
+ned on input line 583.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2764,6 +2764,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 617.
+
+
+LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
+ine 617.
+
+
+LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
+ine 617.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 619.
+
+
+LaTeX Warning: Reference `tab:lineal_dummy_results' on page 71 undefined on inp
+ut line 619.
+
+
+LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
+ 619.
 
 
 LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
@@ -2771,35 +2795,11 @@ LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
 
 
 LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
-ine 619.
-
-
-LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
-ine 619.
-
-
-LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
- 621.
-
-
-LaTeX Warning: Reference `tab:lineal_dummy_results' on page 71 undefined on inp
-ut line 621.
-
-
-LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
- 621.
-
-
-LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
- 621.
-
-
-LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
-ine 623.
+ine 621.
 
 
 LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 71 undef
-ined on input line 623.
+ined on input line 621.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2811,11 +2811,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 LaTeX Warning: Reference `tab:lineal_col_results' on page 72 undefined on input
- line 644.
+ line 642.
 
 
 LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 72 undef
-ined on input line 646.
+ined on input line 644.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2826,7 +2826,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Overfull \hbox (6.7197pt too wide) in paragraph at lines 659--660
+Overfull \hbox (6.7197pt too wide) in paragraph at lines 657--658
 \TU/lmr/m/n/12 In this case, the log-likelihood com-puted from the syn-thetic ou
 t-puts was $\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 104\OML/cmm/m/it/12 ; \OT1/cmr/
 m/n/12 413\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 419\OML/cmm/m/it/12 :\OT1/cmr/m/n/
@@ -2880,22 +2880,22 @@ LaTeX Warning: There were undefined references.
 )
 
 Here is how much of LuaTeX's memory you used:
- 59409 strings out of 478285
+ 59410 strings out of 478285
  745191,7087374 words of node,token memory allocated
  875 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 106 attribute
 , 65 glue_spec, 54 attribute_list, 4 write nodes
-   avail lists: 1:17,2:129164,3:117821,4:74,5:551,6:98,7:12527,8:60,9:1174,10:21
+   avail lists: 1:17,2:129110,3:117794,4:74,5:551,6:98,7:12389,8:60,9:1174,10:21
 ,11:747
- 77715 multiletter control sequences out of 65536+600000
+ 77716 multiletter control sequences out of 65536+600000
  63 fonts using 4739999 bytes
- 103i,23n,118p,2027b,3066s stack positions out of 10000i,1000n,20000p,250413b,200000s
+ 103i,23n,118p,2027b,3078s stack positions out of 10000i,1000n,20000p,250413b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on figures/external_figs/main-figure20.pdf (1 page, 310133 bytes)
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on figures/external_figs/main-figure20.pdf (1 page, 310118 bytes)
 .
 
 PDF statistics: 41 PDF objects out of 1000 (max. 8388607)
