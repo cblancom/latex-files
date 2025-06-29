@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  26 JUN 2025 22:08
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  27 JUN 2025 20:07
  system commands enabled.
 **\def\tikzexternalrealjob{main}\input{main}
 Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
@@ -2409,30 +2409,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-LaTeX Warning: Reference `fig:results_nonlineal_dummy_node_base_wey' on page 1 
-undefined on input line 149.
-
-
-LaTeX Warning: Reference `fig:results_nonlineal_dummy_edge_base_wey' on page 1 
-undefined on input line 151.
-
-(./figures/Chapter_NonLinealCensnet/yn_dummy_base_wey.tex
-\openout4 = figures/external_figs/main-figure23.dpth
-
-Package pgfplots info on input line 3304: Using 'lua backend=false' for plot 0 
-(type 'graphics'): plot handler does not support LUA.
-[51
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./figures/Chapter_NonLin
-ealCensnet/ye_dummy_base_wey.tex
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-)
-Overfull \hbox (26.6175pt too wide) in paragraph at lines 158--161
- [][][] 
- []
-
-
 Overfull \hbox (45.0422pt too wide) in paragraph at lines 172--188
  [][] 
  []
@@ -2457,28 +2433,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
 The command '\includegraphics [width=0.75\textwidth ]{figures/Chapter_NonLineal
 Censnet/PDF_inputs_inputs.png}' has been optimized away. Use '/tikz/external/op
 timize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_input_input' on page 1 undefi
 ned on input line 221.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 The command '\includegraphics [width=.75\textwidth ]{figures/Chapter_NonLinealC
 ensnet/PDF_inputs_inputs_no_mode.png}' has been optimized away. Use '/tikz/exte
@@ -2514,8 +2482,15 @@ The command '\includegraphics [width=.75\textwidth ]{figures/Chapter_NonLinealC
 ensnet/outputs_outputs_1.png}' has been optimized away. Use '/tikz/external/opt
 imize=false' to disable this.
 
-LaTeX Warning: Reference `fig:joint_distributions_output_output_1' on page 57 u
+LaTeX Warning: Reference `fig:joint_distributions_output_output_1' on page 56 u
 ndefined on input line 276.
+
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/outputs_outputs_2.png}' has been optimized away. Use '/tikz/external/opti
+mize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_output_output_2' on page 56 u
+ndefined on input line 288.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2526,17 +2501,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
-nsnet/outputs_outputs_2.png}' has been optimized away. Use '/tikz/external/opti
-mize=false' to disable this.
-
-LaTeX Warning: Reference `fig:joint_distributions_output_output_2' on page 58 u
-ndefined on input line 288.
-
-The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
 nsnet/outputs_outputs_3.png}' has been optimized away. Use '/tikz/external/opti
 mize=false' to disable this.
 
-LaTeX Warning: Reference `fig:joint_distributions_output_output_3' on page 58 u
+LaTeX Warning: Reference `fig:joint_distributions_output_output_3' on page 57 u
 ndefined on input line 304.
 
 
@@ -2577,6 +2545,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
+The command '\includegraphics [width=0.75\textwidth ]{figures/Chapter_NonLineal
+Censnet/PDF_inputs_inputs (Sampled).png}' has been optimized away. Use '/tikz/e
+xternal/optimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_input_input_KDE' on page 1 un
+defined on input line 409.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -2584,13 +2559,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-The command '\includegraphics [width=0.75\textwidth ]{figures/Chapter_NonLineal
-Censnet/PDF_inputs_inputs (Sampled).png}' has been optimized away. Use '/tikz/e
-xternal/optimize=false' to disable this.
-
-LaTeX Warning: Reference `fig:joint_distributions_input_input_KDE' on page 1 un
-defined on input line 409.
 
 The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
 nsnet/PDF_inputs_inputs_no_mode (KDE).png}' has been optimized away. Use '/tikz
@@ -2600,7 +2568,7 @@ nsnet/outputs_outputs_2 (KDE).png}' has been optimized away. Use '/tikz/externa
 l/optimize=false' to disable this.
 
 LaTeX Warning: Reference `fig:joint_distributions_output_output_2_KDE' on page 
-62 undefined on input line 432.
+61 undefined on input line 432.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2617,6 +2585,13 @@ optimize=false' to disable this.
 LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_1_KDE' on page
  1 undefined on input line 445.
 
+The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
+nsnet/inputs_outputs_2 KDE.png}' has been optimized away. Use '/tikz/external/o
+ptimize=false' to disable this.
+
+LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_2_KDE' on page
+ 1 undefined on input line 459.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -2624,13 +2599,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-The command '\includegraphics [width=.7\textwidth ]{figures/Chapter_NonLinealCe
-nsnet/inputs_outputs_2 KDE.png}' has been optimized away. Use '/tikz/external/o
-ptimize=false' to disable this.
-
-LaTeX Warning: Reference `fig:joint_distributions_inputs_outputs_2_KDE' on page
- 1 undefined on input line 459.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2653,13 +2621,18 @@ LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_f' on page 1 unde
 fined on input line 486.
 
 (./figures/Chapter_NonLinealCensnet/yn_col_base_f.tex
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-) (./figures/Chapter_NonLinealCensnet/ye_col_base_f.tex
+\openout4 = figures/external_figs/main-figure23.dpth
+
+Package pgfplots info on input line 30434: Using 'lua backend=false' for plot 0
+ (type 'graphics'): plot handler does not support LUA.
+[64
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./figures/Chapter_NonLin
+ealCensnet/ye_col_base_f.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
-Overfull \hbox (26.61829pt too wide) in paragraph at lines 494--497
+Overfull \hbox (26.6175pt too wide) in paragraph at lines 494--497
  [][][] 
  []
 
@@ -2678,6 +2651,14 @@ defined on input line 505.
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_bal' on page 1 un
 defined on input line 505.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 (./figures/Chapter_NonLinealCensnet/yn_col_base_bal.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2691,36 +2672,20 @@ Overfull \hbox (26.61829pt too wide) in paragraph at lines 515--518
  []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
 LaTeX Warning: Reference `fig:results_nonlineal_col_node_base_f_bal' on page 1 
 undefined on input line 528.
 
 
 LaTeX Warning: Reference `fig:results_nonlineal_col_edge_base_f_bal' on page 1 
 undefined on input line 528.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 (./figures/Chapter_NonLinealCensnet/yn_col_base_f_bal.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -2759,14 +2724,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
-
-
 LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
  617.
 
@@ -2779,11 +2736,19 @@ LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
 ine 617.
 
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
+
+
 LaTeX Warning: Reference `cap:lienal-censnet' on page 1 undefined on input line
  619.
 
 
-LaTeX Warning: Reference `tab:lineal_dummy_results' on page 71 undefined on inp
+LaTeX Warning: Reference `tab:lineal_dummy_results' on page 69 undefined on inp
 ut line 619.
 
 
@@ -2799,7 +2764,7 @@ LaTeX Warning: Reference `cap:non_linealcensnet' on page 1 undefined on input l
 ine 621.
 
 
-LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 71 undef
+LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 69 undef
 ined on input line 621.
 
 
@@ -2811,11 +2776,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 
-LaTeX Warning: Reference `tab:lineal_col_results' on page 72 undefined on input
+LaTeX Warning: Reference `tab:lineal_col_results' on page 70 undefined on input
  line 642.
 
 
-LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 72 undef
+LaTeX Warning: Reference `tab:base_nl_dummy_results_formatted' on page 70 undef
 ined on input line 644.
 
 
@@ -2833,14 +2798,6 @@ t-puts was $\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 104\OML/cmm/m/it/12 ; \OT1/cmr/
 m/n/12 413\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 419\OML/cmm/m/it/12 :\OT1/cmr/m/n/
 12 34$
  []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-15.41803pt}.
 
 )
 
@@ -2881,26 +2838,25 @@ LaTeX Warning: There were undefined references.
 )
 
 Here is how much of LuaTeX's memory you used:
- 59409 strings out of 478285
- 745196,7087374 words of node,token memory allocated
+ 59384 strings out of 478285
+ 6940179,17635651 words of node,token memory allocated
  875 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 106 attribute
 , 65 glue_spec, 54 attribute_list, 4 write nodes
-   avail lists: 1:19,2:129157,3:117754,4:80,5:551,6:98,7:13236,8:60,9:1174,10:21
-,11:747
- 77715 multiletter control sequences out of 65536+600000
+   avail lists: 1:23,2:1186942,3:1094521,4:64,5:551,6:89,7:93597,8:60,9:1174,10:
+21,11:747
+ 77708 multiletter control sequences out of 65536+600000
  63 fonts using 4739999 bytes
- 103i,22n,118p,2027b,3068s stack positions out of 10000i,1000n,20000p,240005b,200000s
+ 103i,22n,118p,2027b,3056s stack positions out of 10000i,1000n,20000p,2174128b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on figures/external_figs/main-figure23.pdf (1 page, 238233 bytes)
-.
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on figures/external_figs/main-figure23.pdf (1 page, 1812892 bytes
+).
 
-PDF statistics: 41 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+PDF statistics: 37 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
  1 named destinations out of 1000 (max. 131072)
  26 words of extra memory for PDF output out of 10000 (max. 100000000)
 

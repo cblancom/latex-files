@@ -144,168 +144,193 @@ In the subsequent experiment, the losses associated with node flows and the phys
 
 
 
-In the final stage of the experiment, only the losses associated with nodal flows and the Weymouth equation were considered. The optimal hyperparameters for this configuration were $ N \ channels=22$, $ N \ layers=1$, and $ N \ dense=19$. These parameters yielded a total loss of 2.798, entirely attributed to the node loss, while the Weymouth loss was effectively zero.
+% In the final stage of the experiment, only the losses associated with nodal flows and the Weymouth equation were considered. The optimal hyperparameters for this configuration were $ N \ channels=22$, $ N \ layers=1$, and $ N \ dense=19$. These parameters yielded a total loss of 2.798, entirely attributed to the node loss, while the Weymouth loss was effectively zero.
+%
+% The node predictions, as depicted in \cref{fig:results_nonlineal_dummy_node_base_wey}, continued to perform similarly to most of the previous tests, with an $R^2$ of 0.983, indicating consistent and accurate predictions of gas injection patterns at the nodes.
+%
+% However, the edge predictions, shown in \cref{fig:results_nonlineal_dummy_edge_base_wey}, were significantly off target in this case. The model struggled to generalize edge flows, resulting in a drastically negative $R^2$ of -2.32, signaling a complete failure in predicting gas flows through the network's edges. 
+%
+% \begin{figure}
+%     \centering
+%     \setlength\figurewidth{.53\textwidth}        
+%     \setlength\figureheight{0.36\textwidth} 
+%     \subfloat[Actual vs predicted nodal flows.] 
+%     {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_dummy_base_wey.tex}}}
+%     \subfloat[Actual vs predicted edge flows.] 
+%     {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_dummy_base_wey.tex}}}
+%     
+%     \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+%     \label{fig:dummy_base_results}
+% \end{figure}
+%
+%
 
-The node predictions, as depicted in \cref{fig:results_nonlineal_dummy_node_base_wey}, continued to perform similarly to most of the previous tests, with an $R^2$ of 0.983, indicating consistent and accurate predictions of gas injection patterns at the nodes.
-
-However, the edge predictions, shown in \cref{fig:results_nonlineal_dummy_edge_base_wey}, were significantly off target in this case. The model struggled to generalize edge flows, resulting in a drastically negative $R^2$ of -2.32, signaling a complete failure in predicting gas flows through the network's edges. 
-
-\begin{figure}
-    \centering
-    \setlength\figurewidth{.53\textwidth}        
-    \setlength\figureheight{0.36\textwidth} 
-    \subfloat[Actual vs predicted nodal flows.] 
-    {\label{fig:results_nonlineal_dummy_node_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_dummy_base_wey.tex}}}
-    \subfloat[Actual vs predicted edge flows.] 
-    {\label{fig:results_nonlineal_dummy_edge_base_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_dummy_base_wey.tex}}}
-    
-    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
-    \label{fig:dummy_base_results}
-\end{figure}
 
 
+% \begin{table}[htbp]
+% \centering
+% \begin{tabular}{|c|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|c|c|c|c|}
+%     \hline
+%     Method & \centering N & \centering E & \centering B & \centering W & Node Value & Edge Value & Balance Value & Time \\ \hline
+%     IPOPT  &  &  &  &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} &  &  &  & 4.81 ± 12.64 & 0.42 ± 2.36 & -0.016 ± 17.448 & 0.13 ± 0.03 \\ \hline
+%     % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  &  & 4.92 ± 13.02 & 22.96 ± 15.36 & 0.095 ± 1.678 & 0.14 ± 0.05 \\ \hline
+%     % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & 4.83 ± 12.65 & 23.20 ± 14.92 & 0.004 ± 0.845 & 0.14 ± 0.05 \\ \hline
+%     % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.76 ± 12.51 & 22.93 ± 14.64 & -0.070 ± 1.665 & 0.14 ± 0.05 \\ \hline
+%     % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & \makebox[0.55cm]{\centering \checkmark} & 4.88 ± 12.01 & 20.58 ± 12.99 & 0.046 ± 2.187 & 0.13 ± 0.03 \\ \hline
+%     % IPOPT  & \makebox[0.55cm]{\centering \checkmark} &  &  & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} &  &  & \makebox[0.55cm]{\centering \checkmark} & 4.91 ± 12.81 & -0.091 ± 0.185 & 0.079 ± 17.225 & 0.14 ± 0.05 \\ \hline
+% \end{tabular}
+% \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN across different loss configurations. The columns "N", "E", "B", and "W" indicate experiments where nodal, edge, balance, and Weymouth losses were considered.}
+% \label{tab:base_nl_dummy_results_formatted}
+% \end{table}
+%
 
 
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{|c|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|}
     \hline
-    Method & \centering N & \centering E & \centering B & \centering W & Node Value & Edge Value & Balance Value & Time \\ \hline
-    IPOPT  &  &  &  &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} &  &  &  & 4.81 ± 12.64 & 0.42 ± 2.36 & -0.016 ± 17.448 & 0.13 ± 0.03 \\ \hline
-    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  &  & 4.92 ± 13.02 & 22.96 ± 15.36 & 0.095 ± 1.678 & 0.14 ± 0.05 \\ \hline
-    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & 4.83 ± 12.65 & 23.20 ± 14.92 & 0.004 ± 0.845 & 0.14 ± 0.05 \\ \hline
-    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & 4.76 ± 12.51 & 22.93 ± 14.64 & -0.070 ± 1.665 & 0.14 ± 0.05 \\ \hline
-    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} &  & \makebox[0.55cm]{\centering \checkmark} & 4.88 ± 12.01 & 20.58 ± 12.99 & 0.046 ± 2.187 & 0.13 ± 0.03 \\ \hline
-    % IPOPT  & \makebox[0.55cm]{\centering \checkmark} &  &  & \makebox[0.55cm]{\centering \checkmark} & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} &  &  & \makebox[0.55cm]{\centering \checkmark} & 4.91 ± 12.81 & -0.091 ± 0.185 & 0.079 ± 17.225 & 0.14 ± 0.05 \\ \hline
+    Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+    IPOPT & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+    GNN (N) & 4.81 ± 12.64 & 0.42 ± 2.36 & -0.016 ± 17.448 & 0.13 ± 0.03 \\ \hline
+    GNN (N+E) & 4.92 ± 13.02 & 22.96 ± 15.36 & 0.095 ± 1.678 & 0.14 ± 0.05 \\ \hline
+    GNN (N+E+B) & 4.83 ± 12.65 & 23.20 ± 14.92 & 0.004 ± 0.845 & 0.14 ± 0.05 \\ \hline
+    GNN (N+E+B+W) & 4.76 ± 12.51 & 22.93 ± 14.64 & -0.070 ± 1.665 & 0.14 ± 0.05 \\ \hline
+    GNN (N+E+W) & 4.88 ± 12.01 & 20.58 ± 12.99 & 0.046 ± 2.187 & 0.13 ± 0.03 \\ \hline
 \end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN across different loss configurations. The columns "N", "E", "B", and "W" indicate experiments where nodal, edge, balance, and Weymouth losses were considered.}
-\label{tab:base_nl_dummy_results_formatted}
+\caption{Comparison of the mean and standard deviation values for nodal flows (Node Value), edge flows (Edge Value), nodal balance (Balance Value), and prediction time (Time) between the optimization-based method (IPOPT) and the GNN-based models under different loss configurations. The notation \textbf{GNN (N)} indicates that only the nodal loss was considered during training, while \textbf{GNN (N+E)}, \textbf{GNN (N+E+B)}, and so on indicate combinations of nodal (N), edge (E), balance (B), and Weymouth (W) losses.}
+\label{tab:base_nl_dummy_results_simplified}
 \end{table}
 
 
 
+The results in \Cref{tab:base_nl_dummy_results_simplified} compare the performance of the traditional IPOPT optimizer and several Graph Neural Network (GNN) configurations trained with different combinations of loss functions. The evaluation focuses on nodal and edge flow prediction accuracy, network balance, and computation time.
 
-The \cref{tab:lineal_col_results} presents a comparison between the IPOPT optimization model and the GNN-based model across four experiments, varying in the inclusion of nodal loss (N) and edge loss (E). The comparison focuses on nodal flows, edge flows, nodal balance, and prediction time, with the mean and standard deviation calculated from 100 random experiments.
+As a baseline, the IPOPT optimizer yields consistent results across all evaluated metrics, offering a reference for model performance. In contrast, the GNN-based approaches reveal how incorporating physical constraints progressively improves the model's predictive accuracy. When trained with only the nodal loss, the GNN matches the optimizer's performance in predicting nodal flows but performs poorly in edge flow estimation and maintaining nodal balance. This result reflects the absence of edge- and balance-specific information during training, which is essential for reproducing physically consistent flows in the network.
 
-The IPOPT optimizer serves as the benchmark in this analysis. It achieves a mean nodal flow value of \( 4.81 \pm 12.81 \), a mean edge flow value of \( 23.18 \pm 15.25 \), and a balance value of \( -0.024 \pm 0.308 \). The prediction time for this model is \( 0.99 \pm 0.53 \) seconds. These results set the baseline for comparison against the GNN-based models.
+Adding edge loss to the training objective enhances the GNN’s ability to predict edge flows, bringing them in line with the optimizer’s outputs. This improvement comes with reduced variability in the nodal balance, indicating that learning edge-specific relationships also reinforces overall network consistency. The introduction of the balance loss further stabilizes the model’s performance. With this additional constraint, the GNN reduces balance error variability and further aligns both nodal and edge flow predictions with the benchmark.
 
-In the first GNN experiment, which only considers nodal loss, the model predicts a nodal flow value of \( 4.81 \pm 12.64 \), closely matching the IPOPT benchmark. However, its edge flow value is considerably lower, at \( 0.42 \pm 2.36 \), reflecting the absence of an edge loss in this experiment. The balance value exhibits high variability at \( -0.016 \pm 17.448 \), indicating the model's challenge in balancing flows without edge loss. Notably, the GNN significantly reduces prediction time, averaging \( 0.13 \pm 0.03 \) seconds, demonstrating its efficiency compared to the IPOPT model.
-
-The nodal flow prediction remains consistent in the second GNN experiment, which incorporates both nodal and edge losses, with a mean of \( 4.92 \pm 13.02 \). The edge flow prediction improves significantly to \( 22.96 \pm 15.36 \), aligning closely with the IPOPT benchmark. The balance value also improves, reducing variability with a mean of \( 0.095 \pm 1.678 \), and the prediction time remains efficient at \( 0.14 \pm 0.05 \) seconds.
-
-When balance loss is introduced alongside nodal and edge losses in the third experiment, the nodal flow value remains stable at \( 4.83 \pm 12.65 \). In comparison, the edge flow prediction improves to \( 23.20 \pm 14.92 \), closely matching the IPOPT results. The balance value becomes more consistent, with a mean of \( 0.004 \pm 0.845 \), indicating the model's enhanced ability to maintain network balance. The prediction time remains unaffected at \( 0.14 \pm 0.05 \) seconds.
-
-In the final GNN experiment, which includes the Weymouth loss along with nodal, edge, and balance losses, the nodal flow value slightly decreases to \( 4.76 \pm 12.51 \), and the edge flow value remains close to the benchmark at \( 22.93 \pm 14.64 \). The balance value, at \( -0.070 \pm 1.665 \), suggests a slight deviation from perfect balance, though still within acceptable variability. The prediction time remains efficient at \( 0.14 \pm 0.05 \) seconds, underscoring the GNN's capability to handle increasingly complex models without significantly increasing computational time.
+Finally, incorporating the Weymouth equation into the loss function introduces the non-linear physics of gas transport into the learning process. Although this results in a modest reduction in balance accuracy compared to the previous configuration, it still maintains high predictive performance for nodal and edge flows. Notably, despite the increasing complexity introduced by each added constraint, all GNN models maintain a low and consistent prediction time—markedly faster than the optimization-based method—demonstrating the GNN’s scalability and computational efficiency.
 
 
 \subsubsection{Stochastic Analysis}
-To study the uncertainty inherent in the network further, we first computed the joint probability density functions (PDFs) for the variables used as inputs to the network. For training, each node was assigned five inputs (numbered 0 to 4), corresponding respectively to the lower limit of gas injection capacity, the upper limit of gas injection capacity, the demanded flow, the lower limit of pressure, and the upper limit of pressure. Since the lower limits are permanently fixed at zero, these two variables were excluded from the analysis. Although the training data were initially sampled from a uniform distribution, only the successfully converged samples during the optimization process were retained. Consequently, the resulting PDFs do not exhibit a uniform distribution; instead, they display a variety of distribution shapes.
 
+To study the uncertainty inherent in the network further, we first approximated the joint probability density functions (PDFs) for the variables used as inputs to the network. For training, each node was assigned five inputs, corresponding to the lower limit of gas injection capacity, the upper limit of gas injection capacity, the demanded flow, the lower limit of pressure, and the upper limit of pressure. Since the lower limits are permanently fixed at zero, these two variables were excluded from the analysis. Although the training data were initially sampled from a uniform distribution, only the successfully converged samples during the optimization process were retained. Consequently, the resulting PDFs do not exhibit a uniform distribution; instead, they display a variety of distribution shapes.
 
-\begin{figure}
+\Cref{fig:joint_distributions_input_input} presents the first group of joint distributions identified in this study, characterized by the presence of two distinct modes, which likely correspond to the two main operating regimes of the system. This group includes joint patterns involving the injection node ($N_0$), the demand nodes ($N_6$ and $N_7$), and several intermediate or pass-through nodes ($N_2$, $N_4$, and $N_5$). The observed relationships reflect the physical and topological structure of the network, particularly the connections among injection, compression, and demand points.
+
+\begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
+        \includegraphics[width=0.8\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs.png}
     \end{center}
     \caption{Joint PDFs between the inputs used in the 8-node network, which have two modes. }\label{fig:joint_distributions_input_input}
 \end{figure}
-     
+ 
+A relationship is observed between the upper-pressure limits at nodes \( N_2 \) and \( N_4 \), which aligns with their placement within a sequential compression segment of the network. Node \( N_2 \) serves as the output of the first compressor and the input to the second, while node \( N_4 \) lies on a closed-loop path downstream of this compression chain. The correlation between their pressure bounds likely reflects how the viable operating range at one point in the compression sequence affects neighboring nodes within the loop. Similarly, the pressure limit correlation between node \( N_5 \), also part of the closed path, and the downstream demand node \( N_6 \), suggests that feasible pressure ranges propagate along connected elements of the network, especially where compression and demand interact.
 
 
-Figure~\cref{fig:joint_distributions_input_input} presents the first group of joint distributions identified in this study, characterized by the presence of two distinct modes, which likely correspond to the two main operating regimes of the system. This group includes joint patterns involving the injection node (N0), the demand nodes (N6 and N7), and several intermediate or pass-through nodes (N2, N4, and N5). The observed relationships reflect the physical and topological structure of the network, particularly the connections among injection, compression, and demand points.
+A subgroup of distributions reveals strong associations between the maximum demand at node $N_7$ ($\overline{f_u}$) and upstream variables. Specifically, $N_7$'s maximum flow shows dependence on the maximum injection flow at node $N_0$ ($\overline{f_w}$), and on the maximum pressures at nodes $N0$, $N1$ (compressor 1 input), and $N5$. These patterns suggest that the flow capacity at the far end of the system ($N_7$) is conditioned by both supply and compression states at the upstream nodes. Also, a direct relationship is identified between the pressure limits of node $N_7$ and node $N_4$. Given their physical connection, this correlation likely reflects the way pressure constraints propagate between adjacent sections of the network.
 
-A relation is observed between the maximum pressure at node N4 and the maximum pressure at node N2. This is consistent with their connection via the compressor chain, where N2 is the output of compressor 1 and N4 is part of the main pipeline trajectory. Similarly, the relationship between the maximum pressures at N6 and N5 suggests a pressure dependency between this demand node and its adjacent pass-through node.
+    
 
-A group of distributions reveals strong associations between the maximum demand at node N7 ($\overline{fu}$) and upstream variables. Specifically, N7's maximum flow shows dependence on the maximum injection flow at node N0 ($\overline{fw}$), and on the maximum pressures at nodes N0, N1 (compressor 1 input), and N5. These patterns suggest that the flow capacity at the far end of the system (N7) is conditioned by both supply and compression states at the upstream nodes. 
+\Cref{fig:joint_distributions_input_input_no_mode} presents a second group of joint distributions identified in the study, which are characterized by low probability concentrations at their extreme values. This behavior, visually represented by lighter colors in the joint probability density functions, suggests a weaker or more dispersed correlation structure between the involved variables.
 
-Also, a direct relationship is identified between the pressure limits of node N7 and node N4. Given their physical connection, this correlation likely reflects the way pressure constraints propagate between adjacent sections of the network.
-
-\begin{figure}
+\begin{figure}[h]
     \begin{center}
-        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode.png}
+        \includegraphics[width=0.8\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode.png}
     \end{center}
     \caption{Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode. }
     \label{fig:joint_distributions_input_input_no_mode}
 \end{figure}
- 
-
-Figure~\cref{fig:joint_distributions_input_input_no_mode} presents a second group of joint distributions identified in the study, which are characterized by low probability concentrations at their extreme values. This behavior, visually represented by lighter colors in the joint probability density functions, suggests a weaker or more dispersed correlation structure between the involved variables.
-
-Several of these relationships involve the injection node N0 and its connection to both upstream and downstream nodes in terms of maximum pressure ($\overline{p}$) and maximum injection flow ($\overline{fw}$). For instance, the joint distributions between the maximum pressure at N2 and N0, as well as between the maximum pressures at N3, N4, and N6 with that of N0, reveal a broadly scattered pattern. This indicates that while these variables are structurally related, their extreme values do not consistently co-occur.
-
-A similar pattern is observed in the distributions involving the maximum pressure at N3 and the injection capacity at N0. Despite the proximity of these nodes within the system’s trajectory, the weak concentration suggests a more flexible operational regime or buffering effect along the path.
-
-Further examples include the relationships between N5 and both N0 and N2, where again, the lack of sharp density at the extremes hints at variability in how pressure is maintained or transmitted through these nodes. Lastly, the distributions between the maximum pressure at N6 and both N0 and N3 continue this trend, reinforcing the interpretation that, in these cases, the system does not exhibit a strong deterministic link in the upper operational ranges of the involved variables.\begin{figure}
 
 
-    \begin{center}
-        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_wide_mode.png}
-    \end{center}
-    \caption{Joint PDFs between the inputs used in the 8-node network, which have a considerably wide mode with respect to the entire distribution }
+Several of these relationships involve the injection node $N_0$ and its connection to both upstream and downstream nodes in terms of maximum pressure ($\overline{\pi}$) and maximum injection flow ($\overline{f_w}$). For instance, the joint distributions between the maximum pressure at $N2$ and $N_0$, as well as between the maximum pressures at $N_3$, $N_4$, and $N_6$ with that of $N_0$, reveal a broadly scattered pattern. This indicates that while these variables are structurally related, their extreme values do not consistently co-occur. A similar pattern is observed in the distributions involving the maximum pressure at $N_3$ and the injection capacity at $N_0$. Despite the proximity of these nodes within the system’s trajectory, the weak concentration suggests a more flexible operational regime or buffering effect along the path.
+
+Further examples include the relationships between $N_5$ and both $N_0$ and $N_2$, where again, the lack of sharp density at the extremes hints at variability in how pressure is maintained or transmitted through these nodes. Lastly, the distributions between the maximum pressure at $N_6$ and both $N_0$ and $N_3$ continue this trend, reinforcing the understanding that, in these cases, the system does not exhibit a strong link in the upper operational ranges of the involved variables.
+
+
+
+
+\Cref{fig:joint_distributions_input_input_wide_mode} presents a third group of joint distributions distinguished by the presence of large dark zones in the joint probability density functions, indicating regions of high probability concentration. These distributions suggest strong dependencies between the involved variables. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_wide_mode.png}
+    \caption{Joint PDFs between the inputs used in the 8-node network, which have a considerably wide mode with respect to the entire distribution.}
     \label{fig:joint_distributions_input_input_wide_mode}
 \end{figure}
+
+
+A clear example is the distribution involving the maximum injection flow at node $N_0$ and the maximum pressure at node $N_1$, which corresponds to the input of the first compressor. The high-probability region observed here suggests a consistent relationship between the capacity to inject gas into the network and the pressure conditions at the compressor’s intake, possibly reflecting operational constraints or control strategies that maintain a stable relationship between these variables.
+
+Likewise, the joint distribution between the maximum pressure at node $N_1$ and the pressure at node $N_4$ (a pass-through node connected downstream) also shows a dense concentration of probability. This implies a strong coupling between the input conditions of the first compressor and the downstream pressure, likely due to the system’s physical configuration and flow continuity.
+
+Lastly, a similar pattern is observed in the joint distribution between the maximum demand at node $N_6$ and the pressure at node $N_4$. The high-probability zone here may indicate a regulatory relationship, where variations in demand at $N_6$ are closely associated with pressure conditions at $N_4$, possibly due to their direct physical connection and the influence of demand on local pressure levels.
  
 
-Figure~\cref{fig:joint_distributions_input_input_wide_mode} presents a third group of joint distributions distinguished by the presence of large dark zones in the joint probability density functions, indicating regions of high probability concentration. These distributions suggest strong dependencies between the involved variables, particularly around certain typical operating conditions of the system.
-A clear example is the distribution involving the maximum injection flow at node N0 and the maximum pressure at node N1, which corresponds to the input of the first compressor. The high-probability region observed here suggests a consistent relationship between the capacity to inject gas into the network and the pressure conditions at the compressor’s intake, possibly reflecting operational constraints or control strategies that maintain a stable relationship between these variables.
 
 
-Similarly, the joint distribution between the maximum pressure at node N1 and the pressure at node N4 — a pass-through node connected downstream — also shows a dense concentration of probability. This implies a strong coupling between the input conditions of the first compressor and the downstream pressure, likely due to the system’s physical configuration and flow continuity.
-Lastly, a comparable pattern is observed in the joint distribution between the maximum demand at node N6 and the pressure at node N4. The high-probability zone here may indicate a regulatory relationship, where variations in demand at N6 are closely associated with pressure conditions at N4, possibly due to their direct physical connection and the influence of demand on local pressure levels.
+To continue with the stochastic analysis, here we discuss the joint probability density functions (PDFs) that exhibit noteworthy behaviors, obtained from the output variables of the optimization model when it was supplied with the various scenarios generated through the previously described sampling process. It is important to note that, at this stage, each output variable was normalized with respect to the maximum capacity used in the corresponding scenario. That is, the values of the variables shown in this section are expressed relative to the maximum value that the variable could reach under that specific configuration.
 
 
 
-\begin{figure}
+\Cref{fig:joint_distributions_output_output_1} presents the joint distributions that exhibit a bivariate gamma distribution-like shape. In this case, the X-axis corresponds to the normalized flow transported through pipeline $p_1$, which connects nodes $N_3$ and $N_4$ and forms part of the system’s closed-loop trajectory. The Y-axis in each of the four subplots represents the normalized nodal pressure at nodes $N_3$, $N_4$, $N_6$, and $N_7$, respectively.
+
+Nodes $N_3$ and $N_4$ are part of a compact subsystem of pass-through nodes that define the core loop of the network. $N_6$ and $N_7$, while functioning as demand nodes, are connected downstream of this region, with $N_7$ specifically being supplied via node $N_4$. This spatial arrangement suggests that the observed distributions highlight the interdependence between the transported flow through this central pipeline and the pressure conditions at nearby or downstream nodes. In particular, although $N_6$ is slightly more distant, its role as a demand node may explain its inclusion in this group of correlated behaviors.
+
+
+\begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_1.png}
     \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which have a behavior quite similar to that of a Gaussian distribution.}
+    \caption{Joint PDFs between the outputs used in the 8-node network have a behavior quite similar to that of a bivariate gamma distribution.}
     \label{fig:joint_distributions_output_output_1}
 \end{figure}
 
 
-To continue with the stochastic analysis, this section discusses the joint probability density functions (PDFs) that exhibit noteworthy behaviors, obtained from the output variables of the optimization model when it was supplied with the various scenarios generated through the previously described sampling process. It is important to note that, at this stage, each output variable was normalized with respect to the maximum capacity used in the corresponding scenario. That is, the values of the variables shown in this section are expressed relative to the maximum value that the variable could reach under that specific configuration.
 
 
-Figure~\ref{fig:joint_distributions_output_output_1} presents the joint distributions that, at first glance, exhibit a Gaussian-like shape. However, it should be noted that these distributions tend to show greater dispersion along the first variable compared to the second. In this case, the X-axis corresponds to the normalized flow transported through pipeline E1, which connects nodes N3 and N4 and forms part of the system’s closed-loop trajectory. The Y-axis in each of the four subplots represents the normalized nodal pressure at nodes N3, N4, N6, and N7, respectively.
-Nodes N3 and N4 are part of a compact subsystem of pass-through nodes that define the core loop of the network. N6 and N7, while functioning as demand nodes, are connected downstream of this region, with N7 specifically being supplied via node N4. This spatial arrangement suggests that the observed distributions highlight the interdependence between the transported flow through this central pipeline and the pressure conditions at nearby or downstream nodes. In particular, although N6 is slightly more distant, its role as a demand node may explain its inclusion in this group of correlated behaviors.
+\Cref{fig:joint_distributions_output_output_2} presents another group of joint probability density functions with a similar behavior to the previous case. However, a difference in this case is that the X-axis in all subplots takes on negative values, ranging between 10\% and 30\% of the maximum limit. The variable associated with this axis in all the figures corresponds to the normalized flow transported through pipeline $p_3$, which is the component responsible for closing the loop in the system’s network structure. The variables plotted along the Y-axis correspond to various system outputs, including the normalized gas injection flow from the injection field, the nodal pressures at every node in the system and and the flow transported by each pipeline.
 
-
-\begin{figure}
+\begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2.png}
     \end{center}
     \caption{Joint PDFs between the outputs used in the 8-node network, which have a negative flow.}
     \label{fig:joint_distributions_output_output_2}
 \end{figure}
- 
-Figure~\ref{fig:joint_distributions_output_output_2} presents another group of joint probability density functions that, similar to the previous case, also exhibit a seemingly Gaussian-like behavior. However, a key difference in this case is that the X-axis in all subplots takes on negative values, ranging between 10\% and 30\% of the maximum limit. The variable associated with this axis in all the figures corresponds to the normalized flow transported through pipeline E3, which is the component responsible for closing the loop in the system’s network structure.
-The variables plotted along the Y-axis correspond to various system outputs, including the normalized gas injection flow from the injection field, the nodal pressures at every node in the system and and the flow transported by each pipeline.
-
-The consistent behavior observed across these joint PDFs can be interpreted through two main considerations. First, although pipeline E3 is not essential for guaranteeing the operability of the system, it plays a key role in minimizing operational costs. As a result, its usage remains relatively low across most scenarios. Second, the negative values of the flow are due to the fact that, during the formulation of the optimization model, the assumed flow direction for this pipeline was opposite to the one actually needed to satisfy the optimal operation. Consequently, the model resolved this mismatch by assigning negative values to the transported flow in E3.
 
 
-\begin{figure}
+The consistent behavior observed across these joint PDFs can be interpreted through two main considerations. First, although pipeline $p_3$ is not essential for guaranteeing the operability of the system, it plays a key role in minimizing operational costs. As a result, its usage remains relatively low across most scenarios. Second, the negative values of the flow are due to the fact that, during the formulation of the optimization model, the assumed flow direction for this pipeline was opposite to the one actually needed to satisfy the optimal operation. Consequently, the model resolved this mismatch by assigning negative values to the transported flow in $p_3$.
+
+
+
+
+\Cref{fig:joint_distributions_output_output_3} displays a third group of joint probability density functions that exhibit another pattern. In these distributions, both variables tend to take values within a range—approximately between 25\% and 70\% of their respective maximum capacities. Despite this wide span, the distributions do not resemble uniform patterns. Instead, they appear to exhibit a clear concentration of higher probability in a more restricted interval, specifically when both variables fall between 30\% and 40\% of their normalized limits.
+
+\begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_3.png}
     \end{center}
-    \caption{Joint PDFs between the outputs used in the 8-node network, which... }
+    \caption{Joint probability density functions (PDFs) between nodal pressure outputs in the 8-node network, highlighting a concentration of values within mid-range operating levels (30\%–40\% of normalized limits)}
     \label{fig:joint_distributions_output_output_3}
 \end{figure}
  
 
-
-Figure~\ref{fig:joint_distributions_output_output_3} displays a third group of joint probability density functions that exhibit another notable pattern. In these distributions, both variables tend to take values within a range—approximately between 25\% and 70\% of their respective maximum capacities. Despite this wide span, the distributions do not resemble uniform patterns. Instead, they appear to exhibit a clear concentration of higher probability in a more restricted interval, specifically when both variables fall between 30\% and 40\% of their normalized limits.
-
 This behavior is particularly evident in the joint PDFs that relate nodal pressures across different yet structurally connected regions of the system. One set of these distributions involves the pressure at the injection node ($N_0$) and the pressures observed at downstream nodes, including the compressor-connected nodes ($N_1$, $N_2$, and $N_3$), as well as the nodes forming the closed loop ($N_3$, $N_4$, and $N_5$) and the final demand nodes ($N_6$ and $N_7$). These distributions suggest a degree of coordination in the pressure values that extends from the injection point through the compression stages and into the rest of the system.
 
-The tendency of these variables to cluster within a narrower operational range may indicate that the system's optimal configurations favor pressure levels that are not too close to the lower or upper bounds, but rather stabilized in a middle region that ensures both efficiency and reliability. This is especially relevant in subsystems like the closed-loop segment formed by nodes $N_3$, $N_4$, and $N_5$, which play a critical role in redistributing flow toward the demand points. The same applies to the pressures at the terminal load nodes ($N_6$ and $N_7$), which depend on adequate upstream conditions to meet demand.
+The tendency of these variables to cluster within a narrower operational range may indicate that the system's feasible configurations favor pressure levels that are not too close to the lower or upper bounds, but rather stabilized in a middle region that ensures both efficiency and reliability. This is especially relevant in subsystems like the closed-loop segment formed by nodes $N_3$, $N_4$, and $N_5$, which play a critical role in redistributing flow toward the demand points. The same applies to the pressures at the terminal load nodes ($N_6$ and $N_7$), which depend on adequate upstream conditions to meet demand.
+
+
+
+
+
 
 
 
@@ -354,8 +379,9 @@ The tendency of these variables to cluster within a narrower operational range m
 %
 %
 
+It is also relevant to examine the joint probability distributions between input and output variables (\Cref{fig:joint_distributions_inputs_outputs_1}), particularly those in which the input variables exhibit significantly broader dispersion compared to the outputs. This behavior can be observed in a group of joint PDFs where the outputs—specifically, the flow through pipeline $p_4$—tend to remain concentrated within the 20\% to 40\% range of their normalized capacities, while the corresponding input variables vary much more widely. It is important to highlight that, in this case, normalization was only applied to the output variables. The inputs, being defined as upper bounds or operational limits (such as the maximum allowable injection flow or pressure limits), were not normalized. 
 
-\begin{figure}
+\begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=.65\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1.png}
     \end{center}
@@ -363,27 +389,21 @@ The tendency of these variables to cluster within a narrower operational range m
     \label{fig:joint_distributions_inputs_outputs_1}
 \end{figure}
 
-To close this section, it is also relevant to examine the joint probability distributions between input and output variables (Figure~\cref{fig:joint_distributions_inputs_outputs_1}), particularly those in which the input variables exhibit significantly broader dispersion compared to the outputs. This behavior can be observed in a group of joint PDFs where the outputs—specifically, the flow through pipeline $E_4$—tend to remain concentrated within the 20\% to 40\% range of their normalized capacities, while the corresponding input variables vary much more widely. It is important to highlight that, in this case, normalization was only applied to the output variables. The inputs, being defined as upper bounds or operational limits (such as the maximum allowable injection flow or pressure limits), were not normalized. Doing so would have resulted in all values being fixed at 1, effectively eliminating their variability and obscuring the nature of their influence.
 
-The most illustrative examples of this pattern involve joint distributions between the upper bound of the injection flow at node $N_0$ and the flow in $E_4$, as well as between the upper nodal pressure bounds at nodes $N_0$ through $N_7$ and the same pipeline output. Pipeline $E_4$ corresponds to the final segment delivering gas to one of the system’s demand nodes. The limited range of variation in this output, despite the broad dispersion in input conditions, suggests that the optimizer consistently resolves the system by prioritizing stable and relatively low utilization of this pipeline. This might reflect either a structural limitation downstream or a strategic use of capacity to reduce operational costs, irrespective of the allowable upper bounds in the network's configuration.
+The most illustrative examples of this pattern involve joint distributions between the upper bound of the injection flow at node $N_0$ and the flow in $p_4$, as well as between the upper nodal pressure bounds at nodes $N_0$ through $N_7$ and the same pipeline output. Pipeline $p_4$ corresponds to the final segment delivering gas to one of the system’s demand nodes. The limited range of variation in this output, despite the broad dispersion in input conditions, suggests that the optimizer consistently resolves the system by prioritizing stable and relatively low utilization of this pipeline. 
 
 
-\begin{figure}
+
+Another remarkable group of joint PDFs arises from the relationship between input and output variables that exhibit a seemingly linear behavior, shows in \Cref{fig:joint_distributions_inputs_outputs_2}. In these distributions, an increase in the input variable tends to be associated with an increase in the output variable, suggesting a positive correlation. This pattern is especially evident in the pairs formed by the upper bound of the demand flow at nodes $N_6$ and $N_7$, and the flow transported through pipelines $p_4$, $p_5$, $p_6$, and $p_7$. These pipelines are directly or indirectly responsible for supplying gas to the demand nodes, meaning that as the upper flow limits at the consumption points increase, the optimizer adjusts the flows along these pipelines accordingly, typically utilizing a larger fraction of their capacity. 
+
+\begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_2.png}
     \end{center}
     \caption{Joint PDFs between the inputs and outputs used in the 8-node network, which present a linear behavior, although with different dispersions among them. }\label{fig:joint_distributions_inputs_outputs_2}
 \end{figure}
  
-
-Another remarkable group of joint PDFs arises from the relationship between input and output variables that exhibit a seemingly linear behavior, shows in Figure~\cref{fig:joint_distributions_inputs_outputs_2}. In these distributions, an increase in the input variable tends to be associated with an increase in the output variable, suggesting a positively correlated relationship. This pattern is especially evident in the pairs formed by the upper bound of the demand flow at nodes $N_6$ and $N_7$, and the flow transported through pipelines $E_4$, $E_5$, $E_6$, and $E_7$. These pipelines are directly or indirectly responsible for supplying gas to the demand nodes, meaning that as the upper flow limits at the consumption points increase, the optimizer adjusts the flows along these pipelines accordingly, typically utilizing a larger fraction of their capacity. This suggests a direct and predictable response of the system when facing more flexible demand conditions.
-
-However, it is important to note an exception within this group: the pair formed by the upper flow bound at node $N_7$ and the flow through pipeline $E_3$ presents a negative linear relationship. In this case, an increase in the upper demand limit at $N_7$ is associated with a decrease in the use of pipeline $E_3$. This inverse behavior can be explained by the system's looped configuration, where $E_3$ contributes to a closed trajectory. Under higher demand at $N_7$, the optimizer might favor alternative paths that more directly satisfy the load, such as pipelines $E_5$ through $E_7$, reducing the role of $E_3$ in transporting gas.
-
-
-
-
-
+However, it is important to note an exception within this group: the pair formed by the upper flow bound at node $N_7$ and the flow through pipeline $p_3$ presents a negative linear relationship. In this case, an increase in the upper demand limit at $N_7$ is associated with a decrease in the use of pipeline $p_3$. This inverse behavior can be explained by the system's looped configuration, where $p_3$ contributes to a closed trajectory. Under higher demand at $N_7$, the optimizer might favor alternative paths that more directly satisfy the load, such as pipelines $p_5$ through $p_7$, reducing the role of $p_3$ in transporting gas.
 
 
 
@@ -391,7 +411,10 @@ A stochastic analysis was performed to assess further the robustness of the trai
 
 Initially, a kernel density estimate (KDE) was fitted to the input training data used for the GNN model. From this estimated distribution, a set of synthetic input samples, denoted as \( X_{\text{sample}} \), was generated. These synthetic inputs were then propagated forward through the trained network, taking into account all loss components, to yield a corresponding set of output predictions, denoted as \( y_{\text{sample}} \). In parallel, the original training inputs were propagated through the network to obtain output predictions, denoted as \(\bar{y}_{\text{train}}\). A second KDE was then fitted using the training output data (hereafter referred to as \(y_{\text{train}}\)). Two log-likelihoods were calculated based on this second KDE: one using \(y_{\text{sample}}\) and the other using \(\bar{y}_{\text{train}}\). The log-likelihood for the synthetic outputs, \(y_{\text{sample}}\), was found to be \(-6,696,247.56\), while the log-likelihood for the training outputs, \(\bar{y}_{\text{train}}\), was \(-6,657,534.62\). The closeness of these two values suggests that the synthetic outputs generated from the input KDE closely resemble the distribution of the training outputs.
 
-To further evaluate the goodness-of-fit between the distributions of \( y_{\text{sample}} \) and \( \bar{y}_{\text{train}} \), a Kolmogorov–Smirnov (K–S) test was conducted using three alternatives: two-sided, less, and more significant. The test results were as follows: a two-sided test yielded a statistic of \( 0.01833 \) with a p-value of \( 0.81482 \) (statistic location \(-0.34018\), sign \(1\)); the 'less' alternative produced a statistic of \( 0.01167 \) with a p-value of \( 0.72137 \) (statistic location \(0.30738\), sign \(-1\)); and the 'greater' alternative returned a statistic of \( 0.01833 \) with a p-value of \( 0.44640 \) (statistic location \(-0.34018\), sign \(1\)). These statistical measures provide an initial indication that the synthetic outputs generated via the KDE-based sampling are consistent with the distribution of outputs observed during training, thereby supporting the model's capability to generalize to new, unseen scenarios.
+To further evaluate the goodness-of-fit between the distributions of \( y_{\text{sample}} \) and \( \bar{y}_{\text{train}} \), a Kolmogorov–Smirnov (K–S) test was conducted using three alternatives: two-sided, less, and more significant. The test results were as follows: a two-sided test yielded a statistic of \( 0.01833 \) with a p-value of \( 0.81482 \) (statistic location \(-0.34018\); the 'less' alternative produced a statistic of \( 0.01167 \) with a p-value of \( 0.72137 \) (statistic location \(0.30738\); and the 'greater' alternative returned a statistic of \( 0.01833 \) with a p-value of \( 0.44640 \) (statistic location \(-0.34018\). These statistical measures provide an initial indication that the synthetic outputs generated via the KDE-based sampling are consistent with the distribution of outputs observed during training, thereby supporting the model's capability to generalize to new, unseen scenarios.
+
+
+
 
 After completing the stochastic analysis of the variables associated with the optimization model—both input and output variables—the next step involves leveraging the KDE fitted to the training data. This fitted KDE was used to generate a new set of input samples that represent the learned probability distribution of the optimization model's inputs. These samples were then propagated forward through the trained neural network model. Using the resulting network outputs, a new joint analysis was conducted, analogous to the previous one performed with the variables of the optimization model. This approach allows for evaluating the network's ability to reproduce the statistical behavior of the system, offering an understanding of how the learned model captures the underlying probabilistic structure of the original problem.
 
