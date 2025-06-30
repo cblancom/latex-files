@@ -116,9 +116,9 @@ However, the prediction accuracy for edge flows showed a notable deterioration, 
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
-    \subfloat[Actual vs predicted nodal flows.] 
+    \subfloat[Nodal flows.] 
     {\label{fig:results_nonlineal_dummy_node_base_f_bal_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_dummy_base_f_bal_wey.tex}}}
-    \subfloat[Actual vs predicted edge flows.] 
+    \subfloat[Edge flows.] 
     {\label{fig:results_nonlineal_dummy_edge_base_f_bal_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_dummy_base_f_bal_wey.tex}}}
     
     \caption{Model results using the losses associated with nodal and edge flow predictions along with the gas balance and Weymouth losses in the 8-node network.}
@@ -133,9 +133,9 @@ In the subsequent experiment, the losses associated with node flows and the phys
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
-    \subfloat[Actual vs predicted nodal flows.] 
+    \subfloat[Nodal flows.] 
     {\label{fig:results_nonlineal_dummy_node_base_bal_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_dummy_base_bal_wey.tex}}}
-    \subfloat[Actual vs predicted edge flows.] 
+    \subfloat[Edge flows.] 
     {\label{fig:results_nonlineal_dummy_edge_base_bal_wey}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_dummy_base_bal_wey.tex}}}
     
     \caption{Model results using the loss associated with nodal flow predictions along with the gas balance and Weymouth losses in the 8-node network.}
@@ -416,11 +416,12 @@ To further evaluate the goodness-of-fit between the distributions of \( y_{\text
 
 
 
-After completing the stochastic analysis of the variables associated with the optimization model—both input and output variables—the next step involves leveraging the KDE fitted to the training data. This fitted KDE was used to generate a new set of input samples that represent the learned probability distribution of the optimization model's inputs. These samples were then propagated forward through the trained neural network model. Using the resulting network outputs, a new joint analysis was conducted, analogous to the previous one performed with the variables of the optimization model. This approach allows for evaluating the network's ability to reproduce the statistical behavior of the system, offering an understanding of how the learned model captures the underlying probabilistic structure of the original problem.
+After completing the stochastic analysis of the variables associated with the optimization model, the next step involves leveraging the KDE fitted to the training data. This fitted KDE was used to generate a new set of input samples that represent the learned probability distribution of the optimization model's inputs. These samples were then forward propagated through the trained neural network model. Using the resulting network outputs, a new joint analysis was conducted, analogous to the previous one performed with the variables of the optimization model. 
+
+Following the same structure presented in the first part of this analysis, we begin by highlighting the relationships that exhibit two distinct modes of operation according to their joint probability density functions. In this case, as shown in Figure~\cref{fig:joint_distributions_input_input_KDE}, only two variable pairs present this bimodal behavior when the analysis is performed using the inputs propagated through the trained neural network. These pairs are: the nodal pressure limits of $N_4$ and $N_2$, and those of $N_6$ and $N_5$. In both cases, the joint PDFs suggest the existence of two operational regimes, potentially associated with alternative configurations or routing strategies within the network that are learned by the neural model. 
 
 
-
-\begin{figure}
+\begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=0.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs (Sampled).png}
     \end{center}
@@ -429,70 +430,58 @@ After completing the stochastic analysis of the variables associated with the op
 \end{figure}
      
 
-Following the same structure presented in the first part of this analysis, we begin by highlighting the relationships that exhibit two distinct modes of operation according to their joint probability density functions. In this case, as shown in Figure~\cref{fig:joint_distributions_input_input_KDE}, only two variable pairs present this bimodal behavior when the analysis is performed using the inputs propagated through the trained neural network. These pairs are: the nodal pressure limits of $N_4$ and $N_2$, and those of $N_6$ and $N_5$. In both cases, the joint PDFs suggest the existence of two operational regimes, potentially associated with alternative configurations or routing strategies within the network that are learned by the neural model. 
+Continuing with the distributions that exhibit a small high-probability region (\Cref{fig:joint_distributions_input_input_no_mode_KDE}), four pairs of variables were identified in this case whose joint PDFs display this characteristic. These pairs are: the nodal pressure limits between $N_2$ and $N_0$; $N_3$ and $N_0$; and $N_5$ and $N_2$. These distributions are characterized by a concentrated and sharply defined region of high probability, suggesting that the neural network tends to favor very specific combinations of input values during prediction. It is worth noting that, unlike in the previous analysis based on the optimization model, no distributions with broad and clearly defined high-probability zones (i.e., darker and more extensive areas) were observed.
 
 
-\begin{figure}
+\begin{figure}[htbp]
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode (KDE).png}
+        \includegraphics[width=.75\textwidth]{figures/Chapter_NonLinealCensnet/PDF_inputs_inputs_no_mode (KDE).png}
     \end{center}
     \caption{Joint PDFs between the inputs used in the 8-node network, which do not appear to have a defined mode in the KDE sampled variables. }
     \label{fig:joint_distributions_input_input_no_mode_KDE}
 \end{figure}
- 
-Continuing with the distributions that exhibit a very small high-probability region, four pairs of variables were identified in this case whose joint PDFs display this characteristic. These pairs are: the nodal pressure limits between $N_2$ and $N_0$; between $N_3$ and $N_0$ for both pressure and injected flow limit; and between $N_5$ and $N_2$ for nodal pressures. These distributions are characterized by a concentrated and sharply defined region of high probability, suggesting that the neural network tends to favor very specific combinations of input values during prediction. It is worth noting that, unlike in the previous analysis based on the optimization model, no distributions with broad and clearly defined high-probability zones (i.e., darker and more extensive areas) were observed.
 
 
-\begin{figure}
+\Cref{fig:joint_distributions_output_output_2_KDE} shows a group of joint probability density functions that resembling bivariate gamma distributions. A particularly noteworthy feature across these plots is the behavior of the flow transported through pipeline $p_3$, the segment that closes the loop in the system's topology. In all distributions, this variable (shown along the X-axis) assumes negative values, typically ranging between 10\% and 30\% of its normalized capacity.
+
+\begin{figure}[htbp]
     \begin{center}
-        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2 (KDE).png}
+        \includegraphics[width=.65\textwidth]{figures/Chapter_NonLinealCensnet/outputs_outputs_2 (KDE).png}
     \end{center}
     \caption{Joint PDFs between the outputs used in the 8-node network, which have a negative flow in the KDE sampled variables.}
     \label{fig:joint_distributions_output_output_2_KDE}
 \end{figure}
  
 
-Figure~\ref{fig:joint_distributions_output_output_2_KDE} presents a group of joint probability density functions that, while resembling Gaussian-like distributions, often exhibit some degree of skewness. A particularly striking feature in these plots is the consistent behavior of the flow transported through pipeline $E_3$, the segment that completes the loop in the system’s topology. In every case, this variable—represented on the X-axis—takes on negative values, typically between 10\% and 30\% of its normalized capacity.
-
-This consistent negative trend can be interpreted as the network having learned that, under optimal conditions, the flow through pipeline $E_3$ should operate in the direction opposite to the one originally assumed in the problem formulation. The reversal in direction is not only coherent with the physical and economic constraints of the system, but also mirrors the behavior found in the optimization model. Furthermore, this pattern is robust across a diverse set of operating scenarios, as evidenced by the variables plotted along the Y-axis, which include the total injection at node $N_0$ and the flows through pipelines $E_0$, $E_1$, $E_2$, $E_4$, and $E_5$. 
+This negative trend can be interpreted as the network has learned that, under optimal conditions, the flow through pipeline $p_3$ should operate in the direction opposite to the one originally assumed in the problem formulation. The reversal in direction is not only coherent with the physical and economic constraints of the system but also mirrors the behavior found in the optimization model. Furthermore, this pattern is robust across a diverse set of operating scenarios, as evidenced by the variables plotted along the Y-axis, which include the total injection at node $N_0$ and the flows through pipelines $p_0$, $p_1$, $p_2$, $p_4$, and $p_5$. 
 
 
-\begin{figure}
+Continuing with the comparison, PDFs consist of input and output variables that present a similar pattern to that observed in the optimization model that appears in the neural network predictions. As shown in \Cref{fig:joint_distributions_inputs_outputs_1_KDE}, there is a group of joint probability distributions where the input variables span a wide range of values, while the corresponding output,specifically, the flow through pipeline $p_4$, remains narrowly concentrated between 20\% and 40\% of its normalized capacity. This behavior mirrors what was previously discussed for the optimization model, suggesting that, even under the learned data distribution, the network consistently predicts a relatively low and stable utilization of this particular pipeline.
+
+\begin{figure}[htbp]
     \begin{center}
-        \includegraphics[width=.65\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1 KDE.png}
+        \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1 KDE.png}
     \end{center}
     \caption{Joint PDFs between the inputs and outputs used in the 8-node network, which present a wide dispersion along second variable. }
     \label{fig:joint_distributions_inputs_outputs_1_KDE}
 \end{figure}
 
-Continuing with the comparison between input and output variables, a similar pattern to that observed in the optimization model reappears in the neural network predictions. As shown in Figure~\cref{fig:joint_distributions_inputs_outputs_1_KDE}, there is a group of joint probability distributions where the input variables span a wide range of values, while the corresponding output—specifically, the flow through pipeline $E_4$—remains narrowly concentrated between 20\% and 40\% of its normalized capacity. This behavior mirrors what was previously discussed for the optimization model, suggesting that, even under the learned data distribution, the network consistently predicts a relatively low and stable utilization of this particular pipeline.
 
-The pairs exhibiting this characteristic include the upper bound on injection flow at node $N_0$ and the upper bounds on nodal pressures at nodes $N_0$ through $N_7$, all compared against the predicted flow through pipeline $E_4$. As in the previous case, normalization was only applied to the output variables, while the inputs were left in their original scale, reflecting their interpretation as operational constraints rather than actual realizations. The similarity in joint distribution patterns between the optimization model and the neural network predictions indicates that the trained model effectively internalized a similar resolution strategy, favoring stable usage of pipeline $E_4$ regardless of the variability in input conditions.
+The pairs exhibiting this characteristic include the upper bound on injection flow at node $N_0$ and the upper bounds on nodal pressures at nodes $N_0$ through $N_7$, all compared against the predicted flow through pipeline $p_4$. As in the previous case, normalization was only applied to the output variables, while the inputs were left in their original scale. The similarity in joint distribution patterns between the optimization model and the neural network predictions indicates that the trained model effectively internalized a similar resolution strategy, favoring stable usage of pipeline $p_4$ regardless of the variability in input conditions.
 
 
-\begin{figure}
+A final group of joint distributions worth highlighting is shown in \Cref{fig:joint_distributions_inputs_outputs_2_KDE}. Those involve input and output variables that exhibit a linear relationship, similar to the patterns observed in the optimization model. In particular, two of the joint PDFs show a positive correlation, where increases in the input variable are associated with proportional increases in the output. This behavior is seen in the pairs formed by the upper bound of the demand flow at node $N_6$ and the predicted flow in pipeline $p_4$, as well as between the same bound at node $N_7$ and the predicted flow in pipeline $p_5$. These relationships suggest that the network has captured a coherent system response, in which more flexible demand conditions at the consumption nodes lead to higher utilization of the pipelines supplying them, closely resembling the optimizer’s behavior.
+
+
+\begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_2 KDE.png}
     \end{center}
     \caption{Joint PDFs between the inputs and outputs used in the 8-node network, which present a linear behavior, although with different dispersions among them. }
     \label{fig:joint_distributions_inputs_outputs_2_KDE}
 \end{figure}
- 
 
-A final group of joint distributions worth highlighting involves input and output variables that exhibit a linear relationship, similar to the patterns observed in the optimization model (Figure~\cref{fig:joint_distributions_inputs_outputs_2_KDE}). In particular, two of the joint PDFs show a positive correlation, where increases in the input variable are associated with proportional increases in the output. This behavior is seen in the pairs formed by the upper bound of the demand flow at node $N_6$ and the predicted flow in pipeline $E_4$, as well as between the same bound at node $N_7$ and the predicted flow in pipeline $E_5$. These relationships suggest that the network has captured a coherent system response, in which more flexible demand conditions at the consumption nodes lead to higher utilization of the pipelines supplying them—closely resembling the optimizer’s behavior.
-
-A third pair—formed by the upper demand bound at node $N_7$ and the flow in pipeline $E_3$—also shows a strong linear pattern, though in this case the correlation is negative. That is, an increase in the input variable corresponds to a decrease in the pipeline’s predicted utilization. This result mirrors the exception found in the optimization model, and can again be attributed to the presence of a loop in the network’s structure. Under increasing demand at $N_7$, the network tends to shift the flow away from pipeline $E_3$, likely in favor of more direct paths that connect to the demand node. This further confirms that the trained model not only replicates the general operating tendencies of the optimization scheme but also reflects more subtle topological effects embedded in the system configuration.
-
-
-
-
-
-
-
-
-
-
-
+A third pair, formed by the upper demand bound at node $N_7$ and the flow in pipeline $p_3$, also shows a strong linear pattern, though in this case, the correlation is negative. This result mirrors the exception found in the optimization model, and can again be attributed to the presence of a loop in the network’s structure. Under increasing demand at $N_7$, the network tends to shift the flow away from pipeline $p_3$, likely in favor of more direct paths that connect to the demand node. This further confirms that the trained model replicates the general operating tendencies of the optimization scheme.
 
 
 
@@ -501,69 +490,75 @@ A third pair—formed by the upper demand bound at node $N_7$ and the flow in pi
 \subsection{Case Study II: 63-node Network (Colombia)}
 
 
-This section addresses the second case study, focusing on the Colombian natural gas network. As in the previous cases, this analysis explores various configurations of loss functionals to evaluate the predictive performance of the GNN-based model. The first experiment examines the model's predictive capabilities when incorporating node and edge losses.
+This section addresses the second case study, focusing on the Colombian natural gas network. As in the previous cases, this analysis explores various configurations of loss function to evaluate the predictive performance of the GNN-based model. The first experiment examines the model's predictive capabilities when incorporating node and edge losses.
+
+This experiment used optimized hyperparameters, with \( N \ channels = 21 \), \( N \ layers = 5 \), and \( N \ dense = 4 \), which were selected to enhance the model's performance. The experiment yielded a total loss of \( 267.6 \), encompassing node and edge losses, along with a calculated balance loss. Specifically, the node loss reached \( 17.5 \), while the edge loss was considerably higher at \( 250.1 \). Additionally, a balance loss of \( 338.7 \) was recorded. Notably, the balance loss was calculated to assess network consistency but was not incorporated into the model's cost function during training; instead, it serves as an independent evaluation metric. 
 
 
-This experiment used optimized hyperparameters, with \( N_{\text{channels}} = 21 \), \( N_{\text{layers}} = 5 \), and \( N_{\text{dense}} = 4 \), which were selected to enhance the model's performance. The experiment yielded a total loss of \( 267,600 \), encompassing node and edge losses, along with a calculated balance loss. Specifically, the node loss reached \( 17,537 \), while the edge loss was considerably higher at \( 250,063 \). Additionally, a balance loss of \( 338,729 \) was recorded. Notably, the balance loss was calculated to assess network consistency but was not incorporated into the model's cost function during training; instead, it serves as an independent evaluation metric. 
-
-The GNN-based model's predictive accuracy in this experiment was quantified using \( R^2 \) metrics, and the results are shown in \cref{fig:col_base_f_results_non_lineal}. The nodal predictions exhibited high accuracy, with an \( R^2 \) score of \( 0.993 \) in \cref{fig:results_nonlineal_col_node_base_f}, indicating that the model closely approximates the observed nodal flow values. Similarly, the edge predictions achieved an \( R^2 \) score of \( 0.963 \), demonstrating robust performance in predicting edge flows. This last value can be seen in \cref{fig:results_nonlineal_col_edge_base_f}.
+The GNN-based model's predictive accuracy in this experiment was quantified using \( R^2 \) metrics, and the results are shown in \Cref{fig:col_base_f_results_non_lineal}. The nodal predictions exhibited high accuracy, with an \( R^2 \) score of \( 0.993 \) in \Cref{fig:results_nonlineal_col_node_base_f}, indicating that the model closely approximates the observed nodal flow values. Similarly, the edge predictions achieved an \( R^2 \) score of \( 0.963 \), demonstrating robust performance in predicting edge flows. This last value can be seen in \Cref{fig:results_nonlineal_col_edge_base_f}.
 
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
-    \subfloat[Actual vs predicted nodal flows.] 
+    \subfloat[Nodal flows.] 
     {\label{fig:results_nonlineal_col_node_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f.tex}}}
-    \subfloat[Actual vs predicted edge flows.] 
+    \subfloat[Edge flows.] 
     {\label{fig:results_nonlineal_col_edge_base_f}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f.tex}}}
     
-    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \caption{Model results using the losses associated with nodal and edge flows in the Colombian case network.}
     \label{fig:col_base_f_results_non_lineal}
 \end{figure}
 
 
-The second experiment evaluated the GNN-based model, focusing on losses associated with nodes and balance. Using the optimized hyperparameters \( N_{\text{channels}} = 49 \), \( N_{\text{layers}} = 5 \), and \( N_{\text{dense}} = 2 \), the model yielded a total loss of \( 24,888 \). This loss value includes a node loss of \( 17,019 \), a calculated edge loss of \( 2,912.201 \), and a balance loss of \( 7,868 \). In this experiment, only the node and balance losses were included in the model's cost function, while the edge loss was computed independently to assess prediction accuracy for edge flows.
-
-The predictive accuracy, evaluated using \( R^2 \) metrics, yielded \( R^2 = 0.993 \) for nodal predictions and \( R^2 = 0.569 \) for edge predictions, as shown in \cref{fig:results_nonlineal_col_node_base_bal} and \cref{fig:results_nonlineal_col_edge_base_bal}. The scatterplot in \cref{fig:results_nonlineal_col_node_base_bal} illustrates the accuracy of nodal predictions, with predicted values aligning closely to the true values. In contrast, the scatterplot in \cref{fig:results_nonlineal_col_edge_base_bal} reveals less consistency in edge predictions, likely due to the exclusion of edge loss from the cost function. Although a general linear trend is observable between predicted and true values in this scatterplot, a notable number of inaccurately predicted values diminish the overall \( R^2 \), impacting the edge loss and prediction accuracy.
+The second experiment evaluated the GNN-based model, focusing on losses associated with nodes and balance. Using the optimized hyperparameters \( N \ channels = 49 \), \( N \ layers = 5 \), and \( N \ dense = 2 \), the model yielded a total loss of \( 24.9 \). This loss value includes a node loss of \( 17.02 \), a calculated edge loss of \( 2,912.2 \), and a balance loss of \( 7,9 \). In this experiment, only the node and balance losses were included in the model's cost function, while the edge loss was computed independently to assess prediction accuracy for edge flows.
 
 
-
-
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
-    \subfloat[Actual vs predicted nodal flows.] 
+    \subfloat[Nodal flows.] 
     {\label{fig:results_nonlineal_col_node_base_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_bal.tex}}}
-    \subfloat[Actual vs predicted edge flows.] 
+    \subfloat[Edge flows.] 
     {\label{fig:results_nonlineal_col_edge_base_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_bal.tex}}}
     
-    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \caption{Model results using the losses associated with nodal and edge flow predictions along with the gas balance and Weymouth losses in the Colombian case network.}
     \label{fig:col_base_bal_results_non_lineal}
 \end{figure}
 
 
 
+The predictive accuracy, evaluated using \( R^2 \) metrics, yielded \( R^2 = 0.993 \) for nodal predictions and \( R^2 = 0.57 \) for edge predictions, as shown in \Cref{fig:results_nonlineal_col_node_base_bal} and \Cref{fig:results_nonlineal_col_edge_base_bal}. The scatterplot in \Cref{fig:results_nonlineal_col_node_base_bal} illustrates the accuracy of nodal predictions, with predicted values aligning closely to the true values. In contrast, the scatterplot in \cref{fig:results_nonlineal_col_edge_base_bal} reveals less consistency in edge predictions, likely due to the exclusion of edge loss from the cost function. Although a general linear trend is observable between predicted and true values in this scatterplot, a notable number of inaccurately predicted values diminish the overall \( R^2 \), impacting the edge loss and prediction accuracy.
 
-The third experiment evaluated the GNN-based model's predictive capabilities by incorporating losses associated with nodes, edges, and balance. With the optimized hyperparameters \( N_{\text{channels}} = 20 \), \( N_{\text{layers}} = 5 \), and \( N_{\text{dense}} = 2 \), the model achieved a total loss of \( 347,647 \), including a node loss of \( 37,684 \), an edge loss of \( 264,187 \), and a balance loss of \( 45,776 \). This experiment integrated all three losses into the model's cost function, allowing a more comprehensive assessment of its predictive performance.
 
-The predictive accuracy was quantified by \( R^2 \) values of \( 0.984 \) and \( 0.961 \) for nodes and edges, respectively, as shown in \cref{fig:results_nonlineal_col_node_base_f_bal} and \cref{fig:results_nonlineal_col_edge_base_f_bal}. In these scatterplots, the predictions demonstrate a clearer alignment with the true values, with both graphs illustrating shapes more similar to straight lines, which indicates improved model performance in capturing the underlying patterns of nodal and edge flows.
 
-This third experiment marks the final test conducted in this study. Attempts to include the Weymouth loss were hindered by significant computational complexity, preventing the acquisition of reliable results for the model when considering the Weymouth function loss. Therefore, further tests were not feasible within the current scope.
 
-\begin{figure}
+
+
+
+The third experiment evaluated the GNN-based model's predictive capabilities by incorporating losses associated with nodes, edges, and balance. With the optimized hyperparameters \( N \ channels = 20 \), \( N \ layers = 5 \), and \( N \ dense = 2 \), the model achieved a total loss of \( 347.7 \), including a node loss of \( 37.7 \), an edge loss of \( 264.2 \), and a balance loss of \( 45.8 \). This experiment integrated all three losses into the model's cost function, allowing a more comprehensive assessment of its predictive performance.
+
+The predictive accuracy was quantified by \( R^2 \) values of \( 0.984 \) and \( 0.961 \) for nodes and edges, respectively, as shown in \Cref{fig:results_nonlineal_col_node_base_f_bal} and \Cref{fig:results_nonlineal_col_edge_base_f_bal}. In these scatterplots, the predictions demonstrate a clearer alignment with the true values, with both graphs illustrating shapes more similar to straight lines, which indicates improved model performance in capturing the underlying patterns of nodal and edge flows.
+
+
+\begin{figure}[htbp]
     \centering
     \setlength\figurewidth{.53\textwidth}        
     \setlength\figureheight{0.36\textwidth} 
-    \subfloat[Actual vs predicted nodal flows.] 
+    \subfloat[Nodal flows.] 
     {\label{fig:results_nonlineal_col_node_base_f_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/yn_col_base_f_bal.tex}}}
-    \subfloat[Actual vs predicted edge flows.] 
+    \subfloat[Edge flows.] 
     {\label{fig:results_nonlineal_col_edge_base_f_bal}\resizebox{\figurewidth}{\figureheight}{\input{figures/Chapter_NonLinealCensnet/ye_col_base_f_bal.tex}}}
     
-    \caption{Model results using only the loss associated with nodal flow predictions in the 8-node network.}
+    \caption{Model results using the losses associated with nodal and edge flow predictions along with the gas balance loss in the Colombian case network.}
     \label{fig:col_base_f_bal_results_non_lineal}
 \end{figure}
+
+
+
+This third experiment marks the final test conducted in this study. Attempts to include the Weymouth loss were hindered by significant computational complexity, preventing the acquisition of reliable results for the model when considering the Weymouth function loss. Therefore, further tests were not feasible within the current scope.
 
 
 
@@ -587,96 +582,129 @@ This third experiment marks the final test conducted in this study. Attempts to 
 % \end{table}
 %
 
+%
+% \begin{table}[htbp]
+% \centering
+% \begin{tabular}{|c|p{0.55cm}|p{0.55cm}|p{0.55cm}|c|c|c|c|}
+%     \hline
+%     Method & \centering N & \centering E & \centering B & Node Value & Edge Value & Balance Value & Time \\ \hline
+%     IPOPT  & \makebox[0.55cm]{\centering \checkmark} & & & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) & \( 13.65 \pm 2.86 \) \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} & & & \( 11.22 \pm 49.03 \) & \( 62.73 \pm 81.99 \) & \( -2.28 \pm 25.48 \) & \( 0.15 \pm 0.04 \) \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & & \( 12.47 \pm 48.89 \) & \( 88.32 \pm 73.55 \) & \( -1.03 \pm 1.90 \) & \( 0.15 \pm 0.05 \) \\ \hline
+%     GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \( 12.33 \pm 48.64 \) & \( 63.06 \pm 81.32 \) & \( -1.17 \pm 7.38 \) & \( 0.15 \pm 0.04 \) \\ \hline
+% \end{tabular}
+% \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN across different loss configurations. The columns "N", "E", and "B" indicate experiments where nodal, edge, and balance losses were considered.}
+% \label{tab:base_nl_dummy_results_formatted}
+% \end{table}
+%
+%
+% The \cref{tab:base_nl_dummy_results_formatted} provides a comparison between the IPOPT optimization model and the GNN-based model across four experiments that incorporate different combinations of nodal (N), edge (E), and balance (B) losses. The results focus on nodal flows, edge flows, nodal balance, and prediction time, with mean and standard deviation values.
+%
+% In this table, the IPOPT model serves as the baseline. It achieves a nodal flow mean of \( 11.32 \pm 48.89 \), an edge flow mean of \( 63.38 \pm 83.11 \), and a balance value mean of \( -2.18 \pm 29.78 \). The prediction time for this benchmark model is \( 13.65 \pm 2.86 \) seconds, providing a standard for comparison with GNN-based models.
+%
+% The first GNN experiment considers only the nodal loss. It produces a nodal flow mean of \( 11.22 \pm 49.03 \), closely aligning with the IPOPT nodal flow. The edge flow mean, at \( 62.73 \pm 81.99 \), is also similar to IPOPT's results. The balance value mean of \( -2.28 \pm 25.48 \) shows moderate variability, while the GNN's prediction time is notably faster, at \( 0.15 \pm 0.04 \) seconds.
+%
+% In the second GNN experiment, both nodal and edge losses are incorporated. The nodal flow prediction mean slightly increases to \( 12.47 \pm 48.89 \), while the edge flow mean shows a more significant increase, reaching \( 88.32 \pm 73.55 \). The balance value improves in consistency, with a mean of \( -1.03 \pm 1.90 \), and the prediction time remains low at \( 0.15 \pm 0.05 \) seconds, indicating efficient computation.
+%
+% The third GNN experiment includes nodal, edge, and balance losses. Here, the nodal flow means it is \( 12.33 \pm 48.64 \), and the edge flow means returns to a closer alignment with IPOPT at \( 63.06 \pm 81.32 \). The balance value stabilizes, reaching \( -1.17 \pm 7.38 \), while the prediction time remains consistent at \( 0.15 \pm 0.04 \) seconds.
+%
+% This table illustrates the GNN model's capability to maintain accurate predictions and achieve lower computational time than IPOPT, especially when incorporating more loss components.
+%
+
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{|c|p{0.55cm}|p{0.55cm}|p{0.55cm}|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|}
     \hline
-    Method & \centering N & \centering E & \centering B & Node Value & Edge Value & Balance Value & Time \\ \hline
-    IPOPT  & \makebox[0.55cm]{\centering \checkmark} & & & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) & \( 13.65 \pm 2.86 \) \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} & & & \( 11.22 \pm 49.03 \) & \( 62.73 \pm 81.99 \) & \( -2.28 \pm 25.48 \) & \( 0.15 \pm 0.04 \) \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & & \( 12.47 \pm 48.89 \) & \( 88.32 \pm 73.55 \) & \( -1.03 \pm 1.90 \) & \( 0.15 \pm 0.05 \) \\ \hline
-    GNN    & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \makebox[0.55cm]{\centering \checkmark} & \( 12.33 \pm 48.64 \) & \( 63.06 \pm 81.32 \) & \( -1.17 \pm 7.38 \) & \( 0.15 \pm 0.04 \) \\ \hline
+    Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+    IPOPT & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) & \( 13.65 \pm 2.86 \) \\ \hline
+    GNN (N) & \( 11.22 \pm 49.03 \) & \( 62.73 \pm 81.99 \) & \( -2.28 \pm 25.48 \) & \( 0.15 \pm 0.04 \) \\ \hline
+    GNN (N+E) & \( 12.47 \pm 48.89 \) & \( 88.32 \pm 73.55 \) & \( -1.03 \pm 1.90 \) & \( 0.15 \pm 0.05 \) \\ \hline
+    GNN (N+E+B) & \( 12.33 \pm 48.64 \) & \( 63.06 \pm 81.32 \) & \( -1.17 \pm 7.38 \) & \( 0.15 \pm 0.04 \) \\ \hline
 \end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN across different loss configurations. The columns "N", "E", and "B" indicate experiments where nodal, edge, and balance losses were considered.}
+\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN-based models under different loss configurations for the Colombian natural gas system. The notation \textbf{GNN (N)} indicates the use of nodal loss only, while \textbf{GNN (N+E)} and \textbf{GNN (N+E+B)} incorporate additional edge and balance losses respectively.}
 \label{tab:base_nl_dummy_results_formatted}
 \end{table}
 
+The results in \Cref{tab:base_nl_dummy_results_formatted} highlight the behavior of the GNN model under various combinations of loss functions in comparison to the IPOPT benchmark. All GNN configurations demonstrate a considerable advantage in prediction time, offering rapid inference regardless of the loss components considered.
 
-The \cref{tab:base_nl_dummy_results_formatted} provides a comparison between the IPOPT optimization model and the GNN-based model across four experiments that incorporate different combinations of nodal (N), edge (E), and balance (B) losses. The results focus on nodal flows, edge flows, nodal balance, and prediction time, with mean and standard deviation values.
 
-In this table, the IPOPT model serves as the baseline. It achieves a nodal flow mean of \( 11.32 \pm 48.89 \), an edge flow mean of \( 63.38 \pm 83.11 \), and a balance value mean of \( -2.18 \pm 29.78 \). The prediction time for this benchmark model is \( 13.65 \pm 2.86 \) seconds, providing a standard for comparison with GNN-based models.
-
-The first GNN experiment considers only the nodal loss. It produces a nodal flow mean of \( 11.22 \pm 49.03 \), closely aligning with the IPOPT nodal flow. The edge flow mean, at \( 62.73 \pm 81.99 \), is also similar to IPOPT's results. The balance value mean of \( -2.28 \pm 25.48 \) shows moderate variability, while the GNN's prediction time is notably faster, at \( 0.15 \pm 0.04 \) seconds.
-
-In the second GNN experiment, both nodal and edge losses are incorporated. The nodal flow prediction mean slightly increases to \( 12.47 \pm 48.89 \), while the edge flow mean shows a more significant increase, reaching \( 88.32 \pm 73.55 \). The balance value improves in consistency, with a mean of \( -1.03 \pm 1.90 \), and the prediction time remains low at \( 0.15 \pm 0.05 \) seconds, indicating efficient computation.
-
-The third GNN experiment includes nodal, edge, and balance losses. Here, the nodal flow means it is \( 12.33 \pm 48.64 \), and the edge flow means returns to a closer alignment with IPOPT at \( 63.06 \pm 81.32 \). The balance value stabilizes, reaching \( -1.17 \pm 7.38 \), while the prediction time remains consistent at \( 0.15 \pm 0.04 \) seconds.
-
-This table illustrates the GNN model's capability to maintain accurate predictions and achieve lower computational time than IPOPT, especially when incorporating more loss components.
+When only the nodal loss is considered, the GNN produces nodal and edge flow predictions that are closely aligned with those of the IPOPT model. However, the absence of additional constraints leads to less reliable enforcement of the gas balance condition. The introduction of the edge loss significantly improves the edge flow predictions, but the model's ability to preserve balance diminishes as a result. By incorporating the balance loss alongside the nodal and edge losses, the GNN model recovers a more accurate and stable balance behavior while maintaining satisfactory flow predictions. This configuration yields results that are more consistent with the physical structure of the network and closely mirror the performance of the IPOPT solution, but with far superior computational efficiency.
 
 
 
-
-An uncertainty analysis similar to the previous case was performed for the Colombian natural gas transportation network. Using the same methodology, a second kernel density estimate (KDE) was fitted to the training output data, and synthetic outputs were generated. The log-likelihood computed from the synthetic outputs was \(-104,413,419.34\), while that computed from the training outputs was \(-104,037,047.58\). In addition, a Kolmogorov–Smirnov (K–S) test was carried out under three different alternatives, yielding the following results: a test statistic of \(0.00527\) with a p-value of \(0.95556\) (statistic location \(0.52109\), statistic sign \(-1\)); a test statistic of \(0.00527\) with a p-value of \(0.59061\) (statistic location \(0.52109\), statistic sign \(-1\)); and a test statistic of \(0.00324\) with a p-value of \(0.81777\) (statistic location \(-0.73443\), statistic sign \(1\)). These findings indicate a high similarity between the synthetic and training outputs, as the low test statistics and high p-values suggest that the two distributions are statistically indistinguishable. The slight differences in log-likelihood values further confirm that the synthetic data effectively capture the essential characteristics of the training data, thereby validating the robustness of the stochastic sampling approach for this network.
+An uncertainty analysis similar to the previous case was performed for the Colombian natural gas transportation network. Using the same methodology, a second kernel density estimate (KDE) was fitted to the training output data, and synthetic outputs were generated. The log-likelihood computed from the synthetic outputs was \(-104{,}413{,}419.34\), while that from the training outputs was \(-104{,}037{,}047.58\). To further assess the similarity between the two distributions, a Kolmogorov–Smirnov (K–S) test was conducted under three different alternatives: two-sided, less, and greater. The results were as follows: for the two-sided alternative, the test statistic was \(0.00527\) with a p-value of \(0.95556\) (statistic location \(0.52109\)); for the less alternative, the test statistic was \(0.00527\) with a p-value of \(0.59061\) (statistic location \(0.52109\)); and for the greater alternative, the test statistic was \(0.00324\) with a p-value of \(0.81777\) (statistic location \(-0.73443\)). These findings indicate a high degree of similarity between the synthetic and training outputs, as the low test statistics and high p-values suggest that the two distributions are statistically indistinguishable. The slight differences in log-likelihood values further confirm that the synthetic data effectively capture the essential characteristics of the training data, thereby validating the robustness of the stochastic sampling approach for this network.
 
 
 
 
 
+\section{Discussion}
 
 
-\section{Discussion and conclusions}
+% This chapter's first set of experiments provides insights into the model's capability to handle gas network predictions with various loss function combinations. Including node and edge losses in the initial experiment demonstrated the model's capacity to accurately capture node behavior, as evidenced by a high $R^2$ value of 0.983 for nodal flow predictions. This result indicates the model's ability to learn injection patterns at the nodes, even under nonlinear system conditions.
+%
+% Incorporating the gas balance loss in subsequent experiments maintained the accuracy of nodal predictions, with no notable change in the $R^2$ for node flows. However, the slight reduction in the $R^2$ for edge flows to 0.973 suggests that while the gas balance constraint improved overall network consistency, it introduced additional complexity that slightly affected edge prediction performance. This outcome highlights a trade-off between accurate node predictions and balanced edge flows, indicating robust model performance with some sensitivity to changes in loss function configurations.
+%
+% Further exploration of the model's response to including the Weymouth equation loss introduced more pronounced effects, particularly on edge flow predictions. The decline in $R^2$ to 0.952 for edge flows indicates increased difficulty in accurately modeling flow through specific network paths, particularly in regions with closed loops or compressor installations. This outcome underscores the challenge of incorporating multiple nonlinear physical constraints, especially in complex configurations.
+%
+% In the experiment where only the Weymouth equation and node losses were considered, the model maintained a high $R^2$ for nodal flows. However, the extremely low $R^2$ for edge predictions, reaching negative values, suggests the model struggled to generalize edge flows effectively when isolated from balancing and edge losses. This finding reinforces the need for a comprehensive loss framework incorporating node and edge dynamics to ensure robust network performance, highlighting the challenges of predicting edge flows under limited constraints.
+%
+% Comparing the results from \cref{cap:lienal-censnet} with those in \cref{cap:non_linealcensnet} reveals that the addition of physical constraints in \cref{cap:non_linealcensnet} improves model performance, particularly in terms of balancing accuracy.
+%
+% The losses presented in \cref{cap:lienal-censnet} (Table \ref{tab:lineal_dummy_results}) reflect initial configurations with only nodal and edge losses. In these setups, while nodal and edge values show reasonable consistency with the APOPT optimizer, the balance values exhibit higher variability, especially in the GNN configurations. For example, when both nodal and edge losses are applied, the GNN model in \cref{cap:lienal-censnet} produces a balance error of \(-5.711 \pm 16.854\), which differs significantly from the APOPT optimizer's near-zero balance error (\(-0.001 \pm 0.038\)). This difference indicates that the simpler GNN models in \cref{cap:lienal-censnet} lack additional constraints to replicate the physical conditions accurately.
+%
+% In \cref{cap:non_linealcensnet}, adding constraints related to balance and the Weymouth equation (Table \ref{tab:base_nl_dummy_results_formatted}) leads to improved balance accuracy. For instance, the GNN model with nodal, edge, and balance losses achieves a balance error of \(0.004 \pm 0.845\), considerably lower and more consistent with the IPOPT optimizer. This improvement demonstrates how adding balance constraints reduces variability and error associated with balance. Additionally, GNN configurations that include balance and Weymouth constraints (i.e., N, E, B, W) sustain this balance improvement while closely aligning with APOPT, which results in nodal and edge values.
+%
+%
+% In the second experiment, the performance of the GNN-based model was evaluated in three configurations with different combinations of loss functions applied to the Colombian natural gas network. For each configuration, it was possible to consider the nodal losses, the losses associated with the edges, and the gas balance dede. The analysis provides information on the trade-offs and improvements observed with each additional loss function.
+%
+% The first configuration of the GNN model, which incorporated nodal and edge losses, achieved high accuracy in predicting nodal flows with an $R^2$ score of $0.993$ while maintaining an edge prediction $R^2$ of $0.963$. This configuration showed strong performance in nodal predictions,  suggesting that focusing on this loss combination allows a good approximation of nodal flows in the system. The balance loss value, calculated independently, highlighted minimal deviation, indicating that nodal accuracy alone could achieve network consistency for this setup. These results underscore the model's capacity to generalize nodal flow predictions while capturing nodal behaviors, making this configuration efficient for applications where nodal flow prediction is prioritized.
+%
+% The second configuration evaluated the impact of including nodal and balance losses in the model's cost function. The results demonstrated a stable nodal prediction performance, with an $R^2$ score consistent at $0.993$, while edge predictions dropped to an $R^2$ of $0.569$. This reduction in edge prediction accuracy suggests that excluding edge loss from the cost function introduced inconsistencies in the edge flows, as reflected in the decreased $R^2$ value. Despite the moderate accuracy in edge flow predictions, the balance loss value remained relatively low, indicating stable nodal balance but highlighting a trade-off when optimizing only nodal and balance aspects. 
+%
+%
+% In the third configuration, the GNN model included all three loss types: nodal, edge, and balance. This approach achieved a slightly lower $R^2$ of $0.984$ for nodal predictions but improved the edge prediction accuracy, yielding an $R^2$ of $0.961$. The overall alignment of predictions observed in the scatterplots suggests that incorporating all three loss functions enabled the model to more comprehensively capture the patterns of both nodal and edge flows. This approach demonstrated the most balanced trade-off between nodal and edge prediction accuracy, supporting the hypothesis that optimizing all three aspects simultaneously enhances the model's capacity to predict flows in the Colombian natural gas network. 
+%
+%
+%
+% Finally, the performance of the GNN-based model for the Colombian natural gas network is compared in two experimental configurations: Chapter 2 and Chapter 4. Each experiment considered nodal, edge, and balance loss combinations, assessing their effects on prediction accuracy and computational efficiency. Notably, due to high computational demands, the experiments in Chapter 4 did not include the Weymouth equation loss.
+%
+% In Chapter 2 (Table \ref{tab:lineal_col_results}), the GNN-based model, when only the nodal loss was applied, achieved a Node Value of \(11.38 \pm 49.13\) and an Edge Value of \(0.91 \pm 1.26\), with a Balance Value of \(-2.19 \pm 58.56\). The model showed relatively high accuracy in nodal predictions and achieved minimal edge prediction errors, highlighting the model’s effectiveness in capturing nodal flows without explicitly optimizing for edge loss.
+%
+% In Chapter 4 (Table \ref{tab:base_nl_dummy_results_formatted}), the experiments showed varied performance depending on the losses included:
+%
+% 1. In the configuration considering only nodal loss, the GNN achieved a Node Value of \(11.22 \pm 49.03\) and an Edge Value of \(62.73 \pm 81.99\), with a Balance Value of \(-2.28 \pm 25.48\). Compared to Chapter 2, this configuration demonstrated a higher edge error, suggesting that solely optimizing nodal loss did not generalize as effectively for edge predictions as observed previously.
+%
+% 2. When both nodal and edge losses were included, the GNN model’s Node Value increased to \(12.47 \pm 48.89\), with a significant rise in Edge Value error to \(88.32 \pm 73.55\). The Balance Value was reduced to \(-1.03 \pm 1.90\), indicating improved nodal balance but an unfavorable impact on edge prediction. This result diverges from Chapter 2, where the inclusion of edge loss contributed to more consistent results in both nodal and edge values.
+%
+% 3. In the configuration considering nodal, edge, and balance losses, the GNN model achieved a Node Value of \(12.33 \pm 48.64\), with an Edge Value of \(63.06 \pm 81.32\) and a Balance Value of \(-1.17 \pm 7.38\). This approach achieved better balance accuracy but did not markedly improve edge error over configurations excluding balance loss, contrasting with Chapter 2, where combined losses had more favorable outcomes.
+%
+% Across both chapters, it is clear that optimizing for multiple loss functions introduces complexity, with varied impacts on nodal and edge prediction accuracy. The Chapter 4 results indicate that including balance and edge losses improves nodal balance but can lead to edge-accuracy trade-offs. Further optimization strategies or alternative methods may be required to balance all metrics.
+%
+%
+% The stochastic analysis performed on the 8-node network provided valuable insights into the inherent uncertainty of the system. By fitting a kernel density estimate (KDE) to the training input data and generating synthetic input samples (\(X_{\text{sample}}\)), these were propagated through the trained network to obtain corresponding outputs (\(y_{\text{sample}}\)). A second KDE was then fitted to the training outputs (\(y_{\text{train}}\)), and log-likelihood values were computed for both \(y_{\text{sample}}\) and the outputs derived from the training inputs (\(\bar{y}_{\text{train}}\)). The proximity of these log-likelihood values, along with high p-values and low test statistics from the Kolmogorov–Smirnov tests, confirms that the synthetic outputs closely mirror the original training output distribution. This result validates the stochastic sampling approach and indicates that the model accurately captures the underlying data distribution, enabling rapid evaluation of new scenarios.
+%
+% A similar stochastic analysis was conducted on the Colombian natural gas network. In this case, the log-likelihood computed from the synthetic outputs was \(-104,413,419.34\) compared to \(-104,037,047.58\) for the training outputs. The Kolmogorov–Smirnov tests, performed under various alternatives, yielded low test statistics and high p-values, further supporting the similarity between the two distributions. These outcomes underscore the robustness of the stochastic framework, demonstrating that the trained model generalizes well to new, unseen scenarios. Consequently, the approach enhances the understanding of model uncertainties and provides a reliable basis for rapid scenario analysis and uncertainty quantification of natural gas network operations.
+%
 
 
-This chapter's first set of experiments provides insights into the model's capability to handle gas network predictions with various loss function combinations. Including node and edge losses in the initial experiment demonstrated the model's capacity to accurately capture node behavior, as evidenced by a high $R^2$ value of 0.983 for nodal flow predictions. This result indicates the model's ability to learn injection patterns at the nodes, even under nonlinear system conditions.
+This chapter has explored the predictive capabilities of a GNN-based model for gas network simulation under various loss function configurations. The results emphasize the importance of designing loss functions that integrate physical and operational constraints in order to improve the model's ability to generalize and maintain consistency across different components of the network.
 
-Incorporating the gas balance loss in subsequent experiments maintained the accuracy of nodal predictions, with no notable change in the $R^2$ for node flows. However, the slight reduction in the $R^2$ for edge flows to 0.973 suggests that while the gas balance constraint improved overall network consistency, it introduced additional complexity that slightly affected edge prediction performance. This outcome highlights a trade-off between accurate node predictions and balanced edge flows, indicating robust model performance with some sensitivity to changes in loss function configurations.
-
-Further exploration of the model's response to including the Weymouth equation loss introduced more pronounced effects, particularly on edge flow predictions. The decline in $R^2$ to 0.952 for edge flows indicates increased difficulty in accurately modeling flow through specific network paths, particularly in regions with closed loops or compressor installations. This outcome underscores the challenge of incorporating multiple nonlinear physical constraints, especially in complex configurations.
-
-In the experiment where only the Weymouth equation and node losses were considered, the model maintained a high $R^2$ for nodal flows. However, the extremely low $R^2$ for edge predictions, reaching negative values, suggests the model struggled to generalize edge flows effectively when isolated from balancing and edge losses. This finding reinforces the need for a comprehensive loss framework incorporating node and edge dynamics to ensure robust network performance, highlighting the challenges of predicting edge flows under limited constraints.
-
-Comparing the results from \cref{cap:lienal-censnet} with those in \cref{cap:non_linealcensnet} reveals that the addition of physical constraints in \cref{cap:non_linealcensnet} improves model performance, particularly in terms of balancing accuracy.
-
-The losses presented in \cref{cap:lienal-censnet} (Table \ref{tab:lineal_dummy_results}) reflect initial configurations with only nodal and edge losses. In these setups, while nodal and edge values show reasonable consistency with the APOPT optimizer, the balance values exhibit higher variability, especially in the GNN configurations. For example, when both nodal and edge losses are applied, the GNN model in \cref{cap:lienal-censnet} produces a balance error of \(-5.711 \pm 16.854\), which differs significantly from the APOPT optimizer's near-zero balance error (\(-0.001 \pm 0.038\)). This difference indicates that the simpler GNN models in \cref{cap:lienal-censnet} lack additional constraints to replicate the physical conditions accurately.
-
-In \cref{cap:non_linealcensnet}, adding constraints related to balance and the Weymouth equation (Table \ref{tab:base_nl_dummy_results_formatted}) leads to improved balance accuracy. For instance, the GNN model with nodal, edge, and balance losses achieves a balance error of \(0.004 \pm 0.845\), considerably lower and more consistent with the IPOPT optimizer. This improvement demonstrates how adding balance constraints reduces variability and error associated with balance. Additionally, GNN configurations that include balance and Weymouth constraints (i.e., N, E, B, W) sustain this balance improvement while closely aligning with APOPT, which results in nodal and edge values.
-
-% Overall, the experiments in \cref{cap:non_linealcensnet} show that by introducing these physical constraints, the GNN model achieves lower balance errors and maintains high-quality responses across all evaluated metrics. This finding confirms that incorporating additional constraints in the model configuration leads to more accurate and physically consistent results, bringing model performance closer to optimizer methods.
+The initial experiments in the 8-node gas system confirmed that nodal loss alone is sufficient for capturing nodal flow patterns, particularly under nonlinear conditions. However, when edge or balance losses are added, the model gains the ability to replicate more complex network dynamics. This trade-off between precision in nodal predictions and general system consistency reveals the flexibility of the GNN model and its responsiveness to different training objectives. Incorporating edge loss helps improve flow predictions, while balance constraints contribute to system-wide consistency, even if they occasionally introduce minor trade-offs in prediction accuracy.
 
 
+The inclusion of the Weymouth equation loss proved to be more challenging due to its nonlinear nature. Its integration caused a noticeable decrease in edge prediction accuracy, particularly in regions with compressors and closed loops, highlighting the difficulty of aligning learned representations with complex physical equations. These findings underline the need for careful calibration when physical constraints are introduced into data-driven models.
 
-In the second experiment, the performance of the GNN-based model was evaluated in three configurations with different combinations of loss functions applied to the Colombian natural gas network. For each configuration, it was possible to consider the nodal losses, the losses associated with the edges, and the gas balance dede. The analysis provides information on the trade-offs and improvements observed with each additional loss function.
+A comparative analysis of the GNN model across linear and nonlinear cases further emphasizes the benefits of incorporating physical knowledge. The results from the nonlinear case showed improved balance accuracy, suggesting that physically-informed constraints can enhance the model’s ability to simulate realistic operating conditions. While nodal and edge predictions remained consistent across chapters, the balance constraint had a particularly beneficial effect, reducing variability and error without compromising computational efficiency.
 
-The first configuration of the GNN model, which incorporated nodal and edge losses, achieved high accuracy in predicting nodal flows with an $R^2$ score of $0.993$ while maintaining an edge prediction $R^2$ of $0.963$. This configuration showed strong performance in nodal predictions,  suggesting that focusing on this loss combination allows a good approximation of nodal flows in the system. The balance loss value, calculated independently, highlighted minimal deviation, indicating that nodal accuracy alone could achieve network consistency for this setup. These results underscore the model's capacity to generalize nodal flow predictions while capturing nodal behaviors, making this configuration efficient for applications where nodal flow prediction is prioritized.
+For the 8-node case, the study was complemented with an in-depth probabilistic analysis of the model's outputs. This involved examining the joint distributions of selected variables and revealed patterns of interdependence between operational variables, such as nodal pressures and flows through pipelines or compressors. These findings confirmed that the trained model not only learned the mapping between inputs and outputs but also preserved structural dependencies across the network.
 
-The second configuration evaluated the impact of including nodal and balance losses in the model's cost function. The results demonstrated a stable nodal prediction performance, with an $R^2$ score consistent at $0.993$, while edge predictions dropped to an $R^2$ of $0.569$. This reduction in edge prediction accuracy suggests that excluding edge loss from the cost function introduced inconsistencies in the edge flows, as reflected in the decreased $R^2$ value. Despite the moderate accuracy in edge flow predictions, the balance loss value remained relatively low, indicating stable nodal balance but highlighting a trade-off when optimizing only nodal and balance aspects. 
+When applied to the Colombian natural gas network, the GNN model displayed consistent behavior across different combinations of losses. Including nodal and edge losses yielded strong performance in nodal predictions, with minimal deviation in balance, suggesting that such configurations are effective in applications where nodal flow is prioritized. Introducing balance constraints improved system consistency while maintaining strong overall performance.
 
-% This configuration suggests that while balance loss contributes to network consistency, it may only sufficiently capture edge flow dynamics with edge-specific optimization.
-
-In the third configuration, the GNN model included all three loss types: nodal, edge, and balance. This approach achieved a slightly lower $R^2$ of $0.984$ for nodal predictions but improved the edge prediction accuracy, yielding an $R^2$ of $0.961$. The overall alignment of predictions observed in the scatterplots suggests that incorporating all three loss functions enabled the model to more comprehensively capture the patterns of both nodal and edge flows. This approach demonstrated the most balanced trade-off between nodal and edge prediction accuracy, supporting the hypothesis that optimizing all three aspects simultaneously enhances the model's capacity to predict flows in the Colombian natural gas network. 
-
-
-% These findings provide valuable insights into the effects of different loss function combinations on the predictive accuracy and computational efficiency of GNN models for natural gas networks. The results highlight the balance between optimizing nodal, edge, and balance losses to meet specific predictive requirements in network modeling.
-
-Finally, the performance of the GNN-based model for the Colombian natural gas network is compared in two experimental configurations: Chapter 2 and Chapter 4. Each experiment considered nodal, edge, and balance loss combinations, assessing their effects on prediction accuracy and computational efficiency. Notably, due to high computational demands, the experiments in Chapter 4 did not include the Weymouth equation loss.
-
-In Chapter 2 (Table \ref{tab:lineal_col_results}), the GNN-based model, when only the nodal loss was applied, achieved a Node Value of \(11.38 \pm 49.13\) and an Edge Value of \(0.91 \pm 1.26\), with a Balance Value of \(-2.19 \pm 58.56\). The model showed relatively high accuracy in nodal predictions and achieved minimal edge prediction errors, highlighting the model’s effectiveness in capturing nodal flows without explicitly optimizing for edge loss.
-
-In Chapter 4 (Table \ref{tab:base_nl_dummy_results_formatted}), the experiments showed varied performance depending on the losses included:
-
-1. In the configuration considering only nodal loss, the GNN achieved a Node Value of \(11.22 \pm 49.03\) and an Edge Value of \(62.73 \pm 81.99\), with a Balance Value of \(-2.28 \pm 25.48\). Compared to Chapter 2, this configuration demonstrated a higher edge error, suggesting that solely optimizing nodal loss did not generalize as effectively for edge predictions as observed previously.
-
-2. When both nodal and edge losses were included, the GNN model’s Node Value increased to \(12.47 \pm 48.89\), with a significant rise in Edge Value error to \(88.32 \pm 73.55\). The Balance Value was reduced to \(-1.03 \pm 1.90\), indicating improved nodal balance but an unfavorable impact on edge prediction. This result diverges from Chapter 2, where the inclusion of edge loss contributed to more consistent results in both nodal and edge values.
-
-3. In the configuration considering nodal, edge, and balance losses, the GNN model achieved a Node Value of \(12.33 \pm 48.64\), with an Edge Value of \(63.06 \pm 81.32\) and a Balance Value of \(-1.17 \pm 7.38\). This approach achieved better balance accuracy but did not markedly improve edge error over configurations excluding balance loss, contrasting with Chapter 2, where combined losses had more favorable outcomes.
-
-Across both chapters, it is clear that optimizing for multiple loss functions introduces complexity, with varied impacts on nodal and edge prediction accuracy. The Chapter 4 results indicate that including balance and edge losses improves nodal balance but can lead to edge-accuracy trade-offs. Further optimization strategies or alternative methods may be required to balance all metrics.
+To assess generalization under uncertainty, a stochastic framework was applied to both networks. Synthetic input samples were generated using kernel density estimation (KDE) and propagated through the trained model. The outputs were then compared with those from the training data using log-likelihood estimates and Kolmogorov–Smirnov (K–S) tests under three alternatives: two-sided, less, and greater. In both cases, the close match between the distributions, reflected in similar log-likelihood values and non-significant K–S statistics, validated the consistency and robustness of the trained model under unseen conditions. These results support the idea that the model has internalized features of the data distribution and can provide reliable predictions beyond the training set.
 
 
-The stochastic analysis performed on the 8-node network provided valuable insights into the inherent uncertainty of the system. By fitting a kernel density estimate (KDE) to the training input data and generating synthetic input samples (\(X_{\text{sample}}\)), these were propagated through the trained network to obtain corresponding outputs (\(y_{\text{sample}}\)). A second KDE was then fitted to the training outputs (\(y_{\text{train}}\)), and log-likelihood values were computed for both \(y_{\text{sample}}\) and the outputs derived from the training inputs (\(\bar{y}_{\text{train}}\)). The proximity of these log-likelihood values, along with high p-values and low test statistics from the Kolmogorov–Smirnov tests, confirms that the synthetic outputs closely mirror the original training output distribution. This result validates the stochastic sampling approach and indicates that the model accurately captures the underlying data distribution, enabling rapid evaluation of new scenarios.
-
-A similar stochastic analysis was conducted on the Colombian natural gas network. In this case, the log-likelihood computed from the synthetic outputs was \(-104,413,419.34\) compared to \(-104,037,047.58\) for the training outputs. The Kolmogorov–Smirnov tests, performed under various alternatives, yielded low test statistics and high p-values, further supporting the similarity between the two distributions. These outcomes underscore the robustness of the stochastic framework, demonstrating that the trained model generalizes well to new, unseen scenarios. Consequently, the approach enhances the understanding of model uncertainties and provides a reliable basis for rapid scenario analysis and uncertainty quantification of natural gas network operations.
+By validating the ability of the GNN model to approximate system behavior under uncertainty, and by showing how stochastic sampling can be used to evaluate the variability of decision-relevant outputs, this work enables the formulation of optimization strategies that move beyond deterministic dispatch. The integration of uncertainty quantification into the modeling process lays the groundwork for decision-making frameworks that are robust under data variability and can be aligned with the operational constraints of gas transport systems. As such, the developments presented here represent a step toward the implementation of a stochastic gas flow optimization strategy for real-world applications.
 
 
