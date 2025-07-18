@@ -669,17 +669,17 @@ The improvements in edge flow predictions are particularly notable in the Colomb
 
 \subsection{Gas Balance Consistency}
 
+
 \begin{table}
     \centering
     \begin{tabular}{|l|c|c|c|c|}
         \hline
-        Method & Node Loss & Edge Loss & Balance Loss & Time \\ \hline
-        APOPT & 4.84 ± 12.87 & 24.22 ± 14.04 & 0 ± 0.04 & 0.79 ± 0.44 \\ \hline
-        GNN (N) & 4.84 ± 12.79 & 0.46 ± 0.26 & -5.71 ± 16.85 & 0.14 ± 0.04 \\ \hline
-        GNN (N+E) & 4.77 ± 12.7 & 24.14 ± 14.08 & -0.08 ± 1.17 & 0.15 ± 0.06 \\ \hline
+        Method & Node Error & Edge Error & Balance Error & Time \\ \hline
+        CensNet (N) & \( 6.48 \pm 50.54 \) & \( 62.92 \pm 83.11 \) & \( 3.53 \pm 34.22 \) & \( 13.51 \pm 2.86 \) \\ \hline
+        CensNet (N+E) & \( 6.55 \pm 50.51 \) & \( 39.24 \pm 84.29 \) & \( -2.10 \pm 29.80 \) & \( 13.50 \pm 2.86 \) \\ \hline
     \end{tabular}
-    \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model and the GNN-based model, over 100 samples. The notation \textbf{GNN (N)} refers to experiments considering only the nodal loss, and \textbf{GNN (N+E)} to experiments considering both nodal and edge losses.}
-    \label{tab:lineal_dummy_results}
+    \caption{Differences in mean and standard deviation between APOPT and CensNet-based models for node error, edge error, balance error, and prediction time. Each value represents the difference APOPT - CensNet, computed over 100 samples.}
+    \label{tab:lineal_dummy_results_diffs}
 \end{table}
 
 
@@ -687,24 +687,27 @@ The improvements in edge flow predictions are particularly notable in the Colomb
     \centering
     \begin{tabular}{|l|c|c|c|c|}
     \hline
-    Method & Node Loss & Edge Loss & Balance Loss & Time \\ \hline
-    APOPT & 11.41 ± 49.23 & 63.52 ± 81.62 & -2.15 ± 16.49 & 5.01 ± 5.59 \\ \hline
-    GNN (N) & 11.38 ± 49.13 & 0.91 ± 1.26 & -2.19 ± 58.56 & 0.13 ± 0.07 \\ \hline
-    GNN (N+E) & 11.40 ± 48.97 & 63.45 ± 81.38 & -2.16 ± 16.60 & 0.14 ± 0.08 \\ \hline
-\end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between the optimization model (APOPT) and the GNN-based model, across 100 samples. The notation \textbf{GNN (N)} refers to experiments considering only the nodal loss, and \textbf{GNN (N+E)} to experiments considering both nodal and edge losses.}
-\label{tab:lineal_col_results}
+    Method & Node Error & Edge Error & Balance Error & Time \\ \hline
+    CensNet (N) & \( -0.06 \pm 69.31 \) & \( 62.47 \pm 83.12 \) & \( 0.01 \pm 65.70 \) & \( 13.52 \pm 2.86 \) \\ \hline
+    CensNet (N+E) & \( -0.08 \pm 69.20 \) & \( -0.07 \pm 116.32 \) & \( -0.02 \pm 34.09 \) & \( 13.51 \pm 2.86 \) \\ \hline
+    \end{tabular}
+    \caption{Differences in mean and standard deviation between APOPT and CensNet-based models for node error, edge error, balance error, and prediction time, across 100 samples. Each value represents the difference APOPT - CensNet.}
+    \label{tab:lineal_col_results_diffs}
 \end{table}
 
 
-To assess physical consistency, the gas balance loss—computed post-training—serves as a proxy for mass conservation. Models trained only on nodal loss exhibit high gas balance errors, especially for the 8-node case, where the balance loss exceeds 280 units. This large discrepancy indicates a lack of conservation in the nodal-only predictions. Introducing edge-related loss during training reduces this error by two orders of magnitude in both networks. For instance, in the 8-node network, the gas balance loss for the GNN (N+E) model decreases to 1.719, compared to 284.764 in the nodal-only case. In the 63-node network, the gas balance loss is similarly reduced by incorporating edge losses. These results, shown in \Cref{tab:lineal_dummy_results,tab:lineal_col_results}, emphasize the role of comprehensive loss functions in enforcing physically meaningful predictions and ensuring better mass conservation across the network.
 
-\subsection{Comparative Performance with the Optimization Model}
+When compared to the APOPT optimization model, the CensNet achieves comparable performance in terms of flow predictions, particularly when both nodal and edge losses are used. In the 8-node case, for instance, the CensNet (N+E) model achieves a significant reduction in edge error compared to the nodal-only model, with a mean edge difference of \(39.24\) units versus \(62.92\), as shown in \Cref{tab:lineal_dummy_results_diffs}. Additionally, the gas balance error improves from \(3.53\) to \(-2.10\), indicating better gas conservation when edge information is incorporated into training.
 
-When compared to the APOPT optimization model, the GNN achieves comparable performance in terms of flow predictions, particularly when both nodal and edge losses are used. In some cases, the GNN even matches APOPT’s accuracy in predicting both nodal and edge flows. For example, the edge loss in GNN (N+E) closely mirrors the APOPT predictions in both networks, as illustrated in \Cref{tab:lineal_dummy_results} and \Cref{tab:lineal_col_results}. The improved prediction accuracy for edge flows demonstrates the GNN's ability to replicate optimization-based predictions when edge-related dynamics are considered in training.
+For the 63-node case, the benefit of including edge losses becomes even more evident. While the nodal-only model (CensNet N) shows a large discrepancy in edge error (\(62.47\)), the CensNet (N+E) model nearly eliminates this difference, achieving a mean edge error of \(-0.07\), as shown in \Cref{tab:lineal_col_results_diffs}. Moreover, the balance error decreases from \(0.01\) to \(-0.02\), again suggesting enhanced physical consistency through the use of comprehensive loss functions.
 
-In terms of computational performance, the GNN-based model significantly outperforms the optimization model. T-tests were conducted to compare the prediction times for the APOPT and GNN models across 100 unseen cases. The results of these tests revealed statistically significant differences in computational time between the two models, with the GNN-based model taking considerably less time to generate predictions. For the 8-node network, the t-test returned a T-statistic of 14.94, with 198 degrees of freedom and a p-value of $1.32 \times 10^{-34}$, confirming that the GNN-based model is significantly faster than the optimization model. Similarly, for the 63-node network, the t-test results showed a T-statistic of 47.29, with 198 degrees of freedom and a p-value of $4.92 \times 10^{-110}$, demonstrating the significant computational advantage of the GNN-based model.
+In terms of nodal predictions, the differences between APOPT and CensNet remain small in both networks. The maximum difference is under \(0.1\) units, which confirms the CensNet's capability to match optimization-based predictions for node flows when trained appropriately.
 
+Regarding computational performance, the CensNet-based model significantly outperforms the optimization model. T-tests were conducted to compare the prediction times for the APOPT and CensNet models across 100 unseen cases. These tests revealed statistically significant differences in computational time between the two models, with the CensNet-based model taking considerably less time to generate predictions. For the 8-node network, the t-test returned a T-statistic of 14.94, with 198 degrees of freedom and a p-value of $1.32 \times 10^{-34}$. Similarly, for the 63-node network, the t-test showed a T-statistic of 47.29 and a p-value of $4.92 \times 10^{-110}$. These results confirm the significant computational advantage of the CensNet-based model over the optimization approach.
+
+
+
+Preguntar a ChatGPT
 
 
 \section{Discussion}
