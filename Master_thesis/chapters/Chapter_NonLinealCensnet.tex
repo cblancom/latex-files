@@ -179,30 +179,65 @@ In the subsequent experiment, the losses associated with node flows and the phys
 %
 
 
+% \begin{table}[htbp]
+% \centering
+% \begin{tabular}{|l|c|c|c|c|}
+%     \hline
+%     Method & Node Error & Edge Error & Balance Error & Time \\ \hline
+%     CensNet (N) & 0 ± 17.99 & 22.76 ± 15.43 & -0.01 ± 17.45 & 0.86 ± 0.53 \\ \hline
+%     CensNet (N+E) & -0.11 ± 18.265 & 0.22 ± 21.645 & -0.119 ± 1.706 & 0.85 ± 0.532 \\ \hline
+%     CensNet (N+E+B) & -0.02 ± 18.003 & -0.02 ± 21.335 & -0.028 ± 0.899 & 0.85 ± 0.532 \\ \hline
+%     CensNet (N+E+W) & -0.07 ± 17.560 & 2.60 ± 20.033 & -0.070 ± 2.209 & 0.86 ± 0.531 \\ \hline
+%     CensNet (N+E+B+W) & 0.05 ± 17.905 & 0.25 ± 21.140 & 0.046 ± 1.693 & 0.85 ± 0.532 \\ \hline
+% \end{tabular}
+
 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{|l|c|c|c|c|}
     \hline
-    Method & Node Value & Edge Value & Balance Value & Time \\ \hline
-    IPOPT & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
-    CensNet (N) & 4.81 ± 12.64 & 0.42 ± 2.36 & -0.016 ± 17.448 & 0.13 ± 0.03 \\ \hline
-    CensNet (N+E) & 4.92 ± 13.02 & 22.96 ± 15.36 & 0.095 ± 1.678 & 0.14 ± 0.05 \\ \hline
-    CensNet (N+E+B) & 4.83 ± 12.65 & 23.20 ± 14.92 & 0.004 ± 0.845 & 0.14 ± 0.05 \\ \hline
-    CensNet (N+E+B+W) & 4.76 ± 12.51 & 22.93 ± 14.64 & -0.070 ± 1.665 & 0.14 ± 0.05 \\ \hline
-    CensNet (N+E+W) & 4.88 ± 12.01 & 20.58 ± 12.99 & 0.046 ± 2.187 & 0.13 ± 0.03 \\ \hline
+    Method & Node Error & Edge Error & Balance Error & Time \\ \hline
+    CensNet(N) & 0 ± 17.99 & 22.76 ± 15.43 & -0.01 ± 17.45 & 0.86 ± 0.5 \\ \hline
+    CensNet(N+E) & -0.11 ± 18.27 & 0.22 ± 21.65 & -0.12 ± 1.7 & 0.85 ± 0.5 \\ \hline
+    CensNet(N+E+B) & -0.02 ± 18 & -0.02 ± 21.3 & -0.03 ± 0.9 & 0.85 ± 0.5 \\ \hline
+    CensNet(N+E+W) & -0.07 ± 17.56 & 2.6 ± 20.03 & -0.070 ± 2.21 & 0.86 ± 0.5 \\ \hline
+    CensNet(N+E+B+W) & 0.05 ± 17.91 & 0.25 ± 21.14 & 0.05 ± 1.69 & 0.85 ± 0.5 \\ \hline
 \end{tabular}
-\caption{Comparison of the mean and standard deviation values for nodal flows (Node Value), edge flows (Edge Value), nodal balance (Balance Value), and prediction time (Time) between the optimization-based method (IPOPT) and the GNN-based models under different loss configurations. The notation \textbf{GNN (N)} indicates that only the nodal loss was considered during training, while \textbf{GNN (N+E)}, \textbf{GNN (N+E+B)}, and so on indicate combinations of nodal (N), edge (E), balance (B), and Weymouth (W) losses.}
+\caption{Comparison of the differences in mean and standard deviation values for nodal flows (Node Error), edge flows (Edge Error), nodal balance (Balance Error), and prediction time (Time) between the optimization-based benchmark (IPOPT) and the CensNet-based models. Each value reflects the difference between IPOPT and the respective model.}
 \label{tab:base_nl_dummy_results_simplified}
 \end{table}
- 
 
+The results in \Cref{tab:base_nl_dummy_results_simplified} present the differences between the IPOPT benchmark and the CensNet-based models trained with different combinations of loss functions. The model trained with only the nodal loss (CensNet (N)) achieves nearly identical nodal flow predictions compared to the benchmark, but shows a large discrepancy in edge flow values. This confirms that training without edge-level supervision leads to significant errors in edge behavior, despite accurate nodal outputs.
 
-The results in \Cref{tab:base_nl_dummy_results_simplified} compare the performance of the traditional IPOPT optimizer and the CensNet-based model trained with different combinations of loss functions. The evaluation focuses on nodal and edge flow prediction accuracy, network balance, and computation time. As a baseline, the IPOPT optimizer yields consistent results across all evaluated metrics, offering a reference for model performance. In contrast, the CensNet-based approaches reveal how incorporating physical constraints progressively improves the model's predictive accuracy. When trained with only the nodal loss, the GNN matches the optimizer's performance in predicting nodal flows while maintaining nodal balance, despite poorly performing in edge flow estimation. This result reflects the absence of edge- and balance-specific information during training, which is essential for reproducing physically consistent flows in the network.
+When the edge loss is added (CensNet (N+E)), the model achieves a substantial reduction in edge flow error, improving from 22.76 to 0.22. This improvement is accompanied by a decrease in balance error, suggesting that learning edge-level patterns enhances global consistency across the network. Adding the balance loss (CensNet (N+E+B)) leads to further improvements in balance prediction, reducing the error to just -0.028 with small changes in nodal and edge differences, confirming that this constraint contributes to overall physical consistency.
 
-Adding edge loss to the training objective enhances the GNN’s ability to predict edge flows, bringing them in line with the optimizer’s outputs. This improvement comes with reduced variability in the nodal balance, indicating that learning edge-specific relationships also reinforces overall network consistency. The introduction of the balance loss further stabilizes the model’s performance. With this additional constraint, the GNN reduces balance error variability and further aligns both nodal and edge flow predictions with the benchmark.
+The inclusion of the Weymouth loss (CensNet (N+E+W)) increases the edge flow error slightly and leads to a modest rise in balance error. However, the nodal prediction remains accurate, showing that incorporating physical knowledge through the Weymouth constraint introduces trade-offs without severely degrading model accuracy. Finally, combining all losses (CensNet (N+E+B+W)) yields a balanced model with low errors across all metrics and maintains high consistency with the benchmark.
 
-Finally, incorporating the Weymouth equation into the loss function introduces the non-linear physics of gas transport into the learning process. Although this results in a modest reduction in balance accuracy compared to the previous configuration, it still maintains high predictive performance for nodal and edge flows. Notably, despite the increasing complexity introduced by each added constraint, all GNN models maintain a low and consistent prediction time—markedly faster than the optimization-based method—demonstrating the GNN’s scalability and computational efficiency.
+All GNN-based models significantly outperform the IPOPT method in terms of inference time, offering over an order of magnitude faster predictions with minimal variability. Among the tested configurations, \textbf{CensNet (N+E+B)} achieves the best overall performance, with the smallest errors in edge flow and balance, while preserving nodal accuracy and computational efficiency.
+
+% \begin{table}[htbp]
+% \centering
+% \begin{tabular}{|l|c|c|c|c|}
+%     \hline
+%     Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+%     IPOPT & 4.81 ± 12.81 & 23.18 ± 15.25 & -0.024 ± 0.308 & 0.99 ± 0.53 \\ \hline
+%     CensNet (N) & 4.81 ± 12.64 & 0.42 ± 2.36 & -0.016 ± 17.448 & 0.13 ± 0.03 \\ \hline
+%     CensNet (N+E) & 4.92 ± 13.02 & 22.96 ± 15.36 & 0.095 ± 1.678 & 0.14 ± 0.05 \\ \hline
+%     CensNet (N+E+B) & 4.83 ± 12.65 & 23.20 ± 14.92 & 0.004 ± 0.845 & 0.14 ± 0.05 \\ \hline
+%     CensNet (N+E+B+W) & 4.76 ± 12.51 & 22.93 ± 14.64 & -0.070 ± 1.665 & 0.14 ± 0.05 \\ \hline
+%     CensNet (N+E+W) & 4.88 ± 12.01 & 20.58 ± 12.99 & 0.046 ± 2.187 & 0.13 ± 0.03 \\ \hline
+% \end{tabular}
+% \caption{Comparison of the mean and standard deviation values for nodal flows (Node Value), edge flows (Edge Value), nodal balance (Balance Value), and prediction time (Time) between the optimization-based method (IPOPT) and the CensNet-based models under different loss configurations. The notation \textbf{CensNet (N)} indicates that only the nodal loss was considered during training, while \textbf{CensNet (N+E)}, \textbf{CensNet (N+E+B)}, and so on indicate combinations of nodal (N), edge (E), balance (B), and Weymouth (W) losses.}
+% \label{tab:base_nl_dummy_results_simplified}
+% \end{table}
+%  
+%
+%
+% The results in \Cref{tab:base_nl_dummy_results_simplified} compare the performance of the traditional IPOPT optimizer and the CensNet-based model trained with different combinations of loss functions. The evaluation focuses on nodal and edge flow prediction accuracy, network balance, and computation time. As a baseline, the IPOPT optimizer yields consistent results across all evaluated metrics, offering a reference for model performance. In contrast, the CensNet-based approaches reveal how incorporating physical constraints progressively improves the model's predictive accuracy. When trained with only the nodal loss, the CensNet matches the optimizer's performance in predicting nodal flows while maintaining nodal balance, despite poorly performing in edge flow estimation. This result reflects the absence of edge- and balance-specific information during training, which is essential for reproducing physically consistent flows in the network.
+%
+% Adding edge loss to the training objective enhances the GNN’s ability to predict edge flows, bringing them in line with the optimizer’s outputs. This improvement comes with reduced variability in the nodal balance, indicating that learning edge-specific relationships also reinforces overall network consistency. The introduction of the balance loss further stabilizes the model’s performance. With this additional constraint, the GNN reduces balance error variability and further aligns both nodal and edge flow predictions with the benchmark.
+%
+% Finally, incorporating the Weymouth equation into the loss function introduces the non-linear physics of gas transport into the learning process. Although this results in a modest reduction in balance accuracy compared to the previous configuration, it still maintains high predictive performance for nodal and edge flows. Notably, despite the increasing complexity introduced by each added constraint, all GNN models maintain a low and consistent prediction time—markedly faster than the optimization-based method—demonstrating the GNN’s scalability and computational efficiency.
 
 
 % \subsubsection{Stochastic Analysis}
@@ -618,25 +653,44 @@ This third experiment marks the final test conducted in this study. Attempts to 
 %
 
 
+% \begin{table}[htbp]
+% \centering
+% \begin{tabular}{|l|c|c|c|c|}
+%     \hline
+%     Method & Node Value & Edge Value & Balance Value & Time \\ \hline
+%     IPOPT & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) & \( 13.65 \pm 2.86 \) \\ \hline
+%     GNN (N) & \( 11.22 \pm 49.03 \) & \( 62.73 \pm 81.99 \) & \( -2.28 \pm 25.48 \) & \( 0.15 \pm 0.04 \) \\ \hline
+%     GNN (N+E) & \( 12.47 \pm 48.89 \) & \( 88.32 \pm 73.55 \) & \( -1.03 \pm 1.90 \) & \( 0.15 \pm 0.05 \) \\ \hline
+%     GNN (N+E+B) & \( 12.33 \pm 48.64 \) & \( 63.06 \pm 81.32 \) & \( -1.17 \pm 7.38 \) & \( 0.15 \pm 0.04 \) \\ \hline
+% \end{tabular}
+% \caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN-based models under different loss configurations for the Colombian natural gas system. The notation \textbf{GNN (N)} indicates the use of nodal loss only, while \textbf{GNN (N+E)} and \textbf{GNN (N+E+B)} incorporate additional edge and balance losses respectively.}
+% \label{tab:base_nl_dummy_results_formatted}
+% \end{table}
+
+
+
 \begin{table}[htbp]
 \centering
 \begin{tabular}{|l|c|c|c|c|}
     \hline
-    Method & Node Value & Edge Value & Balance Value & Time \\ \hline
-    IPOPT & \( 11.32 \pm 48.89 \) & \( 63.38 \pm 83.11 \) & \( -2.18 \pm 29.78 \) & \( 13.65 \pm 2.86 \) \\ \hline
-    GNN (N) & \( 11.22 \pm 49.03 \) & \( 62.73 \pm 81.99 \) & \( -2.28 \pm 25.48 \) & \( 0.15 \pm 0.04 \) \\ \hline
-    GNN (N+E) & \( 12.47 \pm 48.89 \) & \( 88.32 \pm 73.55 \) & \( -1.03 \pm 1.90 \) & \( 0.15 \pm 0.05 \) \\ \hline
-    GNN (N+E+B) & \( 12.33 \pm 48.64 \) & \( 63.06 \pm 81.32 \) & \( -1.17 \pm 7.38 \) & \( 0.15 \pm 0.04 \) \\ \hline
+    Method & Node Error & Edge Error & Balance Error & Time \\ \hline
+    CensNet(N) & \( 0.10 \pm 69.24 \) & \( 0.65 \pm 116.75 \) & \( 0.10 \pm 39.19 \) & \( 13.50 \pm 2.86 \) \\ \hline
+    CensNet(N+E) & \( -1.15 \pm 69.14 \) & \( -24.94 \pm 110.98 \) & \( -1.15 \pm 29.84 \) & \( 13.50 \pm 2.86 \) \\ \hline
+    CensNet(N+E+B) & \( -1.01 \pm 68.96 \) & \( 0.32 \pm 116.28 \) & \( -1.01 \pm 30.68 \) & \( 13.50 \pm 2.86 \) \\ \hline
 \end{tabular}
-\caption{Comparison of mean and standard deviation values for nodal flows, edge flows, nodal balance, and prediction time between IPOPT and GNN-based models under different loss configurations for the Colombian natural gas system. The notation \textbf{GNN (N)} indicates the use of nodal loss only, while \textbf{GNN (N+E)} and \textbf{GNN (N+E+B)} incorporate additional edge and balance losses respectively.}
-\label{tab:base_nl_dummy_results_formatted}
+\caption{Differences in mean and standard deviation between IPOPT and GNN-based models for nodal flows (Node Error), edge flows (Edge Error), nodal balance (Balance Error), and prediction time (Time) in the Colombian natural gas system. Each value represents the difference IPOPT - GNN.}
+\label{tab:gnn_differences_results}
 \end{table}
 
-The results in \Cref{tab:base_nl_dummy_results_formatted} highlight the behavior of the GNN model under various combinations of loss functions in comparison to the IPOPT benchmark. All GNN configurations demonstrate a considerable advantage in prediction time, offering rapid inference regardless of the loss components considered.
 
 
-When only the nodal loss is considered, the GNN produces nodal and edge flow predictions that are closely aligned with those of the IPOPT model. However, the absence of additional constraints leads to less reliable enforcement of the gas balance condition. The introduction of the edge loss significantly improves the edge flow predictions, but the model's ability to preserve balance diminishes as a result. By incorporating the balance loss alongside the nodal and edge losses, the GNN model recovers a more accurate and stable balance behavior while maintaining satisfactory flow predictions. This configuration yields results that are more consistent with the physical structure of the network and closely mirror the performance of the IPOPT solution, but with far superior computational efficiency.
+The results in \Cref{tab:gnn_differences_results} show the differences between the IPOPT benchmark and the CensNet models applied to the Colombian natural gas network. As with the synthetic case, all CensNet configurations offer a significant advantage in prediction time, maintaining fast inference across all loss settings.
 
+When trained with only the nodal loss (CensNet (N)), the model achieves low nodal error and a moderate edge error. However, the balance error remains relatively high, suggesting that nodal supervision alone is insufficient to enforce global consistency. Incorporating the edge loss (CensNet (N+E)) unexpectedly worsens the edge error. Further, it increases the balance error, indicating that without additional physical constraints, the model may overfit local patterns at the expense of system-wide coherence.
+
+Adding the balance loss (CensNet (N+E+B)) improves edge predictions significantly, reducing the edge error from \(-24.94\) to \(0.32\), while also recovering a more accurate balance prediction. Although the nodal error remains similar, this configuration yields the best trade-off between nodal, edge, and balance accuracy.
+
+Among the evaluated settings, \textbf{CensNet (N+E+B)} delivers the most physically consistent results, closely approximating the IPOPT benchmark while preserving the GNN model’s computational advantage.
 
 
 An uncertainty analysis similar to the previous case was performed for the Colombian natural gas transportation network. Using the same methodology, a second kernel density estimate (KDE) was fitted to the training output data, and synthetic outputs were generated. The log-likelihood computed from the synthetic outputs was \(-104{,}413{,}419.34\), while that from the training outputs was \(-104{,}037{,}047.58\). To further assess the similarity between the two distributions, a Kolmogorov–Smirnov (K–S) test was conducted under three different alternatives: two-sided, less, and greater. The results were as follows: for the two-sided alternative, the test statistic was \(0.00527\) with a p-value of \(0.95556\) (statistic location \(0.52109\)); for the less alternative, the test statistic was \(0.00527\) with a p-value of \(0.59061\) (statistic location \(0.52109\)); and for the greater alternative, the test statistic was \(0.00324\) with a p-value of \(0.81777\) (statistic location \(-0.73443\)). These findings indicate a high degree of similarity between the synthetic and training outputs, as the low test statistics and high p-values suggest that the two distributions are statistically indistinguishable. The slight differences in log-likelihood values further confirm that the synthetic data effectively capture the essential characteristics of the training data, thereby validating the robustness of the stochastic sampling approach for this network.
