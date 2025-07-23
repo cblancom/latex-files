@@ -249,14 +249,7 @@ In the $(l+1)$-th layer, the node features are updated using the following propa
 \end{itemize}
 
 
-% \begin{itemize}
-%     \item \( \mathbf{T} \in \{0, 1\}^{N_v \times N_e} \) is an incidence matrix that represents the connections between nodes and edges. Each element \( T_{i,m} \) indicates whether edge \( m \) connects to node \( i \). Specifically, if edge \( m \) is connected to node \( i \), then \( T_{i,m} = 1 \); otherwise, \( T_{i,m} = 0 \). Given that each edge is formed by two nodes, every column of the matrix \( \mathbf{T} \) will have exactly two elements equal to 1, corresponding to the two nodes that the edge connects. 
-%     \item \( \mathbf{H}^{(l)}_e \) is the edge feature matrix from the \( l \)-th layer. \( \mathbf{p}_e \) is a learnable vector of dimension \( d_e \), which acts as a weight for the edge features. The operation \(  \textup{diag}(\mathbf{H}^{(l)}_e \mathbf{p}_e) \) denotes the diagonalization of the vector \( \mathbf{H}^{(l)}_e \mathbf{p}_e \), converting it into a diagonal matrix where the elements of the vector are placed on the diagonal. 
-%     \item The Hadamard product, denoted by \( \odot \), represents element-wise multiplication between matrices. In this context, it combines the transformed edge features with the node adjacency matrix, integrating information from both the original graph and its line graph.
-%     \item \( \tilde{\mathbf{A}}_v\) is the normalized adjacency matrix for nodes, as shown in \cref{eq:normalized_node_adjacency}, where \( \mathbf{A}_v \) is the original node adjacency matrix and \( \mathbf{I}_{N_v} \) is the identity matrix that introduces self-loops. This normalization ensures that the contributions from each node's neighbors are appropriately scaled. 
-%     \item \( \mathbf{H}^{(l)}_v \) represents the node feature matrix from the \( l \)-th layer. \( \mathbf{W}_v \) is a learnable weight matrix that is applied to the node features during the propagation process. 
-%     \item The activation function \( \sigma \) (typically a non-linear function such as ReLU) is applied element-wise to the resulting matrix to introduce non-linearity into the model.
-% \end{itemize}
+
 
 This expression can be understood as a mechanism for integrating node and edge information. The matrix \( \mathbf{T} \) is responsible for transferring edge features into the node domain, allowing these edge-derived features to be merged with the normalized node adjacency matrix \( \tilde{\mathbf{A}}_v \). 
 
@@ -283,21 +276,10 @@ The propagation rule for edge features is defined as follows:
     \mathbf{H}^{(l+1)}_e = \sigma\left(\mathbf{T}^\top \Phi\left(\mathbf{H}^{(l)}_v \mathbf{P}_v\right) \mathbf{T} \odot \tilde{\mathbf{A}}_e \mathbf{H}^{(l)}_e \mathbf{W}_e\right),
 \end{equation}
 
-% \begin{equation}
-%     \mathbf{H}^{(l+1)}_e = \sigma\left(\left[\mathbf{T}^\top \Phi\left(\mathbf{H}^{(l)}_v \mathbf{p}_v\right) \mathbf{T}\right] \odot \tilde{\mathbf{A}}_e \, \mathbf{H}^{(l)}_e \mathbf{W}_e\right),
-% \end{equation}
-
 
 In this expression, the following components are involved:
 
-% \begin{itemize}
-%     \item \textbf{\( \mathbf{T}^\top \)} is the transpose of the binary transformation matrix \( \mathbf{T} \) used in the node layer propagation. The matrix \( \mathbf{T}^\top \) maps the node features back into the edge domain, allowing the edge features to be updated based on the node information.
-%     \item \( \mathbf{H}^{(l)}_v \) is the node feature matrix from the \( l \)-th layer, and \( \mathbf{p}_v \) is a learnable weight matrix for the nodes. The operation \( \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \) diagonalizes the product of node features and the learnable weights, similar to the transformation applied to edge features in the node layer propagation.
-%     \item The matrix \( \tilde{\mathbf{A}}_e \) is the normalized edge adjacency matrix, as defined in \cref{eq:normalized_edge_adjacency}. This matrix integrates information about the connections between edges, analogous to how \( \tilde{\mathbf{A}}_v \) handles connections between nodes.
-%     \item \( \mathbf{H}^{(l)}_e \) represents the edge feature matrix from the \( l \)-th layer, while \( \mathbf{W}_e \) is a learnable weighting matrix that is applied to the edge features during the propagation.
-%     \item The Hadamard product \( \odot \) element-wise multiplies the transformed node features with the edge adjacency matrix, merging the information from both domains.
-%     \item As in the node layer propagation, the activation function \( \sigma \) is applied element-wise to introduce non-linearity.
-% \end{itemize}
+
 
 
 \begin{itemize}
@@ -319,26 +301,7 @@ In this expression, the following components are involved:
 This propagation rule updates the edge embeddings by integrating information from the node features and the edge structure, thereby enhancing the expressiveness of the edge representations. The alternating updates between node and edge embeddings allow the model to effectively bridge signals across nodes and edges, resulting in more informative graph embeddings compared to other neural network approaches.
 
 
-% \subsection{Task-Dependent Loss Functions}
-%
-% The output layer and corresponding loss functions in CensNet are designed to be task-dependent. For regression tasks, the loss function can be formalized as a regularized mean square error (MSE) loss. The MSE loss measures the difference between the predicted outcomes and the actual values, providing a natural fit for regression problems.
-%
-%
-% We define the loss function for graph regression as follows:
-%
-% \begin{equation}
-%     \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 + \lambda \|\Theta\|_p,
-% \end{equation}
-%
-% \noindent where:
-%
-% \begin{itemize}
-%     \item \( Y_r \in \mathbb{R} \) is the ground-truth value for the \( r \)-th regression target.
-%     \item \( \hat{Y}_r \in \mathbb{R} \) is the predicted value for the same feature, computed from the final node representation of the graph.
-%     \item \( \| Y_f - \hat{Y}_r \|^2_2 \) is the squared error for feature \( r \), and the sum is taken over all \( R \) output features.
-%     \item \( \Theta \in \mathbb{R}^{P} \) is the set of learnable parameters in the model, and \( \|\Theta\|_p \) denotes the \( L_p \) norm regularization term.
-%     \item \( \lambda \in \mathbb{R}_+ \) is a regularization coefficient that penalizes overly complex models to reduce overfitting.
-% \end{itemize}
+
 
 \subsection{Gas flow estimation through CensNet} \label{sec:LinealCensnet_formulation}
 
@@ -417,8 +380,6 @@ We define the loss function for graph regression as follows:
 
 The generated samples served as training data for a CensNet-based model to solve the natural gas transportation problem, which was designed as a faster alternative to the optimization-based model. This model is built to focus on predicting node and edge-level characteristics, incorporating the structure of the network and its connectivity into the learning process. 
 
-% In this experimental setup, different network operation scenarios were generated by perturbing the users' consumption values with added noise and subsequently solving each scenario using the linear constrained optimization model presented in the previous section. The noise levels range from 5\% to 25\%, applied to the parameters of the networks to simulate diverse operating conditions. 
-
 In this experimental setup, different network operation scenarios were generated by perturbing the users' consumption values with added noise and subsequently solving each scenario using the linear constrained optimization model presented in the previous section. The optimization was performed using APOPT (Advanced Process OPTimizer) through the Python package GEKKO \cite{Beal_Hill_Martin_Hedengren_2018}, a solver for large-scale linear and nonlinear optimization problems. APOPT was used to obtain the output variables for each scenario, serving as the ground truth data with which the CensNet model was trained. The noise levels ranged from 5\% to 25\%, applied to the parameters of the networks to simulate diverse operating conditions. 
 
 
@@ -457,7 +418,7 @@ The loss functions ensure that the model accurately predicts the node and edge f
 The network training was done under the following conditions: data was partitioned into training, validation, and test sets, with percentages of 60\%, 20\%, and 20\% using 2000 samples for the 8-node network and 2400 for the 63-node network. The learning rate schedule followed an Exponential Decay approach, with an initial learning rate of $1 \times 10^{-2}$ decay steps of 1000, and a decay rate of 0.9. The model was trained over 1500 epochs, ensuring the parameters had sufficient time to converge for both node- and edge-level predictions using a Leaky Relu activation function with an alpha parameter of 0.2.
 
 
-The model utilized several key hyperparameters: $N \ channels$, which corresponds to the units in the pre-dense and convolutional layers (CensNet), N Dense, representing the number of post-dense layers, and $N \ layers$, denoting the number of convolutional layers. Additionally, the model penalizes deviations in the network's response, specifically targeting MSE between the actual flow and the predicted flow at both the nodes and pipelines. Two tests were performed to determine the optimal set of hyperparameters. The objective was to compare the effect of using different combinations of loss functions during training. In the first test, only the weight associated with the nodal flow loss was considered, while in the second test, both nodal and edge flow losses were included. A test using only the edge loss was not conducted, as it was considered inappropriate to disregard the nodal flow loss. This is because the nodal flows represent the injection and demand values, which are essential for the physical consistency of the system and are directly associated with the behavior of the network at each node. In each test, the hyperparameters were optimized using the open-source Optuna framework \cite{optuna_2019}, with the following search space: $N \ channels$ ranged from 16 to 64, $N \ layers$ from 1 to 5, and $N \ dense$ from 2 to 32.
+The model utilized three hyperparameters: $N \ channels$, which corresponds to the units in the pre-dense and convolutional layers (CensNet), $N \ dense$, representing the number of post-dense layers, and $N \ layers$, denoting the number of convolutional layers. Additionally, the model penalizes deviations in the network's response, specifically targeting MSE between the actual flow and the predicted flow at both the nodes and pipelines. Two tests were performed to determine the optimal set of hyperparameters. The objective was to compare the effect of using different combinations of loss functions during training. In the first test, only the weight associated with the nodal flow loss was considered, while in the second test, both nodal and edge flow losses were included. A test using only the edge loss was not conducted, as it was considered inappropriate to disregard the nodal flow loss. This is because the nodal flows represent the injection and demand values, which are essential for the physical consistency of the system and are directly associated with the behavior of the network at each node. In each test, the hyperparameters were optimized using the open-source Optuna framework \cite{optuna_2019}, with the following search space: $N \ channels$ ranged from 16 to 64, $N \ layers$ from 1 to 5, and $N \ dense$ from 2 to 32.
 
 
 % Two tests were performed to determine the optimal set of hyperparameters. The objective was to compare the effect of using different combinations of loss functions during training. In the first test, only the weight associated with the nodal flow loss was considered, while in the second test, both nodal and edge flow losses were included. A test using only the edge loss was not conducted, as it was considered inappropriate to disregard the nodal flow loss. This is because the nodal flows represent the injection and demand values, which are essential for the physical consistency of the system and are directly associated with the behavior of the network at each node.
