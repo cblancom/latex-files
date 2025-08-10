@@ -5,12 +5,8 @@
 Natural gas is an energy source that has gained great relevance worldwide, due to two fundamental causes. Firstly, it has been observed that a country's economic growth is closely related to its energy consumption \cite{Alam_M}. Therefore, as nations develop and grow economically, it is expected that they will seek energy security to meet their own demand and continue their progress without interruptions. The second major motivation for the use of natural gas is its lower greenhouse gas emissions compared to other fuels, making it an attractive choice, especially in a context where there is a growing interest in environmental care. Natural gas emits fewer greenhouse gases compared to other fossil fuels, making it a favorable option for climate change mitigation \cite{china_natural_gas}. In this context, the natural gas constitutes an energy source more efficient and less polluting than coal and oil \cite{Yin_Wen_Wu_Han_Mukhtar_Gong_2022}, that supports heating and electricity for the intensive demand of houses and industry \cite{Aydin_2018}.
 
 
-% In this context, the natural gas system plays a crucial role in providing clean and versatile energy \cite{Yin_Wen_Wu_Han_Mukhtar_Gong_2022}. It is an efficient and less polluting energy source compared to conventional fossil fuels, such as coal and oil \cite{Aydin_2018}. Its use is essential for electricity generation, residential and industrial heating, and also for supplying energy-intensive industrial sectors.
-
 According to the U.S. Energy Information Administration (EIA), global demand for natural gas is projected to increase steadily through 2050, driven by population growth, rising incomes, and industrial expansion in emerging regions. In most modeled scenarios, demand for natural gas rises by between 2\% and 10\% by 2030 and between 11\% and 57\% by 2050, relative to 2022 levels. Despite significant gains in renewables and efficiency, natural gas continues to play a critical role in meeting the world's growing energy needs.\cite{IEA_2024}. 
 
-
-% In Colombia, natural gas is integral to national energy planning due to its essential role across multiple residential, industrial, and power generation sectors. The \textit{Plan de Abastecimiento de Gas Natural (PAGN)}, adopted in 2020, highlighted the strategic importance of maintaining reliable and sustainable gas supplies. This plan projects the demand growth for natural gas as essential for meeting Colombia's energy needs and underscores the reliance on gas for stabilizing the energy grid and reducing dependency on less sustainable energy sources. Natural gas demand is expected to grow by approximately 17\% from 2021 to 2035, a trend driven primarily by the industrial and residential sectors, representing over 75\% of aggregated consumption. This reliance reflects natural gas relatively low environmental impact compared to other fossil fuels, positioning it as a bridge towards a low-carbon energy transition. Colombia's growing urbanization and industrial needs create a seasonal demand pattern, with increased consumption in the latter months that aligns with general economic activity trends \cite{Promigas_2021}.
 
 In Colombia, natural gas remains a cornerstone of national energy planning, with its importance reaffirmed by the \textit{Plan de Abastecimiento de Gas Natural (PAGN)}. This plan incorporates the technical recommendations made by the Unidad de Planeación Minero-Energética (UPME) in the 2019–2028 study and continues to guide infrastructure priorities. According to the updated projections from UPME (June 2021), natural gas demand is expected to grow by 17\% between April 2021 and December 2035, reflecting an average annual growth rate of approximately 1.18\%. This demand projection includes aggregated consumption from sectors such as residential, industrial, tertiary, transportation, petrochemical, and compression. Notably, more than 75\% of the aggregated demand is concentrated in the industrial and residential sub-sectors, reinforcing the seasonal nature of consumption patterns, with increased usage in the latter months of each year aligned with economic activity trends. While demand from the oil and thermoelectric sectors has been revised downward in medium and low scenarios—due to increased energy efficiency and favorable hydrological forecasts—potential deficits in supply between 2021 and 2030 have been identified. These gaps are expected to be addressed primarily through imported and regasified LNG from facilities like SPEC in Cartagena. Natural gas remains a key energy source for Colombia, balancing reliability, lower environmental impact compared to other fossil fuels, and its strategic role in enabling a gradual transition toward cleaner energy sources \cite{Promigas_2021}.
 
@@ -23,15 +19,9 @@ Although most of the country's electricity demand is commonly met by hydroelectr
 Therefore, it is necessary for the country not only to have a national gas transportation system, but also to ensure that it is operated as efficiently as possible, in order to make the best use of available natural resources. In the Colombian context, natural gas is a very important energy source as it is used in various sectors such as residential, commercial, industrial, and thermal \cite{Restrepo-Trujillo_Moreno-Chuquen_Jiménez-García_Flores_Chamorro_2022}. It is especially in the latter sector that this fuel becomes more relevant during dry seasons, as it is when reservoir levels drop and thus hydroelectric power generation decreases. This problem is exacerbated in years when the El Niño phenomenon occurs \cite{paper-col}, making it of great interest to have tools that allow for the optimal injection and transportation of natural gas to fully meet demand.
 
     
-
-
-
-
 \section{Problem statement}
 
 Natural gas transportation is an integral part of the natural gas industry, relying on a pipeline network to transfer natural gas from various sources to consumers, fulfilling their demand. In general, natural gas transmission systems are composed of four fundamental elements: injection fields, responsible for injecting the hydrocarbon from extraction fields or regasification plants into the system; pipelines, which transport the gas from a sending node to a receiving node; compressors, which are responsible for raising the pressure at the outlet node relative to the inlet node; and end user, which are the main consumers of natural gas \cite{review}. Ensuring gas flow to meet end-user demand, minimizing network operating costs, and maintaining system elements within appropriate technical operating limits are critical factors in natural gas transportation. Coordinating these factors requires efficient solutions of optimization problems with a large number of variables and different nature constraints  \cite{Conejo}.
-% \cite{ABBASI2011xv}
-
 
 The optimization problem consists of finding the best operational configurations to meet consumer demand while ensuring the technical and physical constraints of the natural gas transportation system.  It must also be considered that these transportation systems are usually interconnected with electricity systems since the latter usually require natural gas as fuel for the thermal power plants. These power plants are significant natural gas consumers, relying on a steady gas supply to generate electricity \cite{Byeon_Van_Hentenryck_2020}. In Colombia, despite holding 70\% of hydroelectric plants, the remainder consists primarily of thermoelectric plants \cite{Morcillo_Angulo_Franco_2020a}. These thermoelectric plants are key to complementing the hydro plants to meet energy demand, especially during periods of drought, e.g., during El Niño phenomenon when reduced water availability limits hydroelectric generation \cite{droughts_colombia}. As other studies have shown, variations in rainfall, droughts, or floods in countries with significant hydroelectric power plants can significantly affect water availability for hydropower production \cite{Cuartas_Cunha_Alves_Parra_Deusdará_Leal_Costa_Molina_Amore_Broedel_Seluchi_et_al_2022}. This dynamic introduces uncertainty into the demand for natural gas, as the variability of renewable energy sources such as hydropower directly influences the operational requirements of thermoelectric plants \cite{Bessa_Moreira_Silva_Matos_2019}. Therefore, natural gas systems must respond flexibly and rapidly to changing energy demands, which further underscores the need for computationally efficient tools capable of handling frequent re-optimizations under variable conditions \cite{9831787}.
 
@@ -39,12 +29,7 @@ The above situation necessitates solving the optimization problem multiple times
 
 Although production fields, compressors, and end users of natural gas are well-represented, modeling transmission pipelines remains complex due to the nonlinear relationship between flow and pressures at its ending nodes. This complexity arises from the Weymouth equation, which includes a nonconvex and discontinuous sign function that determines flow direction based on differential pressure. These nonconvexities introduce discontinuities lead to numerical issues and optimization instability~\cite{YANG2020106023, JIANG2021106460}. Various authors have approached the challenge posed by the Weymouth equation differently. One of the approaches used to address this problem is to approximate this equation due to its inherent complexity and non-convex nature \cite{9031712}. However, since it is an approximation, this solution introduces errors that impact the accuracy of optimization outcomes. Mitigating these errors remains critical for further research and development in natural gas transportation systems \cite{review}.
 
-
 This research seeks to address these challenges by developing a machine learning-based strategy that leverages solutions from past optimizations to provide rapid, reliable predictions for various operational scenarios. Specifically, this thesis explores using Graph Neural Network (GNN) models and MPCC-based optimization formulations as complementary tools. The GNN model, by learning the structure and patterns from historical optimization outcomes, enables faster scenario evaluations while maintaining acceptable error margins. Furthermore, the Mathematical Programs with Complementarity Constraints (MPCC) approach introduces an accurate modeling of the Weymouth equation, enhancing the fidelity of flow and pressure calculations without compromising computational efficiency.
-
-
-
-
 
 \subsection{Objectives}
 
@@ -63,35 +48,3 @@ To develop an optimization tool that integrates knowledge of the gas transportat
 \end{itemize}
 
 
-
-
-
-
-
-
-
-% \section{Objetivos}
-
-% \subsection{General}
-
-
-% \subsection{Específicos}
-
-% \begin{itemize}
-	
-% 		\item  
-	
-% 	    \item 
-     
-% 		\item 
-	
-% \end{itemize}
-
-
-% \section{Estado del arte}
-
-
-% \section{Resultados principales}
-
-% \section{Organización del documento}
-  
