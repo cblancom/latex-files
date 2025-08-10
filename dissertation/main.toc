@@ -1,2 +1,2 @@
 \babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{Justification}{3}{0}{1}
+\beamer@sectionintoc {1}{Natural Gas System Prediction Using Graph Neural Networks}{7}{0}{1}

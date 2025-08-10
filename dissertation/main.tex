@@ -53,6 +53,7 @@
 \usepackage{subcaption}
 \usepackage{pgf}  
 \usepackage{svg}
+\usepackage{ragged2e}
 
 \newlength\figureheight
 \newlength\figurewidth
@@ -74,7 +75,7 @@
   physical paper width=8in, physical paper height=6in]
 
 % Here's where the presentation starts, with the info for the title slide
-\title[]{Optimization test of Interconnected Natural Gas and Power Systems Using Mathematical Programs with Complementarity Constraints}
+\title[]{Optimization and Prediction in Natural Gas Networks Using Graph Neural Networks and MPCC-Based Models}
 \author{Cristian Alejandro Blanco Martínez}
 \institute{Universidad Tecnológica de Pereira \\ 
 Grupo de investigación Automática}
@@ -86,47 +87,239 @@ Grupo de investigación Automática}
   \titlepage
 \end{frame}
 
+
+
+
+\begin{frame}{Energy Context \& Relevance of Natural Gas}
+\justifying
+Natural gas plays a crucial role in the global energy mix, offering a cleaner alternative to other fossil fuels by producing lower CO\textsubscript{2} emissions. It supports both industrial processes and electricity generation, acting as a reliable energy source in diverse contexts. 
+\\ \\
+In Colombia, natural gas is widely used across the residential, commercial, industrial, and thermal power sectors. Its importance becomes evident during dry seasons, when hydroelectric generation is reduced and thermal plants, fueled by natural gas, step in to maintain electricity supply.
+\end{frame}
+
+\begin{frame}{Operational Challenge in the Colombian Energy System}
+\justifying
+Colombia’s electricity supply relies heavily on hydroelectric plants, which are highly dependent on rainfall patterns. During dry seasons, reduced water availability forces the system to increase the participation of thermal plants powered by natural gas. 
+
+This seasonal shift places significant operational stress on the gas transport network. 
+% \begin{itemize}
+%     \item More frequent re-optimizations of gas flows.
+%     \item Rapid and accurate decision-making to ensure supply security.
+% \end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/hydro_vs_thermal.png}
+    \caption{Variation in electricity generation mix between wet and dry seasons in Colombia.}
+\end{figure}
+\end{frame}
+
+
 % These three lines create an automatically generated table of contents.
-\begin{frame}{Outline}
-  \tableofcontents
+\begin{frame}{Motivation \& Problem Statement}
+\justifying
+\begin{itemize}
+    \item \textbf{Large-scale natural gas networks} require solving complex optimization problems.
+    \item Classical approaches are accurate but often \textbf{computationally expensive}.
+    \item Increasing network size and operational constraints lead to:
+    \begin{itemize}
+        \item Long execution times
+        \item Difficulty in real-time or near real-time decision making
+    \end{itemize}
+    \item Need for approaches that \textbf{preserve accuracy while reducing computation time}.
+\end{itemize}
 \end{frame}
 
-\section{Justification}
-\begin{frame}{Relevance of natural gas}
 
-Natural gas is an energy source that has acquired great relevance worldwide, and this can be attributed to two fundamental causes. 
-
+\begin{frame}{Objectives}
+\textbf{General Objective:}
 \begin{itemize}
-    \item It has been observed that a country's economic growth is closely related to its energy consumption.
-    
-    \item Natural gas emits less greenhouse gases compared to other fossil fuels, making it a favorable option for climate change mitigation.    
+    \item Develop an optimization tool that integrates knowledge of the gas transportation network topology, a suitable approximation of the Weymouth equation and stochastic optimization techniques to address the gas transportation task taking into account the uncertainties related to hydroelectric generation and the growth of alternative energy sources.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Objectives}
+\textbf{Specific Objectives:}
+\begin{itemize}
+    \item Design a Graph Neural Networks-based approach of regression that integrates knowledge of natural gas network topology to reduce computational time for operation estimation.    
+    \item Develop an optimization model for natural gas transportation systems that takes into account the Weymouth equation for reducing that reduces the approximation error in pipeline gas flow calculations.
+    \item Develop a stochastic gas flow dispatch optimization strategy that quantifies the uncertainty in the objective variables and decision variables associated with the operation of the gas system taking into account the constraints of the transportation problem.
+\end{itemize}
+\end{frame}
+
+
+
+%===========================================
+% Chapter 2 — GNN Surrogate (CensNet) Overview
+%===========================================
+\section{Natural Gas System Prediction Using Graph Neural Networks}
+
+%-------------------------------------------
+% Slide 1: Motivation & Concept
+%-------------------------------------------
+\begin{frame}{Natural Gas System Prediction Using Graph Neural Networks}
+    \begin{itemize}
+        \item Traditional optimizers are \textbf{accurate but slow} for large-scale or real-time scenarios.
+        \item Gas networks are inherently \textbf{graphs}: nodes = wells, users, storage; edges = pipelines, compressors.
+        \item GNNs exploit \textbf{topology-aware learning} for faster prediction.
+        \item \textbf{Goal:} Achieve near-optimizer accuracy with runtime reduction.
+    \end{itemize} 
+\end{frame}
+
+%-------------------------------------------
+% Slide: CensNet Architecture
+%-------------------------------------------
+
+\begin{frame}{CensNet Layers: Integrating Node \& Edge Features}
+\footnotesize
+\textbf{Motivation:}  
+Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge features}, missing part of the graph’s information.
+
+\medskip
+\textbf{CensNet innovation:}
+\begin{itemize}
+    \item Alternates between \textbf{node layers} and \textbf{edge layers}.
+    \item Each layer type updates its own features while using information from the other:
+    \begin{itemize}
+        \item \textbf{Node layer:} Node embeddings are updated using both node adjacency and transformed edge features.
+        \item \textbf{Edge layer:} Edge embeddings are updated using edge adjacency and transformed node features.
+    \end{itemize}
+    \item Uses an \textit{incidence matrix} \( \mathbf{T} \) to switch between node and edge domains.
 \end{itemize}
 
+\medskip
+\textbf{Benefits:}
+\begin{itemize}
+    \item Captures both \textit{structural} (adjacency) and \textit{relational} (edge) information.
+    \item Enhances long-range dependencies through alternating propagation.
+\end{itemize}
 \end{frame}
 
+\begin{frame}{Mathematical Structure of CensNet Layers}
+\footnotesize
+\textbf{Node layer propagation:}
+\[
+\mathbf{H}^{(l+1)}_v = \sigma\left(
+\mathbf{T} \Phi(\mathbf{H}^{(l)}_e \mathbf{p}_e) \mathbf{T}^\top 
+\odot \tilde{\mathbf{A}}_v \mathbf{H}^{(l)}_v \mathbf{W}_v
+\right)
+\]
+\textbf{Edge layer propagation:}
+\[
+\mathbf{H}^{(l+1)}_e = \sigma\left(
+\mathbf{T}^\top \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \mathbf{T} 
+\odot \tilde{\mathbf{A}}_e \mathbf{H}^{(l)}_e \mathbf{W}_e
+\right)
+\]
 
-\begin{frame}{Global and national context}
-
+\medskip
+\textbf{Key components:}
 \begin{itemize}
-    \item Global natural gas consumption in 2015 reached 124.24 trillion cubic feet, with a projected increase of 43\% by 2040, 75\% of which is associated with the industrial sector and power generation from thermal plants. 
-    
-    \item In the Colombian case, natural gas is a very important energy source because it is used in several sectors such as residential, commercial, industrial and thermal. It is especially in the latter where this fuel acquires greater relevance in dry seasons, since that is when the level of reservoirs is reduced and therefore also lowers the generation in hydroelectric plants. 
-
+    \item \( \tilde{\mathbf{A}}_v, \tilde{\mathbf{A}}_e \): normalized adjacency matrices (nodes/edges).
+    \item \( \mathbf{T} \): incidence matrix mapping between node and edge domains.
+    \item \( \Phi(\cdot) \): diagonal scaling from projected features.
+    \item \( \odot \): element-wise filtering of adjacency by feature-derived weights.
 \end{itemize}
 
+\medskip
+\textbf{Core idea:} Information “switches” between node and edge spaces at each step, enriching representations.
 \end{frame}
 
-\begin{frame}{Challenges in the Colombian energy system}
-    
-    Although most of the country's electricity demand is commonly supplied by hydroelectric power plants, this type of generation presents an important source of uncertainty in the energy system, since its effectiveness and generation capacity are directly linked to the country's weather and climate conditions.
+\begin{frame}{CensNet-based Model Architecture}
+\footnotesize
+\justifying
+    \centering
+    \resizebox{0.9\textwidth}{!}{%
+        \input{figures/model_description.tex}%
+    } 
 
-      
-
+\textbf{Inputs:} Encapsulate both physical attributes and topological information of the gas network:
+        \begin{itemize}
+            \item Node features ($\mathbf{X}$): pressures, injections, withdrawals, demand forecasts.
+            \item Node Laplacian ($\mathbf{L}_v$) and Edge Laplacian ($\mathbf{L}_e$): encode structural connectivity and enable topology-aware learning.
+            \item Edge features ($\mathbf{E}$): capacities, lengths, compressor ratios.
+            \item Incidence matrix ($\mathbf{T}$): explicit mapping between nodes and edges.
+        \end{itemize} 
 \end{frame}
 
 
+\begin{frame}{CensNet-based Model Architecture}   
+\footnotesize
+    \begin{itemize} 
+        \item \textbf{Processing:}
+        \begin{itemize}
+            \item Normalization and pre-dense layers transform heterogeneous inputs into a common latent space.
+            \item \emph{CensNet convolutional blocks} perform message passing on both node and edge domains, enabling simultaneous learning of flow patterns and interactions.
+            \item Post-dense layers refine features for prediction.
+        \end{itemize}
+        
+        \item \textbf{Outputs:}
+        \begin{itemize}
+            \item Node-level injected flows ($\hat{\mathbf{X}}_v$) — predicted gas supply/demand at each node.
+            \item Edge-level transported flows ($\hat{\mathbf{X}}_e$) — predicted flow rates in each pipeline.
+        \end{itemize}
+        
+        \item \textbf{Training:} Node and edge predictions are penalized separately using task-specific loss terms, ensuring both accuracy and physical consistency.
+    \end{itemize}
 
+\end{frame}
+%-------------------------------------------
+% Slide 3: Loss Functions
+%-------------------------------------------
+\begin{frame}{Task-Dependent Loss Functions}
+    \begin{itemize}
+        \item Regression task $\Rightarrow$ Regularized MSE loss:
+        \[
+            \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 + \lambda \|\Theta\|_p
+        \]
+        \item Supports:
+        \begin{itemize}
+            \item \textbf{Nodal losses} – Injected flows
+            \item \textbf{Edge losses} – Transported flows
+            \item \textbf{Gas balance} – Physical consistency
+        \end{itemize}
+        \item Regularization avoids overfitting.
+    \end{itemize}
+\end{frame}
 
+%-------------------------------------------
+% Slide 4: Datasets
+%-------------------------------------------
+\begin{frame}{Test Systems}
+    \begin{columns}[T]
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item \textbf{8-node network:} Small-scale testbed.
+                \item \textbf{63-node network:} Realistic Colombian gas infrastructure.
+                \item Data: Generated via optimization model \eqref{eq:obj_func_linear_gas} with physical constraints \eqref{eq:well_limits}–\eqref{eq:gas_balance}.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            % \includegraphics[width=\linewidth]{figs/network_maps.pdf} % <-- placeholder path
+            \captionof{figure}{Case study networks.}
+        \end{column}
+    \end{columns}
+\end{frame}
 
+%-------------------------------------------
+% Slide 5: Runtime vs Accuracy
+%-------------------------------------------
+\begin{frame}{Runtime vs Accuracy Trade-off}
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \begin{itemize}
+                \item Optimizer: High accuracy, high runtime.
+                \item CensNet: Comparable accuracy, much faster inference.
+                \item Statistical validation: t-test confirms no significant loss in accuracy (p-values $\ll 0.05$).
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \centering
+            % \includegraphics[width=\linewidth]{figs/runtime_accuracy_plot.pdf} % <-- placeholder path
+            \captionof{figure}{Prediction accuracy vs computation time.}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 \end{document}
