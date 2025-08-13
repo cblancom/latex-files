@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  11 AUG 2025 21:46
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  12 AUG 2025 21:57
  system commands enabled.
 **main.tex
 (./main.tex
@@ -1291,7 +1291,20 @@ Package: pgfpages 2011/01/05 ver 0.02
 )
 \pgfpages@box@1=\box92
 
-(./main.aux)
+(./main.aux
+
+LaTeX Warning: Label `eq:well_limits' multiply defined.
+
+
+LaTeX Warning: Label `eq:pipe_limits' multiply defined.
+
+
+LaTeX Warning: Label `eq:dem_limit_gas' multiply defined.
+
+
+LaTeX Warning: Label `eq:gas_balance' multiply defined.
+
+)
 \openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
@@ -1491,7 +1504,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [2
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<figures/hydro_vs_thermal.png, id=44, 1541.76pt x 1027.84pt>
+<figures/hydro_vs_thermal.png, id=64, 1541.76pt x 1027.84pt>
 File: figures/hydro_vs_thermal.png Graphic file (type png)
 <use figures/hydro_vs_thermal.png>
 Package luatex.def Info: figures/hydro_vs_thermal.png  used on input line 117.
@@ -1606,6 +1619,1265 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [17
 
 ]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[18
+
+]
+<figures/network_math_alternative.pdf, id=205, 393.84743pt x 395.03987pt>
+File: figures/network_math_alternative.pdf Graphic file (type pdf)
+<use figures/network_math_alternative.pdf>
+Package luatex.def Info: figures/network_math_alternative.pdf  used on input li
+ne 435.
+(luatex.def)             Requested size: 188.26347pt x 188.83336pt.
+
+Overfull \hbox (17.1158pt too wide) in paragraph at lines 435--435
+ [] 
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[19
+
+]
+<figures/power_dummy_constraint.png, id=215, 91.42155pt x 59.91183pt>
+File: figures/power_dummy_constraint.png Graphic file (type png)
+<use figures/power_dummy_constraint.png>
+Package luatex.def Info: figures/power_dummy_constraint.png  used on input line
+ 465.
+(luatex.def)             Requested size: 115.01335pt x 75.37775pt.
+
+Overfull \hbox (32.8606pt too wide) in paragraph at lines 465--465
+[]  
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[20
+
+<./figures/network_math_alternative.pdf>]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[21
+
+<./figures/power_dummy_constraint.png>]
+<figures/gas_dummy.png, id=271, 875.55106pt x 471.27267pt>
+File: figures/gas_dummy.png Graphic file (type png)
+<use figures/gas_dummy.png>
+Package luatex.def Info: figures/gas_dummy.png  used on input line 505.
+(luatex.def)             Requested size: 123.22913pt x 66.32289pt.
+
+Overfull \hbox (41.07637pt too wide) in paragraph at lines 505--505
+[][]  
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'eq:well_li
+mits'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'eq:pipe_li
+mits'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'eq:dem_lim
+it_gas'
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[22
+
+]
+warning  (pdf backend): ignoring duplicate destination with the name 'eq:gas_bal
+ance'
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[23
+
+<./figures/gas_dummy.png>]
+Overfull \vbox (0.18718pt too high) detected at line 548
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[24
+
+]
+Overfull \vbox (15.86568pt too high) detected at line 567
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[25
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[26
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[27
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[28
+
+] (./figures/all_test_cost.tex)
+Overfull \vbox (6.61908pt too high) detected at line 627
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[29
+
+] (./figures/blue_test_boxplot.tex
+NOTE: coordinate (4.6,0) has been dropped because it is unbounded (in y). (see 
+also unbounded coords=jump). 
+NOTE: coordinate (4.5625,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (4.6375,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 481.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (5.6,0) has been dropped because it is unbounded (in y). (see 
+also unbounded coords=jump). 
+NOTE: coordinate (5.5625,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (5.6375,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 508.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (6.6,0) has been dropped because it is unbounded (in y). (see 
+also unbounded coords=jump). 
+NOTE: coordinate (6.5625,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (6.6375,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 535.
+
+ [warning /pgfplots/warning/plot without coordinates]
+)
+Overfull \vbox (16.54524pt too high) detected at line 641
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[30
+
+] (./figures/green_test_hist.tex)
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[31
+
+] (./figures/green_test_error_Taylor.tex
+NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 69.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (1.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (2.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 79.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (3,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 96.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (2.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (3.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 106.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (4,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 123.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (4.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 133.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (5,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (5,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 150.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (5.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 160.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (29,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (28.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (29.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 808.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (33,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (32.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (33.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 916.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (38,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (38,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1041.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (37.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (38.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1051.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (1.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (2.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1201.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (2.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (3.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1206.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1211.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (5.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1216.
+
+ [warning /pgfplots/warning/plot without coordinates]
+) (./figures/green_test_error_SOC.tex
+NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (1.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (2.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 79.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (2.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (3.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 106.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (3.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (4.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 133.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (5,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (4.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (5.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 160.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (29,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (28.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (29.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 808.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (38,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (37.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (38.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1051.
+
+ [warning /pgfplots/warning/plot without coordinates]
+) (./figures/green_test_error_MPCC.tex
+NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 69.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 74.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (1.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (2.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 79.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (1.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (2.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 84.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (3,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 96.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (3,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 101.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (2.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (3.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 106.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (2.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (3.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 111.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (4,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 123.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (4,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 128.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (4.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 133.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (4.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 138.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (5,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (5,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 150.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (5,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (5,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 155.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (5.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 160.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (5.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 165.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (7,0) has been dropped because it is unbounded (in y). (see al
+so unbounded coords=jump). 
+NOTE: coordinate (6.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (7.125,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 214.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (10,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (9.875,0) has been dropped because it is unbounded (in y). (se
+e also unbounded coords=jump). 
+NOTE: coordinate (10.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 295.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (11,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (10.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (11.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 322.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (12,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (11.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (12.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 349.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (13,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (12.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (13.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 376.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (15,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (14.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (15.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 430.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (16,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (15.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (16.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 457.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (17,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (16.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (17.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 484.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (25,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (24.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (25.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 700.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (27,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (26.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (27.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 754.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (28,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (27.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (28.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 781.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (29,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (28.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (29.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 808.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (31,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (30.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (31.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 862.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (32,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (31.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (32.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 889.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (33,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (32.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (33.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 916.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (38,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (37.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (38.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1051.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (39,0) has been dropped because it is unbounded (in y). (see a
+lso unbounded coords=jump). 
+NOTE: coordinate (38.875,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+NOTE: coordinate (39.125,0) has been dropped because it is unbounded (in y). (s
+ee also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1078.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (1.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (2.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1201.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (2.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (3.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1206.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (3.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1211.
+
+ [warning /pgfplots/warning/plot without coordinates]
+NOTE: coordinate (4.75,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (5.25,0) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 1216.
+
+ [warning /pgfplots/warning/plot without coordinates]
+)
+Overfull \vbox (3.86119pt too high) detected at line 668
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[32
+
+] (./figures/red_test_costs.tex
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 88.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 93.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 98.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 103.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 108.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 113.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 118.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 123.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 128.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 133.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 138.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 143.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 148.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 153.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 158.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 163.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 168.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 173.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 178.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 183.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 188.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 193.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 198.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 203.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 208.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 213.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 218.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 223.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 228.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 233.
+
+ [warning /pgfplots/warning/plot without coordinates]
+)
+Overfull \vbox (12.79353pt too high) detected at line 681
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[33
+
+] (./figures/pruebatikz.tex) (./figures/redtest_scatter_flow1.tex
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+) (./figures/err_day.tex
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (1,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (2,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (3,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (5,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (6,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (1,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (2,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (3,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (5,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (6,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (1,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (2,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (3,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (5,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (6,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (1,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (6,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (1,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (6,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (1,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (6,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (1,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (4,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (6,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (7,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (8,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+NOTE: coordinate (9,-inf) has been dropped because it is unbounded (in y). (see
+ also unbounded coords=jump). 
+)
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[34
+
+] (./main.bbl)
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[35
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[36
+
+</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[37
+
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[38
+
+
+]
 \tf@nav=\write6
 
 \openout6 = main.nav
@@ -1615,48 +2887,60 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 \tf@snm=\write8
 
 \openout8 = main.snm
- [18
+ [39
+
 
 ] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F25DA2F80F26248C6AD1229CD90F8EFF;349.
+(rerunfilecheck)             Checksum: 677F70671C9BF3ECDC96ECEA7818E162;958.
 )
 
 Here is how much of LuaTeX's memory you used:
- 43069 strings out of 478285
- 100000,1977958 words of node,token memory allocated
- 8604 words of node memory still in use:
-   79 hlist, 9 vlist, 13 rule, 43 disc, 13 local_par, 14 math, 227 glue, 38 kern
-, 47 penalty, 480 glyph, 360 attribute, 77 glue_spec, 182 attribute_list, 5 writ
-e, 54 pdf_colorstack nodes
-   avail lists: 2:2632,3:1042,4:384,5:390,6:59,7:3491,8:41,9:970,10:17,11:286
- 61403 multiletter control sequences out of 65536+600000
- 81 fonts using 6489295 bytes
- 128i,15n,115p,718b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></u
-sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/
-share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/shar
-e/texlive/texmf-dist/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/sh
-are/texlive/texmf-dist/fonts/opentype/public/lm/lmroman9-italic.otf></usr/share/
-texlive/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/tex
-live/texmf-dist/fonts/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/t
-exmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-
-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dis
-t/fonts/opentype/public/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/f
-onts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fon
-ts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on main.pdf (17 pages, 1069114 bytes).
+ 44112 strings out of 478285
+ 745155,2848258 words of node,token memory allocated
+ 8671 words of node memory still in use:
+   56 hlist, 9 vlist, 8 rule, 56 disc, 11 local_par, 186 glue, 46 kern, 31 penal
+ty, 590 glyph, 264 attribute, 77 glue_spec, 134 attribute_list, 5 write, 3 pdf_d
+est, 72 pdf_colorstack nodes
+   avail lists: 1:2,2:113275,3:83628,4:16890,5:457,6:88,7:21485,8:41,9:1547,10:1
+7,11:337
+ 62259 multiletter control sequences out of 65536+600000
+ 83 fonts using 6752671 bytes
+ 128i,20n,115p,718b,2530s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman8-italic.otf></us
+r/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/s
+hare/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/shar
+e/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/te
+xlive/texmf-dist/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/
+texlive/texmf-dist/fonts/opentype/public/lm/lmroman9-italic.otf></usr/share/texl
+ive/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texlive
+/texmf-dist/fonts/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf
+-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist
+/fonts/opentype/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fo
+nts/opentype/public/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts
+/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/o
+pentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9
+.pfb>
+Output written on main.pdf (38 pages, 6715349 bytes).
 
-PDF statistics: 290 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 40 named destinations out of 1000 (max. 131072)
- 104 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 584 PDF objects out of 1000 (max. 8388607)
+ 449 compressed objects within 5 object streams
+ 130 named destinations out of 1000 (max. 131072)
+ 144 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,0 +1,69 @@
+\begin{thebibliography}{}
+
+\bibitem[Baumrucker et~al., 2008]{mpcc}
+Baumrucker, B., Renfro, J., and Biegler, L. (2008).
+\newblock Mpec problem formulations and solution strategies with chemical
+  engineering applications.
+\newblock {\em Computers \&amp; Chemical Engineering}, 32(12):2903–2913.
+
+\bibitem[Beal et~al., 2018]{gekko}
+Beal, L. D.~R., Hill, D.~C., Martin, R.~A., and Hedengren, J.~D. (2018).
+\newblock Gekko optimization suite.
+\newblock {\em Processes}, 6(8).
+
+\bibitem[Bouza and Still, 2007]{Bouza_Still_2007}
+Bouza, G. and Still, G. (2007).
+\newblock Mathematical programs with complementarity constraints: Convergence
+  properties of a smoothing method.
+\newblock {\em Mathematics of Operations Research}, 32(2):467–483.
+
+\bibitem[Duan et~al., 2022]{Duan_Liu_Yang_2022}
+Duan, J., Liu, F., and Yang, Y. (2022).
+\newblock Optimal operation for integrated electricity and natural gas systems
+  considering demand response uncertainties.
+\newblock {\em Applied Energy}, 323:119455.
+
+\bibitem[Fodstad et~al., 2015]{taylor_paper}
+Fodstad, M., Midthun, K.~T., and Tomasgard, A. (2015).
+\newblock Adding flexibility in a natural gas transportation network using
+  interruptible transportation services.
+\newblock {\em European Journal of Operational Research}, 243(2):647–657.
+
+\bibitem[García-Marín et~al., 2022]{MPNG}
+García-Marín, S., González-Vanegas, W., and Murillo-Sánchez, C. (2022).
+\newblock Mpng: A matpower-based tool for optimal power and natural gas flow
+  analyses.
+\newblock {\em IEEE Transactions on Power Systems}, pages 1--9.
+
+\bibitem[Jiang et~al., 2021]{JIANG2021106460}
+Jiang, T., Yuan, C., Zhang, R., Bai, L., Li, X., Chen, H., and Li, G. (2021).
+\newblock Exploiting flexibility of combined-cycle gas turbines in power system
+  unit commitment with natural gas transmission constraints and reserve
+  scheduling.
+\newblock {\em International Journal of Electrical Power \& Energy Systems},
+  125:106460.
+
+\bibitem[Ralph and Wright, 2004]{Ralph_Wright_2004}
+Ralph, D. and Wright, S.~J. (2004).
+\newblock Some properties of regularization and penalization schemes for mpecs.
+\newblock {\em Optimization Methods and Software}, 19(5):527--556.
+
+\bibitem[Schwele et~al., 2019]{soc_paper}
+Schwele, A., Ordoudis, C., Kazempour, J., and Pinson, P. (2019).
+\newblock Coordination of power and natural gas systems: Convexification
+  approaches for linepack modeling.
+\newblock In {\em 2019 IEEE Milan PowerTech}, pages 1--6.
+
+\bibitem[Wächter and Biegler, 2005]{ipopt}
+Wächter, A. and Biegler, L.~T. (2005).
+\newblock On the implementation of an interior-point filter line-search
+  algorithm for large-scale nonlinear programming.
+\newblock {\em Mathematical Programming}, 106(1):25–57.
+
+\bibitem[Yang et~al., 2019]{8468081}
+Yang, Z., Xie, K., Yu, J., Zhong, H., Zhang, N., and Xia, Q. (2019).
+\newblock A general formulation of linear power flow models: Basic theory and
+  error analysis.
+\newblock {\em IEEE Transactions on Power Systems}, 34(2):1315--1324.
+
+\end{thebibliography}
