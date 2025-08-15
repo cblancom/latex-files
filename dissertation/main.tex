@@ -56,7 +56,7 @@
 \usepackage{ragged2e}
 \usepackage{booktabs}
 \usepackage{float}
-
+\usepackage{caption}
 \newlength\figureheight
 \newlength\figurewidth
 % \addtobeamertemplate{navigation symbols}{}{%
@@ -695,23 +695,128 @@ Instead of estimating the distributions of the objective function and Weymouth e
 \end{frame}
 
 
-% \begin{frame}{Results - Case 3}
-% As a hypothesis, fixing the pressure at the injection well and the flow direction at compressor nine pushes the complementarity constraints to the limits and forces the compressor to augment the pressure ratio to satisfy the forthcoming branch demand.
-%
-% \begin{figure}[!htb]
-%     \centering
-%     % \setlength\figurewidth{.8\textwidth}        
-%     % \setlength\figureheight{0.45\textwidth}
-%     % \input{images/blue_test_cost_SOC}
-%     \includegraphics[scale=1]{results/partial_network.png}
-%     \caption{Outlying connection of well-compressor-pipeline on the system 96/63 used in Case Study III.}
-%     \label{fig:96 63partial network}
-% \end{figure}
-%     
-% \end{frame}
-%
-%
 
+\begin{frame}{Physics-Guided Neural Networks}
+\footnotesize
+\textbf{Motivation:}
+\begin{itemize}
+    \item Traditional neural networks: fit data, ignore physics → risk of unrealistic predictions.
+    \item In gas networks, physical constraints (mass balance, pressure-flow laws) are critical.
+\end{itemize}
+
+\textbf{Physics-Informed Neural Networks (PINNs):}
+\begin{itemize}
+    \item Incorporate governing equations directly in the loss function.
+    \item Penalize deviations from:
+    \begin{itemize}
+        \item \textbf{Gas balance constraint} – nodal mass conservation.
+        \item \textbf{Weymouth equation} – relation between flow and pressure differences in pipelines.
+    \end{itemize}
+    \item Acts as a \emph{regularizer} for better generalization under uncertainty.
+\end{itemize}
+
+% \textbf{Goal:}
+% \begin{itemize}
+%     \item Improve prediction accuracy and physical consistency.
+%     \item Enable robust, uncertainty-aware gas dispatch optimization.
+% \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Methodology: Physics-Guided CensNet}
+\footnotesize
+\textbf{Overall loss function:}
+\[
+\mathcal{J}(\Theta) =
+\mathcal{J}_{\text{data}} +
+\mathcal{J}_{\text{balance}} +
+\mathcal{J}_{\text{weymouth}}
+\]
+
+\textbf{Gas balance loss:}
+\[
+\mathcal{J}_{\text{balance}} =
+\mathbf{T} \cdot \hat{\mathbf{f}}_e - \mathbf{d} + \hat{\mathbf{f}}_n
+\]
+\begin{itemize}
+    \item Enforces nodal inflow = outflow + demand.
+\end{itemize}
+
+\textbf{Weymouth loss:}
+\[
+\mathcal{J}_{\text{weymouth}} =
+\mathbf{M}_{\mathcal{P}}
+\left( \hat{\mathbf{f}}_e^{\circ 2} -
+\mathbf{K} \circ \left(\mathbf{T} \cdot \hat{\boldsymbol{\pi}}^{\circ 2} \right) \right)
+\]
+\begin{itemize}
+    \item Relates squared flows to squared pressure differences.
+    \item Applies only to pipelines (not compressors).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Methodology: Physics-Guided CensNet}
+\textbf{Implementation:}
+\begin{itemize}
+    \item Built on CensNet architecture from deterministic setup.
+    \item Training data from nonlinear gas network optimization (MPCC).
+    \item Noise (5\%–25\%) injected to emulate operating uncertainty.
+\end{itemize}
+
+\centering
+    \resizebox{0.9\linewidth}{!}{\input{figures/model_description_PINN}}
+\end{frame}
+
+
+
+% % --- Slide 1: Table of Results ---
+
+\begin{frame}{Case Study I: 8-Node Network -- Performance Comparison}
+\scriptsize
+\centering
+\begin{table}
+\captionsetup{font=scriptsize}  % Cambia el tamaño del caption a \tiny
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{Node Error} & \textbf{Edge Error} & \textbf{Balance Error} & \textbf{Time (s)} \\
+\midrule
+CensNet (N) & $0.00 \pm 17.99$ & $22.76 \pm 15.43$ & $-0.01 \pm 17.45$ & $0.86 \pm 0.50$ \\
+CensNet (N+E) & $-0.11 \pm 18.27$ & $0.22 \pm 21.65$ & $-0.12 \pm 1.70$ & $0.85 \pm 0.50$ \\
+CensNet (N+E+B) & $-0.02 \pm 18.00$ & $-0.02 \pm 21.30$ & $-0.03 \pm 0.90$ & $0.85 \pm 0.50$ \\
+CensNet (N+E+W) & $-0.07 \pm 17.56$ & $2.60 \pm 20.03$ & $-0.07 \pm 2.21$ & $0.86 \pm 0.50$ \\
+CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.85 \pm 0.50$ \\
+\bottomrule
+\end{tabular}
+\caption{Performance of CensNet-based models vs. IPOPT benchmark.}
+\end{table}
+
+\begin{itemize}
+    \item Using only node loss leads to accurate nodal flows but large errors in edge predictions.
+    \item Adding edge loss (\textbf{N+E}) reduces edge error from $22.76$ to $0.22$ and improves global balance.
+    \item Including balance loss (\textbf{N+E+B}) further minimizes balance error, achieving best overall consistency.
+    \item Weymouth loss (\textbf{N+E+W}) introduces slight trade-offs, slightly increasing edge/balance errors but retaining nodal accuracy.
+    \item All CensNet variants are over an order of magnitude faster than IPOPT, with \textbf{N+E+B} offering the best accuracy-speed compromise.
+\end{itemize}
+
+\end{frame}
+
+
+% % % --- Slide 2: Main Observations ---
+% \begin{frame}{Case Study I: Key Observations}
+% \begin{itemize}
+%     \item Using only node loss leads to accurate nodal flows but large errors in edge predictions.
+%     \item Adding edge loss (\textbf{N+E}) reduces edge error from $22.76$ to $0.22$ and improves global balance.
+%     \item Including balance loss (\textbf{N+E+B}) further minimizes balance error, achieving best overall consistency.
+%     \item Weymouth loss (\textbf{N+E+W}) introduces slight trade-offs, slightly increasing edge/balance errors but retaining nodal accuracy.
+%     \item All CensNet variants are over an order of magnitude faster than IPOPT, with \textbf{N+E+B} offering the best accuracy-speed compromise.
+% \end{itemize}
+% \end{frame}
+
+%
+%
+%
 
 \section{Bibliography}
 \begin{frame}[allowframebreaks]

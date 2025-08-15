@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  12 AUG 2025 21:57
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  14 AUG 2025 22:50
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2847,7 +2847,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 
 [34
 
-] (./main.bbl)
+]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
@@ -2855,18 +2855,64 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [35
 
 ]
+
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <9> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 757.
+
+
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 757.
+
+
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 757.
+
+
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [36
 
-</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+] (./figures/model_description_PINN.tex)
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [37
+
+]
+Overfull \hbox (9.04518pt too wide) in paragraph at lines 803--803
+ [] 
+ []
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[38
+
+] (./main.bbl)
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[39
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[40
+
+</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[41
 
 
 ]
@@ -2874,7 +2920,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[38
+[42
 
 
 ]
@@ -2887,7 +2933,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 \tf@snm=\write8
 
 \openout8 = main.snm
- [39
+ [43
 
 
 ] (./main.aux)
@@ -2899,48 +2945,49 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44112 strings out of 478285
+ 44185 strings out of 478285
  745155,2848258 words of node,token memory allocated
- 8671 words of node memory still in use:
+ 8689 words of node memory still in use:
    56 hlist, 9 vlist, 8 rule, 56 disc, 11 local_par, 186 glue, 46 kern, 31 penal
-ty, 590 glyph, 264 attribute, 77 glue_spec, 134 attribute_list, 5 write, 3 pdf_d
+ty, 590 glyph, 270 attribute, 77 glue_spec, 137 attribute_list, 5 write, 3 pdf_d
 est, 72 pdf_colorstack nodes
-   avail lists: 1:2,2:113275,3:83628,4:16890,5:457,6:88,7:21485,8:41,9:1547,10:1
-7,11:337
- 62259 multiletter control sequences out of 65536+600000
- 83 fonts using 6752671 bytes
+   avail lists: 1:2,2:113266,3:83628,4:16890,5:464,6:79,7:21485,8:41,9:1547,10:1
+7,11:375
+ 62317 multiletter control sequences out of 65536+600000
+ 96 fonts using 7839615 bytes
  128i,20n,115p,718b,2530s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman8-italic.otf></us
-r/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/s
-hare/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/shar
-e/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/te
-xlive/texmf-dist/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/
-texlive/texmf-dist/fonts/opentype/public/lm/lmroman9-italic.otf></usr/share/texl
-ive/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texlive
-/texmf-dist/fonts/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf
--dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist
-/fonts/opentype/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fo
-nts/opentype/public/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts
-/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/o
-pentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9
-.pfb>
-Output written on main.pdf (38 pages, 6715349 bytes).
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/
+share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman8-italic.otf></usr/shar
+e/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/t
+exlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texl
+ive/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/texlive/
+texmf-dist/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texliv
+e/texmf-dist/fonts/opentype/public/lm/lmroman9-italic.otf></usr/share/texlive/te
+xmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf
+-dist/fonts/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf-dist/
+fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist/fonts
+/opentype/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fonts/op
+entype/public/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts/opent
+ype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentyp
+e/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on main.pdf (42 pages, 6740632 bytes).
 
-PDF statistics: 584 PDF objects out of 1000 (max. 8388607)
- 449 compressed objects within 5 object streams
- 130 named destinations out of 1000 (max. 131072)
+PDF statistics: 624 PDF objects out of 1000 (max. 8388607)
+ 481 compressed objects within 5 object streams
+ 138 named destinations out of 1000 (max. 131072)
  144 words of extra memory for PDF output out of 10000 (max. 100000000)
 
