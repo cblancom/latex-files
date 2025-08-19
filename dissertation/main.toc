@@ -4,4 +4,4 @@
 \beamer@subsectionintoc {1}{2}{Proposed solution}{24}{0}{1}
 \beamer@sectionintoc {2}{Experimental setup}{26}{0}{2}
 \beamer@sectionintoc {3}{Results}{29}{0}{3}
-\beamer@sectionintoc {4}{Bibliography}{39}{0}{4}
+\beamer@sectionintoc {4}{Bibliography}{47}{0}{4}

@@ -57,6 +57,8 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{caption}
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=figures/generated/]
 \newlength\figureheight
 \newlength\figurewidth
 % \addtobeamertemplate{navigation symbols}{}{%
@@ -814,9 +816,101 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 % \end{itemize}
 % \end{frame}
 
-%
-%
-%
+
+\begin{frame}{Stochastic Analysis: Methodology}
+    \begin{itemize}
+        \item Kernel Density Estimate (KDE) fitted to training inputs.
+        \item Synthetic samples generated and propagated through CensNet.
+        \item Log-likelihoods compared for $y_{\text{sample}}$ and $\bar{y}_{\text{train}}$.
+        \item Kolmogorov–Smirnov (K–S) test used for distributional similarity.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Model Robustness under Uncertainty}
+    \begin{itemize}
+        \item Log-likelihoods: $y_{\text{sample}} = -6.696 \times 10^6$, 
+              $\bar{y}_{\text{train}} = -6.657 \times 10^6$.
+        \item K–S test: $p > 0.44$ across all alternatives.
+        \item $\Rightarrow$ Synthetic outputs statistically consistent with training outputs.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Negative Flows in Pipeline $p_3$}
+    \begin{itemize}
+        \item Flow in $p_3$ consistently negative across scenarios and KDE samples.
+        \item Caused by orientation assumption $\rightarrow$ optimizer adjusts direction.
+        \item Operability unaffected, but $p_3$ supports cost minimization.
+    \end{itemize}
+    \begin{figure}
+        \includegraphics[width=0.65\textwidth]{figures/outputs_outputs_2.png}
+        \caption*{Joint PDFs showing negative $p_3$ flows.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Pressure Concentration in Mid-Range}
+    \begin{itemize}
+        \item Nodal pressures cluster at 30--40\% of normalized limits.
+        \item Avoids extremes, ensuring reliable operation.
+        \item Implies optimizer favors efficiency + stability.
+    \end{itemize}
+    \begin{figure}
+        \includegraphics[width=0.6\textwidth]{figures/outputs_outputs_3.png}
+        \caption*{Pressures concentrate in mid-range (30--40\%).}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Stable Utilization of Pipeline $p_4$}
+    \begin{itemize}
+        \item Despite wide dispersion in inputs, $p_4$ flow remains 20--40\%.
+        \item Reflects robustness: optimizer stabilizes this delivery path.
+        \item Behavior consistently learned and reproduced in KDE samples.
+    \end{itemize}
+    \begin{figure}
+        \includegraphics[width=0.7\textwidth]{figures/inputs_outputs_1.png}
+        \caption*{Optimization model: input variability vs. stable $p_4$ flow.}
+    \end{figure}
+    % \begin{figure}
+    %     \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1_KDE.png}
+    %     \caption*{KDE samples confirm concentration of $p_4$ flow at 20--40\%.}
+    % \end{figure}
+\end{frame}
+
+\begin{frame}{Linear Input--Output Relations}
+    \begin{itemize}
+        \item Positive correlation: demand bounds ($N_6$, $N_7$) vs. $p_4$--$p_7$ flows.
+        \item Negative correlation: $N_7$ demand bound vs. $p_3$ flow.
+        \item Shows network internalized optimizer’s allocation strategies.
+    \end{itemize}
+    \begin{figure}
+        \includegraphics[width=0.7\textwidth]{figures/inputs_outputs_2.png}
+        \caption*{Optimization model: linear input–output patterns.}
+    \end{figure}
+    % \begin{figure}
+    %     \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_2_KDE.png}
+    %     \caption*{KDE samples replicate both positive and negative correlations.}
+    % \end{figure}
+\end{frame}
+
+
+\begin{frame}{Key Conclusions}
+    \begin{itemize}
+        \item \textbf{GNN-based prediction:} CensNet achieved accurate and scalable predictions for natural gas networks, with significant reductions in computation time compared to traditional optimization.
+        \item \textbf{Optimization with MPCC:} Proposed formulation rigorously approximated Weymouth constraints, improving accuracy of pressure–flow representation and showing robustness in real-world scheduling tasks.
+        \item \textbf{Stochastic modeling:} Physics-guided neural networks preserved structural dependencies and generalized reliably under uncertainty, validated through KDE sampling and K–S testing.
+        \item \textbf{Overall:} Integrating physical constraints with GNNs yields efficient, accurate, and robust surrogates for optimization in natural gas systems.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Future Work}
+    \begin{itemize}
+        \item Extend stochastic framework toward \textbf{full stochastic optimization} for gas–power coordination.
+        \item Explore \textbf{physics-informed neural operators} to improve learning of nonlinear constraints (e.g., Weymouth).
+        \item Incorporate \textbf{real operational data} from SCADA systems to validate scalability in live environments.
+        \item Investigate \textbf{transfer learning across networks}, enabling models trained on one topology to adapt to others with minimal retraining.
+        \item Apply developed methods to \textbf{decision-support tools} for dispatchers in interconnected energy systems.
+    \end{itemize}
+\end{frame}
 
 \section{Bibliography}
 \begin{frame}[allowframebreaks]
