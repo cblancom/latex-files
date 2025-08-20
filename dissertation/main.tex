@@ -95,54 +95,66 @@ Grupo de investigación Automática}
 
 
 \begin{frame}{Energy Context \& Relevance of Natural Gas}
+\footnotesize
 \justifying
-Natural gas plays a crucial role in the global energy mix, offering a cleaner alternative to other fossil fuels by producing lower CO\textsubscript{2} emissions. It supports both industrial processes and electricity generation, acting as a reliable energy source in diverse contexts. 
-\\ \\
-In Colombia, natural gas is widely used across the residential, commercial, industrial, and thermal power sectors. Its importance becomes evident during dry seasons, when hydroelectric generation is reduced and thermal plants, fueled by natural gas, step in to maintain electricity supply.
-\end{frame}
-
-\begin{frame}{Operational Challenge in the Colombian Energy System}
-\justifying
-Colombia’s electricity supply relies heavily on hydroelectric plants, which are highly dependent on rainfall patterns. During dry seasons, reduced water availability forces the system to increase the participation of thermal plants powered by natural gas. 
-
-This seasonal shift places significant operational stress on the gas transport network. 
-% \begin{itemize}
-%     \item More frequent re-optimizations of gas flows.
-%     \item Rapid and accurate decision-making to ensure supply security.
-% \end{itemize}
-
+% Natural gas plays a crucial role in the global energy mix, offering a cleaner alternative to other fossil fuels by producing lower CO\textsubscript{2} emissions. It supports both industrial processes and electricity generation, acting as a reliable energy source in diverse contexts. 
+In Colombia, natural gas is widely used across the residential, commercial, industrial, and thermal power sectors. Its importance becomes evident during dry seasons, when hydroelectric generation is reduced and thermal plants, fueled by natural gas, step in to maintain electricity supply  \cite{Promigas_2021}.
+\\
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.65\textwidth]{figures/hydro_vs_thermal.png}
-    \caption{Variation in electricity generation mix between wet and dry seasons in Colombia.}
+    \footnotesize
+    \includegraphics[width=0.6\textwidth]{figures/hydro_vs_thermal.png}
+    \caption{\footnotesize Variation in electricity generation mix between wet and dry seasons in Colombia.}
 \end{figure}
 \end{frame}
 
+% \begin{frame}{Operational Challenge in the Colombian Energy System}
+% \justifying
+% Colombia’s electricity supply relies heavily on hydroelectric plants, which are highly dependent on rainfall patterns. During dry seasons, reduced water availability forces the system to increase the participation of thermal plants powered by natural gas. 
+%
+% This seasonal shift places significant operational stress on the gas transport network. 
+% % \begin{itemize}
+% %     \item More frequent re-optimizations of gas flows.
+% %     \item Rapid and accurate decision-making to ensure supply security.
+% % \end{itemize}
+%
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.65\textwidth]{figures/hydro_vs_thermal.png}
+%     \caption{Variation in electricity generation mix between wet and dry seasons in Colombia.}
+% \end{figure}
+% \end{frame}
+%
+%
 
-% These three lines create an automatically generated table of contents.
+
 \begin{frame}{Motivation \& Problem Statement}
+\footnotesize
 \justifying
 \begin{itemize}
     \item \textbf{Large-scale natural gas networks} require solving complex optimization problems.
-    \item Classical approaches are accurate but often \textbf{computationally expensive}.
     \item Increasing network size and operational constraints lead to:
     \begin{itemize}
         \item Long execution times
         \item Difficulty in real-time or near real-time decision making
     \end{itemize}
-    \item Need for approaches that \textbf{preserve accuracy while reducing computation time}.
+    \item Classical approaches are accurate but often \textbf{computationally expensive}.
 \end{itemize}
+
+\vspace{0.5cm}
+\textbf{Main Problem:} There is a need for methods that preserve accuracy while significantly reducing computation time.
+
+\vspace{0.5cm}
+\textbf{Research Question:} How can an optimization tool be developed that seeks to improve the solution to the problem of natural gas transportation, taking into account computational cost, growing energy demand, and the uncertainty associated with this factor?
 \end{frame}
 
 
 \begin{frame}{Objectives}
+\footnotesize
 \textbf{General Objective:}
 \begin{itemize}
     \item Develop an optimization tool that integrates knowledge of the gas transportation network topology, a suitable approximation of the Weymouth equation and stochastic optimization techniques to address the gas transportation task taking into account the uncertainties related to hydroelectric generation and the growth of alternative energy sources.
 \end{itemize}
-\end{frame}
-
-\begin{frame}{Objectives}
 \textbf{Specific Objectives:}
 \begin{itemize}
     \item Design a Graph Neural Networks-based approach of regression that integrates knowledge of natural gas network topology to reduce computational time for operation estimation.    
@@ -151,7 +163,16 @@ This seasonal shift places significant operational stress on the gas transport n
 \end{itemize}
 \end{frame}
 
-
+% \begin{frame}{Objectives}
+% \textbf{Specific Objectives:}
+% \begin{itemize}
+%     \item Design a Graph Neural Networks-based approach of regression that integrates knowledge of natural gas network topology to reduce computational time for operation estimation.    
+%     \item Develop an optimization model for natural gas transportation systems that takes into account the Weymouth equation for reducing that reduces the approximation error in pipeline gas flow calculations.
+%     \item Develop a stochastic gas flow dispatch optimization strategy that quantifies the uncertainty in the objective variables and decision variables associated with the operation of the gas system taking into account the constraints of the transportation problem.
+% \end{itemize}
+% \end{frame}
+%
+%
 
 %===========================================
 % Chapter 2 — GNN Surrogate (CensNet) Overview
@@ -161,13 +182,22 @@ This seasonal shift places significant operational stress on the gas transport n
 %-------------------------------------------
 % Slide 1: Motivation & Concept
 %-------------------------------------------
-\begin{frame}{Natural Gas System Prediction Using Graph Neural Networks}
-    \begin{itemize}
-        \item Traditional optimizers are \textbf{accurate but slow} for large-scale or real-time scenarios.
-        \item Gas networks are inherently \textbf{graphs}: nodes = wells, users, storage; edges = pipelines, compressors.
-        \item GNNs exploit \textbf{topology-aware learning} for faster prediction.
-        \item \textbf{Goal:} Achieve near-optimizer accuracy with runtime reduction.
-    \end{itemize} 
+
+\begin{frame}{Natural Gas System as a Graph}
+    \footnotesize
+    \justifying
+    A natural gas network can be represented as a directed graph, 
+    where nodes correspond to elements such as wells, users, or storage facilities, 
+    and edges represent pipelines and compressors.
+    \begin{figure}
+    \begin{center}
+        \includegraphics[width=0.7\linewidth]{figures/8_node_system.png}
+        \caption{\footnotesize Example of an 8-node gas network represented.}
+    \end{center}
+    \end{figure}
+
+    \vspace{0.3cm}
+    \textbf{Objective:} Achieve near-optimizer accuracy with significant runtime reduction.
 \end{frame}
 
 %-------------------------------------------

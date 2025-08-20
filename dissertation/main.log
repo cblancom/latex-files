@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  18 AUG 2025 21:19
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.6.24)  19 AUG 2025 22:28
  system commands enabled.
 **main.tex
 (./main.tex
@@ -1481,19 +1481,18 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 102
-.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 102
-.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 102--102
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
 
+ []
+
+<figures/hydro_vs_thermal.png, id=52, 1541.76pt x 1027.84pt>
+File: figures/hydro_vs_thermal.png Graphic file (type png)
+<use figures/hydro_vs_thermal.png>
+Package luatex.def Info: figures/hydro_vs_thermal.png  used on input line 109.
+(luatex.def)             Requested size: 205.3793pt x 136.91743pt.
+
+Overfull \vbox (7.67188pt too high) detected at line 109
  []
 
 
@@ -1504,30 +1503,26 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [2
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<figures/hydro_vs_thermal.png, id=64, 1541.76pt x 1027.84pt>
-File: figures/hydro_vs_thermal.png Graphic file (type png)
-<use figures/hydro_vs_thermal.png>
-Package luatex.def Info: figures/hydro_vs_thermal.png  used on input line 119.
-(luatex.def)             Requested size: 222.48988pt x 148.31938pt.
-
-Overfull \vbox (49.09816pt too high) detected at line 119
- []
-
-
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [3
 
-]
+<./figures/hydro_vs_thermal.png>]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [4
 
-<./figures/hydro_vs_thermal.png>]
+]
+<figures/8_node_system.png, id=87, 376.88805pt x 153.2124pt>
+File: figures/8_node_system.png Graphic file (type png)
+<use figures/8_node_system.png>
+Package luatex.def Info: figures/8_node_system.png  used on input line 201.
+(luatex.def)             Requested size: 239.6057pt x 97.40567pt.
+
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
@@ -1535,20 +1530,31 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [5
 
 ]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 230
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 230
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [6
 
-]
+<./figures/8_node_system.png>]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [7
 
-]
+] (./figures/model_description.tex)
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
@@ -1562,7 +1568,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 
 [9
 
-] (./figures/model_description.tex)
+]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
@@ -1612,28 +1618,14 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [16
 
 ]
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[17
-
-]
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[18
-
-]
-<figures/network_math_alternative.pdf, id=205, 393.84743pt x 395.03987pt>
+<figures/network_math_alternative.pdf, id=195, 393.84743pt x 395.03987pt>
 File: figures/network_math_alternative.pdf Graphic file (type pdf)
 <use figures/network_math_alternative.pdf>
 Package luatex.def Info: figures/network_math_alternative.pdf  used on input li
-ne 437.
+ne 467.
 (luatex.def)             Requested size: 188.26347pt x 188.83336pt.
 
-Overfull \hbox (17.1158pt too wide) in paragraph at lines 437--437
+Overfull \hbox (17.1158pt too wide) in paragraph at lines 467--467
  [] 
  []
 
@@ -1642,17 +1634,17 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[19
+[17
 
 ]
-<figures/power_dummy_constraint.png, id=215, 91.42155pt x 59.91183pt>
+<figures/power_dummy_constraint.png, id=205, 91.42155pt x 59.91183pt>
 File: figures/power_dummy_constraint.png Graphic file (type png)
 <use figures/power_dummy_constraint.png>
 Package luatex.def Info: figures/power_dummy_constraint.png  used on input line
- 467.
+ 497.
 (luatex.def)             Requested size: 115.01335pt x 75.37775pt.
 
-Overfull \hbox (32.8606pt too wide) in paragraph at lines 467--467
+Overfull \hbox (32.8606pt too wide) in paragraph at lines 497--497
 []  
  []
 
@@ -1661,23 +1653,23 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[20
+[18
 
 <./figures/network_math_alternative.pdf>]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[21
+[19
 
 <./figures/power_dummy_constraint.png>]
-<figures/gas_dummy.png, id=271, 875.55106pt x 471.27267pt>
+<figures/gas_dummy.png, id=261, 875.55106pt x 471.27267pt>
 File: figures/gas_dummy.png Graphic file (type png)
 <use figures/gas_dummy.png>
-Package luatex.def Info: figures/gas_dummy.png  used on input line 507.
+Package luatex.def Info: figures/gas_dummy.png  used on input line 537.
 (luatex.def)             Requested size: 123.22913pt x 66.32289pt.
 
-Overfull \hbox (41.07637pt too wide) in paragraph at lines 507--507
+Overfull \hbox (41.07637pt too wide) in paragraph at lines 537--537
 [][]  
  []
 
@@ -1695,7 +1687,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[22
+[20
 
 ]
 warning  (pdf backend): ignoring duplicate destination with the name 'eq:gas_bal
@@ -1705,10 +1697,10 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[23
+[21
 
 <./figures/gas_dummy.png>]
-Overfull \vbox (0.18718pt too high) detected at line 550
+Overfull \vbox (0.18718pt too high) detected at line 580
  []
 
 
@@ -1716,13 +1708,27 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[24
+[22
 
 ]
-Overfull \vbox (15.86568pt too high) detected at line 569
+Overfull \vbox (15.86568pt too high) detected at line 599
  []
 
 
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[23
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[24
+
+]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
@@ -1736,30 +1742,16 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 
 [26
 
-]
+] (./figures/all_test_cost.tex)
+Overfull \vbox (6.61908pt too high) detected at line 659
+ []
+
+
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [27
-
-]
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[28
-
-] (./figures/all_test_cost.tex)
-Overfull \vbox (6.61908pt too high) detected at line 629
- []
-
-
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[29
 
 ] (./figures/blue_test_boxplot.tex
 NOTE: coordinate (4.6,0) has been dropped because it is unbounded (in y). (see 
@@ -1796,7 +1788,7 @@ Package pgfplots Warning: the current plot has no coordinates (or all have been
 
  [warning /pgfplots/warning/plot without coordinates]
 )
-Overfull \vbox (16.54524pt too high) detected at line 643
+Overfull \vbox (16.54524pt too high) detected at line 673
  []
 
 
@@ -1804,14 +1796,14 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[30
+[28
 
 ] (./figures/green_test_hist.tex)
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[31
+[29
 
 ] (./figures/green_test_error_Taylor.tex
 NOTE: coordinate (2,0) has been dropped because it is unbounded (in y). (see al
@@ -2398,7 +2390,7 @@ Package pgfplots Warning: the current plot has no coordinates (or all have been
 
  [warning /pgfplots/warning/plot without coordinates]
 )
-Overfull \vbox (3.86119pt too high) detected at line 670
+Overfull \vbox (3.86119pt too high) detected at line 700
  []
 
 
@@ -2406,7 +2398,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[32
+[30
 
 ] (./figures/red_test_costs.tex
 
@@ -2560,7 +2552,7 @@ Package pgfplots Warning: the current plot has no coordinates (or all have been
 
  [warning /pgfplots/warning/plot without coordinates]
 )
-Overfull \vbox (12.79353pt too high) detected at line 683
+Overfull \vbox (12.79353pt too high) detected at line 713
  []
 
 
@@ -2568,7 +2560,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[33
+[31
 
 ] (./figures/pruebatikz.tex) (./figures/redtest_scatter_flow1.tex
 NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
@@ -2845,9 +2837,36 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
-[34
+[32
 
 ]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[33
+
+]
+
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <9> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 789.
+
+
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 789.
+
+
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 789.
+
+
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[34
+
+] (./figures/model_description_PINN.tex)
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
@@ -2855,34 +2874,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [35
 
 ]
-
-LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <9> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 759.
-
-
-LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 759.
-
-
-LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 759.
-
-
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[36
-
-] (./figures/model_description_PINN.tex)
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[37
-
-]
-Overfull \hbox (9.04518pt too wide) in paragraph at lines 805--805
+Overfull \hbox (9.04518pt too wide) in paragraph at lines 835--835
  [] 
  []
 
@@ -2891,9 +2883,34 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
+[36
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
+[37
+
+]
+Overfull \hbox (235.37543pt too wide) has occurred while \output is active
+ [][]  \TU/lmr/m/n/6 ([])  
+ []
+
 [38
 
 ]
+<figures/outputs_outputs_2.png, id=444, 1076.823pt x 1076.1003pt>
+File: figures/outputs_outputs_2.png Graphic file (type png)
+<use figures/outputs_outputs_2.png>
+Package luatex.def Info: figures/outputs_outputs_2.png  used on input line 878.
+
+(luatex.def)             Requested size: 222.48988pt x 222.32608pt.
+
+Overfull \vbox (85.0253pt too high) detected at line 878
+ []
+
+
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
@@ -2901,21 +2918,31 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 [39
 
 ]
+<figures/outputs_outputs_3.png, id=452, 1076.1003pt x 1076.1003pt>
+File: figures/outputs_outputs_3.png Graphic file (type png)
+<use figures/outputs_outputs_3.png>
+Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 890.
+
+(luatex.def)             Requested size: 205.3793pt x 205.36427pt.
+
+Overfull \vbox (54.46349pt too high) detected at line 890
+ []
+
+
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [40
 
-]
-<figures/outputs_outputs_2.png, id=454, 1076.823pt x 1076.1003pt>
-File: figures/outputs_outputs_2.png Graphic file (type png)
-<use figures/outputs_outputs_2.png>
-Package luatex.def Info: figures/outputs_outputs_2.png  used on input line 848.
+<./figures/outputs_outputs_2.png>]
+<figures/inputs_outputs_1.png, id=462, 1307.94246pt x 849.1725pt>
+File: figures/inputs_outputs_1.png Graphic file (type png)
+<use figures/inputs_outputs_1.png>
+Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 907.
+(luatex.def)             Requested size: 239.6057pt x 155.55252pt.
 
-(luatex.def)             Requested size: 222.48988pt x 222.32608pt.
-
-Overfull \vbox (85.0253pt too high) detected at line 848
+Overfull \vbox (4.65173pt too high) detected at line 907
  []
 
 
@@ -2925,15 +2952,14 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 
 [41
 
-]
-<figures/outputs_outputs_3.png, id=462, 1076.1003pt x 1076.1003pt>
-File: figures/outputs_outputs_3.png Graphic file (type png)
-<use figures/outputs_outputs_3.png>
-Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 860.
+<./figures/outputs_outputs_3.png>]
+<figures/inputs_outputs_2.png, id=471, 1293.633pt x 1065.9825pt>
+File: figures/inputs_outputs_2.png Graphic file (type png)
+<use figures/inputs_outputs_2.png>
+Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 923.
+(luatex.def)             Requested size: 239.6057pt x 197.4314pt.
 
-(luatex.def)             Requested size: 205.3793pt x 205.36427pt.
-
-Overfull \vbox (54.46349pt too high) detected at line 860
+Overfull \vbox (46.54156pt too high) detected at line 923
  []
 
 
@@ -2943,60 +2969,41 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 
 [42
 
-<./figures/outputs_outputs_2.png>]
-<figures/inputs_outputs_1.png, id=473, 1307.94246pt x 849.1725pt>
-File: figures/inputs_outputs_1.png Graphic file (type png)
-<use figures/inputs_outputs_1.png>
-Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 877.
-(luatex.def)             Requested size: 239.6057pt x 155.55252pt.
-
-Overfull \vbox (4.65173pt too high) detected at line 877
- []
-
-
+<./figures/inputs_outputs_1.png>]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [43
 
-<./figures/outputs_outputs_3.png>]
-<figures/inputs_outputs_2.png, id=482, 1293.633pt x 1065.9825pt>
-File: figures/inputs_outputs_2.png Graphic file (type png)
-<use figures/inputs_outputs_2.png>
-Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 893.
-(luatex.def)             Requested size: 239.6057pt x 197.4314pt.
-
-Overfull \vbox (46.54156pt too high) detected at line 893
- []
-
-
+<./figures/inputs_outputs_2.png>]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [44
 
-<./figures/inputs_outputs_1.png>]
+] (./main.bbl)
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [45
 
-<./figures/inputs_outputs_2.png>]
+]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [46
 
-] (./main.bbl)
+</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  [][]  \TU/lmr/m/n/6 ([])  
  []
 
 [47
+
 
 ]
 Overfull \hbox (235.37543pt too wide) has occurred while \output is active
@@ -3004,21 +3011,6 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
  []
 
 [48
-
-</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[49
-
-
-]
-Overfull \hbox (235.37543pt too wide) has occurred while \output is active
- [][]  \TU/lmr/m/n/6 ([])  
- []
-
-[50
 
 
 ]
@@ -3031,7 +3023,7 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 \tf@snm=\write8
 
 \openout8 = main.snm
- [51
+ [49
 
 
 ] (./main.aux)
@@ -3039,19 +3031,19 @@ Overfull \hbox (235.37543pt too wide) has occurred while \output is active
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 677F70671C9BF3ECDC96ECEA7818E162;958.
+(rerunfilecheck)             Checksum: EAA49D496067883AA5CE40974578FFA3;958.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44273 strings out of 478285
- 745155,2848258 words of node,token memory allocated
- 8683 words of node memory still in use:
+ 44280 strings out of 478285
+ 745169,2848258 words of node,token memory allocated
+ 8691 words of node memory still in use:
    56 hlist, 9 vlist, 8 rule, 56 disc, 11 local_par, 186 glue, 46 kern, 31 penal
 ty, 590 glyph, 268 attribute, 77 glue_spec, 136 attribute_list, 5 write, 3 pdf_d
-est, 72 pdf_colorstack nodes
-   avail lists: 1:2,2:113269,3:83628,4:16890,5:472,6:76,7:21485,8:41,9:1547,10:1
-7,11:375
- 62365 multiletter control sequences out of 65536+600000
+est, 74 pdf_colorstack nodes
+   avail lists: 1:3,2:113269,3:83628,4:16888,5:471,6:78,7:21485,8:41,9:1547,10:1
+7,11:448
+ 62369 multiletter control sequences out of 65536+600000
  104 fonts using 8475175 bytes
  128i,20n,115p,718b,2530s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></u
@@ -3061,10 +3053,10 @@ exlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texl
 ive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texlive
 /texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/texlive/tex
 mf-dist/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texlive/t
-exmf-dist/fonts/opentype/public/lm/lmroman9-italic.otf></usr/share/texlive/texmf
--dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf-di
-st/fonts/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf-dist/fon
-ts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist/fonts/op
+exmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-
+dist/fonts/opentype/public/lm/lmroman9-italic.otf></usr/share/texlive/texmf-dist
+/fonts/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf-dist/fonts
+/opentype/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf-dist/fonts/op
 entype/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fonts/opent
 ype/public/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype
 /public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/p
@@ -3083,10 +3075,10 @@ ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on main.pdf (50 pages, 8623095 bytes).
+Output written on main.pdf (48 pages, 8853221 bytes).
 
-PDF statistics: 696 PDF objects out of 1000 (max. 8388607)
- 533 compressed objects within 6 object streams
- 154 named destinations out of 1000 (max. 131072)
+PDF statistics: 686 PDF objects out of 1000 (max. 8388607)
+ 523 compressed objects within 6 object streams
+ 151 named destinations out of 1000 (max. 131072)
  144 words of extra memory for PDF output out of 10000 (max. 100000000)
 
