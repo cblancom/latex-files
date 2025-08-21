@@ -215,8 +215,8 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
     \item Alternates between \textbf{node layers} and \textbf{edge layers}.
     \item Each layer type updates its own features while using information from the other:
     \begin{itemize}
-        \item \textbf{Node layer:} Node embeddings are updated using both node adjacency and transformed edge features.
-        \item \textbf{Edge layer:} Edge embeddings are updated using edge adjacency and transformed node features.
+        \item \footnotesize \textbf{Node layer:} Node embeddings are updated using both node adjacency and transformed edge features.
+        \item \footnotesize \textbf{Edge layer:} Edge embeddings are updated using edge adjacency and transformed node features.
     \end{itemize}
     \item Uses an \textit{incidence matrix} \( \mathbf{T} \) to switch between node and edge domains.
 \end{itemize}
@@ -228,6 +228,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
     \item Enhances long-range dependencies through alternating propagation.
 \end{itemize}
 \end{frame}
+
 
 \begin{frame}{Mathematical Structure of CensNet Layers}
 \footnotesize
@@ -269,10 +270,10 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 
 \textbf{Inputs:} Encapsulate both physical attributes and topological information of the gas network:
         \begin{itemize}
-            \item Node features ($\mathbf{X}$): pressures, injections, withdrawals, demand forecasts.
-            \item Node Laplacian ($\mathbf{L}_v$) and Edge Laplacian ($\mathbf{L}_e$): encode structural connectivity and enable topology-aware learning.
-            \item Edge features ($\mathbf{E}$): capacities, compressor ratios.
-            \item Incidence matrix ($\mathbf{T}$): explicit mapping between nodes and edges.
+            \item \footnotesize Node features ($\mathbf{X}$): pressures, injections, withdrawals, demand forecasts.
+            \item \footnotesize Node Laplacian ($\mathbf{L}_v$) and Edge Laplacian ($\mathbf{L}_e$): encode structural connectivity and enable topology-aware learning.
+            \item \footnotesize Edge features ($\mathbf{E}$): capacities, compressor ratios.
+            \item \footnotesize Incidence matrix ($\mathbf{T}$): explicit mapping between nodes and edges.
         \end{itemize} 
 \end{frame}
 
@@ -282,33 +283,26 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
     \begin{itemize} 
         \item \textbf{Processing:}
         \begin{itemize}
-            \item Normalization and pre-dense layers transform inputs into a common latent space.
-            \item \emph{CensNet convolutional blocks} perform message passing on both node and edge domains, enabling simultaneous learning of flow patterns and interactions.
-            \item Post-dense layers refine features for prediction.
+            \item \footnotesize Normalization and pre-dense layers transform inputs into a latent space.
+            \item \footnotesize CensNet blocks perform message passing on both node and edge domains, enabling simultaneous learning of flow patterns and interactions.
+            \item \footnotesize Post-dense layers refine features for prediction.
         \end{itemize}
         
         \item \textbf{Outputs:}
         \begin{itemize}
-            \item Node-level injected flows ($\hat{\mathbf{X}}_v$) — predicted gas supply/demand at each node.
-            \item Edge-level transported flows ($\hat{\mathbf{X}}_e$) — predicted flow rates in each pipeline.
-        \end{itemize}
-        
+            \item \footnotesize Node-level flows ($\hat{\mathbf{X}}_v$) — predicted gas supply/demand at each node.
+            \item \footnotesize Edge-level transported flows ($\hat{\mathbf{X}}_e$) — predicted flow rates in each pipeline.
+        \end{itemize}        
    \end{itemize}
-\end{frame}
 
-
-\begin{frame}{CensNet-based Model Architecture}   
-\footnotesize
     \begin{itemize} 
-       \item \textbf{Training:} Node and edge predictions are penalized separately using task-specific loss terms, ensuring both accuracy and physical consistency. 
-        For regression tasks, the model minimizes a regularized MSE loss:
+       \item \footnotesize \textbf{Training:} Node and edge predictions are penalized separately using task-specific loss terms, ensuring both accuracy and physical consistency.  
         \[
             \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 + \lambda \|\Theta\|_p
         \]
         where $Y_r$ and $\hat{Y}_r$ are target and predicted values for task $r$, and $\lambda\|\Theta\|_p$ is a regularization term to prevent overfitting.
     \end{itemize}
 \end{frame}
-
 
 
 \begin{frame}{Optimization Problem: Objective and Constraints}
@@ -344,6 +338,7 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
 
 
 \begin{frame}{Dataset}
+\justifying
 \footnotesize
 Two different gas network configurations were used to evaluate the proposed CensNet-based model. 
 The first is a small synthetic case for controlled experimentation, while the second corresponds 
@@ -351,6 +346,7 @@ to the real Colombian natural gas transportation system.
 
 \begin{table}[H]
     \centering
+    \scriptsize
     \begin{tabular}{lcccc}
         \toprule
         \textbf{Case} & \textbf{Nodes} & \textbf{Pipelines} & \textbf{Compressors} & \textbf{Users} \\
@@ -359,70 +355,68 @@ to the real Colombian natural gas transportation system.
         Colombian Network & 63 & 48 & 14 & 27 \\
         \bottomrule
     \end{tabular}
-    \caption{Characteristics of the datasets used.}
+    \caption{\footnotesize Datasets used in the study.}
 \end{table}
 \end{frame}
-%
+
+
 
 
 \begin{frame}{Experimental Setup}
-\footnotesize
+\footnotesize 
 Different network operation scenarios were generated by adding 5\%--25\% noise to user demand values 
 and solving each scenario with the linear constrained optimization model using APOPT (via GEKKO). 
 The outputs served as ground truth for CensNet model training.
 
 \begin{itemize}
+    \footnotesize 
     \item \textbf{Data split:} 60\% training, 20\% validation, 20\% testing.
     \item \textbf{Samples:} 2000 (8-node network), 2400 (63-node network).
     \item \textbf{Training:} 1500 epochs, Adam optimizer, Leaky ReLU activation ($\alpha = 0.2$).
     \item \textbf{Learning rate:} Initial $1\times 10^{-2}$, exponential decay (rate 0.9, steps 1000).
     \item \textbf{Hyperparameters:} 
         \begin{itemize}
+            \footnotesize 
             \item $N_{\text{channels}}$: 16–64
             \item $N_{\text{layers}}$: 1–5 (CensNet convolutional)
             \item $N_{\text{dense}}$: 2–32 (post-dense layers)
         \end{itemize}
     \item \textbf{Losses tested:} 
         \begin{itemize}
+            \footnotesize 
             \item Nodal loss only
             \item Nodal + Edge loss
         \end{itemize}
 \end{itemize}
 \end{frame}
-%
-%
+
+
 
 \begin{frame}{Main Results: Prediction Accuracy}
-\footnotesize
+\footnotesize 
 \textbf{Networks:} 8-node (synthetic) and 63-node (Colombian gas system)  
 \\
 \textbf{Models:} CensNet (N) – nodal loss only, CensNet (N+E) – nodal + edge loss
 
 \begin{itemize}
+    \footnotesize 
     \item \textbf{Nodal flow predictions:} High $R^2$ in both settings
         \begin{itemize}
+            \footnotesize 
             \item 8-node: $R^2$ = 0.988 (N), 0.988 (N+E)
             \item 63-node: $R^2$ = 0.996 (N), 0.996 (N+E)
         \end{itemize}
     \item \textbf{Edge flow predictions:} 
         \begin{itemize}
+            \footnotesize 
             \item (N) performs poorly on edges: $R^2$ low
-            \item (N+E) improves dramatically: $R^2$ up to 0.999 (8-node) and 0.996 (63-node)
+            \item (N+E) improves: $R^2$ up to 0.999 (8-node) and 0.996 (63-node)
         \end{itemize}
-    \item \textbf{Key takeaway:} Including edge loss is essential for accurate pipeline/compressor flow prediction.
 \end{itemize}
 
-% \centering
-% \includegraphics[width=0.45\textwidth]{figures/Chapter_LinealCensnet/ye_dummy_base_f.pdf}
-% \includegraphics[width=0.45\textwidth]{figures/Chapter_LinealCensnet/ye_col_base_f.pdf}
-\end{frame}
-
-
-
-\begin{frame}{Main Results: Gas Balance \& Speed}
-\footnotesize
 \textbf{Gas balance consistency (APOPT – CensNet differences):}
 \begin{itemize}
+    \footnotesize 
     \item \textbf{8-node:} Edge error reduced from 62.92 (N) $\rightarrow$ 39.24 (N+E)
     \item \textbf{63-node:} Edge error reduced from 62.47 (N) $\rightarrow$ -0.07 (N+E)
     \item Nodal differences $< 0.1$ units in all cases
@@ -431,29 +425,45 @@ The outputs served as ground truth for CensNet model training.
 \textbf{Prediction speed:}  
 T-tests confirm \textbf{CensNet is significantly faster} than APOPT
 \begin{itemize}
+    \footnotesize 
     \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
 \end{itemize}
 
-\textbf{Summary:}  
-\begin{itemize}
-    \item Comparable accuracy to optimization model
-    \item Better edge prediction with (N+E)
-    \item Substantial speed advantage
-\end{itemize}
 \end{frame}
+
+
+% \begin{frame}{Main Results: Gas Balance \& Speed}
+% \footnotesize
+% \textbf{Gas balance consistency (APOPT – CensNet differences):}
+% \begin{itemize}
+%     \item \textbf{8-node:} Edge error reduced from 62.92 (N) $\rightarrow$ 39.24 (N+E)
+%     \item \textbf{63-node:} Edge error reduced from 62.47 (N) $\rightarrow$ -0.07 (N+E)
+%     \item Nodal differences $< 0.1$ units in all cases
+% \end{itemize}
+%
+% \textbf{Prediction speed:}  
+% T-tests confirm \textbf{CensNet is significantly faster} than APOPT
+% \begin{itemize}
+%     \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
+%     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
+% \end{itemize}
+%
+% \textbf{Summary:}  
+% \begin{itemize}
+%     \item Comparable accuracy to optimization model
+%     \item Better edge prediction with (N+E)
+%     \item Substantial speed advantage
+% \end{itemize}
+% \end{frame}
 
 
 \begin{frame}{Interconnected system - Definition}
-A power-gas interconnected system is a hybrid infrastructure that integrates natural gas and power networks, enhancing overall system efficiency~\cite{Duan_Liu_Yang_2022}. Its key components include power generators, transmission lines, consumption buses, gas wells, pipelines, compressor stations, gas storage units, and consumption nodes. 
-\end{frame}
-
-
-\begin{frame}{Objective function}
+A power-gas interconnected system is a hybrid infrastructure that integrates natural gas and power networks, enhancing overall system efficiency~\cite{Duan_Liu_Yang_2022}. 
 \begin{columns}
 \begin{column}{0.5\textwidth}
    \begin{center}
-     \includegraphics[width=1.1\textwidth]{figures/network_math_alternative.pdf}
+     \includegraphics[width=1\textwidth]{figures/network_math_alternative.pdf}
      \end{center}
 \end{column}
 \begin{column}{0.5\textwidth}  %%<--- here
@@ -467,6 +477,24 @@ A power-gas interconnected system is a hybrid infrastructure that integrates nat
 \end{frame}
 
 
+% \begin{frame}{Objective function}
+% \begin{columns}
+% \begin{column}{0.5\textwidth}
+%    \begin{center}
+%      \includegraphics[width=1.1\textwidth]{figures/network_math_alternative.pdf}
+%      \end{center}
+% \end{column}
+% \begin{column}{0.5\textwidth}  %%<--- here
+% \begin{equation} \label{eq:obj_func_integrated}
+% \begin{split}
+% \min_{\mathcal{P}, \mathcal{F}} \quad  \sum_{g \in \mathcal{G}} C_{g}^t {P_{g}^t} + \sum_{d \in \mathcal{D}} C_{d}^t {P_{d}^t} +  \\ \sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t} +  \sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t}  + \\ \sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t} + \sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}} + \\ \quad \sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}  + \sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}} + \\ \sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}
+% \end{split}
+% \end{equation} 
+% \end{column}
+% \end{columns}
+% \end{frame}
+%
+%
 
 \begin{frame}{Power system constraints}
 

@@ -1,11 +1,11 @@
 \begin{tikzpicture}[shorten >=1pt, ->, draw=black!50, node distance=1.5cm and 3.5cm, align=center]
 
     % Styles
-    \tikzstyle{input} = [rectangle, draw, fill=orange!30, minimum width=3cm, minimum height=1cm]
-    \tikzstyle{dense} = [rectangle, draw, fill=blue!30, minimum width=3cm, minimum height=1cm]
-    \tikzstyle{conv} = [rectangle, draw, fill=green!30, minimum width=3cm, minimum height=1cm]
-    \tikzstyle{output} = [rectangle, draw, fill=purple!30, minimum width=3cm, minimum height=1cm]
-    \tikzstyle{loss} = [rectangle, draw, fill=red!30, minimum width=3cm, minimum height=1cm]
+    \tikzstyle{input} = [rectangle, draw, fill=orange!30, minimum width=3cm, minimum height=1cm, text centered, font=\large]
+    \tikzstyle{dense} = [rectangle, draw, fill=blue!30, minimum width=3cm, minimum height=1.5cm, text centered, font=\large]
+    \tikzstyle{conv} = [rectangle, draw, fill=green!30, minimum width=3cm, minimum height=1.5cm, text centered, font=\large]
+    \tikzstyle{output} = [rectangle, draw, fill=purple!30, minimum width=3cm, minimum height=1.5cm, text centered, font=\large]
+    \tikzstyle{loss} = [rectangle, draw, fill=red!30, minimum width=3cm, minimum height=1.5cm, text centered, font=\large]
     \tikzstyle{arrow} = [->, thick]
 
     % Input Layer
@@ -14,7 +14,6 @@
     \node[input] (edge_laplacian) [below of=node_laplacian] {\(\mathbf{L}_e\)}; % Edge Laplacian
     \node[input] (incidence_matrix) [below of=edge_laplacian] {\(\mathbf{T}\)}; % Incidence Matrix
     \node[input] (edge_features) [below of=incidence_matrix] {\(\mathbf{E}\)}; % Edge Features
-
 
     % Normalization and Pre-dense Layer
     \node[dense] (norm_pre_dense) [right of=edge_laplacian, xshift=3cm] {Normalization \\ \& Pre-dense Layers};
@@ -26,10 +25,8 @@
     \node[dense] (post_dense) [right of=conv_layers, xshift=3cm] {Post-dense Layers};
 
     % Outputs
-
     \node[output] (node_output) [right of=post_dense, xshift=3cm, yshift=1cm] {\(\hat{\mathbf{X}}_v\)}; % Node Predictions
     \node[output] (edge_output) [right of=post_dense, xshift=3cm, yshift=-1cm] {\(\hat{\mathbf{X}}_e\)}; % Edge Predictions
-
 
     % Losses
     \node[loss] (node_loss) [right of=node_output, xshift=3cm] {Node Loss};
@@ -53,3 +50,4 @@
     \draw[arrow] (edge_output) -- (edge_loss);
 
 \end{tikzpicture}
+
