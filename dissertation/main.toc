@@ -1,7 +1,6 @@
 \babel@toc {english}{}\relax 
 \beamer@sectionintoc {1}{Natural Gas System Prediction Using Graph Neural Networks}{5}{0}{1}
-\beamer@subsectionintoc {1}{1}{Weymouth equation}{18}{0}{1}
-\beamer@subsectionintoc {1}{2}{Proposed solution}{19}{0}{1}
-\beamer@sectionintoc {2}{Experimental setup}{21}{0}{2}
-\beamer@sectionintoc {3}{Results}{24}{0}{3}
-\beamer@sectionintoc {4}{Bibliography}{42}{0}{4}
+\beamer@subsectionintoc {1}{1}{Proposed solution}{16}{0}{1}
+\beamer@sectionintoc {2}{Experimental setup}{18}{0}{2}
+\beamer@sectionintoc {3}{Results}{21}{0}{3}
+\beamer@sectionintoc {4}{Bibliography}{39}{0}{4}
