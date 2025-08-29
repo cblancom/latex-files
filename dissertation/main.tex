@@ -58,6 +58,8 @@
 \usepackage{float}
 \usepackage{caption}
 \captionsetup{font=footnotesize}
+
+\usepackage{nccmath} 
 % \usetikzlibrary{external}
 % \tikzexternalize[prefix=figures/generated/]
 \newlength\figureheight
@@ -595,37 +597,53 @@ The second set of restrictions interconnects the natural gas and electric power 
 This set of constraints ensures that wells, pipelines, nodal pressures, compressors, unsupplied demand and storage facilities operate within proper operating limits.~\cite{MPNG}.
 
 \begin{columns}
-\begin{column}{0.24\textwidth}
+\begin{column}{0.45\textwidth}
 % \begin{center}
 % \vspace{3pt}
-    \includegraphics[width=1.5\textwidth]{figures/gas_dummy.png}
+    \includegraphics[width=0.75\textwidth]{figures/gas_dummy.png}
 % \end{center}
+
+\begin{fleqn}[0pt] % left-justify just this block
+    \begin{subequations}
+    \begin{align}
+        \underline{f_{w}^t} & \leq f_{w}^t \leq \overline{f_{w}^t} \forall \ \ w \in \mathcal{W} \label{eq:well_limits} \\
+        -\overline{f_{p}^t} & \leq f_{p}^t \leq \overline{f_{p}^t} \forall \ \ p \in \mathcal{P} \label{eq:pipe_limits} \\
+        \underline{\pi_{n}^t} & \leq \pi_{n}^t \leq \overline{\pi_{n}^t} \forall \ \ n \in \mathcal{N}_f \label{eq:press_limit} \\
+        0 \leq f_{u}^{t} & \leq \overline{f_{u}^{t}} \forall \ \ u \in \mathcal{U} \label{eq:dem_limit_gas} \\
+        \sum_{m:(m,n)\in\mathcal{A}} f_{m}^t &= \sum_{m':(n,m')\in\mathcal{A}} f_{m'}^t \forall \ \ n \in \mathcal{N}_f \label{eq:gas_balance}
+    \end{align}
+    \end{subequations}
+    \end{fleqn}
 \end{column}
-\begin{column}{0.8\textwidth}
+
+\begin{column}{0.5\textwidth}
 \scriptsize  % optional to avoid overfull boxes
 
+\begin{fleqn}[0pt]
 \begin{subequations}
 \begin{align}
-    \underline{f_{w}^t} \leq f_{w}^t \leq \overline{f_{w}^t} &\quad \forall \ w \in \mathcal{W} \label{eq:well_limits} \\
-    -\overline{f_{p}^t} \leq f_{p}^t \leq \overline{f_{p}^t} &\quad \forall \ p \in \mathcal{P} \label{eq:pipe_limits} \\
-    \underline{\pi_{n}^t} \leq \pi_{n}^t \leq \overline{\pi_{n}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:press_limit} \\
-    \pi_{m}^t \leq \beta_{c}^t{\pi_{n}^t} &\quad \forall \ c=(n,m) \in \mathcal{C} \label{eq:comp_ratio} \\
-    0 \leq f_{u}^{t} \leq \overline{f_{u}^{t}} &\quad \forall \ u \in \mathcal{U} \label{eq:dem_limit_gas} \\
-    0 \leq f_{s+}^t \leq V_{0s} - \underline{V_s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\
-    0 \leq f_{s-}^t \leq \overline{V_s} - V_{0s} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\
-    V_{s}^t = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} &\quad \forall \ s \in \mathcal{S} \label{eq:sto_time} \\ 
-    \sum_{m:(m,n)\in\mathcal{A}}{f_{m}^t} = \sum_{m':(n,m')\in\mathcal{A}}{f_{m'}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:gas_balance}
+    % \underline{f_{w}^t} \leq f_{w}^t \leq \overline{f_{w}^t} &\quad \forall \ w \in \mathcal{W} \label{eq:well_limits} \\
+    % -\overline{f_{p}^t} \leq f_{p}^t \leq \overline{f_{p}^t} &\quad \forall \ p \in \mathcal{P} \label{eq:pipe_limits} \\
+    % \underline{\pi_{n}^t} \leq \pi_{n}^t \leq \overline{\pi_{n}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:press_limit} \\
+    \pi_{m}^t & \leq \beta_{c}^t{\pi_{n}^t} \quad \forall \ c=(n,m) \in \mathcal{C} \label{eq:comp_ratio} \\
+    % 0 \leq f_{u}^{t} \leq \overline{f_{u}^{t}} &\quad \forall \ u \in \mathcal{U} \label{eq:dem_limit_gas} \\
+    0  & \leq f_{s+}^t \leq V_{0s} - \underline{V_s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\
+    0 & \leq f_{s-}^t \leq \overline{V_s} - V_{0s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\
+    V_{s}^t & = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} \quad \forall \ s \in \mathcal{S} \label{eq:sto_time} \\ 
+    % \sum_{m:(m,n)\in\mathcal{A}}{f_{m}^t} = \sum_{m':(n,m')\in\mathcal{A}}{f_{m'}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:gas_balance} \\ 
+    \text{sgn}(f_{p}^t)(f_{p}^t)^2 & = K_{nm}((\pi_{n}^t)^2 - (\pi_{m}^t)^2) \quad \forall \ p =(n,m) \in \mathcal{P} \label{eq:weymouth}
 \end{align}
 \end{subequations}
+\end{fleqn}
+Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
 
 \end{column}
 \end{columns}
 
-The Weymouth equation models the gas flow through pipelines, relating flow rates and pressures:
-    \begin{equation}
-        \text{sgn}(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2 - (\pi_{m}^t)^2) \quad \forall \ p =(n,m) \in \mathcal{P}
-    \end{equation}
-Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
+% The Weymouth equation models the gas flow through pipelines, relating flow rates and pressures:
+%     \begin{equation}
+%         \text{sgn}(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2 - (\pi_{m}^t)^2) \quad \forall \ p =(n,m) \in \mathcal{P}
+%     \end{equation}
 
 \end{frame}
 %
@@ -650,31 +668,33 @@ Modeling the Weymouth equation as a nonconvex and discontinuous equality constra
 
 
 
-\subsection{Proposed solution}
+% \subsection{Proposed solution}
+% \begin{frame}{Proposed complementarity-based approach}
+%      Complementarity constraints can be used to represent non-uniform or discontinuous operators, such as absolute value, sign, and min/max \cite{mpcc}.
+%     \begin{gather}
+%             y = sgn(f_{T}^t)  \label{eq:sign}
+%     \end{gather}
+%     The sign equation can be represented by an optimization problem whose constraints avoid the use of binary variables.
+%
+% \begin{subequations}
+% \begin{alignat}{4}
+% \label{eq:complementarity_relaxec3}
+% \mathcal{O}_W: \ &\min\limits_{y_p^t} -y_p^tf_{p}^t \\
+% & \text{s.t. } y_p^t(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2-(\pi_{m}^t)^2)\\
+% & -1 \leq y_p^t \leq 1 \\
+% &f_{p}^t = f_{p+}^t - f_{p-}^t\\
+% & 0 \leq f_{p+}^t \perp (y_p^t+1) \geq 0 \\
+% & 0 \leq f_{p-}^t \perp (1-y_p^t) \geq 0
+% \end{alignat}
+% \end{subequations}
+% \end{frame}
+
+
 \begin{frame}{Proposed complementarity-based approach}
-     Complementarity constraints can be used to represent non-uniform or discontinuous operators, such as absolute value, sign, and min/max \cite{mpcc}.
-    \begin{gather}
-            y = sgn(f_{T}^t)  \label{eq:sign}
-    \end{gather}
-    The sign equation can be represented by an optimization problem whose constraints avoid the use of binary variables.
+\footnotesize
+Complementarity constraints can be used to represent non-uniform or discontinuous operators, such as absolute value, sign, and min/max \cite{mpcc}. The sign equation can be represented by an optimization problem whose constraints avoid the use of binary variables.
 
-\begin{subequations}
-\begin{alignat}{4}
-\label{eq:complementarity_relaxec3}
-\mathcal{O}_W: \ &\min\limits_{y_p^t} -y_p^tf_{p}^t \\
-& \text{s.t. } y_p^t(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2-(\pi_{m}^t)^2)\\
-& -1 \leq y_p^t \leq 1 \\
-&f_{p}^t = f_{p+}^t - f_{p-}^t\\
-& 0 \leq f_{p+}^t \perp (y_p^t+1) \geq 0 \\
-& 0 \leq f_{p-}^t \perp (1-y_p^t) \geq 0
-\end{alignat}
-\end{subequations}
-
-\end{frame}
-
-
-\begin{frame}{Proposed complementarity-based approach}
-   The program $\mathcal{O}_W$ misses the KKT conditions, because the conventional constraint qualifications for nonlinear programming are typically not satisfied in the case of MPCC~\cite{Bouza_Still_2007}. Hence, instead of working with the original problem, the relaxed problem $\mathcal{O}_\epsilon$ is considered:
+   % The program $\mathcal{O}_W$ misses the KKT conditions, because the conventional constraint qualifications for nonlinear programming are typically not satisfied in the case of MPCC~\cite{Bouza_Still_2007}. Hence, instead of working with the original problem, the relaxed problem $\mathcal{O}_\epsilon$ is considered:
 
 
 \begin{subequations}
@@ -690,6 +710,9 @@ Modeling the Weymouth equation as a nonconvex and discontinuous equality constra
 
 The regularized optimization model $\mathcal{O}_{\epsilon}$ offers several key properties that justify its use in tackling challenging MPCC problems~\cite{Ralph_Wright_2004}.
 \end{frame}
+
+
+
 
 
 
@@ -710,7 +733,10 @@ Each of the mentioned databases was selected based on its unique characteristics
 \end{table}
 \end{frame}
 
+
+
 \begin{frame}{Experimental setup}
+\footnotesize
 In order to establish a baseline for comparison, two alternative methodologies were employed: 
 \begin{itemize}
     \item Taylor series approximation \cite{taylor_paper}.
@@ -723,103 +749,222 @@ The objective function value for each of the mentioned databases was computed by
     \item The GEKKO \cite{gekko} package. 
 \end{itemize}
 
-\end{frame}
-
-\begin{frame}{Experimental setup}
-    Since understanding and quantifying the inherent errors introduced by any constraint approximation approach supports its real-world pertinence, the considered validation trades off the reached cost function and constraint error values.
+Since understanding and quantifying the inherent errors introduced by any constraint approximation approach supports its real-world pertinence, the considered validation trades off the reached cost function and constraint error values.
 
     \begin{equation}
     {WE}_p^t = |f_{p}^t - \left(K_{nm}|(\pi_{n}^t)^2-(\pi_{m}^t)^2|\right)^{1/2}| , \quad \forall \ p =(n,m) \in\mathcal{P}
 \end{equation}
 Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches and validates the significance of their differences.
+
 \end{frame}
+
+% \begin{frame}{Experimental setup}
+%     Since understanding and quantifying the inherent errors introduced by any constraint approximation approach supports its real-world pertinence, the considered validation trades off the reached cost function and constraint error values.
+%
+%     \begin{equation}
+%     {WE}_p^t = |f_{p}^t - \left(K_{nm}|(\pi_{n}^t)^2-(\pi_{m}^t)^2|\right)^{1/2}| , \quad \forall \ p =(n,m) \in\mathcal{P}
+% \end{equation}
+% Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches and validates the significance of their differences.
+% \end{frame}
 
 
 
 \section{Results}
 \begin{frame}{Results - Case 1}
-To assess the performance of Weymouth approximation approaches on the 8/9 system, a Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving  the optimization problem for one single day one hundred times with uniformly sampled natural gas demands. 
-
-    \begin{figure}[!htb]
-    \centering
-    \setlength\figurewidth{.7\textwidth}        
-    \setlength\figureheight{0.35\textwidth}
-    % \input{images/blue_test_cost_SOC}
-    \input{figures/all_test_cost}
-    \caption{Cost function histogram attained for the Taylor, SOC, and MPCC Weymouth approximation approaches.}
-    \label{fig:blue_test_cost}
-\end{figure}
+\scriptsize
+\begin{columns}[t,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+        % To assess the performance of Weymouth approximation approaches on the 8/9 system, 
+        A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
+        
+        \vspace{0.5em}
+        \begin{figure}[H]
+            \centering
+            \setlength\figurewidth{1\linewidth}        
+            \setlength\figureheight{0.45\linewidth}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_cost.pdf} % Import PNG image here
+            \caption{\scriptsize Cost function histogram attained for the Taylor, SOC, and MPCC Weymouth approximation approaches.}
+            \label{fig:blue_test_cost}
+        \end{figure}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+        The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
+        
+        \vspace{2.5em}
+        \begin{figure}[H]
+            \centering
+            \setlength\figurewidth{1\linewidth}        
+            \setlength\figureheight{0.45\linewidth}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_error.pdf} % Import PNG image here
+            \caption{\scriptsize Boxplot of Weymouth error distribution for each pipeline in the 8/9 system attained by contrasted approximation approaches.}
+            \label{fig:blue_test_boxplot}
+        \end{figure}
+    \end{column}
+\end{columns}
 \end{frame}
 
+% \section{Results}
+% \begin{frame}{Results - Case 1}
+% To assess the performance of Weymouth approximation approaches on the 8/9 system, a Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving  the optimization problem for one single day one hundred times with uniformly sampled natural gas demands. 
+%
+%     \begin{figure}[!htb]
+%     \centering
+%     \setlength\figurewidth{.7\textwidth}        
+%     \setlength\figureheight{0.35\textwidth}
+%     % \input{images/blue_test_cost_SOC}
+%     \input{figures/all_test_cost}
+%     \caption{Cost function histogram attained for the Taylor, SOC, and MPCC Weymouth approximation approaches.}
+%     \label{fig:blue_test_cost}
+% \end{figure}
+% \end{frame}
+%
+%
+% \begin{frame}{Results - Case 1}
+% The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
+%
+% \begin{figure}[!htb]
+%     \centering
+%     \setlength\figurewidth{0.8\textwidth}        
+%     \setlength\figureheight{0.5\textwidth}
+%     \input{figures/blue_test_boxplot}
+%     \caption{Boxplot of Weymouth error distribution for each pipeline in the 8/9 system attained by contrasted approximation approaches.}
+%     \label{fig:blue_test_boxplot}
+% \end{figure}
+% \end{frame}
+%
+%
 
-\begin{frame}{Results - Case 1}
-The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
-
-\begin{figure}[!htb]
-    \centering
-    \setlength\figurewidth{0.8\textwidth}        
-    \setlength\figureheight{0.5\textwidth}
-    \input{figures/blue_test_boxplot}
-    \caption{Boxplot of Weymouth error distribution for each pipeline in the 8/9 system attained by contrasted approximation approaches.}
-    \label{fig:blue_test_boxplot}
-\end{figure}
-\end{frame}
-
-
+\section{Results}
 \begin{frame}{Results - Case 2}
-It is worth noting that both baselines yielded the same objective function values. The consistently positive relative difference indicates that the complementarity constraints formulation always yields larger cost values than Taylor and SOC for the 118/48 system.
-
-\begin{figure}[!htb]
-    \centering
-    \setlength\figurewidth{0.75\textwidth}        
-    \setlength\figureheight{0.35\textwidth}
-    \input{figures/green_test_hist}
-    \caption{Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
-    \label{fig:green_test_cost}
-\end{figure}
+\scriptsize
+\begin{columns}[t,onlytextwidth]
+    % First Column: Text and Histogram Image
+    \begin{column}{0.44\textwidth}
+        It is worth noting that both baselines yielded the same objective function values. The consistently positive relative difference indicates that the complementarity constraints formulation always yields larger cost values than Taylor and SOC for the 118/48 system.
+        
+        
+        \begin{figure}[H]
+            \centering
+            \setlength\figurewidth{1\textwidth}        
+            \setlength\figureheight{0.44\textwidth}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_cost.pdf} 
+            \caption{\scriptsize Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
+            \label{fig:green_test_cost}
+        \end{figure}
+    \end{column}
+    
+    % Second Column: Text and Error Plot Images
+    \begin{column}{0.52\textwidth}
+        Contrarily to cost function analysis, Weymouth approximation results reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints.
+        
+        \vspace{1.5em}
+        \begin{figure}[H]
+            \centering
+            \setlength\figurewidth{1\textwidth}        
+            \setlength\figureheight{0.45\textwidth}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_error.pdf}
+            \caption{\scriptsize Weymouth approximation errors for each pipeline $p$ reached by Taylor (left), SOC (center), and MPCC (right) approaches in the 118/48 system.}
+            \label{fig:green_test_error}
+        \end{figure}
+    \end{column}
+\end{columns}
 \end{frame}
 
 
-\begin{frame}{Results - Case 2}
-Contrarily to cost function analysis, Weymouth approximation results reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints.
-\begin{figure}[!htb]
-\setlength\figurewidth{0.37\textwidth}        
-\setlength\figureheight{0.4\textwidth}
-\subfloat[Taylor]{\input{figures/green_test_error_Taylor}}
-\subfloat[SOC]{\input{figures/green_test_error_SOC}}
-\subfloat[MPCC]{\input{figures/green_test_error_MPCC}}
-\caption{Weymouth approximation errors for each pipeline $p$ reached by Taylor (left), SOC (center), and MPCC (right) approaches in the 118/48 system.}\label{fig:green_test_error}
-\end{figure}
-\end{frame}
+
+% \begin{frame}{Results - Case 2}
+% It is worth noting that both baselines yielded the same objective function values. The consistently positive relative difference indicates that the complementarity constraints formulation always yields larger cost values than Taylor and SOC for the 118/48 system.
+%
+% \begin{figure}[!htb]
+%     \centering
+%     \setlength\figurewidth{0.75\textwidth}        
+%     \setlength\figureheight{0.35\textwidth}
+%     \input{figures/green_test_hist}
+%     \caption{Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
+%     \label{fig:green_test_cost}
+% \end{figure}
+% \end{frame}
+%
+%
+% \begin{frame}{Results - Case 2}
+% Contrarily to cost function analysis, Weymouth approximation results reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints.
+% \begin{figure}[!htb]
+% \setlength\figurewidth{0.37\textwidth}        
+% \setlength\figureheight{0.4\textwidth}
+% \subfloat[Taylor]{\input{figures/green_test_error_Taylor}}
+% \subfloat[SOC]{\input{figures/green_test_error_SOC}}
+% \subfloat[MPCC]{\input{figures/green_test_error_MPCC}}
+% \caption{Weymouth approximation errors for each pipeline $p$ reached by Taylor (left), SOC (center), and MPCC (right) approaches in the 118/48 system.}\label{fig:green_test_error}
+% \end{figure}
+% \end{frame}
+%
 
 
+\section{Results}
 \begin{frame}{Results - Case 3}
-Instead of estimating the distributions of the objective function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs.
-    \begin{figure}[!htb]
-    \centering
-    \setlength\figurewidth{0.8\textwidth}        
-    \setlength\figureheight{0.4\textwidth}
-    \input{figures/red_test_costs}
-    \caption{Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
-    \label{fig:red_test_cost}
-\end{figure}
+\scriptsize
+\begin{columns}[t,onlytextwidth]
+    % First Column: Text and Cost Image
+    \begin{column}{0.48\textwidth}
+        Instead of estimating the distributions of the objective function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs.
+                
+        \begin{figure}[H]
+            \centering
+            \setlength\figurewidth{1\textwidth}        
+            \setlength\figureheight{0.45\textwidth}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_cost.pdf} 
+            \caption{\scriptsize Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
+            \label{fig:red_test_cost}
+        \end{figure}
+    \end{column}
+    
+    % Second Column: Text and Error Plot Image
+    \begin{column}{0.48\textwidth}
+        Regarding the Weymouth approximation analysis, the figure presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC.
+        
+        \vspace{0.9em}
+        
+        \begin{figure}[H]
+            \centering
+            \setlength\figurewidth{1\textwidth}        
+            \setlength\figureheight{0.45\textwidth}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_error.pdf} % Import PDF image here
+            \caption{\scriptsize Errors in the Weymouth equation expressed in three different formats- general error, error per flow, and error per day.}
+            \label{fig:red_test_error}
+        \end{figure}
+    \end{column}
+\end{columns}
 \end{frame}
 
 
-\begin{frame}{Results - Case 3}
-    Regarding the Weymouth approximation analysis, the figure presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC
-
-    \begin{figure}[!htb]
-\setlength\figurewidth{0.37\textwidth}        
-\setlength\figureheight{0.4\textwidth}
-\subfloat[Relative Frequency]{\label{fig:case3error}\input{figures/pruebatikz}}
-\subfloat[Pipeline flow ($f_m^t$)]{\label{fig:case3flow}\input{figures/redtest_scatter_flow1.tex}}
-\subfloat[Operation day ($t$)]{\label{fig:case3day}\input{figures/err_day}}
-\caption{Errors in the Weymouth equation expressed in three different formats- general error, error per flow, and error per day.}\label{fig:red_test_error}
-\end{figure}
-\end{frame}
-
-
+% \begin{frame}{Results - Case 3}
+% Instead of estimating the distributions of the objective function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs.
+%     \begin{figure}[!htb]
+%     \centering
+%     \setlength\figurewidth{0.8\textwidth}        
+%     \setlength\figureheight{0.4\textwidth}
+%     \input{figures/red_test_costs}
+%     \caption{Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
+%     \label{fig:red_test_cost}
+% \end{figure}
+% \end{frame}
+%
+%
+% \begin{frame}{Results - Case 3}
+%     Regarding the Weymouth approximation analysis, the figure presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC
+%
+%     \begin{figure}[!htb]
+% \setlength\figurewidth{0.37\textwidth}        
+% \setlength\figureheight{0.4\textwidth}
+% \subfloat[Relative Frequency]{\label{fig:case3error}\input{figures/pruebatikz}}
+% \subfloat[Pipeline flow ($f_m^t$)]{\label{fig:case3flow}\input{figures/redtest_scatter_flow1.tex}}
+% \subfloat[Operation day ($t$)]{\label{fig:case3day}\input{figures/err_day}}
+% \caption{Errors in the Weymouth equation expressed in three different formats- general error, error per flow, and error per day.}\label{fig:red_test_error}
+% \end{figure}
+% \end{frame}
+%
+%
 
 \begin{frame}{Physics-Guided Neural Networks}
 \footnotesize
@@ -940,32 +1085,45 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 % \end{frame}
 
 
-\begin{frame}{Stochastic Analysis: Methodology}
+\begin{frame}{Stochastic Analysis: Methodology and results}
+\footnotesize
+    \textbf{Methodology:}
     \begin{itemize}
         \item Kernel Density Estimate (KDE) fitted to training inputs.
         \item Synthetic samples generated and propagated through CensNet.
         \item Log-likelihoods compared for $y_{\text{sample}}$ and $\bar{y}_{\text{train}}$.
         \item Kolmogorov–Smirnov (K–S) test used for distributional similarity.
     \end{itemize}
-\end{frame}
 
-\begin{frame}{Model Robustness under Uncertainty}
+    \vspace{0.5em}
+    \textbf{Results:}
     \begin{itemize}
         \item Log-likelihoods: $y_{\text{sample}} = -6.696 \times 10^6$, 
               $\bar{y}_{\text{train}} = -6.657 \times 10^6$.
         \item K–S test: $p > 0.44$ across all alternatives.
         \item $\Rightarrow$ Synthetic outputs statistically consistent with training outputs.
     \end{itemize}
+
 \end{frame}
 
+% \begin{frame}{Model Robustness under Uncertainty}
+%     \begin{itemize}
+%         \item Log-likelihoods: $y_{\text{sample}} = -6.696 \times 10^6$, 
+%               $\bar{y}_{\text{train}} = -6.657 \times 10^6$.
+%         \item K–S test: $p > 0.44$ across all alternatives.
+%         \item $\Rightarrow$ Synthetic outputs statistically consistent with training outputs.
+%     \end{itemize}
+% \end{frame}
+
 \begin{frame}{Negative Flows in Pipeline $p_3$}
+\footnotesize
     \begin{itemize}
         \item Flow in $p_3$ consistently negative across scenarios and KDE samples.
         \item Caused by orientation assumption $\rightarrow$ optimizer adjusts direction.
         \item Operability unaffected, but $p_3$ supports cost minimization.
     \end{itemize}
     \begin{figure}
-        \includegraphics[width=0.65\textwidth]{figures/outputs_outputs_2.png}
+        \includegraphics[width=0.55\textwidth]{figures/outputs_outputs_2.png}
         \caption*{Joint PDFs showing negative $p_3$ flows.}
     \end{figure}
 \end{frame}

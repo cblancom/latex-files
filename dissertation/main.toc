@@ -1,6 +1,7 @@
 \babel@toc {english}{}\relax 
 \beamer@sectionintoc {1}{Natural Gas System Prediction Using Graph Neural Networks}{5}{0}{1}
-\beamer@subsectionintoc {1}{1}{Proposed solution}{16}{0}{1}
-\beamer@sectionintoc {2}{Experimental setup}{18}{0}{2}
-\beamer@sectionintoc {3}{Results}{21}{0}{3}
-\beamer@sectionintoc {4}{Bibliography}{39}{0}{4}
+\beamer@sectionintoc {2}{Experimental setup}{17}{0}{2}
+\beamer@sectionintoc {3}{Results}{19}{0}{3}
+\beamer@sectionintoc {4}{Results}{20}{0}{4}
+\beamer@sectionintoc {5}{Results}{21}{0}{5}
+\beamer@sectionintoc {6}{Bibliography}{33}{0}{6}
