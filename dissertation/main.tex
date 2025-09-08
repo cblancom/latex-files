@@ -75,6 +75,26 @@
 % \setbeamertemplate{footline}[frame number]{}
 \setbeamertemplate{page number in head/foot}[totalframenumber]
 
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.33\paperwidth,ht=2.5ex,dp=1.125ex,left]{author in head/foot}%
+      \tiny \hspace{1em}Cristian A. Blanco Martínez
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.34\paperwidth,ht=2.5ex,dp=1.125ex,center]{institute in head/foot}%
+      \tiny Universidad Tecnológica de Pereira
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.33\paperwidth,ht=2.5ex,dp=1.125ex,right]{date in head/foot}%
+      \tiny \insertshortdate{} \hspace{1em} \insertframenumber{} / \inserttotalframenumber \hspace{1em}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+
+
 % On Overleaf, these lines give you sharper preview images.
 % You might want to `comment them out before you export, though.
 \usepackage{pgfpages}
@@ -1116,32 +1136,36 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 % \end{frame}
 
 \begin{frame}{Negative Flows in Pipeline $p_3$}
-\footnotesize
+\scriptsize
     \begin{itemize}
         \item Flow in $p_3$ consistently negative across scenarios and KDE samples.
         \item Caused by orientation assumption $\rightarrow$ optimizer adjusts direction.
         \item Operability unaffected, but $p_3$ supports cost minimization.
     \end{itemize}
     \begin{figure}
-        \includegraphics[width=0.55\textwidth]{figures/outputs_outputs_2.png}
-        \caption*{Joint PDFs showing negative $p_3$ flows.}
+        \includegraphics[width=0.65\textwidth]{figures/outputs_outputs_2_cut.png}
+        \caption{\scriptsize Joint PDFs showing negative $p_3$ flows.}
     \end{figure}
 \end{frame}
 
 \begin{frame}{Pressure Concentration in Mid-Range}
+\scriptsize
+% por revisar
     \begin{itemize}
         \item Nodal pressures cluster at 30--40\% of normalized limits.
         \item Avoids extremes, ensuring reliable operation.
         \item Implies optimizer favors efficiency + stability.
     \end{itemize}
     \begin{figure}
-        \includegraphics[width=0.6\textwidth]{figures/outputs_outputs_3.png}
-        \caption*{Pressures concentrate in mid-range (30--40\%).}
+        \includegraphics[width=0.5\textwidth]{figures/outputs_outputs_3.png}
+        \caption{\scriptsize Pressures concentrate in mid-range (30--40\%).}
     \end{figure}
 \end{frame}
 
 
 \begin{frame}{Stable Utilization of Pipeline $p_4$}
+\scriptsize
+% revisar
     \begin{itemize}
         \item Despite wide dispersion in inputs, $p_4$ flow remains 20--40\%.
         \item Reflects robustness: optimizer stabilizes this delivery path.
@@ -1149,7 +1173,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
     \end{itemize}
     \begin{figure}
         \includegraphics[width=0.7\textwidth]{figures/inputs_outputs_1.png}
-        \caption*{Optimization model: input variability vs. stable $p_4$ flow.}
+        \caption{\scriptsize Optimization model: input variability vs. stable $p_4$ flow.}
     \end{figure}
     % \begin{figure}
     %     \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1_KDE.png}
@@ -1158,14 +1182,16 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 \end{frame}
 
 \begin{frame}{Linear Input--Output Relations}
+\scriptsize
+% Por revisar
     \begin{itemize}
         \item Positive correlation: demand bounds ($N_6$, $N_7$) vs. $p_4$--$p_7$ flows.
         \item Negative correlation: $N_7$ demand bound vs. $p_3$ flow.
         \item Shows network internalized optimizer’s allocation strategies.
     \end{itemize}
     \begin{figure}
-        \includegraphics[width=0.7\textwidth]{figures/inputs_outputs_2.png}
-        \caption*{Optimization model: linear input–output patterns.}
+        \includegraphics[width=0.55\textwidth]{figures/inputs_outputs_2.png}
+        \caption{\scriptsize Optimization model: linear input–output patterns.}
     \end{figure}
     % \begin{figure}
     %     \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_2_KDE.png}
