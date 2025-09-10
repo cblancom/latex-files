@@ -103,20 +103,44 @@
 
 % Here's where the presentation starts, with the info for the title slide
 \title[]{Optimization and Prediction in Natural Gas Networks Using Graph Neural Networks and MPCC-Based Models}
-\author{Cristian Alejandro Blanco Martínez}
+% \author{Cristian Alejandro Blanco Martínez}
+\author{
+    \texorpdfstring{
+        \begin{tabular}{c}
+            Author: Cristian Alejandro Blanco Martínez \\
+            Director: David Augusto Cárdenas Peña
+        \end{tabular}
+    }{Cristian Alejandro Blanco Martínez, David Augusto Cárdenas Peña}
+}
+
 \institute{Universidad Tecnológica de Pereira \\ 
 Grupo de investigación Automática}
-\date{\today}
+\date{\scriptsize \today}
 
 \begin{document}
 
 \begin{frame}
   \titlepage
+
+  \vfill % Empuja los logos hacia la parte inferior
+  \begin{minipage}{0.48\linewidth}
+    \includegraphics[height=2cm]{figures/logos/utp.jpg}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\linewidth}
+    \flushright
+    \includegraphics[height=2cm]{figures/logos/mie.jpg}
+  \end{minipage}
 \end{frame}
 
 
 
+\begin{frame}{Agenda}
+  \tableofcontents
+\end{frame}
 
+
+\section{Motivation \& Problem Statement}
 \begin{frame}{Energy Context \& Relevance of Natural Gas}
 \footnotesize
 \justifying
@@ -127,42 +151,28 @@ In Colombia, natural gas is widely used across the residential, commercial, indu
     \centering
     \footnotesize
     \includegraphics[width=0.6\textwidth]{figures/hydro_vs_thermal.png}
-    \caption{\footnotesize Variation in electricity generation mix between wet and dry seasons in Colombia.}
 \end{figure}
 \end{frame}
 
-% \begin{frame}{Operational Challenge in the Colombian Energy System}
-% \justifying
-% Colombia’s electricity supply relies heavily on hydroelectric plants, which are highly dependent on rainfall patterns. During dry seasons, reduced water availability forces the system to increase the participation of thermal plants powered by natural gas. 
-%
-% This seasonal shift places significant operational stress on the gas transport network. 
-% % \begin{itemize}
-% %     \item More frequent re-optimizations of gas flows.
-% %     \item Rapid and accurate decision-making to ensure supply security.
-% % \end{itemize}
-%
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=0.65\textwidth]{figures/hydro_vs_thermal.png}
-%     \caption{Variation in electricity generation mix between wet and dry seasons in Colombia.}
-% \end{figure}
-% \end{frame}
-%
-%
 
 
 \begin{frame}{Motivation \& Problem Statement}
-\footnotesize
 \justifying
+\footnotesize % Aplícalo al texto general
+
 \begin{itemize}
-    \item \textbf{Large-scale natural gas networks} require solving complex optimization problems.
+    \footnotesize % Asegura que se aplique dentro del itemize
+    \item \textbf{Large-scale natural gas networks} require solving complex optimization problems \cite{9831787}.
     \item Increasing network size and operational constraints lead to:
     \begin{itemize}
+        \footnotesize % También en el sub-itemize
         \item Long execution times
         \item Difficulty in real-time or near real-time decision making
     \end{itemize}
     \item Classical approaches are accurate but often \textbf{computationally expensive}.
 \end{itemize}
+
+\textit{Solving a network with 592 nodes and 460 edges takes ~5 min on average, while a larger one with 660 nodes and more than 500 edges requires ~30 min using the same MILP-based optimizer \cite{artice_time_comparison}}.
 
 \vspace{0.5cm}
 \textbf{Main Problem:} There is a need for methods that preserve accuracy while significantly reducing computation time.
@@ -172,6 +182,7 @@ In Colombia, natural gas is widely used across the residential, commercial, indu
 \end{frame}
 
 
+\section{Objectives}
 \begin{frame}{Objectives}
 \footnotesize
 \textbf{General Objective:}
@@ -186,26 +197,8 @@ In Colombia, natural gas is widely used across the residential, commercial, indu
 \end{itemize}
 \end{frame}
 
-% \begin{frame}{Objectives}
-% \textbf{Specific Objectives:}
-% \begin{itemize}
-%     \item Design a Graph Neural Networks-based approach of regression that integrates knowledge of natural gas network topology to reduce computational time for operation estimation.    
-%     \item Develop an optimization model for natural gas transportation systems that takes into account the Weymouth equation for reducing that reduces the approximation error in pipeline gas flow calculations.
-%     \item Develop a stochastic gas flow dispatch optimization strategy that quantifies the uncertainty in the objective variables and decision variables associated with the operation of the gas system taking into account the constraints of the transportation problem.
-% \end{itemize}
-% \end{frame}
-%
-%
 
-%===========================================
-% Chapter 2 — GNN Surrogate (CensNet) Overview
-%===========================================
 \section{Natural Gas System Prediction Using Graph Neural Networks}
-
-%-------------------------------------------
-% Slide 1: Motivation & Concept
-%-------------------------------------------
-
 \begin{frame}{Natural Gas System as a Graph}
     \footnotesize
     \justifying
@@ -223,9 +216,6 @@ In Colombia, natural gas is widely used across the residential, commercial, indu
     \textbf{Objective:} Achieve near-optimizer accuracy with significant runtime reduction.
 \end{frame}
 
-%-------------------------------------------
-% Slide: CensNet Architecture
-%-------------------------------------------
 
 \begin{frame}{CensNet Layers: Integrating Node \& Edge Features}
 \footnotesize
@@ -360,28 +350,6 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
 \end{frame}
 
 
-% \begin{frame}{Dataset}
-% \justifying
-% \footnotesize
-% Two different gas network configurations were used to evaluate the proposed CensNet-based model. 
-% The first is a small synthetic case for controlled experimentation, while the second corresponds 
-% to the real Colombian natural gas transportation system.
-%
-% \begin{table}[H]
-%     \centering
-%     \scriptsize
-%     \begin{tabular}{lcccc}
-%         \toprule
-%         \textbf{Case} & \textbf{Nodes} & \textbf{Pipelines} & \textbf{Compressors} & \textbf{Users} \\
-%         \midrule
-%         Small Network & 8  & 6  & 2  & 2  \\
-%         Colombian Network & 63 & 48 & 14 & 27 \\
-%         \bottomrule
-%     \end{tabular}
-%     \caption{\footnotesize Datasets used in the study.}
-% \end{table}
-% \end{frame}
-
 \begin{frame}{Dataset and Experimental Setup}
 \scriptsize
 \begin{columns}[t,onlytextwidth]
@@ -435,35 +403,6 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
 \end{columns}
 \end{frame}
 
-% \begin{frame}{Experimental Setup}
-% \footnotesize 
-% Different network operation scenarios were generated by adding 5\%--25\% noise to user demand values 
-% and solving each scenario with the linear constrained optimization model using APOPT (via GEKKO). 
-% The outputs served as ground truth for CensNet model training.
-%
-% \begin{itemize}
-%     \footnotesize 
-%     \item \textbf{Data split:} 60\% training, 20\% validation, 20\% testing.
-%     \item \textbf{Samples:} 2000 (8-node network), 2400 (63-node network).
-%     \item \textbf{Training:} 1500 epochs, Adam optimizer, Leaky ReLU activation ($\alpha = 0.2$).
-%     \item \textbf{Learning rate:} Initial $1\times 10^{-2}$, exponential decay (rate 0.9, steps 1000).
-%     \item \textbf{Hyperparameters:} 
-%         \begin{itemize}
-%             \footnotesize 
-%             \item $N_{\text{channels}}$: 16–64
-%             \item $N_{\text{layers}}$: 1–5 (CensNet convolutional)
-%             \item $N_{\text{dense}}$: 2–32 (post-dense layers)
-%         \end{itemize}
-%     \item \textbf{Losses tested:} 
-%         \begin{itemize}
-%             \footnotesize 
-%             \item Nodal loss only
-%             \item Nodal + Edge loss
-%         \end{itemize}
-% \end{itemize}
-% \end{frame}
-
-
 
 \begin{frame}{Results: Prediction Accuracy}
 \footnotesize 
@@ -482,7 +421,7 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
     \item \textbf{Edge flow predictions:} 
         \begin{itemize}
             \footnotesize 
-            \item (N) performs poorly on edges: $R^2$ low
+            \item (N)   lower accuracy: $R^2$ = -2.818 (8-node) and -5.88 (63-node)
             \item (N+E) improves: $R^2$ up to 0.999 (8-node) and 0.996 (63-node)
         \end{itemize}
 \end{itemize}
@@ -506,31 +445,41 @@ T-tests confirm \textbf{CensNet is significantly faster} than APOPT
 \end{frame}
 
 
-% \begin{frame}{Main Results: Gas Balance \& Speed}
-% \footnotesize
-% \textbf{Gas balance consistency (APOPT – CensNet differences):}
-% \begin{itemize}
-%     \item \textbf{8-node:} Edge error reduced from 62.92 (N) $\rightarrow$ 39.24 (N+E)
-%     \item \textbf{63-node:} Edge error reduced from 62.47 (N) $\rightarrow$ -0.07 (N+E)
-%     \item Nodal differences $< 0.1$ units in all cases
-% \end{itemize}
-%
-% \textbf{Prediction speed:}  
-% T-tests confirm \textbf{CensNet is significantly faster} than APOPT
-% \begin{itemize}
-%     \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
-%     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
-% \end{itemize}
-%
-% \textbf{Summary:}  
-% \begin{itemize}
-%     \item Comparable accuracy to optimization model
-%     \item Better edge prediction with (N+E)
-%     \item Substantial speed advantage
-% \end{itemize}
-% \end{frame}
+
+\begin{frame}{Performance Comparison: 8-Node and 63-Node Networks}
+\scriptsize
+\centering
+\begin{table}
+\captionsetup{font=scriptsize}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Nodal $R^2$} & \textbf{Edge $R^2$} & \textbf{Balance Error} & \textbf{Time (s)} \\
+\midrule
+\multicolumn{5}{c}{\textbf{8-node Network}} \\
+\midrule
+CensNet (N)     & 0.988 & -2.818 & 23.76 & $0.86 \pm 0.50$ \\
+CensNet (N+E)   & 0.988 &  0.999 & 0.008 & $0.85 \pm 0.50$ \\
+\midrule
+\multicolumn{5}{c}{\textbf{63-node Network}} \\
+\midrule
+CensNet (N)     & 0.996 & -5.880 & 62.61 & $0.86 \pm 0.50$ \\
+CensNet (N+E)   & 0.996 &  0.996 & 0.070 & $0.85 \pm 0.50$ \\
+\bottomrule
+\end{tabular}
+\caption{Performance of CensNet (N) and CensNet (N+E) on synthetic (8-node) and real (63-node) networks.}
+\end{table}
+
+\textbf{Prediction speed:}  
+T-tests confirm \textbf{CensNet is significantly faster} than APOPT
+\begin{itemize}
+    \footnotesize 
+    \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
+    \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
+\end{itemize}
+\end{frame}
 
 
+\section{Natural Gas System Optimization Using MPCC-Based Models}
 \begin{frame}{Interconnected system - Definition}
 A power-gas interconnected system is a hybrid infrastructure that integrates natural gas and power networks, enhancing overall system efficiency~\cite{Duan_Liu_Yang_2022}. 
 \begin{columns}
@@ -550,24 +499,6 @@ A power-gas interconnected system is a hybrid infrastructure that integrates nat
 \end{frame}
 
 
-% \begin{frame}{Objective function}
-% \begin{columns}
-% \begin{column}{0.5\textwidth}
-%    \begin{center}
-%      \includegraphics[width=1.1\textwidth]{figures/network_math_alternative.pdf}
-%      \end{center}
-% \end{column}
-% \begin{column}{0.5\textwidth}  %%<--- here
-% \begin{equation} \label{eq:obj_func_integrated}
-% \begin{split}
-% \min_{\mathcal{P}, \mathcal{F}} \quad  \sum_{g \in \mathcal{G}} C_{g}^t {P_{g}^t} + \sum_{d \in \mathcal{D}} C_{d}^t {P_{d}^t} +  \\ \sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t} +  \sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t}  + \\ \sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t} + \sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}} + \\ \quad \sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}  + \sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}} + \\ \sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}
-% \end{split}
-% \end{equation} 
-% \end{column}
-% \end{columns}
-% \end{frame}
-%
-%
 
 \begin{frame}{Power system constraints}
 \footnotesize
@@ -733,10 +664,6 @@ The regularized optimization model $\mathcal{O}_{\epsilon}$ offers several key p
 
 
 
-
-
-
-\section{Experimental setup}
 \begin{frame}{Databases}
 Each of the mentioned databases was selected based on its unique characteristics and the significant contributions it could make to the study.
 
@@ -789,7 +716,6 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 
 
 
-\section{Results}
 \begin{frame}{Results - Case 1}
 \scriptsize
 \begin{columns}[t,onlytextwidth]
@@ -855,7 +781,6 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 %
 %
 
-\section{Results}
 \begin{frame}{Results - Case 2}
 \scriptsize
 \begin{columns}[t,onlytextwidth]
@@ -921,7 +846,6 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 %
 
 
-\section{Results}
 \begin{frame}{Results - Case 3}
 \scriptsize
 \begin{columns}[t,onlytextwidth]
@@ -986,6 +910,7 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 %
 %
 
+\section{Physics-Guided Neural Networks for Gas Networks under Uncertainty}
 \begin{frame}{Physics-Guided Neural Networks}
 \footnotesize
 \textbf{Motivation:}
@@ -1199,11 +1124,11 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
     % \end{figure}
 \end{frame}
 
-
-\begin{frame}{Key Conclusions}
+\section{Conclusions and Future Work}
+\begin{frame}{Conclusions}
     \begin{itemize}
         \item \textbf{GNN-based prediction:} CensNet achieved accurate and scalable predictions for natural gas networks, with significant reductions in computation time compared to traditional optimization.
-        \item \textbf{Optimization with MPCC:} Proposed formulation rigorously approximated Weymouth constraints, improving accuracy of pressure–flow representation and showing robustness in real-world scheduling tasks.
+        \item \textbf{Optimization with MPCC:} Proposes a formulation to approximate Weymouth's restrictions, improving accuracy of pressure–flow representation and showing robustness in real-world scheduling tasks.
         \item \textbf{Stochastic modeling:} Physics-guided neural networks preserved structural dependencies and generalized reliably under uncertainty, validated through KDE sampling and K–S testing.
         \item \textbf{Overall:} Integrating physical constraints with GNNs yields efficient, accurate, and robust surrogates for optimization in natural gas systems.
     \end{itemize}

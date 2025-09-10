@@ -37,6 +37,14 @@ Jiang, T., Yuan, C., Zhang, R., Bai, L., Li, X., Chen, H., and Li, G. (2021).
 \newblock {\em International Journal of Electrical Power \& Energy Systems},
   125:106460.
 
+\bibitem[Pfetsch et~al., 2014]{artice_time_comparison}
+Pfetsch, M.~E., Fügenschuh, A., Geißler, B., Geißler, N., Gollmer, R.,
+  Hiller, B., Humpola, J., Koch, T., Lehmann, T., Martin, A., and et~al.
+  (2014).
+\newblock Validation of nominations in gas network optimization: Models,
+  methods, and solutions.
+\newblock {\em Optimization Methods and Software}, 30(1):15–53.
+
 \bibitem[Promigas, 2021]{Promigas_2021}
 Promigas (2021).
 \newblock Informe del sector gas natural 2021.
@@ -51,6 +59,13 @@ Schwele, A., Ordoudis, C., Kazempour, J., and Pinson, P. (2019).
 \newblock Coordination of power and natural gas systems: Convexification
   approaches for linepack modeling.
 \newblock In {\em 2019 IEEE Milan PowerTech}, pages 1--6.
+
+\bibitem[Sharifi et~al., 2022]{9831787}
+Sharifi, V., Abdollahi, A., Rashidinejad, M., Heydarian-Forushani, E., and
+  Alhelou, H.~H. (2022).
+\newblock Integrated electricity and natural gas demand response in
+  flexibility-based generation maintenance scheduling.
+\newblock {\em IEEE Access}, 10:76021--76030.
 
 \bibitem[Wächter and Biegler, 2005]{ipopt}
 Wächter, A. and Biegler, L.~T. (2005).

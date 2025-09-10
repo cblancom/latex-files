@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  8 SEP 2025 11:01
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  9 SEP 2025 21:33
  system commands enabled.
 **main.tex
 (./main.tex
@@ -1311,31 +1311,31 @@ LaTeX Warning: Label `eq:gas_balance' multiply defined.
 )
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 111.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-11.
+20.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1393,7 +1393,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 111.
+Package hyperref Info: Link coloring ON on input line 120.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1402,41 +1402,41 @@ Package hyperref Info: Link coloring ON on input line 111.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 111.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 111.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 120.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 111.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 111.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 111.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 120.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 111.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 111.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 111.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 120.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 111.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/m/it on input line 111.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 111.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/m/it on input line 120.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 111.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 111.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 120.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 111.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 120.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  TU/lmr/m/it --> TU/lmr/b/it on input line 111.
+(Font)                  TU/lmr/m/it --> TU/lmr/b/it on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 111.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  TU/lmr/b/n --> TU/lmr/b/n on input line 111.
+(Font)                  TU/lmr/b/n --> TU/lmr/b/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 111.
+(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  TU/lmr/m/it --> TU/lmr/b/it on input line 111.
+(Font)                  TU/lmr/m/it --> TU/lmr/b/it on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 111.
+(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 120.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1463,64 +1463,76 @@ ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 
-Package chemgreek Info: Activating mapping `default' on line 111.
+Package chemgreek Info: Activating mapping `default' on line 120.
 
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 111.
+ on input line 120.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (./main.nav)
-Underfull \hbox (badness 10000) in paragraph at lines 132--132
-
- []
-
-<figures/hydro_vs_thermal.png, id=50, 1541.76pt x 1027.84pt>
-File: figures/hydro_vs_thermal.png Graphic file (type png)
-<use figures/hydro_vs_thermal.png>
-Package luatex.def Info: figures/hydro_vs_thermal.png  used on input line 132.
-(luatex.def)             Requested size: 205.3793pt x 136.91743pt.
-
-Overfull \vbox (7.94162pt too high) detected at line 132
- []
-
-[2
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [3
-
-<./figures/hydro_vs_thermal.png>] [4
-
-]
-<figures/8_node_system.png, id=79, 376.88805pt x 153.2124pt>
-File: figures/8_node_system.png Graphic file (type png)
-<use figures/8_node_system.png>
-Package luatex.def Info: figures/8_node_system.png  used on input line 224.
-(luatex.def)             Requested size: 239.6057pt x 97.40567pt.
- [5
-
-]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 253
+LaTeX Font Info:    Trying to load font information for U+msa on input line 134
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 253
+LaTeX Font Info:    Trying to load font information for U+msb on input line 134
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [6
+)
+<figures/logos/utp.jpg, id=53, 552.0625pt x 421.575pt>
+File: figures/logos/utp.jpg Graphic file (type jpg)
+<use figures/logos/utp.jpg>
+Package luatex.def Info: figures/logos/utp.jpg  used on input line 134.
+(luatex.def)             Requested size: 74.51678pt x 56.9055pt.
+<figures/logos/mie.jpg, id=54, 70.8246pt x 42.3984pt>
+File: figures/logos/mie.jpg Graphic file (type jpg)
+<use figures/logos/mie.jpg>
+Package luatex.def Info: figures/logos/mie.jpg  used on input line 134.
+(luatex.def)             Requested size: 95.06546pt x 56.9055pt.
 
-<./figures/8_node_system.png>] [7
+Overfull \vbox (4.73608pt too high) detected at line 134
+ []
 
-] (./figures/model_description.tex) [8
+(./main.toc) [2
 
-] [9
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}<./figures/logos/utp.jpg><./f
+igures/logos/mie.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
+
+ []
+
+<figures/hydro_vs_thermal.png, id=75, 1541.76pt x 1027.84pt>
+File: figures/hydro_vs_thermal.png Graphic file (type png)
+<use figures/hydro_vs_thermal.png>
+Package luatex.def Info: figures/hydro_vs_thermal.png  used on input line 155.
+(luatex.def)             Requested size: 205.3793pt x 136.91743pt.
+[3
+
+] [4
+
+<./figures/hydro_vs_thermal.png>] [5
+
+]
+<figures/8_node_system.png, id=113, 376.88805pt x 153.2124pt>
+File: figures/8_node_system.png Graphic file (type png)
+<use figures/8_node_system.png>
+Package luatex.def Info: figures/8_node_system.png  used on input line 217.
+(luatex.def)             Requested size: 239.6057pt x 97.40567pt.
+ [6
+
+] [7
+
+<./figures/8_node_system.png>] [8
+
+] (./figures/model_description.tex) [9
 
 ] [10
 
@@ -1528,35 +1540,38 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [12
 
+] [13
+
+] [14
+
 ]
-<figures/network_math_alternative.pdf, id=144, 393.84743pt x 395.03987pt>
+<figures/network_math_alternative.pdf, id=180, 393.84743pt x 395.03987pt>
 File: figures/network_math_alternative.pdf Graphic file (type pdf)
 <use figures/network_math_alternative.pdf>
 Package luatex.def Info: figures/network_math_alternative.pdf  used on input li
-ne 550.
+ne 499.
 (luatex.def)             Requested size: 171.14767pt x 171.66615pt.
-
-[13
+ [15
 
 ]
-<figures/power_dummy_constraint.png, id=151, 91.42155pt x 59.91183pt>
+<figures/power_dummy_constraint.png, id=188, 91.42155pt x 59.91183pt>
 File: figures/power_dummy_constraint.png Graphic file (type png)
 <use figures/power_dummy_constraint.png>
 Package luatex.def Info: figures/power_dummy_constraint.png  used on input line
- 604.
+ 535.
 (luatex.def)             Requested size: 115.01335pt x 75.37775pt.
 
-Overfull \hbox (32.8606pt too wide) in paragraph at lines 604--604
+Overfull \hbox (32.8606pt too wide) in paragraph at lines 535--535
 []  
  []
 
-[14
+[16
 
 <./figures/network_math_alternative.pdf>]
-<figures/gas_dummy.png, id=188, 875.55106pt x 471.27267pt>
+<figures/gas_dummy.png, id=224, 875.55106pt x 471.27267pt>
 File: figures/gas_dummy.png Graphic file (type png)
 <use figures/gas_dummy.png>
-Package luatex.def Info: figures/gas_dummy.png  used on input line 668.
+Package luatex.def Info: figures/gas_dummy.png  used on input line 599.
 (luatex.def)             Requested size: 115.5239pt x 62.18085pt.
 
 warning  (pdf backend): ignoring duplicate destination with the name 'eq:well_li
@@ -1571,163 +1586,166 @@ it_gas'
 warning  (pdf backend): ignoring duplicate destination with the name 'eq:gas_bal
 ance'
 
-Overfull \hbox (2.00168pt too wide) detected at line 668
+Overfull \hbox (2.00168pt too wide) detected at line 599
 []
  []
 
 
-Overfull \hbox (31.89212pt too wide) detected at line 668
+Overfull \hbox (31.89212pt too wide) detected at line 599
 []
  []
 
-[15
-
-<./figures/power_dummy_constraint.png>] [16
-
-<./figures/gas_dummy.png>]
 [17
 
-] [18
+<./figures/power_dummy_constraint.png>] [18
+
+<./figures/gas_dummy.png>]
+[19
+
+] [20
 
 ]
 warning  (file figures/case1_cost.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.6', but at most version '1.5' allowed
-<figures/case1_cost.pdf, id=246, 314.7519pt x 169.15697pt>
+<figures/case1_cost.pdf, id=281, 314.7519pt x 169.15697pt>
 File: figures/case1_cost.pdf Graphic file (type pdf)
 <use figures/case1_cost.pdf>
-Package luatex.def Info: figures/case1_cost.pdf  used on input line 825.
+Package luatex.def Info: figures/case1_cost.pdf  used on input line 751.
 (luatex.def)             Requested size: 164.29628pt x 73.9337pt.
 
 warning  (file figures/case1_error.pdf) (pdf inclusion): PDF inclusion: found PD
 F version '1.6', but at most version '1.5' allowed
-<figures/case1_error.pdf, id=247, 399.15524pt x 207.84149pt>
+<figures/case1_error.pdf, id=282, 399.15524pt x 207.84149pt>
 File: figures/case1_error.pdf Graphic file (type pdf)
 <use figures/case1_error.pdf>
-Package luatex.def Info: figures/case1_error.pdf  used on input line 825.
+Package luatex.def Info: figures/case1_error.pdf  used on input line 751.
 (luatex.def)             Requested size: 164.30031pt x 73.93488pt.
-[19
+[21
 
 ]
 warning  (file figures/case2_cost.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.6', but at most version '1.5' allowed
-<figures/case2_cost.pdf, id=258, 295.40965pt x 126.9553pt>
+<figures/case2_cost.pdf, id=293, 295.40965pt x 126.9553pt>
 File: figures/case2_cost.pdf Graphic file (type pdf)
 <use figures/case2_cost.pdf>
-Package luatex.def Info: figures/case2_cost.pdf  used on input line 892.
+Package luatex.def Info: figures/case2_cost.pdf  used on input line 817.
 (luatex.def)             Requested size: 150.61185pt x 66.26895pt.
 
 warning  (file figures/case2_error.pdf) (pdf inclusion): PDF inclusion: found PD
 F version '1.6', but at most version '1.5' allowed
-<figures/case2_error.pdf, id=259, 418.4973pt x 160.71643pt>
+<figures/case2_error.pdf, id=294, 418.4973pt x 160.71643pt>
 File: figures/case2_error.pdf Graphic file (type pdf)
 <use figures/case2_error.pdf>
-Package luatex.def Info: figures/case2_error.pdf  used on input line 892.
+Package luatex.def Info: figures/case2_error.pdf  used on input line 817.
 (luatex.def)             Requested size: 177.99629pt x 80.09807pt.
-[20
+[22
 
 <./figures/case1_cost.pdf><./figures/case1_error.pdf>]
 warning  (file figures/case3_cost.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.6', but at most version '1.5' allowed
-<figures/case3_cost.pdf, id=325, 399.22551pt x 192.01637pt>
+<figures/case3_cost.pdf, id=362, 399.22551pt x 192.01637pt>
 File: figures/case3_cost.pdf Graphic file (type pdf)
 <use figures/case3_cost.pdf>
-Package luatex.def Info: figures/case3_cost.pdf  used on input line 958.
+Package luatex.def Info: figures/case3_cost.pdf  used on input line 882.
 (luatex.def)             Requested size: 164.29877pt x 73.93384pt.
 
 warning  (file figures/case3_error.pdf) (pdf inclusion): PDF inclusion: found PD
 F version '1.6', but at most version '1.5' allowed
-<figures/case3_error.pdf, id=326, 394.93648pt x 155.9697pt>
+<figures/case3_error.pdf, id=363, 394.93648pt x 155.9697pt>
 File: figures/case3_error.pdf Graphic file (type pdf)
 <use figures/case3_error.pdf>
-Package luatex.def Info: figures/case3_error.pdf  used on input line 958.
+Package luatex.def Info: figures/case3_error.pdf  used on input line 882.
 (luatex.def)             Requested size: 164.30536pt x 73.93405pt.
-[21
+[23
 
-<./figures/case2_cost.pdf><./figures/case2_error.pdf>] [22
+<./figures/case2_cost.pdf><./figures/case2_error.pdf>] [24
 
 <./figures/case3_cost.pdf><./figures/case3_error.pdf>]
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <9> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1047.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 972.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1047.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 972.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1047.
-
-[23
-
-] (./figures/model_description_PINN.tex) [24
-
-]
-Overfull \hbox (9.04518pt too wide) in paragraph at lines 1093--1093
- [] 
- []
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 972.
 
 [25
 
-] [26
+] (./figures/model_description_PINN.tex) [26
 
 ]
-<figures/outputs_outputs_2_cut.png, id=492, 1235.61626pt x 926.46124pt>
-File: figures/outputs_outputs_2_cut.png Graphic file (type png)
-<use figures/outputs_outputs_2_cut.png>
-Package luatex.def Info: figures/outputs_outputs_2_cut.png  used on input line 
-1149.
-(luatex.def)             Requested size: 222.48988pt x 166.81236pt.
-
-Overfull \vbox (2.51854pt too high) detected at line 1149
+Overfull \hbox (9.04518pt too wide) in paragraph at lines 1018--1018
+ [] 
  []
 
 [27
 
+] [28
+
 ]
-<figures/outputs_outputs_3.png, id=498, 1076.1003pt x 1076.1003pt>
+<figures/outputs_outputs_2_cut.png, id=526, 1235.61626pt x 926.46124pt>
+File: figures/outputs_outputs_2_cut.png Graphic file (type png)
+<use figures/outputs_outputs_2_cut.png>
+Package luatex.def Info: figures/outputs_outputs_2_cut.png  used on input line 
+1074.
+(luatex.def)             Requested size: 222.48988pt x 166.81236pt.
+
+Overfull \vbox (2.51854pt too high) detected at line 1074
+ []
+
+[29
+
+]
+<figures/outputs_outputs_3.png, id=532, 1076.1003pt x 1076.1003pt>
 File: figures/outputs_outputs_3.png Graphic file (type png)
 <use figures/outputs_outputs_3.png>
-Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 1163
+Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 1088
 .
 (luatex.def)             Requested size: 171.14767pt x 171.14511pt.
 
-Overfull \vbox (6.85129pt too high) detected at line 1163
+Overfull \vbox (6.85129pt too high) detected at line 1088
  []
 
-[28
-
-<./figures/outputs_outputs_2_cut.png>]
-<figures/inputs_outputs_1.png, id=506, 1307.94246pt x 849.1725pt>
-File: figures/inputs_outputs_1.png Graphic file (type png)
-<use figures/inputs_outputs_1.png>
-Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 1182.
-
-(luatex.def)             Requested size: 239.6057pt x 155.55252pt.
- [29
-
-<./figures/outputs_outputs_3.png>]
-<figures/inputs_outputs_2.png, id=513, 1293.633pt x 1065.9825pt>
-File: figures/inputs_outputs_2.png Graphic file (type png)
-<use figures/inputs_outputs_2.png>
-Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1200.
-
-(luatex.def)             Requested size: 188.26349pt x 155.12466pt.
 [30
 
-<./figures/inputs_outputs_1.png>] [31
+<./figures/outputs_outputs_2_cut.png>]
+<figures/inputs_outputs_1.png, id=540, 1307.94246pt x 849.1725pt>
+File: figures/inputs_outputs_1.png Graphic file (type png)
+<use figures/inputs_outputs_1.png>
+Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 1107.
 
-<./figures/inputs_outputs_2.png>]
+(luatex.def)             Requested size: 239.6057pt x 155.55252pt.
+ [31
+
+<./figures/outputs_outputs_3.png>]
+<figures/inputs_outputs_2.png, id=547, 1293.633pt x 1065.9825pt>
+File: figures/inputs_outputs_2.png Graphic file (type png)
+<use figures/inputs_outputs_2.png>
+Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1125.
+
+(luatex.def)             Requested size: 188.26349pt x 155.12466pt.
 [32
 
-] (./main.bbl) [33
+<./figures/inputs_outputs_1.png>] [33
 
-] [34
+<./figures/inputs_outputs_2.png>]
+[34
 
-</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [35
-
+] (./main.bbl) [35
 
 ] [36
+
+</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [37
+
+
+] [38
+
+
+] [39
 
 
 ]
@@ -1740,7 +1758,7 @@ Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1200.
 \tf@snm=\write8
 
 \openout8 = main.snm
- [37
+ [40
 
 
 ] (./main.aux)
@@ -1748,18 +1766,18 @@ Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1200.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 970CF565AE0B170B6E0E88B31AC03CA9;822.
+(rerunfilecheck)             Checksum: 93765BA01ACDF074149A488D0B8B82B4;1662.
 )
 
 Here is how much of LuaTeX's memory you used:
- 43648 strings out of 478285
+ 43738 strings out of 478285
  100000,1977958 words of node,token memory allocated
- 8685 words of node memory still in use:
-   56 hlist, 9 vlist, 8 rule, 56 disc, 11 local_par, 186 glue, 46 kern, 31 penal
-ty, 590 glyph, 270 attribute, 77 glue_spec, 137 attribute_list, 5 write, 3 pdf_d
-est, 71 pdf_colorstack nodes
-   avail lists: 2:3544,3:1346,4:409,5:657,6:80,7:4867,8:41,9:1811,10:17,11:430
- 61797 multiletter control sequences out of 65536+600000
+ 9011 words of node memory still in use:
+   57 hlist, 9 vlist, 8 rule, 59 disc, 11 local_par, 186 glue, 41 kern, 33 penal
+ty, 629 glyph, 270 attribute, 77 glue_spec, 137 attribute_list, 5 write, 3 pdf_d
+est, 1 pdf_action, 77 pdf_colorstack nodes
+   avail lists: 2:3553,3:1344,4:403,5:662,6:80,7:4902,8:41,9:1810,10:17,11:437
+ 61859 multiletter control sequences out of 65536+600000
  113 fonts using 9242423 bytes
  128i,20n,115p,718b,976s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></u
@@ -1791,10 +1809,10 @@ onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on main.pdf (36 pages, 9640980 bytes).
+Output written on main.pdf (39 pages, 9752699 bytes).
 
-PDF statistics: 709 PDF objects out of 1000 (max. 8388607)
- 492 compressed objects within 5 object streams
- 118 named destinations out of 1000 (max. 131072)
- 144 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 747 PDF objects out of 1000 (max. 8388607)
+ 523 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 131072)
+ 162 words of extra memory for PDF output out of 10000 (max. 100000000)
 
