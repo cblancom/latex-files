@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  9 SEP 2025 21:33
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  24 SEP 2025 22:39
  system commands enabled.
 **main.tex
 (./main.tex
@@ -1520,58 +1520,66 @@ Package luatex.def Info: figures/hydro_vs_thermal.png  used on input line 155.
 
 <./figures/hydro_vs_thermal.png>] [5
 
+] [6
+
 ]
-<figures/8_node_system.png, id=113, 376.88805pt x 153.2124pt>
+<figures/8_node_system.png, id=118, 376.88805pt x 153.2124pt>
 File: figures/8_node_system.png Graphic file (type png)
 <use figures/8_node_system.png>
-Package luatex.def Info: figures/8_node_system.png  used on input line 217.
-(luatex.def)             Requested size: 239.6057pt x 97.40567pt.
- [6
+Package luatex.def Info: figures/8_node_system.png  used on input line 244.
+(luatex.def)             Requested size: 164.30031pt x 66.7918pt.
+<figures/incidence_matrix.png, id=119, 420.6114pt x 426.393pt>
+File: figures/incidence_matrix.png Graphic file (type png)
+<use figures/incidence_matrix.png>
+Package luatex.def Info: figures/incidence_matrix.png  used on input line 244.
+(luatex.def)             Requested size: 106.79419pt x 108.25706pt.
+ [7
 
-] [7
+] [8
 
-<./figures/8_node_system.png>] [8
-
-] (./figures/model_description.tex) [9
+<./figures/8_node_system.png><./figures/incidence_matrix.png>] [9
 
 ] [10
 
 ] [11
 
-] [12
+]
+(./figures/model_description.tex) [12
 
 ] [13
 
 ] [14
 
+] [15
+
 ]
-<figures/network_math_alternative.pdf, id=180, 393.84743pt x 395.03987pt>
+<figures/network_math_alternative.pdf, id=191, 393.84743pt x 395.03987pt>
 File: figures/network_math_alternative.pdf Graphic file (type pdf)
 <use figures/network_math_alternative.pdf>
 Package luatex.def Info: figures/network_math_alternative.pdf  used on input li
-ne 499.
+ne 666.
 (luatex.def)             Requested size: 171.14767pt x 171.66615pt.
- [15
+ [16
 
 ]
-<figures/power_dummy_constraint.png, id=188, 91.42155pt x 59.91183pt>
+<figures/power_dummy_constraint.png, id=200, 91.42155pt x 59.91183pt>
 File: figures/power_dummy_constraint.png Graphic file (type png)
 <use figures/power_dummy_constraint.png>
 Package luatex.def Info: figures/power_dummy_constraint.png  used on input line
- 535.
+ 702.
 (luatex.def)             Requested size: 115.01335pt x 75.37775pt.
 
-Overfull \hbox (32.8606pt too wide) in paragraph at lines 535--535
+Overfull \hbox (32.8606pt too wide) in paragraph at lines 702--702
 []  
  []
 
-[16
+[17
 
 <./figures/network_math_alternative.pdf>]
-<figures/gas_dummy.png, id=224, 875.55106pt x 471.27267pt>
+<figures/gas_dummy.png, id=236, 875.55106pt x 471.27267pt>
 File: figures/gas_dummy.png Graphic file (type png)
 <use figures/gas_dummy.png>
-Package luatex.def Info: figures/gas_dummy.png  used on input line 599.
+Package luatex.def Info: figures/gas_dummy.png  used on input line 766.
 (luatex.def)             Requested size: 115.5239pt x 62.18085pt.
 
 warning  (pdf backend): ignoring duplicate destination with the name 'eq:well_li
@@ -1586,166 +1594,166 @@ it_gas'
 warning  (pdf backend): ignoring duplicate destination with the name 'eq:gas_bal
 ance'
 
-Overfull \hbox (2.00168pt too wide) detected at line 599
+Overfull \hbox (2.00168pt too wide) detected at line 766
 []
  []
 
 
-Overfull \hbox (31.89212pt too wide) detected at line 599
+Overfull \hbox (31.89212pt too wide) detected at line 766
 []
  []
 
-[17
+[18
 
-<./figures/power_dummy_constraint.png>] [18
+<./figures/power_dummy_constraint.png>] [19
 
 <./figures/gas_dummy.png>]
-[19
+[20
 
-] [20
+] [21
 
 ]
 warning  (file figures/case1_cost.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.6', but at most version '1.5' allowed
-<figures/case1_cost.pdf, id=281, 314.7519pt x 169.15697pt>
+<figures/case1_cost.pdf, id=293, 314.7519pt x 169.15697pt>
 File: figures/case1_cost.pdf Graphic file (type pdf)
 <use figures/case1_cost.pdf>
-Package luatex.def Info: figures/case1_cost.pdf  used on input line 751.
+Package luatex.def Info: figures/case1_cost.pdf  used on input line 918.
 (luatex.def)             Requested size: 164.29628pt x 73.9337pt.
 
 warning  (file figures/case1_error.pdf) (pdf inclusion): PDF inclusion: found PD
 F version '1.6', but at most version '1.5' allowed
-<figures/case1_error.pdf, id=282, 399.15524pt x 207.84149pt>
+<figures/case1_error.pdf, id=294, 399.15524pt x 207.84149pt>
 File: figures/case1_error.pdf Graphic file (type pdf)
 <use figures/case1_error.pdf>
-Package luatex.def Info: figures/case1_error.pdf  used on input line 751.
+Package luatex.def Info: figures/case1_error.pdf  used on input line 918.
 (luatex.def)             Requested size: 164.30031pt x 73.93488pt.
-[21
+[22
 
 ]
 warning  (file figures/case2_cost.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.6', but at most version '1.5' allowed
-<figures/case2_cost.pdf, id=293, 295.40965pt x 126.9553pt>
+<figures/case2_cost.pdf, id=306, 295.40965pt x 126.9553pt>
 File: figures/case2_cost.pdf Graphic file (type pdf)
 <use figures/case2_cost.pdf>
-Package luatex.def Info: figures/case2_cost.pdf  used on input line 817.
+Package luatex.def Info: figures/case2_cost.pdf  used on input line 984.
 (luatex.def)             Requested size: 150.61185pt x 66.26895pt.
 
 warning  (file figures/case2_error.pdf) (pdf inclusion): PDF inclusion: found PD
 F version '1.6', but at most version '1.5' allowed
-<figures/case2_error.pdf, id=294, 418.4973pt x 160.71643pt>
+<figures/case2_error.pdf, id=307, 418.4973pt x 160.71643pt>
 File: figures/case2_error.pdf Graphic file (type pdf)
 <use figures/case2_error.pdf>
-Package luatex.def Info: figures/case2_error.pdf  used on input line 817.
+Package luatex.def Info: figures/case2_error.pdf  used on input line 984.
 (luatex.def)             Requested size: 177.99629pt x 80.09807pt.
-[22
+[23
 
 <./figures/case1_cost.pdf><./figures/case1_error.pdf>]
 warning  (file figures/case3_cost.pdf) (pdf inclusion): PDF inclusion: found PDF
  version '1.6', but at most version '1.5' allowed
-<figures/case3_cost.pdf, id=362, 399.22551pt x 192.01637pt>
+<figures/case3_cost.pdf, id=374, 399.22551pt x 192.01637pt>
 File: figures/case3_cost.pdf Graphic file (type pdf)
 <use figures/case3_cost.pdf>
-Package luatex.def Info: figures/case3_cost.pdf  used on input line 882.
+Package luatex.def Info: figures/case3_cost.pdf  used on input line 1049.
 (luatex.def)             Requested size: 164.29877pt x 73.93384pt.
 
 warning  (file figures/case3_error.pdf) (pdf inclusion): PDF inclusion: found PD
 F version '1.6', but at most version '1.5' allowed
-<figures/case3_error.pdf, id=363, 394.93648pt x 155.9697pt>
+<figures/case3_error.pdf, id=375, 394.93648pt x 155.9697pt>
 File: figures/case3_error.pdf Graphic file (type pdf)
 <use figures/case3_error.pdf>
-Package luatex.def Info: figures/case3_error.pdf  used on input line 882.
+Package luatex.def Info: figures/case3_error.pdf  used on input line 1049.
 (luatex.def)             Requested size: 164.30536pt x 73.93405pt.
-[23
+[24
 
-<./figures/case2_cost.pdf><./figures/case2_error.pdf>] [24
+<./figures/case2_cost.pdf><./figures/case2_error.pdf>] [25
 
 <./figures/case3_cost.pdf><./figures/case3_error.pdf>]
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <9> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 972.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1139.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 972.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1139.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 972.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1139.
 
-[25
+[26
 
-] (./figures/model_description_PINN.tex) [26
+] (./figures/model_description_PINN.tex) [27
 
 ]
-Overfull \hbox (9.04518pt too wide) in paragraph at lines 1018--1018
+Overfull \hbox (9.04518pt too wide) in paragraph at lines 1185--1185
  [] 
  []
 
-[27
+[28
 
-] [28
+] [29
 
 ]
-<figures/outputs_outputs_2_cut.png, id=526, 1235.61626pt x 926.46124pt>
+<figures/outputs_outputs_2_cut.png, id=537, 1235.61626pt x 926.46124pt>
 File: figures/outputs_outputs_2_cut.png Graphic file (type png)
 <use figures/outputs_outputs_2_cut.png>
 Package luatex.def Info: figures/outputs_outputs_2_cut.png  used on input line 
-1074.
+1241.
 (luatex.def)             Requested size: 222.48988pt x 166.81236pt.
 
-Overfull \vbox (2.51854pt too high) detected at line 1074
- []
-
-[29
-
-]
-<figures/outputs_outputs_3.png, id=532, 1076.1003pt x 1076.1003pt>
-File: figures/outputs_outputs_3.png Graphic file (type png)
-<use figures/outputs_outputs_3.png>
-Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 1088
-.
-(luatex.def)             Requested size: 171.14767pt x 171.14511pt.
-
-Overfull \vbox (6.85129pt too high) detected at line 1088
+Overfull \vbox (2.51854pt too high) detected at line 1241
  []
 
 [30
 
+]
+<figures/outputs_outputs_3.png, id=543, 1076.1003pt x 1076.1003pt>
+File: figures/outputs_outputs_3.png Graphic file (type png)
+<use figures/outputs_outputs_3.png>
+Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 1255
+.
+(luatex.def)             Requested size: 171.14767pt x 171.14511pt.
+
+Overfull \vbox (6.85129pt too high) detected at line 1255
+ []
+
+[31
+
 <./figures/outputs_outputs_2_cut.png>]
-<figures/inputs_outputs_1.png, id=540, 1307.94246pt x 849.1725pt>
+<figures/inputs_outputs_1.png, id=551, 1307.94246pt x 849.1725pt>
 File: figures/inputs_outputs_1.png Graphic file (type png)
 <use figures/inputs_outputs_1.png>
-Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 1107.
+Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 1274.
 
 (luatex.def)             Requested size: 239.6057pt x 155.55252pt.
- [31
+ [32
 
 <./figures/outputs_outputs_3.png>]
-<figures/inputs_outputs_2.png, id=547, 1293.633pt x 1065.9825pt>
+<figures/inputs_outputs_2.png, id=559, 1293.633pt x 1065.9825pt>
 File: figures/inputs_outputs_2.png Graphic file (type png)
 <use figures/inputs_outputs_2.png>
-Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1125.
+Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1292.
 
 (luatex.def)             Requested size: 188.26349pt x 155.12466pt.
-[32
+[33
 
-<./figures/inputs_outputs_1.png>] [33
+<./figures/inputs_outputs_1.png>] [34
 
 <./figures/inputs_outputs_2.png>]
-[34
+[35
 
-] (./main.bbl) [35
+] (./main.bbl) [36
 
-] [36
+] [37
 
-</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [37
-
-
-] [38
+</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [38
 
 
 ] [39
+
+
+] [40
 
 
 ]
@@ -1758,7 +1766,7 @@ Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1125.
 \tf@snm=\write8
 
 \openout8 = main.snm
- [40
+ [41
 
 
 ] (./main.aux)
@@ -1770,49 +1778,53 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 43738 strings out of 478285
+ 43767 strings out of 478285
  100000,1977958 words of node,token memory allocated
- 9011 words of node memory still in use:
+ 9083 words of node memory still in use:
    57 hlist, 9 vlist, 8 rule, 59 disc, 11 local_par, 186 glue, 41 kern, 33 penal
-ty, 629 glyph, 270 attribute, 77 glue_spec, 137 attribute_list, 5 write, 3 pdf_d
+ty, 629 glyph, 294 attribute, 77 glue_spec, 149 attribute_list, 5 write, 3 pdf_d
 est, 1 pdf_action, 77 pdf_colorstack nodes
-   avail lists: 2:3553,3:1344,4:403,5:662,6:80,7:4902,8:41,9:1810,10:17,11:437
- 61859 multiletter control sequences out of 65536+600000
- 113 fonts using 9242423 bytes
- 128i,20n,115p,718b,976s stack positions out of 10000i,1000n,20000p,200000b,200000s
+   avail lists: 2:3565,3:1344,4:384,5:662,6:79,7:4908,8:41,9:1810,10:17,11:470
+ 61880 multiletter control sequences out of 65536+600000
+ 114 fonts using 9374111 bytes
+ 128i,20n,115p,718b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></u
 sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/sh
 are/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share
-/texlive/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/share/texli
-ve/texmf-dist/fonts/opentype/public/lm/lmroman8-italic.otf></usr/share/texlive/t
-exmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/texlive/texmf
--dist/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texlive/tex
-mf-dist/fonts/opentype/public/lm/lmroman9-italic.otf></usr/share/texlive/texmf-d
-ist/fonts/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf-dist/fo
-nts/opentype/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf-dist/fonts
-/opentype/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fonts/op
-entype/public/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts/opent
-ype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentyp
-e/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on main.pdf (39 pages, 9752699 bytes).
+/texlive/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/te
+xlive/texmf-dist/fonts/opentype/public/lm/lmroman6-bold.otf></usr/share/texlive/
+texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/share/texlive/texmf-
+dist/fonts/opentype/public/lm/lmroman8-italic.otf></usr/share/texlive/texmf-dist
+/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texlive/texmf-di
+st/fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/texlive/texmf-dist/f
+onts/opentype/public/lm/lmroman9-italic.otf></usr/share/texlive/texmf-dist/fonts
+/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf-dist/fonts/opent
+ype/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype
+/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/pu
+blic/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/publi
+c/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/
+lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cme
+xtra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextr
+a/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (40 pages, 9784224 bytes).
 
-PDF statistics: 747 PDF objects out of 1000 (max. 8388607)
- 523 compressed objects within 6 object streams
- 127 named destinations out of 1000 (max. 131072)
+PDF statistics: 777 PDF objects out of 1000 (max. 8388607)
+ 542 compressed objects within 6 object streams
+ 129 named destinations out of 1000 (max. 131072)
  162 words of extra memory for PDF output out of 10000 (max. 100000000)
 

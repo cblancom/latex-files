@@ -29,8 +29,8 @@
     \node[output] (edge_output) [right of=post_dense, xshift=3cm, yshift=-1cm] {\(\hat{\mathbf{X}}_e\)}; % Edge Predictions
 
     % Losses
-    \node[loss] (node_loss) [right of=node_output, xshift=3cm] {Node Loss};
-    \node[loss] (edge_loss) [right of=edge_output, xshift=3cm] {Edge Loss};
+    \node[loss] (node_loss) [right of=node_output, xshift=3cm] {\(\mathcal{L}(\Theta)_v\)};
+    \node[loss] (edge_loss) [right of=edge_output, xshift=3cm] {\(\mathcal{L}(\Theta)_e\)};
 
     % Arrows
     \draw[arrow] (node_features) -- (norm_pre_dense);

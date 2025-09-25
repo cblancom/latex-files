@@ -87,7 +87,7 @@
       \tiny Universidad Tecnológica de Pereira
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=0.33\paperwidth,ht=2.5ex,dp=1.125ex,right]{date in head/foot}%
-      \tiny \insertshortdate{} \hspace{1em} \insertframenumber{} / \inserttotalframenumber \hspace{1em}
+      \tiny {\tiny \insertshortdate{}} \hspace{1em} {\tiny \insertframenumber{} / \inserttotalframenumber} \hspace{1em}
     \end{beamercolorbox}%
   }%
   \vskip0pt%
@@ -155,17 +155,16 @@ In Colombia, natural gas is widely used across the residential, commercial, indu
 \end{frame}
 
 
-
 \begin{frame}{Motivation \& Problem Statement}
 \justifying
-\footnotesize % Aplícalo al texto general
+\footnotesize 
 
 \begin{itemize}
-    \footnotesize % Asegura que se aplique dentro del itemize
+    \footnotesize 
     \item \textbf{Large-scale natural gas networks} require solving complex optimization problems \cite{9831787}.
     \item Increasing network size and operational constraints lead to:
     \begin{itemize}
-        \footnotesize % También en el sub-itemize
+        \footnotesize 
         \item Long execution times
         \item Difficulty in real-time or near real-time decision making
     \end{itemize}
@@ -176,10 +175,30 @@ In Colombia, natural gas is widely used across the residential, commercial, indu
 
 \vspace{0.5cm}
 \textbf{Main Problem:} There is a need for methods that preserve accuracy while significantly reducing computation time.
+\end{frame}
+
+
+
+\begin{frame}{Problem Statement: Specific Challenges}
+\justifying
+\footnotesize
+From the general problem of natural gas transportation optimization, three specific challenges can be identified:
+\begin{enumerate}
+    \footnotesize
+    \item \textbf{High computational cost:}  
+    Solving large-scale optimization problems requires long execution times, limiting the feasibility of real-time or near real-time operation.
+
+    \item \textbf{Pipeline modeling complexity:}  
+    The Weymouth equation introduces nonlinearities, discontinuities, and nonconvexities that generate approximation errors and numerical instability.
+
+    \item \textbf{Uncertainty in demand:}  
+    Variability in hydropower generation and the growth of renewable sources create uncertainty in the demand for natural gas, requiring flexible and stochastic optimization approaches.
+\end{enumerate}
 
 \vspace{0.5cm}
 \textbf{Research Question:} How can an optimization tool be developed that seeks to improve the solution to the problem of natural gas transportation, taking into account computational cost, growing energy demand, and the uncertainty associated with this factor?
 \end{frame}
+
 
 
 \section{Objectives}
@@ -189,138 +208,45 @@ In Colombia, natural gas is widely used across the residential, commercial, indu
 \begin{itemize}
     \item Develop an optimization tool that integrates knowledge of the gas transportation network topology, a suitable approximation of the Weymouth equation and stochastic optimization techniques to address the gas transportation task taking into account the uncertainties related to hydroelectric generation and the growth of alternative energy sources.
 \end{itemize}
-\textbf{Specific Objectives:}
-\begin{itemize}
+
+    \textbf{Specific Objectives:}
+\begin{enumerate}
+    \footnotesize
     \item Design a Graph Neural Networks-based approach of regression that integrates knowledge of natural gas network topology to reduce computational time for operation estimation.    
     \item Develop an optimization model for natural gas transportation systems that takes into account the Weymouth equation for reducing that reduces the approximation error in pipeline gas flow calculations.
     \item Develop a stochastic gas flow dispatch optimization strategy that quantifies the uncertainty in the objective variables and decision variables associated with the operation of the gas system taking into account the constraints of the transportation problem.
-\end{itemize}
+\end{enumerate}
 \end{frame}
 
 
+
+
 \section{Natural Gas System Prediction Using Graph Neural Networks}
-\begin{frame}{Natural Gas System as a Graph}
+\begin{frame}{Objective 1 - Natural Gas System as a Graph}
     \footnotesize
     \justifying
     A natural gas network can be represented as a directed graph, 
     where nodes correspond to elements such as wells, users, or storage facilities, 
     and edges represent pipelines and compressors.
-    \begin{figure}
-    \begin{center}
-        \includegraphics[width=0.7\linewidth]{figures/8_node_system.png}
-        \caption{\footnotesize Example of an 8-node gas network represented.}
-    \end{center}
-    \end{figure}
-
+    
+    % Dividimos el slide en dos columnas usando minipage
+    \begin{minipage}[c]{0.48\linewidth}
+        \centering
+        \includegraphics[width=1\linewidth]{figures/8_node_system.png} 
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.65\linewidth]{figures/incidence_matrix.png} 
+    \end{minipage}
+    
     \vspace{0.3cm}
     \textbf{Objective:} Achieve near-optimizer accuracy with significant runtime reduction.
 \end{frame}
 
 
-\begin{frame}{CensNet Layers: Integrating Node \& Edge Features}
-\footnotesize
-\textbf{Motivation:}  
-Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge features}, missing part of the graph’s information.
-
-\medskip
-\textbf{CensNet innovation:}
-\begin{itemize}
-    \item Alternates between \textbf{node layers} and \textbf{edge layers}.
-    \item Each layer type updates its own features while using information from the other:
-    \begin{itemize}
-        \item \footnotesize \textbf{Node layer:} Node embeddings are updated using both node adjacency and transformed edge features.
-        \item \footnotesize \textbf{Edge layer:} Edge embeddings are updated using edge adjacency and transformed node features.
-    \end{itemize}
-    \item Uses an \textit{incidence matrix} \( \mathbf{T} \) to switch between node and edge domains.
-\end{itemize}
-
-\medskip
-\textbf{Benefits:}
-\begin{itemize}
-    \item Captures both \textit{structural} (adjacency) and \textit{relational} (edge) information.
-    \item Enhances long-range dependencies through alternating propagation.
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Mathematical Structure of CensNet Layers}
-\footnotesize
-\textbf{Node layer propagation:}
-\[
-\mathbf{H}^{(l+1)}_v = \sigma\left(
-\mathbf{T} \Phi(\mathbf{H}^{(l)}_e \mathbf{p}_e) \mathbf{T}^\top 
-\odot \tilde{\mathbf{A}}_v \mathbf{H}^{(l)}_v \mathbf{W}_v
-\right)
-\]
-\textbf{Edge layer propagation:}
-\[
-\mathbf{H}^{(l+1)}_e = \sigma\left(
-\mathbf{T}^\top \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \mathbf{T} 
-\odot \tilde{\mathbf{A}}_e \mathbf{H}^{(l)}_e \mathbf{W}_e
-\right)
-\]
-
-\medskip
-\textbf{Key components:}
-\begin{itemize}
-    \item \( \tilde{\mathbf{A}}_v, \tilde{\mathbf{A}}_e \): normalized adjacency matrices (nodes/edges).
-    \item \( \mathbf{T} \): incidence matrix mapping between node and edge domains.
-    \item \( \Phi(\cdot) \): diagonal scaling from projected features.
-    \item \( \odot \): element-wise filtering of adjacency by feature-derived weights.
-\end{itemize}
-
-\medskip
-\textbf{Core idea:} Information “switches” between node and edge spaces at each step, enriching representations.
-\end{frame}
-
-\begin{frame}{CensNet-based Model Architecture}
-\footnotesize
-\justifying
-    \centering
-    \resizebox{0.9\textwidth}{!}{%
-        \input{figures/model_description.tex}%
-    } 
-
-\textbf{Inputs:} Encapsulate both physical attributes and topological information of the gas network:
-        \begin{itemize}
-            \item \footnotesize Node features ($\mathbf{X}$): pressures, injections, withdrawals, demand forecasts.
-            \item \footnotesize Node Laplacian ($\mathbf{L}_v$) and Edge Laplacian ($\mathbf{L}_e$): encode structural connectivity and enable topology-aware learning.
-            \item \footnotesize Edge features ($\mathbf{E}$): capacities, compressor ratios.
-            \item \footnotesize Incidence matrix ($\mathbf{T}$): explicit mapping between nodes and edges.
-        \end{itemize} 
-\end{frame}
-
-
-\begin{frame}{CensNet-based Model Architecture}   
-\footnotesize
-    \begin{itemize} 
-        \item \textbf{Processing:}
-        \begin{itemize}
-            \item \footnotesize Normalization and pre-dense layers transform inputs into a latent space.
-            \item \footnotesize CensNet blocks perform message passing on both node and edge domains, enabling simultaneous learning of flow patterns and interactions.
-            \item \footnotesize Post-dense layers refine features for prediction.
-        \end{itemize}
-        
-        \item \textbf{Outputs:}
-        \begin{itemize}
-            \item \footnotesize Node-level flows ($\hat{\mathbf{X}}_v$) — predicted gas supply/demand at each node.
-            \item \footnotesize Edge-level transported flows ($\hat{\mathbf{X}}_e$) — predicted flow rates in each pipeline.
-        \end{itemize}        
-   \end{itemize}
-
-    \begin{itemize} 
-       \item \footnotesize \textbf{Training:} Node and edge predictions are penalized separately using task-specific loss terms, ensuring both accuracy and physical consistency.  
-        \[
-            \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 + \lambda \|\Theta\|_p
-        \]
-        where $Y_r$ and $\hat{Y}_r$ are target and predicted values for task $r$, and $\lambda\|\Theta\|_p$ is a regularization term to prevent overfitting.
-    \end{itemize}
-\end{frame}
-
-
 \begin{frame}{Optimization Problem: Objective and Constraints}
 \footnotesize
-The gas network consists of wells $\mathcal{W}$ (supply nodes), users $\mathcal{U}$ (demand nodes), pipelines $\mathcal{P}$, and compressors $\mathcal{C}$.
+The gas network consists of wells $\mathcal{W}$ (supply nodes), pipelines $\mathcal{P}$, compressors $\mathcal{C}$ and unsupplied demand $\mathcal{U}$ (demand nodes) 
 
 \[
 \min_{\mathcal{P}, \mathcal{F}} 
@@ -350,6 +276,210 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
 \end{frame}
 
 
+
+
+% \section{Natural Gas System Prediction Using Graph Neural Networks}
+% \begin{frame}{Natural Gas System as a Graph}
+%     \footnotesize
+%     \justifying
+%     A natural gas network can be represented as a directed graph, 
+%     where nodes correspond to elements such as wells, users, or storage facilities, 
+%     and edges represent pipelines and compressors.
+%     \begin{figure}
+%     \begin{center}
+%         \includegraphics[width=0.7\linewidth]{figures/8_node_system.png}
+%     \end{center}
+%     \end{figure}
+%
+%     \vspace{0.3cm}
+%     \textbf{Objective:} Achieve near-optimizer accuracy with significant runtime reduction.
+% \end{frame}
+%
+
+\begin{frame}{CensNet Layers: Integrating Node \& Edge Features}
+\footnotesize
+\textbf{Motivation:}  
+Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge features}, missing part of the graph’s information.
+
+\medskip
+\textbf{CensNet innovation:}
+\begin{itemize}
+    \item Alternates between \textbf{node layers} and \textbf{edge layers}.
+    \item Each layer type updates its own features while using information from the other:
+    \begin{itemize}
+        \item \footnotesize \textbf{Node layer:} Node embeddings are updated using both node adjacency and transformed edge features.
+        \item \footnotesize \textbf{Edge layer:} Edge embeddings are updated using edge adjacency and transformed node features.
+    \end{itemize}
+    \item Uses an \textit{incidence matrix} \( \mathbf{T} \) to switch between node and edge domains.
+\end{itemize}
+
+\medskip
+\textbf{Benefits:}
+\begin{itemize}
+    \item Captures both \textit{structural} (adjacency) and \textit{relational} (edge) information.
+    \item Enhances long-range dependencies through alternating propagation.
+\end{itemize}
+\end{frame}
+
+
+% \begin{frame}{Mathematical Structure of CensNet Layers}
+% \footnotesize
+% \textbf{Node layer propagation:}
+% \[
+% \mathbf{H}^{(l+1)}_v = \sigma\left(
+% \mathbf{T} \Phi(\mathbf{H}^{(l)}_e \mathbf{p}_e) \mathbf{T}^\top 
+% \odot \tilde{\mathbf{A}}_v \mathbf{H}^{(l)}_v \mathbf{W}_v
+% \right)
+% \]
+% \textbf{Edge layer propagation:}
+% \[
+% \mathbf{H}^{(l+1)}_e = \sigma\left(
+% \mathbf{T}^\top \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \mathbf{T} 
+% \odot \tilde{\mathbf{A}}_e \mathbf{H}^{(l)}_e \mathbf{W}_e
+% \right)
+% \]
+%
+% \medskip
+% \textbf{Key components:}
+% \begin{itemize}
+%     \item \( \tilde{\mathbf{A}}_v, \tilde{\mathbf{A}}_e \): normalized adjacency matrices (nodes/edges).
+%     \item \( \mathbf{T} \): incidence matrix mapping between node and edge domains.
+%     \item \( \Phi(\cdot) \): diagonal scaling from projected features.
+%     \item \( \odot \): element-wise filtering of adjacency by feature-derived weights.
+% \end{itemize}
+%
+% \medskip
+% \textbf{Core idea:} Information “switches” between node and edge spaces at each step, enriching representations.
+% \end{frame}
+
+\begin{frame}{Node layer propagation}
+\footnotesize
+
+\[
+\mathbf{H}_v^{(l+1)} \;=\; \sigma\Big(
+\big( \mathbf{T}\,\Phi(\mathbf{H}_e^{(l)}\mathbf{p}_e)\,\mathbf{T}^\top \;\odot\; \tilde{\mathbf{A}}_v \big)
+\; \big(\mathbf{H}_v^{(l)} \mathbf{W}_v \big)
+\Big)
+\]
+
+\vspace{0.5cm}
+
+\textbf{Definitions:}
+\begin{itemize}\footnotesize
+    \item \(N_v\): number of nodes.
+    \item \(D_v, D_v'\): input and output node feature dimensions.
+    \item \(\mathbf{H}_v^{(l)} \in \mathbb{R}^{N_v \times D_v}\): node features at layer \(l\).
+    \item \(\mathbf{H}_e^{(l)} \in \mathbb{R}^{N_e \times D_e}\): edge features at layer \(l\).
+    \item \(\mathbf{p}_e \in \mathbb{R}^{D_e}\): learnable projection vector for edges.
+    \item \(\mathbf{T} \in \{0,1\}^{N_v \times N_e}\): incidence matrix.
+    \item \(\tilde{\mathbf{A}}_v \in \mathbb{R}^{N_v \times N_v}\): normalized node adjacency.
+    \item \(\mathbf{W}_v \in \mathbb{R}^{D_v \times D_v'}\): learnable weight matrix.
+    \item \(\sigma(\cdot)\): non-linear activation, applied element-wise.
+    \item \(\Phi(\cdot)\): diagonalization operator.
+\end{itemize}
+\end{frame}
+
+% -----------------------------
+% Slide 2: Edge layer propagation
+% -----------------------------
+\begin{frame}{Edge layer propagation}
+\footnotesize
+
+\[
+\mathbf{H}_e^{(l+1)} \;=\; \sigma\Big(
+\big( \mathbf{T}^\top \,\Phi(\mathbf{H}_v^{(l)}\mathbf{p}_v)\,\mathbf{T} \;\odot\; \tilde{\mathbf{A}}_e \big)
+\; \big(\mathbf{H}_e^{(l)} \mathbf{W}_e \big)
+\Big)
+\]
+
+\vspace{0.5cm}
+
+\textbf{Definitions:}
+\begin{itemize}\footnotesize
+    \item \(N_e\): number of edges.
+    \item \(D_e, D_e'\): input and output edge feature dimensions.
+    \item \(\mathbf{H}_e^{(l)} \in \mathbb{R}^{N_e \times D_e}\): edge features at layer \(l\).
+    \item \(\mathbf{H}_v^{(l)} \in \mathbb{R}^{N_v \times D_v}\): node features at layer \(l\).
+    \item \(\mathbf{p}_v \in \mathbb{R}^{D_v}\): learnable projection vector for nodes.
+    \item \(\tilde{\mathbf{A}}_e \in \mathbb{R}^{N_e \times N_e}\): normalized edge adjacency (line graph).
+    \item \(\mathbf{W}_e \in \mathbb{R}^{D_e \times D_e'}\): learnable weight matrix.
+    \item \(\sigma(\cdot)\): non-linear activation, applied element-wise.
+\end{itemize}
+\textbf{Core idea:} Information “switches” between node and edge spaces at each step, enriching representations.
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{CensNet-based Model Architecture}
+\scriptsize
+\justifying
+    \centering
+    \resizebox{0.9\textwidth}{!}{%
+        \input{figures/model_description.tex}%
+    } 
+
+\vspace{0.2cm}
+\textbf{Inputs:} Encapsulate both physical attributes and topological information of the network:
+\begin{itemize}
+    \item \footnotesize Node features: 
+    \(\mathbf{X} \in \mathbb{R}^{N_v \times 3}\),  
+    injection limits and demand. 
+    
+    \item \footnotesize Node Laplacian: 
+    \(\mathbf{L}_v \in \mathbb{R}^{N_v \times N_v}\),  
+    node connectivity. 
+    
+    \item \footnotesize Edge Laplacian: 
+    \(\mathbf{L}_e \in \mathbb{R}^{N_e \times N_e}\),  
+    edge connectivity. 
+    
+    \item \footnotesize Edge features: 
+    \(\mathbf{E} \in \mathbb{R}^{N_e \times 5}\),  
+    \(K\), \(\beta\), flow limits. 
+\end{itemize}
+
+\[
+    \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 
+\]
+
+\end{frame}
+
+
+
+
+
+
+% \begin{frame}{CensNet-based Model Architecture}   
+% \footnotesize
+%     \begin{itemize} 
+%         \item \textbf{Processing:}
+%         \begin{itemize}
+%             \item \footnotesize Normalization and pre-dense layers transform inputs into a latent space.
+%             \item \footnotesize CensNet blocks perform message passing on both node and edge domains, enabling simultaneous learning of flow patterns and interactions.
+%             \item \footnotesize Post-dense layers refine features for prediction.
+%         \end{itemize}
+%         
+%         \item \textbf{Outputs:}
+%         \begin{itemize}
+%             \item \footnotesize Node-level flows ($\hat{\mathbf{X}}_v$) — predicted gas supply/demand at each node.
+%             \item \footnotesize Edge-level transported flows ($\hat{\mathbf{X}}_e$) — predicted flow rates in each pipeline.
+%         \end{itemize}        
+%    \end{itemize}
+%
+%     \begin{itemize} 
+%        \item \footnotesize \textbf{Training:} Node and edge predictions are penalized separately using task-specific loss terms, ensuring both accuracy and physical consistency.  
+%         \[
+%             \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 
+%         \]
+%         where $Y_r$ and $\hat{Y}_r$ are target and predicted values for task $r$, and $\lambda\|\Theta\|_p$ is a regularization term to prevent overfitting.
+%     \end{itemize}
+% \end{frame}
+
+
+
 \begin{frame}{Dataset and Experimental Setup}
 \scriptsize
 \begin{columns}[t,onlytextwidth]
@@ -361,7 +491,6 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
             \centering
             \setlength{\tabcolsep}{4pt}
             \renewcommand{\arraystretch}{1.1}
-            \caption{\scriptsize Datasets used in the study.}
             \begin{tabular}{lcccc}
                 \toprule
                 \textbf{Case} & \textbf{Nodes} & \textbf{Pipes} & \textbf{Comps.} & \textbf{Users} \\
@@ -375,14 +504,20 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
         \vspace{0.5em}
         Different scenarios were generated by adding 5\%–25\% noise to user demands and solving with APOPT.
         These outputs were used as training targets for the CensNet model.
+        
+         \vspace{1em}
+
+        \textbf{Experimental Setup}
+        \begin{itemize}
+            \item \textbf{Samples:} 2000 (8-node), 2400 (63-node)
+            \item \textbf{Data split:} 60\% train, 20\% val, 20\% test  
+        \end{itemize}
     \end{column}
 
     \begin{column}{0.43\textwidth}
         \scriptsize
-        \textbf{Experimental Setup}
+        % \textbf{Experimental Setup}
         \begin{itemize}
-            \item \textbf{Data split:} 60\% train, 20\% val, 20\% test
-            \item \textbf{Samples:} 2000 (8-node), 2400 (63-node)
             \item \textbf{Training:} 1500 epochs, Adam optimizer, Leaky ReLU ($\alpha=0.2$)
             \item \textbf{Learning rate:} $1\times10^{-2}$, exponential decay (0.9 every 1000 steps)
             \item \textbf{Hyperparameters:}
@@ -404,46 +539,46 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
 \end{frame}
 
 
-\begin{frame}{Results: Prediction Accuracy}
-\footnotesize 
-\textbf{Networks:} 8-node (synthetic) and 63-node (Colombian gas system)  
-\\
-\textbf{Models:} CensNet (N) – nodal loss only, CensNet (N+E) – nodal + edge loss
-
-\begin{itemize}
-    \footnotesize 
-    \item \textbf{Nodal flow predictions:} High $R^2$ in both settings
-        \begin{itemize}
-            \footnotesize 
-            \item 8-node: $R^2$ = 0.988 (N), 0.988 (N+E)
-            \item 63-node: $R^2$ = 0.996 (N), 0.996 (N+E)
-        \end{itemize}
-    \item \textbf{Edge flow predictions:} 
-        \begin{itemize}
-            \footnotesize 
-            \item (N)   lower accuracy: $R^2$ = -2.818 (8-node) and -5.88 (63-node)
-            \item (N+E) improves: $R^2$ up to 0.999 (8-node) and 0.996 (63-node)
-        \end{itemize}
-\end{itemize}
-
-\textbf{Gas balance consistency (APOPT – CensNet differences):}
-\begin{itemize}
-    \footnotesize 
-    \item \textbf{8-node:} Edge error reduced from 23.76 (N) $\rightarrow$ 0.008 (N+E)
-    \item \textbf{63-node:} Edge error reduced from 62.61 (N) $\rightarrow$ 0.07 (N+E)
-    \item Nodal differences $< 0.1$ units in all cases
-\end{itemize}
-
-\textbf{Prediction speed:}  
-T-tests confirm \textbf{CensNet is significantly faster} than APOPT
-\begin{itemize}
-    \footnotesize 
-    \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
-    \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
-\end{itemize}
-
-\end{frame}
-
+% \begin{frame}{Results: Prediction Accuracy}
+% \footnotesize 
+% \textbf{Networks:} 8-node (synthetic) and 63-node (Colombian gas system)  
+% \\
+% \textbf{Models:} CensNet (N) – nodal loss only, CensNet (N+E) – nodal + edge loss
+%
+% \begin{itemize}
+%     \footnotesize 
+%     \item \textbf{Nodal flow predictions:} High $R^2$ in both settings
+%         \begin{itemize}
+%             \footnotesize 
+%             \item 8-node: $R^2$ = 0.988 (N), 0.988 (N+E)
+%             \item 63-node: $R^2$ = 0.996 (N), 0.996 (N+E)
+%         \end{itemize}
+%     \item \textbf{Edge flow predictions:} 
+%         \begin{itemize}
+%             \footnotesize 
+%             \item (N)   lower accuracy: $R^2$ = -2.818 (8-node) and -5.88 (63-node)
+%             \item (N+E) improves: $R^2$ up to 0.999 (8-node) and 0.996 (63-node)
+%         \end{itemize}
+% \end{itemize}
+%
+% \textbf{Gas balance consistency (APOPT – CensNet differences):}
+% \begin{itemize}
+%     \footnotesize 
+%     \item \textbf{8-node:} Edge error reduced from 23.76 (N) $\rightarrow$ 0.008 (N+E)
+%     \item \textbf{63-node:} Edge error reduced from 62.61 (N) $\rightarrow$ 0.07 (N+E)
+%     \item Nodal differences $< 0.1$ units in all cases
+% \end{itemize}
+%
+% \textbf{Prediction speed:}  
+% T-tests confirm \textbf{CensNet is significantly faster} than APOPT
+% \begin{itemize}
+%     \footnotesize 
+%     \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
+%     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
+% \end{itemize}
+%
+% \end{frame}
+%
 
 
 \begin{frame}{Performance Comparison: 8-Node and 63-Node Networks}
@@ -457,16 +592,15 @@ T-tests confirm \textbf{CensNet is significantly faster} than APOPT
 \midrule
 \multicolumn{5}{c}{\textbf{8-node Network}} \\
 \midrule
-CensNet (N)     & 0.988 & -2.818 & 23.76 & $0.86 \pm 0.50$ \\
-CensNet (N+E)   & 0.988 &  0.999 & 0.008 & $0.85 \pm 0.50$ \\
+CensNet (N)     & 0.988 & -2.818 & 5.71 \pm 16.86 & $0.650 \pm 0.442$ \\
+CensNet (N+E)   & 0.988 &  0.999 & 0.08 \pm 1.17 & $0.640 \pm 0.444$ \\
 \midrule
 \multicolumn{5}{c}{\textbf{63-node Network}} \\
 \midrule
-CensNet (N)     & 0.996 & -5.880 & 62.61 & $0.86 \pm 0.50$ \\
-CensNet (N+E)   & 0.996 &  0.996 & 0.070 & $0.85 \pm 0.50$ \\
+CensNet (N)     & 0.996 & -5.880 & 0.04 \pm 60.83 & $4.88 \pm 5.59$ \\
+CensNet (N+E)   & 0.996 &  0.996 & 0.01 \pm 23.4 & $4.87 \pm 5.59$ \\
 \bottomrule
 \end{tabular}
-\caption{Performance of CensNet (N) and CensNet (N+E) on synthetic (8-node) and real (63-node) networks.}
 \end{table}
 
 \textbf{Prediction speed:}  
@@ -477,6 +611,39 @@ T-tests confirm \textbf{CensNet is significantly faster} than APOPT
     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
 \end{itemize}
 \end{frame}
+
+
+
+\begin{frame}{Performance Comparison: 8-Node and 63-Node Networks}
+\tiny
+\centering
+\begin{table}
+\captionsetup{font=scriptsize}
+\begin{tabular}{lccccc}
+\toprule
+    \textbf{Model} & \textbf{Nodal $R^2$} & \textbf{Edge $R^2$} & \multicolumn{1}{c}{\textbf{\parbox{2cm}{Balance Error}}} & \textbf{Time (s)} & \textbf{T-test} \\
+\midrule
+\multicolumn{6}{c}{\textbf{8-node Network}} \\
+\midrule
+CensNet (N)     & 0.99 & -2.82 & 5.7 \(\pm\) 16.86 & 0.65 \(\pm\) 0.4 & $T=15$\\
+CensNet (N+E)   & 0.99 & 0.99  & 0.08 \(\pm\) 1.17 & 0.64 \(\pm\) 0.4 & $p=1.3\times10^{-34}$ \\
+\midrule
+\multicolumn{6}{c}{\textbf{63-node Network}} \\
+\midrule
+CensNet (N)     & 0.99  & -5.88 & 0.04 \(\pm\) 60.83 & 4.9 \(\pm\) 5.6 & $T=47$\\
+CensNet (N+E)   & 0.99  & 0.99  & 0.01 \(\pm\) 23.4 & 4.9 \(\pm\) 5.6 & $p=4.9\times10^{-110}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\medskip
+\justifying
+\scriptsize
+The CensNet-based model captures the network’s topological information, enabling it to satisfy the gas balance constraint naturally to some extent. Time tests, performed on a single case, confirm that CensNet is significantly faster than APOPT; moreover, being a network-based model, it can efficiently propagate entire batches of scenarios forward. 
+\end{frame}
+
+
+
 
 
 \section{Natural Gas System Optimization Using MPCC-Based Models}
