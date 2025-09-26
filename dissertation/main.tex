@@ -58,7 +58,7 @@
 \usepackage{float}
 \usepackage{caption}
 \captionsetup{font=footnotesize}
-
+\usepackage{xcolor}
 \usepackage{nccmath} 
 % \usetikzlibrary{external}
 % \tikzexternalize[prefix=figures/generated/]
@@ -70,7 +70,24 @@
 %     \hspace{5em}%
 %     \insertframenumber/\inserttotalframenumber
 % }
-
+% Syntax: \colorboxed[<color model>]{<color specification>}{<math formula>}
+\newcommand*{\colorboxed}{}
+\def\colorboxed#1#{%
+  \colorboxedAux{#1}%
+}
+\newcommand*{\colorboxedAux}[3]{%
+  % #1: optional argument for color model
+  % #2: color specification
+  % #3: formula
+  \begingroup
+    \colorlet{cb@saved}{.}%
+    \color#1{#2}%
+    \boxed{%
+      \color{cb@saved}%
+      #3%
+    }%
+  \endgroup
+}
 \setbeamertemplate{navigation symbols}{}
 % \setbeamertemplate{footline}[frame number]{}
 \setbeamertemplate{page number in head/foot}[totalframenumber]
@@ -581,36 +598,36 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 %
 
 
-\begin{frame}{Performance Comparison: 8-Node and 63-Node Networks}
-\scriptsize
-\centering
-\begin{table}
-\captionsetup{font=scriptsize}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Model} & \textbf{Nodal $R^2$} & \textbf{Edge $R^2$} & \textbf{Balance Error} & \textbf{Time (s)} \\
-\midrule
-\multicolumn{5}{c}{\textbf{8-node Network}} \\
-\midrule
-CensNet (N)     & 0.988 & -2.818 & 5.71 \pm 16.86 & $0.650 \pm 0.442$ \\
-CensNet (N+E)   & 0.988 &  0.999 & 0.08 \pm 1.17 & $0.640 \pm 0.444$ \\
-\midrule
-\multicolumn{5}{c}{\textbf{63-node Network}} \\
-\midrule
-CensNet (N)     & 0.996 & -5.880 & 0.04 \pm 60.83 & $4.88 \pm 5.59$ \\
-CensNet (N+E)   & 0.996 &  0.996 & 0.01 \pm 23.4 & $4.87 \pm 5.59$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Prediction speed:}  
-T-tests confirm \textbf{CensNet is significantly faster} than APOPT
-\begin{itemize}
-    \footnotesize 
-    \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
-    \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
-\end{itemize}
-\end{frame}
+% \begin{frame}{Performance Comparison: 8-Node and 63-Node Networks}
+% \scriptsize
+% \centering
+% \begin{table}
+% \captionsetup{font=scriptsize}
+% \begin{tabular}{lcccc}
+% \toprule
+% \textbf{Model} & \textbf{Nodal $R^2$} & \textbf{Edge $R^2$} & \textbf{Balance Error} & \textbf{Time (s)} \\
+% \midrule
+% \multicolumn{5}{c}{\textbf{8-node Network}} \\
+% \midrule
+% CensNet (N)     & 0.988 & -2.818 & 5.71 \pm 16.86 & $0.650 \pm 0.442$ \\
+% CensNet (N+E)   & 0.988 &  0.999 & 0.08 \pm 1.17 & $0.640 \pm 0.444$ \\
+% \midrule
+% \multicolumn{5}{c}{\textbf{63-node Network}} \\
+% \midrule
+% CensNet (N)     & 0.996 & -5.880 & 0.04 \pm 60.83 & $4.88 \pm 5.59$ \\
+% CensNet (N+E)   & 0.996 &  0.996 & 0.01 \pm 23.4 & $4.87 \pm 5.59$ \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
+%
+% \textbf{Prediction speed:}  
+% T-tests confirm \textbf{CensNet is significantly faster} than APOPT
+% \begin{itemize}
+%     \footnotesize 
+%     \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
+%     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
+% \end{itemize}
+% \end{frame}
 
 
 
@@ -669,7 +686,7 @@ A power-gas interconnected system is a hybrid infrastructure that integrates nat
 
 \begin{frame}{Power system constraints}
 \footnotesize
-The constraints of the electrical system represent the technical limits of the different elements that compose it, as well as the physical laws that govern it. For certain applications, the DC model is sufficient~\cite{8468081}.
+The constraints of the electrical system represent the technical limits of its components, as well as the physical laws that govern them. In this work, the DC model is adopted, which has been shown to be sufficient for similar applications~\cite{8468081}.
 \begin{columns}
 \begin{column}{0.24\textwidth}
 % \begin{center}
@@ -715,58 +732,53 @@ The second set of restrictions interconnects the natural gas and electric power 
 This set of constraints ensures that wells, pipelines, nodal pressures, compressors, unsupplied demand and storage facilities operate within proper operating limits.~\cite{MPNG}.
 
 \begin{columns}
-\begin{column}{0.45\textwidth}
+\begin{column}{0.5\textwidth}
 % \begin{center}
 % \vspace{3pt}
     \includegraphics[width=0.75\textwidth]{figures/gas_dummy.png}
 % \end{center}
 
-\begin{fleqn}[0pt] % left-justify just this block
-    \begin{subequations}
-    \begin{align}
-        \underline{f_{w}^t} & \leq f_{w}^t \leq \overline{f_{w}^t} \forall \ \ w \in \mathcal{W} \label{eq:well_limits} \\
-        -\overline{f_{p}^t} & \leq f_{p}^t \leq \overline{f_{p}^t} \forall \ \ p \in \mathcal{P} \label{eq:pipe_limits} \\
-        \underline{\pi_{n}^t} & \leq \pi_{n}^t \leq \overline{\pi_{n}^t} \forall \ \ n \in \mathcal{N}_f \label{eq:press_limit} \\
-        0 \leq f_{u}^{t} & \leq \overline{f_{u}^{t}} \forall \ \ u \in \mathcal{U} \label{eq:dem_limit_gas} \\
-        \sum_{m:(m,n)\in\mathcal{A}} f_{m}^t &= \sum_{m':(n,m')\in\mathcal{A}} f_{m'}^t \forall \ \ n \in \mathcal{N}_f \label{eq:gas_balance}
-    \end{align}
-    \end{subequations}
-    \end{fleqn}
+% \begin{fleqn}[0pt] % left-justify just this block
+%     \begin{subequations}
+%     \begin{align}
+%         \pi_{m}^t & \leq \beta_{c}^t{\pi_{n}^t} \quad \forall \ c=(n,m) \in \mathcal{C} \label{eq:comp_ratio} \\
+%         0  & \leq f_{s+}^t \leq V_{0s} - \underline{V_s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\
+%         0 & \leq f_{s-}^t \leq \overline{V_s} - V_{0s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\
+%         V_{s}^t & = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} \quad \forall \ s \in \mathcal{S} \label{eq:sto_time} 
+%     \end{align}
+%     \end{subequations}
+%     \end{fleqn}
+
+% Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
+
 \end{column}
 
 \begin{column}{0.5\textwidth}
-\scriptsize  % optional to avoid overfull boxes
+\scriptsize % optional to avoid overfull boxes
 
 \begin{fleqn}[0pt]
 \begin{subequations}
 \begin{align}
-    % \underline{f_{w}^t} \leq f_{w}^t \leq \overline{f_{w}^t} &\quad \forall \ w \in \mathcal{W} \label{eq:well_limits} \\
-    % -\overline{f_{p}^t} \leq f_{p}^t \leq \overline{f_{p}^t} &\quad \forall \ p \in \mathcal{P} \label{eq:pipe_limits} \\
-    % \underline{\pi_{n}^t} \leq \pi_{n}^t \leq \overline{\pi_{n}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:press_limit} \\
     \pi_{m}^t & \leq \beta_{c}^t{\pi_{n}^t} \quad \forall \ c=(n,m) \in \mathcal{C} \label{eq:comp_ratio} \\
-    % 0 \leq f_{u}^{t} \leq \overline{f_{u}^{t}} &\quad \forall \ u \in \mathcal{U} \label{eq:dem_limit_gas} \\
     0  & \leq f_{s+}^t \leq V_{0s} - \underline{V_s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\
     0 & \leq f_{s-}^t \leq \overline{V_s} - V_{0s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\
-    V_{s}^t & = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} \quad \forall \ s \in \mathcal{S} \label{eq:sto_time} \\ 
-    % \sum_{m:(m,n)\in\mathcal{A}}{f_{m}^t} = \sum_{m':(n,m')\in\mathcal{A}}{f_{m'}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:gas_balance} \\ 
-    \text{sgn}(f_{p}^t)(f_{p}^t)^2 & = K_{nm}((\pi_{n}^t)^2 - (\pi_{m}^t)^2) \quad \forall \ p =(n,m) \in \mathcal{P} \label{eq:weymouth}
-\end{align}
+    V_{s}^t & = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} \quad \forall \ s \in \mathcal{S} \label{eq:sto_time}
+    \end{align}
 \end{subequations}
 \end{fleqn}
-Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
+% Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
 
 \end{column}
 \end{columns}
-
-% The Weymouth equation models the gas flow through pipelines, relating flow rates and pressures:
-%     \begin{equation}
-%         \text{sgn}(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2 - (\pi_{m}^t)^2) \quad \forall \ p =(n,m) \in \mathcal{P}
-%     \end{equation}
+\begin{equation}
+    \colorboxed[rgb]{0,0,1}{
+    \text{sgn}(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2 - (\pi_{m}^t)^2) \quad \forall \ p =(n,m) \in \mathcal{P}
+    }
+\end{equation}
+Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
 
 \end{frame}
 %
-
-
 
 
 % \subsection{Weymouth equation}
@@ -895,8 +907,7 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
             \centering
             \setlength\figurewidth{1\linewidth}        
             \setlength\figureheight{0.45\linewidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_cost.pdf} % Import PNG image here
-            \caption{\scriptsize Cost function histogram attained for the Taylor, SOC, and MPCC Weymouth approximation approaches.}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_cost.pdf} % Import PNG image here 
             \label{fig:blue_test_cost}
         \end{figure}
     \end{column}
@@ -909,13 +920,52 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
             \centering
             \setlength\figurewidth{1\linewidth}        
             \setlength\figureheight{0.45\linewidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_error.pdf} % Import PNG image here
-            \caption{\scriptsize Boxplot of Weymouth error distribution for each pipeline in the 8/9 system attained by contrasted approximation approaches.}
+            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_error.pdf} % Import PNG image here 
             \label{fig:blue_test_boxplot}
         \end{figure}
     \end{column}
 \end{columns}
 \end{frame}
+
+
+
+\begin{frame}{Results - Case 1}
+\scriptsize
+\begin{columns}[t,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+        % To assess the performance of Weymouth approximation approaches on the 8/9 system, 
+        A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
+        
+        \vspace{0.5em}
+        \begin{figure}[!htb]
+            \centering
+            \setlength\figurewidth{1\textwidth}        
+            \setlength\figureheight{0.9\textwidth}
+    % \input{images/blue_test_cost_SOC}
+            \input{figures/blue_test_costs}
+            \label{fig:blue_test_cost}
+\end{figure}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+        The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
+        
+        \vspace{2.5em}
+        \begin{figure}[!htb]
+            \centering
+            \setlength\figurewidth{1\textwidth}        
+            \setlength\figureheight{0.9\textwidth}
+            \input{figures/blue_test_boxplot}
+            \label{fig:blue_test_boxplot}
+        \end{figure}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+
+
+
 
 % \section{Results}
 % \begin{frame}{Results - Case 1}
