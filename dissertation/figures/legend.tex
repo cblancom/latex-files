@@ -1,0 +1,35 @@
+\definecolor{red}{RGB}{255,127,14}
+\definecolor{blue}{RGB}{44,160,44}
+\definecolor{green}{RGB}{31,119,180}
+
+
+% \begin{tikzpicture}
+%     \node[draw, fill=orange, minimum width=0.7cm, minimum height=0.5cm, color=customColor] {};
+%     \node[right, font=\small] at (0.5,0) {label};
+% \end{tikzpicture}
+
+
+\begin{tikzpicture}
+\usetikzlibrary{shapes.geometric}
+    
+    \matrix [column sep=10pt,  row sep=4] {
+        \node[right, font=\normalsize] at (-27,0) {Approach}; \\
+        \node[draw, fill=blue, minimum width=20, minimum height=15, color=red] {};
+        \node[right, font=\small] at (24,0) {Taylor}; \\
+        
+        \node[draw, fill=green, minimum width=20, minimum height=15, color=blue] {};
+        \node[right, font=\small] at (24,0) {SOC}; \\
+        
+        \node[draw, fill=red, minimum width=20, minimum height=15, color=green] {};
+        \node[right, font=\small] at (24,0) {MPCC}; \\
+
+        \node[right, font=\normalsize] at (-27,0) {Near-to-well}; \\
+        % \node[right, font=\normalsize] at (-33,0) {to a well}; \\
+         % \node[font=\Huge] {*}; \node[right, font=\small] {No injection fields}; \\
+        \node[draw, diamond, aspect=2, inner sep=0, minimum size=0.8cm, fill=gray, opacity=0.5] {};
+        \node[right, font=\small] at (24,0) {No}; \\
+        
+        \node[draw, circle, minimum size=20, fill=gray, opacity=0.5] {};
+        \node[right, font=\small] at (24,0) {Yes}; \\
+    };        
+\end{tikzpicture}

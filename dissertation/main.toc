@@ -3,6 +3,6 @@
 \beamer@sectionintoc {2}{Objectives}{6}{0}{2}
 \beamer@sectionintoc {3}{Natural Gas System Prediction Using Graph Neural Networks}{7}{0}{3}
 \beamer@sectionintoc {4}{Natural Gas System Optimization Using MPCC-Based Models}{15}{0}{4}
-\beamer@sectionintoc {5}{Physics-Guided Neural Networks for Gas Networks under Uncertainty}{25}{0}{5}
-\beamer@sectionintoc {6}{Conclusions and Future Work}{34}{0}{6}
-\beamer@sectionintoc {7}{Bibliography}{36}{0}{7}
+\beamer@sectionintoc {5}{Objective 3 - Physics-Guided Neural Networks for Gas Networks under Uncertainty}{26}{0}{5}
+\beamer@sectionintoc {6}{Conclusions and Future Work}{36}{0}{6}
+\beamer@sectionintoc {7}{Bibliography}{38}{0}{7}

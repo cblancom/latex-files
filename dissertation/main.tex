@@ -895,37 +895,37 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 
 
 
-\begin{frame}{Results - Case 1}
-\scriptsize
-\begin{columns}[t,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-        % To assess the performance of Weymouth approximation approaches on the 8/9 system, 
-        A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
-        
-        \vspace{0.5em}
-        \begin{figure}[H]
-            \centering
-            \setlength\figurewidth{1\linewidth}        
-            \setlength\figureheight{0.45\linewidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_cost.pdf} % Import PNG image here 
-            \label{fig:blue_test_cost}
-        \end{figure}
-    \end{column}
-    
-    \begin{column}{0.48\textwidth}
-        The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
-        
-        \vspace{2.5em}
-        \begin{figure}[H]
-            \centering
-            \setlength\figurewidth{1\linewidth}        
-            \setlength\figureheight{0.45\linewidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_error.pdf} % Import PNG image here 
-            \label{fig:blue_test_boxplot}
-        \end{figure}
-    \end{column}
-\end{columns}
-\end{frame}
+% \begin{frame}{Results - Case 1}
+% \scriptsize
+% \begin{columns}[t,onlytextwidth]
+%     \begin{column}{0.48\textwidth}
+%         % To assess the performance of Weymouth approximation approaches on the 8/9 system, 
+%         A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
+%         
+%         \vspace{0.5em}
+%         \begin{figure}[H]
+%             \centering
+%             \setlength\figurewidth{1\linewidth}        
+%             \setlength\figureheight{0.45\linewidth}
+%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_cost.pdf} % Import PNG image here 
+%             \label{fig:blue_test_cost}
+%         \end{figure}
+%     \end{column}
+%     
+%     \begin{column}{0.48\textwidth}
+%         The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
+%         
+%         \vspace{2.5em}
+%         \begin{figure}[H]
+%             \centering
+%             \setlength\figurewidth{1\linewidth}        
+%             \setlength\figureheight{0.45\linewidth}
+%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_error.pdf} % Import PNG image here 
+%             \label{fig:blue_test_boxplot}
+%         \end{figure}
+%     \end{column}
+% \end{columns}
+% \end{frame}
 
 
 
@@ -934,8 +934,9 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 \begin{columns}[t,onlytextwidth]
     \begin{column}{0.48\textwidth}
         % To assess the performance of Weymouth approximation approaches on the 8/9 system, 
-        A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
-        
+        % A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
+        \justifying
+        To evaluate the accuracy of different Weymouth equation approximations in the 8/9 system, we conducted a Monte Carlo experiment. The optimization problem was solved one hundred times for a single day, with natural gas demands sampled uniformly.          
         \vspace{0.5em}
         \begin{figure}[!htb]
             \centering
@@ -948,8 +949,9 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
     \end{column}
     
     \begin{column}{0.48\textwidth}
-        The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
-        
+        % The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
+        \justifying
+        The analysis of the error distributions shows that the complementarity-based formulation (MPCC) produces considerably lower deviations in key arcs compared to the Taylor and SOC approaches.
         \vspace{2.5em}
         \begin{figure}[!htb]
             \centering
@@ -998,40 +1000,134 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 %
 %
 
-\begin{frame}{Results - Case 2}
-\scriptsize
-\begin{columns}[t,onlytextwidth]
-    % First Column: Text and Histogram Image
-    \begin{column}{0.44\textwidth}
-        It is worth noting that both baselines yielded the same objective function values. The consistently positive relative difference indicates that the complementarity constraints formulation always yields larger cost values than Taylor and SOC for the 118/48 system.
-        
-        
-        \begin{figure}[H]
-            \centering
-            \setlength\figurewidth{1\textwidth}        
-            \setlength\figureheight{0.44\textwidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_cost.pdf} 
-            \caption{\scriptsize Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
-            \label{fig:green_test_cost}
-        \end{figure}
-    \end{column}
-    
-    % Second Column: Text and Error Plot Images
-    \begin{column}{0.52\textwidth}
-        Contrarily to cost function analysis, Weymouth approximation results reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints.
-        
-        \vspace{1.5em}
-        \begin{figure}[H]
-            \centering
-            \setlength\figurewidth{1\textwidth}        
-            \setlength\figureheight{0.45\textwidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_error.pdf}
-            \caption{\scriptsize Weymouth approximation errors for each pipeline $p$ reached by Taylor (left), SOC (center), and MPCC (right) approaches in the 118/48 system.}
-            \label{fig:green_test_error}
-        \end{figure}
-    \end{column}
-\end{columns}
+% \begin{frame}{Results - Case 2}
+% \scriptsize
+% \begin{columns}[t,onlytextwidth]
+%     % First Column: Text and Histogram Image
+%     \begin{column}{0.44\textwidth}
+%         It is worth noting that both baselines yielded the same objective function values. The consistently positive relative difference indicates that the complementarity constraints formulation always yields larger cost values than Taylor and SOC for the 118/48 system.
+%         
+%         
+%         \begin{figure}[H]
+%             \centering
+%             \setlength\figurewidth{1\textwidth}        
+%             \setlength\figureheight{0.44\textwidth}
+%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_cost.pdf} 
+%             \caption{\scriptsize Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
+%             \label{fig:green_test_cost}
+%         \end{figure}
+%     \end{column}
+%     
+%     % Second Column: Text and Error Plot Images
+%     \begin{column}{0.52\textwidth}
+%         Contrarily to cost function analysis, Weymouth approximation results reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints.
+%         
+%         \vspace{1.5em}
+%         \begin{figure}[H]
+%             \centering
+%             \setlength\figurewidth{1\textwidth}        
+%             \setlength\figureheight{0.45\textwidth}
+%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_error.pdf}
+%             \caption{\scriptsize Weymouth approximation errors for each pipeline $p$ reached by Taylor (left), SOC (center), and MPCC (right) approaches in the 118/48 system.}
+%             \label{fig:green_test_error}
+%         \end{figure}
+%     \end{column}
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}{Results - Case 2}
+% \scriptsize
+% \begin{columns}[t,onlytextwidth]
+%     % First Column: Text and Histogram Image
+%     \begin{column}{0.44\textwidth}
+%         \justifying
+%         For the 118/48 system, both baseline approaches produced identical objective 
+%         function values. The relative cost difference, however, was always positive, 
+%         indicating that the MPCC formulation systematically leads to higher cost 
+%         outcomes compared with the Taylor and SOC approximations. 
+%         
+%         \vspace{0.5em}
+%         \begin{figure}[!htb]
+%             \centering
+%             \setlength\figurewidth{1\textwidth}        
+%             \setlength\figureheight{1\textwidth}
+%             \input{figures/green_test_hist}
+%             \label{fig:green_test_cost}
+%         \end{figure}
+%     \end{column}
+%     
+%     % Second Column: Text and Error Plot Images
+%     \begin{column}{0.52\textwidth}
+%         \justifying
+%         In contrast, the analysis of Weymouth approximation errors highlights the 
+%         advantages of MPCC: the proposed formulation reduces deviations by nearly 
+%         seven orders of magnitude, from around $10^1$ to $10^{-6}$, compared with 
+%         the Taylor and SOC approaches.
+%         
+%         \vspace{1.5em}
+%         \begin{figure}[!htb]
+%             \setlength\figurewidth{0.55\textwidth}        
+%             \setlength\figureheight{0.55\textwidth}
+%             \subfloat[Taylor]{\input{figures/green_test_error_Taylor}}
+%             \subfloat[SOC]{\input{figures/green_test_error_SOC}}
+%             \subfloat[MPCC]{\input{figures/green_test_error_MPCC}}
+%             \label{fig:green_test_error}
+%         \end{figure}
+%     \end{column}
+% \end{columns}
+%
+% \vspace{0.5em}
+% \justifying
+% % \textbf{Summary:} While all methods provide comparable costs, the MPCC approach offers a dramatic improvement in accuracy for the Weymouth equation approximation. 
+% \end{frame}
+
+
+
+
+
+\begin{frame}{Results – Case 2: Cost Comparison}
+\footnotesize
+\justifying
+For the 118/48 system, both baseline approaches produced identical objective 
+function values. The relative cost difference, however, was always positive, 
+indicating that the MPCC formulation systematically leads to higher cost 
+outcomes compared with the Taylor and SOC approximations. 
+
+\vspace{0.5em}
+\begin{figure}[!htb]
+    \centering
+    \setlength\figurewidth{0.8\textwidth}        
+    \setlength\figureheight{0.5\textwidth}
+    \input{figures/green_test_hist}
+    \label{fig:green_test_cost}
+\end{figure}
 \end{frame}
+
+
+
+
+\begin{frame}{Results – Case 2: Weymouth Error Analysis}
+\footnotesize
+\justifying
+In contrast, the analysis of Weymouth approximation errors highlights the 
+advantages of MPCC: the proposed formulation reduces deviations by nearly 
+seven orders of magnitude, from around $10^1$ to $10^{-6}$, compared with 
+the Taylor and SOC approaches.
+
+\vspace{0.5em}
+\begin{figure}[!htb]
+    \centering
+    \setlength\figurewidth{0.4\textwidth}        
+    \setlength\figureheight{0.4\textwidth}
+    \subfloat[Taylor]{\input{figures/green_test_error_Taylor}}
+    \subfloat[SOC]{\input{figures/green_test_error_SOC}}
+    \subfloat[MPCC]{\input{figures/green_test_error_MPCC}}
+    \label{fig:green_test_error}
+\end{figure}
+\end{frame}
+
+
+
 
 
 
@@ -1063,40 +1159,131 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 %
 
 
-\begin{frame}{Results - Case 3}
-\scriptsize
-\begin{columns}[t,onlytextwidth]
-    % First Column: Text and Cost Image
-    \begin{column}{0.48\textwidth}
-        Instead of estimating the distributions of the objective function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs.
-                
-        \begin{figure}[H]
-            \centering
-            \setlength\figurewidth{1\textwidth}        
-            \setlength\figureheight{0.45\textwidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_cost.pdf} 
-            \caption{\scriptsize Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
-            \label{fig:red_test_cost}
-        \end{figure}
-    \end{column}
-    
-    % Second Column: Text and Error Plot Image
-    \begin{column}{0.48\textwidth}
-        Regarding the Weymouth approximation analysis, the figure presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC.
-        
-        \vspace{0.9em}
-        
-        \begin{figure}[H]
-            \centering
-            \setlength\figurewidth{1\textwidth}        
-            \setlength\figureheight{0.45\textwidth}
-            \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_error.pdf} % Import PDF image here
-            \caption{\scriptsize Errors in the Weymouth equation expressed in three different formats- general error, error per flow, and error per day.}
-            \label{fig:red_test_error}
-        \end{figure}
-    \end{column}
-\end{columns}
+% \begin{frame}{Results - Case 3}
+% \scriptsize
+% \begin{columns}[t,onlytextwidth]
+%     % First Column: Text and Cost Image
+%     \begin{column}{0.48\textwidth}
+%         Instead of estimating the distributions of the objective function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs.
+%                 
+%         \begin{figure}[H]
+%             \centering
+%             \setlength\figurewidth{1\textwidth}        
+%             \setlength\figureheight{0.45\textwidth}
+%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_cost.pdf} 
+%             \caption{\scriptsize Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
+%             \label{fig:red_test_cost}
+%         \end{figure}
+%     \end{column}
+%     
+%     % Second Column: Text and Error Plot Image
+%     \begin{column}{0.48\textwidth}
+%         Regarding the Weymouth approximation analysis, the figure presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC.
+%         
+%         \vspace{0.9em}
+%         
+%         \begin{figure}[H]
+%             \centering
+%             \setlength\figurewidth{1\textwidth}        
+%             \setlength\figureheight{0.45\textwidth}
+%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_error.pdf} % Import PDF image here
+%             \caption{\scriptsize Errors in the Weymouth equation expressed in three different formats- general error, error per flow, and error per day.}
+%             \label{fig:red_test_error}
+%         \end{figure}
+%     \end{column}
+% \end{columns}
+% \end{frame}
+
+
+
+
+
+
+% \begin{frame}{Results - Case 3}
+% \scriptsize
+% \begin{columns}[t,onlytextwidth]
+%     % First Column: Text and Cost Image
+%     \begin{column}{0.46\textwidth}
+%         \justifying
+%         For the 96/63 system, the evaluation differs from the previous cases. 
+%         The Weymouth approximations 
+%         were tested in an operational setting covering ten consecutive days 
+%         ($|\mathcal{T}|=10$), with gas extraction costs varying randomly each day.
+%                 
+%         \begin{figure}[!htb]
+%             \centering
+%             \setlength\figurewidth{1\textwidth}        
+%             \setlength\figureheight{0.8\textwidth}
+%             \input{figures/red_test_costs}
+%             \label{fig:red_test_cost}
+%         \end{figure}
+%     \end{column}
+%     
+%     % Second Column: Text and Error Plot Image
+%     \begin{column}{0.52\textwidth}
+%         \justifying
+%         The analysis of Weymouth errors reveals their distribution across pipelines, 
+%         as well as their relationship with gas flow magnitudes and the operation day. 
+%         Results are compared across the Taylor, SOC, and MPCC formulations.
+%         
+%         \vspace{0.9em}
+%         \begin{figure}[!htb]
+%             \setlength\figurewidth{0.68\textwidth}        
+%             \setlength\figureheight{0.7\textwidth} 
+%             \subfloat[\shortstack{Relative\\Frequency}]{\label{fig:case3error}\input{figures/red_test_error_all}}
+%             \subfloat[\shortstack{Pipeline\\flow ($f_m^t$)}]{\label{fig:case3flow}\input{figures/red_test_scatter_flow}}
+%             % \subfloat[Pipeline flow ($f_m^t$)]{\label{fig:case3flow}\input{figures/red_test_scatter_flow}}
+%         \end{figure}
+%     \end{column}
+% \end{columns}
+%
+% \vspace{0.5em}
+% \justifying
+% \end{frame}
+
+
+
+\begin{frame}{Results - Case 3 (Part 1)}
+\footnotesize
+    \justifying
+    For the 96/63 system, the evaluation differs from the previous cases. 
+    The Weymouth approximations 
+    were tested in an operational setting covering ten consecutive days 
+    ($|\mathcal{T}|=10$), with gas extraction costs varying randomly each day.
+     \vspace{0.9em}   
+    \begin{figure}[!htb]
+        \centering
+        \setlength\figurewidth{0.8\textwidth}        
+        \setlength\figureheight{0.5\textwidth}
+        \input{figures/red_test_costs}
+        \label{fig:red_test_cost}
+    \end{figure}
 \end{frame}
+
+
+
+
+\begin{frame}{Results - Case 3 (Part 2)}
+\footnotesize
+    \justifying
+    The analysis of Weymouth errors reveals their distribution across pipelines, 
+    as well as their relationship with gas flow magnitudes and the operation day. 
+    Results are compared across the Taylor, SOC, and MPCC formulations.
+    
+    \vspace{0.9em}
+    \begin{figure}[!htb]
+        \setlength\figurewidth{0.55\textwidth}        
+        \setlength\figureheight{0.55\textwidth} 
+        \subfloat[\shortstack{Relative\\Frequency}]{\label{fig:case3error}\input{figures/red_test_error_all}}
+        \subfloat[\shortstack{Pipeline\\flow ($f_m^t$)}]{\label{fig:case3flow}\input{figures/red_test_scatter_flow}}
+    \end{figure}
+\end{frame}
+
+
+
+
+
+
 
 
 % \begin{frame}{Results - Case 3}
@@ -1127,37 +1314,82 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 %
 %
 
-\section{Physics-Guided Neural Networks for Gas Networks under Uncertainty}
-\begin{frame}{Physics-Guided Neural Networks}
-\footnotesize
-\textbf{Motivation:}
-\begin{itemize}
-    \item Traditional neural networks: fit data, ignore physics → risk of unrealistic predictions.
-    \item In gas networks, physical constraints (mass balance, pressure-flow laws) are critical.
-\end{itemize}
-
-\textbf{Physics-Informed Neural Networks (PINNs):}
-\begin{itemize}
-    \item Incorporate governing equations directly in the loss function.
-    \item Penalize deviations from:
-    \begin{itemize}
-        \item \textbf{Gas balance constraint} – nodal mass conservation.
-        \item \textbf{Weymouth equation} – relation between flow and pressure differences in pipelines.
-    \end{itemize}
-    \item Acts as a \emph{regularizer} for better generalization under uncertainty.
-\end{itemize}
-
-% \textbf{Goal:}
+% \section{Objective 3 - Physics-Guided Neural Networks for Gas Networks under Uncertainty}
+% \begin{frame}{Physics-Guided Neural Networks}
+% \footnotesize
+% \textbf{Motivation:}
 % \begin{itemize}
-%     \item Improve prediction accuracy and physical consistency.
-%     \item Enable robust, uncertainty-aware gas dispatch optimization.
+%     \item Traditional neural networks: fit data, ignore physics → risk of unrealistic predictions.
+%     \item In gas networks, physical constraints (mass balance, pressure-flow laws) are critical.
 % \end{itemize}
+%
+% \textbf{Physics-Informed Neural Networks (PINNs):}
+% \begin{itemize}
+%     \item Incorporate governing equations directly in the loss function.
+%     \item Penalize deviations from:
+%     \begin{itemize}
+%         \item \textbf{Gas balance constraint} – nodal mass conservation.
+%         \item \textbf{Weymouth equation} – relation between flow and pressure differences in pipelines.
+%     \end{itemize}
+%     \item Acts as a \emph{regularizer} for better generalization under uncertainty.
+% \end{itemize}
+%
+% % \textbf{Goal:}
+% % \begin{itemize}
+% %     \item Improve prediction accuracy and physical consistency.
+% %     \item Enable robust, uncertainty-aware gas dispatch optimization.
+% % \end{itemize}
+% \end{frame}
+%
+
+
+\section{Objective 3 - Physics-Guided Neural Networks for Gas Networks under Uncertainty}
+
+\begin{frame}{Objective 3 - Uncertainty in Gas Network Operation}
+\small
+\justifying
+Gas transportation systems are exposed to multiple sources of uncertainty:
+\begin{itemize}
+    \item \textbf{Demand variability:} Thermoelectric generation depends on hydropower availability, which fluctuates with rainfall and droughts.
+    \item \textbf{Supply fluctuations:} Variations in extraction fields and import conditions impact gas availability.
+    \item \textbf{Operational constraints:} Pressure limits, compressor capacities, and pipeline flow limits must always be satisfied.
+\end{itemize}
+
+\medskip
+\justifying
+\textbf{Challenge:} Stochastic conditions require repeated re-optimizations. 
+Purely data-driven models may fail to capture the physics of the system, 
+leading to unreliable predictions under uncertainty.
 \end{frame}
 
 
 
+\begin{frame}{Physics-Guided Neural Networks}
+\small
+\justifying
+Traditional neural networks fit patterns in data but ignore system physics, 
+which increases the risk of producing unrealistic or infeasible predictions 
+when faced with uncertain scenarios.
+
+\medskip
+\textbf{Physics-Informed Neural Networks (PINNs):}
+\begin{itemize}
+    \item Integrate \emph{physical laws} directly into the training process.
+    \item Loss function penalizes violations of:
+    \begin{itemize}
+        \item \textbf{Gas balance constraint} – nodal mass conservation.
+        \item \textbf{Weymouth equation} – pressure–flow relation in pipelines.
+    \end{itemize}
+    \item Act as a \emph{regularizer}, enhancing generalization under stochastic conditions.
+\end{itemize}
+\end{frame}
+
+
+
+
+
 \begin{frame}{Methodology: Physics-Guided CensNet}
-\footnotesize
+\small
 \textbf{Overall loss function:}
 \[
 \mathcal{J}(\Theta) =

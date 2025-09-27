@@ -631,23 +631,35 @@ table {%
 
 
 
-\node[draw,fill=white,anchor=north east] at (axis description cs:0.985,0.32) {
+% \node[draw,fill=white,anchor=north east] at (axis description cs:0.985,0.32) {
+%     \begin{tabular}{@{}cl}
+%         \tikz\draw[green,fill=green] (0,0) rectangle (30,0.5); & Taylor \\
+%         \tikz\draw[blue,fill=blue] (0,0) rectangle (30,0.5); & SOC \\
+%         \tikz\draw[red,fill=red] (0,0) rectangle (30,0.5); & MPCC \\
+%     \end{tabular}
+% };
+
+
+\node[
+    draw,
+    fill=white,
+    anchor=north east,
+    scale=0.7,
+    transform shape
+] at (axis description cs:0.985,0.32) {
     \begin{tabular}{@{}cl}
-        \tikz\draw[green,fill=green] (0,0) rectangle (30,0.5); & Taylor \\
-        \tikz\draw[blue,fill=blue] (0,0) rectangle (30,0.5); & SOC \\
-        \tikz\draw[red,fill=red] (0,0) rectangle (30,0.5); & MPCC \\
+        \begin{tikzpicture}[baseline]
+            \path[draw=green, fill=green] (0,0) rectangle (0.4,0.2);
+        \end{tikzpicture} & Taylor \\
+        \begin{tikzpicture}[baseline]
+            \path[draw=blue, fill=blue] (0,0) rectangle (0.4,0.2);
+        \end{tikzpicture} & SOC \\
+        \begin{tikzpicture}[baseline]
+            \path[draw=red, fill=red] (0,0) rectangle (0.4,0.2);
+        \end{tikzpicture} & MPCC \\
     \end{tabular}
 };
 
-
-% \addlegendimage{green} % Add legend image for the boxplot
-% \addlegendentry{Taylor} % Legend entry for the boxplot
-
-% \addlegendimage{blue} % Add legend image for the boxplot
-% \addlegendentry{SOC} % Legend entry for the boxplot
-
-% \addlegendimage{red} % Add legend image for the boxplot
-% \addlegendentry{MPCC} % Legend entry for the boxplot
 
 \end{axis}
 

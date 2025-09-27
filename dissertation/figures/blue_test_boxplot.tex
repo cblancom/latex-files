@@ -630,14 +630,20 @@ table {%
 };
 
 
-
-\node[draw,fill=white,anchor=north east] at (axis description cs:0.985,0.4) {
+\node[
+    draw,
+    fill=white,
+    anchor=north east,
+    scale=0.7,            % Escala total del nodo (ajusta según necesites)
+    transform shape       % Asegura que se escale el contenido
+] at (axis description cs:0.985,0.32) {
     \begin{tabular}{@{}cl}
         \tikz\draw[green,fill=green] (0,0) rectangle (30,0.5); & Taylor \\
         \tikz\draw[blue,fill=blue] (0,0) rectangle (30,0.5); & SOC \\
         \tikz\draw[red,fill=red] (0,0) rectangle (30,0.5); & MPCC \\
     \end{tabular}
 };
+
 
 
 % \addlegendimage{green} % Add legend image for the boxplot

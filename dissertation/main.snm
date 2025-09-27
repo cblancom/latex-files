@@ -20,9 +20,10 @@
 \beamer@slide {tab:databases}{19}
 \beamer@slide {fig:blue_test_cost}{21}
 \beamer@slide {fig:blue_test_boxplot}{21}
-\beamer@slide {fig:blue_test_cost}{22}
-\beamer@slide {fig:blue_test_boxplot}{22}
-\beamer@slide {fig:green_test_cost}{23}
+\beamer@slide {fig:green_test_cost}{22}
 \beamer@slide {fig:green_test_error}{23}
 \beamer@slide {fig:red_test_cost}{24}
-\beamer@slide {fig:red_test_error}{24}
+\beamer@slide {fig:case3error}{25}
+\beamer@slide {sub@fig:case3error}{25}
+\beamer@slide {fig:case3flow}{25}
+\beamer@slide {sub@fig:case3flow}{25}
