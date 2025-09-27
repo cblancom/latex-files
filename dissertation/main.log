@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  26 SEP 2025 20:25
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  27 SEP 2025 16:03
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2507,7 +2507,7 @@ Overfull \hbox (8.30775pt too wide) in paragraph at lines 1280--1280
  []
 
 
-Overfull \vbox (21.56253pt too high) detected at line 1280
+Overfull \vbox (11.53516pt too high) detected at line 1280
  []
 
 [25
@@ -2518,90 +2518,84 @@ Overfull \vbox (21.56253pt too high) detected at line 1280
 
 ]
 
-LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <10> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1421.
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <8> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1468.
 
 
-LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <7> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1421.
+LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1468.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1421.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 1468.
 
+<figures/Censnet_model.png, id=336, 618.31pt x 130.4875pt>
+File: figures/Censnet_model.png Graphic file (type png)
+<use figures/Censnet_model.png>
+Package luatex.def Info: figures/Censnet_model.png  used on input line 1468.
+(luatex.def)             Requested size: 188.26349pt x 39.72992pt.
 [28
 
 ] (./figures/model_description_PINN.tex) [29
 
-]
-Overfull \hbox (9.04518pt too wide) in paragraph at lines 1467--1467
+<./figures/Censnet_model.png>]
+Overfull \hbox (9.04518pt too wide) in paragraph at lines 1517--1517
  [] 
  []
 
 [30
 
-] [31
-
 ]
-<figures/outputs_outputs_2_cut.png, id=359, 1235.61626pt x 926.46124pt>
+<figures/outputs_outputs_2_cut.png, id=354, 1235.61626pt x 926.46124pt>
 File: figures/outputs_outputs_2_cut.png Graphic file (type png)
 <use figures/outputs_outputs_2_cut.png>
 Package luatex.def Info: figures/outputs_outputs_2_cut.png  used on input line 
-1523.
+1573.
 (luatex.def)             Requested size: 222.48988pt x 166.81236pt.
-
-Overfull \vbox (2.51854pt too high) detected at line 1523
- []
-
-[32
+ [31
 
 ]
-<figures/outputs_outputs_3.png, id=366, 1076.1003pt x 1076.1003pt>
+<figures/outputs_outputs_3.png, id=360, 1076.1003pt x 1076.1003pt>
 File: figures/outputs_outputs_3.png Graphic file (type png)
 <use figures/outputs_outputs_3.png>
-Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 1537
+Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 1587
 .
 (luatex.def)             Requested size: 171.14767pt x 171.14511pt.
-
-Overfull \vbox (6.85129pt too high) detected at line 1537
- []
-
-[33
+ [32
 
 <./figures/outputs_outputs_2_cut.png>]
-<figures/inputs_outputs_1.png, id=374, 1307.94246pt x 849.1725pt>
+<figures/inputs_outputs_1.png, id=369, 1307.94246pt x 849.1725pt>
 File: figures/inputs_outputs_1.png Graphic file (type png)
 <use figures/inputs_outputs_1.png>
-Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 1556.
+Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 1606.
 
 (luatex.def)             Requested size: 239.6057pt x 155.55252pt.
- [34
+ [33
 
 <./figures/outputs_outputs_3.png>]
-<figures/inputs_outputs_2.png, id=381, 1293.633pt x 1065.9825pt>
+<figures/inputs_outputs_2.png, id=376, 1293.633pt x 1065.9825pt>
 File: figures/inputs_outputs_2.png Graphic file (type png)
 <use figures/inputs_outputs_2.png>
-Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1574.
+Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1633.
 
-(luatex.def)             Requested size: 188.26349pt x 155.12466pt.
-[35
+(luatex.def)             Requested size: 171.14767pt x 141.02242pt.
+ [34
 
-<./figures/inputs_outputs_1.png>] [36
+<./figures/inputs_outputs_1.png>] [35
 
-<./figures/inputs_outputs_2.png>]
-[37
+<./figures/inputs_outputs_2.png>] [36
 
-] (./main.bbl) [38
+] (./main.bbl) [37
 
-] [39
+] [38
 
-</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [40
+</usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [39
+
+
+] [40
 
 
 ] [41
-
-
-] [42
 
 
 ]
@@ -2614,7 +2608,7 @@ Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1574.
 \tf@snm=\write8
 
 \openout8 = main.snm
- [43
+ [42
 
 
 ] (./main.aux)
@@ -2623,56 +2617,54 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44998 strings out of 478285
+ 45005 strings out of 478285
  476916,2373549 words of node,token memory allocated
  9095 words of node memory still in use:
    57 hlist, 9 vlist, 8 rule, 59 disc, 11 local_par, 186 glue, 41 kern, 33 penal
 ty, 629 glyph, 298 attribute, 77 glue_spec, 151 attribute_list, 5 write, 3 pdf_d
 est, 1 pdf_action, 77 pdf_colorstack nodes
-   avail lists: 1:2,2:59989,3:42942,4:8531,5:536,6:79,7:20849,8:41,9:1490,10:17,
+   avail lists: 1:1,2:59977,3:42942,4:8531,5:534,6:77,7:20849,8:41,9:1490,10:17,
 11:470
- 63058 multiletter control sequences out of 65536+600000
- 115 fonts using 9505479 bytes
+ 63061 multiletter control sequences out of 65536+600000
+ 114 fonts using 9374111 bytes
  128i,23n,115p,718b,3143s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></u
-sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/
-share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share
-/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/te
-xlive/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texli
-ve/texmf-dist/fonts/opentype/public/lm/lmroman6-bold.otf></usr/share/texlive/tex
-mf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/share/texlive/texmf-dis
-t/fonts/opentype/public/lm/lmroman8-italic.otf></usr/share/texlive/texmf-dist/fo
-nts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texlive/texmf-dist/
-fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/texlive/texmf-dist/font
-s/opentype/public/lm/lmroman9-italic.otf></usr/share/texlive/texmf-dist/fonts/op
-entype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype
-/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/pu
-blic/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/publi
-c/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/l
-m/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/
-lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextr
-a/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/c
-mex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (42 pages, 9026512 bytes).
+sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/sh
+are/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share
+/texlive/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/te
+xlive/texmf-dist/fonts/opentype/public/lm/lmroman6-bold.otf></usr/share/texlive/
+texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/share/texlive/texmf-
+dist/fonts/opentype/public/lm/lmroman8-italic.otf></usr/share/texlive/texmf-dist
+/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texlive/texmf-di
+st/fonts/opentype/public/lm/lmroman7-italic.otf></usr/share/texlive/texmf-dist/f
+onts/opentype/public/lm/lmroman9-italic.otf></usr/share/texlive/texmf-dist/fonts
+/opentype/public/lm/lmroman9-bold.otf></usr/share/texlive/texmf-dist/fonts/opent
+ype/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype
+/public/lm/lmroman6-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/pu
+blic/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/publi
+c/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/
+lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cme
+xtra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextr
+a/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (41 pages, 9024103 bytes).
 
-PDF statistics: 609 PDF objects out of 1000 (max. 8388607)
- 439 compressed objects within 5 object streams
- 134 named destinations out of 1000 (max. 131072)
+PDF statistics: 595 PDF objects out of 1000 (max. 8388607)
+ 428 compressed objects within 5 object streams
+ 132 named destinations out of 1000 (max. 131072)
  162 words of extra memory for PDF output out of 10000 (max. 100000000)
 

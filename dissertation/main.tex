@@ -1274,8 +1274,8 @@ the Taylor and SOC approaches.
     \begin{figure}[!htb]
         \setlength\figurewidth{0.55\textwidth}        
         \setlength\figureheight{0.55\textwidth} 
-        \subfloat[\shortstack{Relative\\Frequency}]{\label{fig:case3error}\input{figures/red_test_error_all}}
-        \subfloat[\shortstack{Pipeline\\flow ($f_m^t$)}]{\label{fig:case3flow}\input{figures/red_test_scatter_flow}}
+        \subfloat[\shortstack{Relative frequency}]{\label{fig:case3error}\input{figures/red_test_error_all}}
+        \subfloat[\shortstack{Pipeline flow ($f_m^t$)}]{\label{fig:case3flow}\input{figures/red_test_scatter_flow}}
     \end{figure}
 \end{frame}
 
@@ -1388,8 +1388,42 @@ when faced with uncertain scenarios.
 
 
 
+% \begin{frame}{Methodology: Physics-Guided CensNet}
+% \small
+% \textbf{Overall loss function:}
+% \[
+% \mathcal{J}(\Theta) =
+% \mathcal{J}_{\text{data}} +
+% \mathcal{J}_{\text{balance}} +
+% \mathcal{J}_{\text{weymouth}}
+% \]
+%
+% \textbf{Gas balance loss:}
+% \[
+% \mathcal{J}_{\text{balance}} =
+% \mathbf{T} \cdot \hat{\mathbf{f}}_e - \mathbf{d} + \hat{\mathbf{f}}_n
+% \]
+% \begin{itemize}
+%     \item Enforces nodal inflow = outflow + demand.
+% \end{itemize}
+%
+% \textbf{Weymouth loss:}
+% \[
+% \mathcal{J}_{\text{weymouth}} =
+% \mathbf{M}_{\mathcal{P}}
+% \left( \hat{\mathbf{f}}_e^{\circ 2} -
+% \mathbf{K} \circ \left(\mathbf{T} \cdot \hat{\boldsymbol{\pi}}^{\circ 2} \right) \right)
+% \]
+% \begin{itemize}
+%     \item Relates squared flows to squared pressure differences.
+%     \item Applies only to pipelines (not compressors).
+% \end{itemize}
+% \end{frame}
+%
+%
+
 \begin{frame}{Methodology: Physics-Guided CensNet}
-\small
+\scriptsize
 \textbf{Overall loss function:}
 \[
 \mathcal{J}(\Theta) =
@@ -1403,9 +1437,9 @@ when faced with uncertain scenarios.
 \mathcal{J}_{\text{balance}} =
 \mathbf{T} \cdot \hat{\mathbf{f}}_e - \mathbf{d} + \hat{\mathbf{f}}_n
 \]
-\begin{itemize}
-    \item Enforces nodal inflow = outflow + demand.
-\end{itemize}
+% \begin{itemize}
+%     \item Enforces nodal inflow = outflow + demand.
+% \end{itemize}
 
 \textbf{Weymouth loss:}
 \[
@@ -1414,11 +1448,27 @@ when faced with uncertain scenarios.
 \left( \hat{\mathbf{f}}_e^{\circ 2} -
 \mathbf{K} \circ \left(\mathbf{T} \cdot \hat{\boldsymbol{\pi}}^{\circ 2} \right) \right)
 \]
+% \begin{itemize}
+%     \item Relates squared flows to squared pressure differences.
+%     \item Applies only to pipelines (not compressors).
+% \end{itemize}
+
+\vspace{0.5em}
+\textbf{Stochastic analysis:}
 \begin{itemize}
-    \item Relates squared flows to squared pressure differences.
-    \item Applies only to pipelines (not compressors).
+    \item KDE fitted to training inputs to generate synthetic samples.
+    \item Samples propagated through CensNet to obtain outputs.
+    \item Log-likelihoods and K–S tests used to assess distributional similarity.
 \end{itemize}
+
+\begin{center}
+    \includegraphics[width=0.55\textwidth]{figures/Censnet_model.png}
+\end{center}
+
 \end{frame}
+
+
+
 
 \begin{frame}{Methodology: Physics-Guided CensNet}
 \textbf{Implementation:}
@@ -1427,9 +1477,9 @@ when faced with uncertain scenarios.
     \item Training data from nonlinear gas network optimization (MPCC).
     \item Noise (5\%–25\%) injected to emulate operating uncertainty.
 \end{itemize}
-
+\vspace{0.5em}
 \centering
-    \resizebox{0.9\linewidth}{!}{\input{figures/model_description_PINN}}
+    \resizebox{0.95\linewidth}{!}{\input{figures/model_description_PINN}}
 \end{frame}
 
 
@@ -1453,7 +1503,7 @@ CensNet (N+E+W) & $-0.07 \pm 17.56$ & $2.60 \pm 20.03$ & $-0.07 \pm 2.21$ & $0.8
 CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.85 \pm 0.50$ \\
 \bottomrule
 \end{tabular}
-\caption{Performance of CensNet-based models vs. IPOPT benchmark.}
+% \caption{Performance of CensNet-based models vs. IPOPT benchmark.}
 \end{table}
 
 \begin{itemize}
@@ -1479,26 +1529,26 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 % \end{frame}
 
 
-\begin{frame}{Stochastic Analysis: Methodology and results}
-\footnotesize
-    \textbf{Methodology:}
-    \begin{itemize}
-        \item Kernel Density Estimate (KDE) fitted to training inputs.
-        \item Synthetic samples generated and propagated through CensNet.
-        \item Log-likelihoods compared for $y_{\text{sample}}$ and $\bar{y}_{\text{train}}$.
-        \item Kolmogorov–Smirnov (K–S) test used for distributional similarity.
-    \end{itemize}
-
-    \vspace{0.5em}
-    \textbf{Results:}
-    \begin{itemize}
-        \item Log-likelihoods: $y_{\text{sample}} = -6.696 \times 10^6$, 
-              $\bar{y}_{\text{train}} = -6.657 \times 10^6$.
-        \item K–S test: $p > 0.44$ across all alternatives.
-        \item $\Rightarrow$ Synthetic outputs statistically consistent with training outputs.
-    \end{itemize}
-
-\end{frame}
+% \begin{frame}{Stochastic Analysis: Methodology and results}
+% \footnotesize
+%     \textbf{Methodology:}
+%     \begin{itemize}
+%         \item Kernel Density Estimate (KDE) fitted to training inputs.
+%         \item Synthetic samples generated and propagated through CensNet.
+%         \item Log-likelihoods compared for $y_{\text{sample}}$ and $\bar{y}_{\text{train}}$.
+%         \item Kolmogorov–Smirnov (K–S) test used for distributional similarity.
+%     \end{itemize}
+%
+%     \vspace{0.5em}
+%     \textbf{Results:}
+%     \begin{itemize}
+%         \item Log-likelihoods: $y_{\text{sample}} = -6.696 \times 10^6$, 
+%               $\bar{y}_{\text{train}} = -6.657 \times 10^6$.
+%         \item K–S test: $p > 0.44$ across all alternatives.
+%         \item $\Rightarrow$ Synthetic outputs statistically consistent with training outputs.
+%     \end{itemize}
+%
+% \end{frame}
 
 % \begin{frame}{Model Robustness under Uncertainty}
 %     \begin{itemize}
@@ -1518,7 +1568,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
     \end{itemize}
     \begin{figure}
         \includegraphics[width=0.65\textwidth]{figures/outputs_outputs_2_cut.png}
-        \caption{\scriptsize Joint PDFs showing negative $p_3$ flows.}
+        % \caption{\scriptsize Joint PDFs showing negative $p_3$ flows.}
     \end{figure}
 \end{frame}
 
@@ -1532,7 +1582,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
     \end{itemize}
     \begin{figure}
         \includegraphics[width=0.5\textwidth]{figures/outputs_outputs_3.png}
-        \caption{\scriptsize Pressures concentrate in mid-range (30--40\%).}
+        % \caption{\scriptsize Pressures concentrate in mid-range (30--40\%).}
     \end{figure}
 \end{frame}
 
@@ -1547,7 +1597,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
     \end{itemize}
     \begin{figure}
         \includegraphics[width=0.7\textwidth]{figures/inputs_outputs_1.png}
-        \caption{\scriptsize Optimization model: input variability vs. stable $p_4$ flow.}
+        % \caption{\scriptsize Optimization model: input variability vs. stable $p_4$ flow.}
     \end{figure}
     % \begin{figure}
     %     \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_1_KDE.png}
@@ -1564,13 +1614,22 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
         \item Shows network internalized optimizer’s allocation strategies.
     \end{itemize}
     \begin{figure}
-        \includegraphics[width=0.55\textwidth]{figures/inputs_outputs_2.png}
-        \caption{\scriptsize Optimization model: linear input–output patterns.}
+        \includegraphics[width=0.5\textwidth]{figures/inputs_outputs_2.png}
+        % \caption{\scriptsize Optimization model: linear input–output patterns.}
     \end{figure}
     % \begin{figure}
     %     \includegraphics[width=0.7\textwidth]{figures/Chapter_NonLinealCensnet/inputs_outputs_2_KDE.png}
     %     \caption*{KDE samples replicate both positive and negative correlations.}
     % \end{figure}
+    \textbf{Results:}
+    \begin{itemize}
+        \item Log-likelihoods: $y_{\text{sample}} = -6.696 \times 10^6$, 
+              $\bar{y}_{\text{train}} = -6.657 \times 10^6$.
+        \item K–S test: $p > 0.44$ across all alternatives.
+        \item $\Rightarrow$ Synthetic outputs statistically consistent with training outputs.
+    \end{itemize}
+%
+
 \end{frame}
 
 \section{Conclusions and Future Work}
@@ -1583,15 +1642,27 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
     \end{itemize}
 \end{frame}
 
+% \begin{frame}{Future Work}
+%     \begin{itemize}
+%         \item Extend stochastic framework toward \textbf{full stochastic optimization} for gas–power coordination.
+%         \item Explore \textbf{physics-informed neural operators} to improve learning of nonlinear constraints (e.g., Weymouth).
+%         \item Incorporate \textbf{real operational data} from SCADA systems to validate scalability in live environments.
+%         \item Investigate \textbf{transfer learning across networks}, enabling models trained on one topology to adapt to others with minimal retraining.
+%         \item Apply developed methods to \textbf{decision-support tools} for dispatchers in interconnected energy systems.
+%     \end{itemize}
+% \end{frame}
+
+
 \begin{frame}{Future Work}
-    \begin{itemize}
-        \item Extend stochastic framework toward \textbf{full stochastic optimization} for gas–power coordination.
-        \item Explore \textbf{physics-informed neural operators} to improve learning of nonlinear constraints (e.g., Weymouth).
-        \item Incorporate \textbf{real operational data} from SCADA systems to validate scalability in live environments.
-        \item Investigate \textbf{transfer learning across networks}, enabling models trained on one topology to adapt to others with minimal retraining.
-        \item Apply developed methods to \textbf{decision-support tools} for dispatchers in interconnected energy systems.
-    \end{itemize}
+\begin{itemize}
+    \item Extend GNN-based models to capture \textbf{transient dynamics} and \textbf{operational uncertainty}.
+    \item Develop \textbf{stochastic MPCC formulations} to handle variability from renewables and uncertain demand.
+    % \item Design \textbf{physics-guided loss functions} (e.g., Weymouth) that balance accuracy and computational efficiency.
+    % \item Test scalability and robustness using \textbf{real operational data}.
+    \item Integrate with \textbf{hydrological series prediction tools} to anticipate gas consumption linked to hydro–thermal coordination.
+\end{itemize}
 \end{frame}
+
 
 \section{Bibliography}
 \begin{frame}[allowframebreaks]
