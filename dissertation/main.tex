@@ -140,17 +140,20 @@ Grupo de investigación Automática}
   \titlepage
 
   \vfill % Empuja los logos hacia la parte inferior
-  \begin{minipage}{0.48\linewidth}
+  \begin{minipage}{0.32\linewidth}
     \includegraphics[height=2cm]{figures/logos/utp.jpg}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.48\linewidth}
+  \begin{minipage}{0.32\linewidth}
     \flushright
     \includegraphics[height=2cm]{figures/logos/mie.jpg}
   \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\linewidth}
+    \centering
+    \includegraphics[height=2cm]{figures/logos/automatica.jpeg}
+  \end{minipage}
 \end{frame}
-
-
 
 \begin{frame}{Agenda}
   \tableofcontents
@@ -161,7 +164,6 @@ Grupo de investigación Automática}
 \begin{frame}{Energy Context \& Relevance of Natural Gas}
 \footnotesize
 \justifying
-% Natural gas plays a crucial role in the global energy mix, offering a cleaner alternative to other fossil fuels by producing lower CO\textsubscript{2} emissions. It supports both industrial processes and electricity generation, acting as a reliable energy source in diverse contexts. 
 In Colombia, natural gas is widely used across the residential, commercial, industrial, and thermal power sectors. Its importance becomes evident during dry seasons, when hydroelectric generation is reduced and thermal plants, fueled by natural gas, step in to maintain electricity supply  \cite{Promigas_2021}.
 \\
 \begin{figure}[h]
@@ -236,9 +238,7 @@ From the general problem of natural gas transportation optimization, three speci
 \end{frame}
 
 
-
-
-\section{Natural Gas System Prediction Using Graph Neural Networks}
+\section{Objective 1 - Natural Gas System Prediction Using Graph Neural Networks}
 \begin{frame}{Objective 1 - Natural Gas System as a Graph}
     \footnotesize
     \justifying
@@ -267,12 +267,10 @@ The gas network consists of wells $\mathcal{W}$ (supply nodes), pipelines $\math
 
 \[
 \min_{\mathcal{P}, \mathcal{F}} 
-\sum_{t \in \mathcal{T}} \left(
 \sum_{w \in \mathcal{W}} C_{w} f_{w} +
 \sum_{p \in \mathcal{P}} C_{p} f_{p} +
 \sum_{c \in \mathcal{C}} C_{c} f_{c} +
 \sum_{u \in \mathcal{U}} C_{u} f_{u}
-\right)
 \]
 where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the corresponding gas flow.
 
@@ -293,26 +291,6 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
 \end{frame}
 
 
-
-
-% \section{Natural Gas System Prediction Using Graph Neural Networks}
-% \begin{frame}{Natural Gas System as a Graph}
-%     \footnotesize
-%     \justifying
-%     A natural gas network can be represented as a directed graph, 
-%     where nodes correspond to elements such as wells, users, or storage facilities, 
-%     and edges represent pipelines and compressors.
-%     \begin{figure}
-%     \begin{center}
-%         \includegraphics[width=0.7\linewidth]{figures/8_node_system.png}
-%     \end{center}
-%     \end{figure}
-%
-%     \vspace{0.3cm}
-%     \textbf{Objective:} Achieve near-optimizer accuracy with significant runtime reduction.
-% \end{frame}
-%
-
 \begin{frame}{CensNet Layers: Integrating Node \& Edge Features}
 \footnotesize
 \textbf{Motivation:}  
@@ -327,7 +305,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
         \item \footnotesize \textbf{Node layer:} Node embeddings are updated using both node adjacency and transformed edge features.
         \item \footnotesize \textbf{Edge layer:} Edge embeddings are updated using edge adjacency and transformed node features.
     \end{itemize}
-    \item Uses an \textit{incidence matrix} \( \mathbf{T} \) to switch between node and edge domains.
+    \item Uses an \textit{incidence matrix} \( \mathbf{T} \) to pivot between node and edge domains.
 \end{itemize}
 
 \medskip
@@ -338,36 +316,6 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 \end{itemize}
 \end{frame}
 
-
-% \begin{frame}{Mathematical Structure of CensNet Layers}
-% \footnotesize
-% \textbf{Node layer propagation:}
-% \[
-% \mathbf{H}^{(l+1)}_v = \sigma\left(
-% \mathbf{T} \Phi(\mathbf{H}^{(l)}_e \mathbf{p}_e) \mathbf{T}^\top 
-% \odot \tilde{\mathbf{A}}_v \mathbf{H}^{(l)}_v \mathbf{W}_v
-% \right)
-% \]
-% \textbf{Edge layer propagation:}
-% \[
-% \mathbf{H}^{(l+1)}_e = \sigma\left(
-% \mathbf{T}^\top \Phi(\mathbf{H}^{(l)}_v \mathbf{p}_v) \mathbf{T} 
-% \odot \tilde{\mathbf{A}}_e \mathbf{H}^{(l)}_e \mathbf{W}_e
-% \right)
-% \]
-%
-% \medskip
-% \textbf{Key components:}
-% \begin{itemize}
-%     \item \( \tilde{\mathbf{A}}_v, \tilde{\mathbf{A}}_e \): normalized adjacency matrices (nodes/edges).
-%     \item \( \mathbf{T} \): incidence matrix mapping between node and edge domains.
-%     \item \( \Phi(\cdot) \): diagonal scaling from projected features.
-%     \item \( \odot \): element-wise filtering of adjacency by feature-derived weights.
-% \end{itemize}
-%
-% \medskip
-% \textbf{Core idea:} Information “switches” between node and edge spaces at each step, enriching representations.
-% \end{frame}
 
 \begin{frame}{Node layer propagation}
 \footnotesize
@@ -396,9 +344,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 \end{itemize}
 \end{frame}
 
-% -----------------------------
-% Slide 2: Edge layer propagation
-% -----------------------------
+
 \begin{frame}{Edge layer propagation}
 \footnotesize
 
@@ -422,13 +368,9 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
     \item \(\mathbf{W}_e \in \mathbb{R}^{D_e \times D_e'}\): learnable weight matrix.
     \item \(\sigma(\cdot)\): non-linear activation, applied element-wise.
 \end{itemize}
-\textbf{Core idea:} Information “switches” between node and edge spaces at each step, enriching representations.
+\textbf{Core idea:} Information “pivots” between node and edge spaces at each step, enriching representations.
 
 \end{frame}
-
-
-
-
 
 \begin{frame}{CensNet-based Model Architecture}
 \scriptsize
@@ -459,42 +401,14 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 \end{itemize}
 
 \[
-    \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 
+    \mathcal{L}(\Theta) = 
+    \sum_{r=1}^{R} 
+    \Big(
+    \| \mathbf{X}_{v,r} - \hat{\mathbf{X}}_{v,r} \|_2^2 +
+    \| \mathbf{X}_{e,r} - \hat{\mathbf{X}}_{e,r} \|_2^2
+    \Big)
 \]
-
 \end{frame}
-
-
-
-
-
-
-% \begin{frame}{CensNet-based Model Architecture}   
-% \footnotesize
-%     \begin{itemize} 
-%         \item \textbf{Processing:}
-%         \begin{itemize}
-%             \item \footnotesize Normalization and pre-dense layers transform inputs into a latent space.
-%             \item \footnotesize CensNet blocks perform message passing on both node and edge domains, enabling simultaneous learning of flow patterns and interactions.
-%             \item \footnotesize Post-dense layers refine features for prediction.
-%         \end{itemize}
-%         
-%         \item \textbf{Outputs:}
-%         \begin{itemize}
-%             \item \footnotesize Node-level flows ($\hat{\mathbf{X}}_v$) — predicted gas supply/demand at each node.
-%             \item \footnotesize Edge-level transported flows ($\hat{\mathbf{X}}_e$) — predicted flow rates in each pipeline.
-%         \end{itemize}        
-%    \end{itemize}
-%
-%     \begin{itemize} 
-%        \item \footnotesize \textbf{Training:} Node and edge predictions are penalized separately using task-specific loss terms, ensuring both accuracy and physical consistency.  
-%         \[
-%             \mathcal{L}(\Theta) = \sum_{r=1}^{R} \| Y_r - \hat{Y}_r \|^2_2 
-%         \]
-%         where $Y_r$ and $\hat{Y}_r$ are target and predicted values for task $r$, and $\lambda\|\Theta\|_p$ is a regularization term to prevent overfitting.
-%     \end{itemize}
-% \end{frame}
-
 
 
 \begin{frame}{Dataset and Experimental Setup}
@@ -556,81 +470,6 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 \end{frame}
 
 
-% \begin{frame}{Results: Prediction Accuracy}
-% \footnotesize 
-% \textbf{Networks:} 8-node (synthetic) and 63-node (Colombian gas system)  
-% \\
-% \textbf{Models:} CensNet (N) – nodal loss only, CensNet (N+E) – nodal + edge loss
-%
-% \begin{itemize}
-%     \footnotesize 
-%     \item \textbf{Nodal flow predictions:} High $R^2$ in both settings
-%         \begin{itemize}
-%             \footnotesize 
-%             \item 8-node: $R^2$ = 0.988 (N), 0.988 (N+E)
-%             \item 63-node: $R^2$ = 0.996 (N), 0.996 (N+E)
-%         \end{itemize}
-%     \item \textbf{Edge flow predictions:} 
-%         \begin{itemize}
-%             \footnotesize 
-%             \item (N)   lower accuracy: $R^2$ = -2.818 (8-node) and -5.88 (63-node)
-%             \item (N+E) improves: $R^2$ up to 0.999 (8-node) and 0.996 (63-node)
-%         \end{itemize}
-% \end{itemize}
-%
-% \textbf{Gas balance consistency (APOPT – CensNet differences):}
-% \begin{itemize}
-%     \footnotesize 
-%     \item \textbf{8-node:} Edge error reduced from 23.76 (N) $\rightarrow$ 0.008 (N+E)
-%     \item \textbf{63-node:} Edge error reduced from 62.61 (N) $\rightarrow$ 0.07 (N+E)
-%     \item Nodal differences $< 0.1$ units in all cases
-% \end{itemize}
-%
-% \textbf{Prediction speed:}  
-% T-tests confirm \textbf{CensNet is significantly faster} than APOPT
-% \begin{itemize}
-%     \footnotesize 
-%     \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
-%     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
-% \end{itemize}
-%
-% \end{frame}
-%
-
-
-% \begin{frame}{Performance Comparison: 8-Node and 63-Node Networks}
-% \scriptsize
-% \centering
-% \begin{table}
-% \captionsetup{font=scriptsize}
-% \begin{tabular}{lcccc}
-% \toprule
-% \textbf{Model} & \textbf{Nodal $R^2$} & \textbf{Edge $R^2$} & \textbf{Balance Error} & \textbf{Time (s)} \\
-% \midrule
-% \multicolumn{5}{c}{\textbf{8-node Network}} \\
-% \midrule
-% CensNet (N)     & 0.988 & -2.818 & 5.71 \pm 16.86 & $0.650 \pm 0.442$ \\
-% CensNet (N+E)   & 0.988 &  0.999 & 0.08 \pm 1.17 & $0.640 \pm 0.444$ \\
-% \midrule
-% \multicolumn{5}{c}{\textbf{63-node Network}} \\
-% \midrule
-% CensNet (N)     & 0.996 & -5.880 & 0.04 \pm 60.83 & $4.88 \pm 5.59$ \\
-% CensNet (N+E)   & 0.996 &  0.996 & 0.01 \pm 23.4 & $4.87 \pm 5.59$ \\
-% \bottomrule
-% \end{tabular}
-% \end{table}
-%
-% \textbf{Prediction speed:}  
-% T-tests confirm \textbf{CensNet is significantly faster} than APOPT
-% \begin{itemize}
-%     \footnotesize 
-%     \item 8-node: $T=14.94$, $p=1.32\times10^{-34}$
-%     \item 63-node: $T=47.29$, $p=4.92\times10^{-110}$
-% \end{itemize}
-% \end{frame}
-
-
-
 \begin{frame}{Performance Comparison: 8-Node and 63-Node Networks}
 \tiny
 \centering
@@ -656,15 +495,12 @@ CensNet (N+E)   & 0.99  & 0.99  & 0.01 \(\pm\) 23.4 & 4.9 \(\pm\) 5.6 & $p=4.9\t
 \medskip
 \justifying
 \scriptsize
-The CensNet-based model captures the network’s topological information, enabling it to satisfy the gas balance constraint naturally to some extent. Time tests, performed on a single case, confirm that CensNet is significantly faster than APOPT; moreover, being a network-based model, it can efficiently propagate entire batches of scenarios forward. 
+The CensNet-based model captures the network’s topological information, allowing it to naturally satisfy the gas balance constraint to some extent. It is also significantly faster than APOPT and can efficiently process entire batches of scenarios
 \end{frame}
 
 
-
-
-
-\section{Natural Gas System Optimization Using MPCC-Based Models}
-\begin{frame}{Interconnected system - Definition}
+\section{Objective 2 - Natural Gas System Optimization Using MPCC-Based Models}
+\begin{frame}{Objective 2 - Interconnected system - Definition}
 A power-gas interconnected system is a hybrid infrastructure that integrates natural gas and power networks, enhancing overall system efficiency~\cite{Duan_Liu_Yang_2022}. 
 \begin{columns}
 \begin{column}{0.5\textwidth}
@@ -675,13 +511,12 @@ A power-gas interconnected system is a hybrid infrastructure that integrates nat
 \begin{column}{0.5\textwidth}  
 \begin{equation} \label{eq:obj_func_integrated}
 \begin{split}
-\min_{\mathcal{P}, \mathcal{F}} \quad  \sum_{g \in \mathcal{G}} C_{g}^t {P_{g}^t} + \sum_{d \in \mathcal{D}} C_{d}^t {P_{d}^t} +  \\ \sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t} +  \sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t}  + \\ \sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t} + \sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}} + \\ \quad \sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}  + \sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}} + \\ \sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}}
+ \min_{\mathcal{P}, \mathcal{F}} \quad  \sum_{t \in \mathcal{T}} (   \sum_{g \in \mathcal{G}} C_{g}^t {P_{g}^t} + \sum_{d \in \mathcal{D}} C_{d}^t {P_{d}^t} +  \\ \sum_{w \in \mathcal{W}} C_{w}^t {f_{w}^t} +  \sum_{p \in \mathcal{P}} C_{p}^t {f_{p}^t}  + \\ \sum_{c \in \mathcal{C}} C_{c}^t {f_{c}^t} + \sum_{u \in \mathcal{U}} C_{u}^{t} {f_{u}^{t}} + \\ \quad \sum_{s \in \mathcal{S}} C_{s+}^{t} {f_{s+}^{t}}  + \sum_{s \in \mathcal{S}} C_{s-}^{t} {f_{s-}^{t}} + \\ \sum_{s \in \mathcal{S}} C_{s}^{t} {V_{s}^{t}} )
 \end{split}
 \end{equation} 
 \end{column}
 \end{columns}
 \end{frame}
-
 
 
 \begin{frame}{Power system constraints}
@@ -712,20 +547,11 @@ The constraints of the electrical system represent the technical limits of its c
 
 \vspace{1em}
 The second set of restrictions interconnects the natural gas and electric power systems through gas-fired power plants that generate electricity.
-% $f_{n}^t$ stands for the natural gas fuel consumption to generate a power $P_{n}^t$ at generator bus $n\in\mathcal{N}_I$, the heat-rate $\text{HR}_n$ defines the generator efficiency, and the set $\mathcal{N}_I=\mathcal{G}\cap\mathcal{U}$ holds all the units in the interconnected system belonging to both the power generator and gas demand sets.
-    \begin{align}
+\begin{align}
     &f_{n}^t = P_{n}^t \cdot \text{HR}_n, \quad \forall \ n \in \mathcal{N}_I, \label{eq:gas_power_relation} 
 \end{align}
 \end{frame}
 
-
-% \begin{frame}{Interconnection constraints}
-% The second set of restrictions interconnects the natural gas and electric power systems through gas-fired power plants that generate electricity.  $f_{n}^t$ stands for the natural gas fuel consumption to generate a power $P_{n}^t$ at generator bus $n\in\mathcal{N}_I$, the heat-rate $\text{HR}_n$ defines the generator efficiency, and the set $\mathcal{N}_I=\mathcal{G}\cap\mathcal{U}$ holds all the units in the interconnected system belonging to both the power generator and gas demand sets.
-%     \begin{align}
-%     &f_{n}^t = P_{n}^t \cdot \text{HR}_n, \quad \forall \ n \in \mathcal{N}_I, \label{eq:gas_power_relation} 
-% \end{align}
-% \end{frame}
-%
 
 \begin{frame}{Gas system constraints}
 \footnotesize
@@ -733,24 +559,7 @@ This set of constraints ensures that wells, pipelines, nodal pressures, compress
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
-% \begin{center}
-% \vspace{3pt}
     \includegraphics[width=0.75\textwidth]{figures/gas_dummy.png}
-% \end{center}
-
-% \begin{fleqn}[0pt] % left-justify just this block
-%     \begin{subequations}
-%     \begin{align}
-%         \pi_{m}^t & \leq \beta_{c}^t{\pi_{n}^t} \quad \forall \ c=(n,m) \in \mathcal{C} \label{eq:comp_ratio} \\
-%         0  & \leq f_{s+}^t \leq V_{0s} - \underline{V_s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit1} \\
-%         0 & \leq f_{s-}^t \leq \overline{V_s} - V_{0s} \quad \forall \ s \in \mathcal{S} \label{eq:sto_limit2} \\
-%         V_{s}^t & = V_{s}^{t-1} + f_{s-}^{t-1} - f_{s+}^{t-1} \quad \forall \ s \in \mathcal{S} \label{eq:sto_time} 
-%     \end{align}
-%     \end{subequations}
-%     \end{fleqn}
-
-% Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
-
 \end{column}
 
 \begin{column}{0.5\textwidth}
@@ -766,8 +575,6 @@ This set of constraints ensures that wells, pipelines, nodal pressures, compress
     \end{align}
 \end{subequations}
 \end{fleqn}
-% Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
-
 \end{column}
 \end{columns}
 \begin{equation}
@@ -776,55 +583,12 @@ This set of constraints ensures that wells, pipelines, nodal pressures, compress
     }
 \end{equation}
 Modeling the Weymouth equation as a nonconvex and discontinuous equality constraint presents significant challenges for optimization algorithms, leading to multiple local optima~\cite{JIANG2021106460}.
-
 \end{frame}
-%
-
-
-% \subsection{Weymouth equation}
-%
-% \begin{frame}{Gas system constraints}
-% The gas balance constraints guarantee that the amount of gas entering a node equals the amount leaving it. On the other hand, the Weymouth equation encapsulates the complex physics of gas flow through pipelines between flow rates and pressures. 
-%
-% \begin{subequations}
-% \begin{align}
-%     \sum_{m:(m,n)\in\mathcal{A}}{f_{m}^t} = \sum_{m':(n,m')\in\mathcal{A}}{f_{m'}^t} &\quad \forall \ n \in \mathcal{N}_f \label{eq:gas_balance} \\
-%     \text{sgn}(f_{p}^t)(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2 - (\pi_{m}^t)^2) &\quad \forall \ p =(n,m) \in \mathcal{P} \label{eq:weymouth_cons}
-% \end{align}
-% \end{subequations}
-%
-% Modeling this equation as a nonconvex and discontinuous equality constraint poses significant challenges for optimization algorithms. Specifically, the nonconvexity leads to multiple local optima, making it difficult to find the global optimum~\cite{JIANG2021106460}.
-% \end{frame}
-
-
-
-% \subsection{Proposed solution}
-% \begin{frame}{Proposed complementarity-based approach}
-%      Complementarity constraints can be used to represent non-uniform or discontinuous operators, such as absolute value, sign, and min/max \cite{mpcc}.
-%     \begin{gather}
-%             y = sgn(f_{T}^t)  \label{eq:sign}
-%     \end{gather}
-%     The sign equation can be represented by an optimization problem whose constraints avoid the use of binary variables.
-%
-% \begin{subequations}
-% \begin{alignat}{4}
-% \label{eq:complementarity_relaxec3}
-% \mathcal{O}_W: \ &\min\limits_{y_p^t} -y_p^tf_{p}^t \\
-% & \text{s.t. } y_p^t(f_{p}^t)^2 = K_{nm}((\pi_{n}^t)^2-(\pi_{m}^t)^2)\\
-% & -1 \leq y_p^t \leq 1 \\
-% &f_{p}^t = f_{p+}^t - f_{p-}^t\\
-% & 0 \leq f_{p+}^t \perp (y_p^t+1) \geq 0 \\
-% & 0 \leq f_{p-}^t \perp (1-y_p^t) \geq 0
-% \end{alignat}
-% \end{subequations}
-% \end{frame}
 
 
 \begin{frame}{Proposed complementarity-based approach}
 \footnotesize
 Complementarity constraints can be used to represent non-uniform or discontinuous operators, such as absolute value, sign, and min/max \cite{mpcc}. The sign equation can be represented by an optimization problem whose constraints avoid the use of binary variables.
-
-   % The program $\mathcal{O}_W$ misses the KKT conditions, because the conventional constraint qualifications for nonlinear programming are typically not satisfied in the case of MPCC~\cite{Bouza_Still_2007}. Hence, instead of working with the original problem, the relaxed problem $\mathcal{O}_\epsilon$ is considered:
 
 
 \begin{subequations}
@@ -854,7 +618,6 @@ Each of the mentioned databases was selected based on its unique characteristics
 \textbf{Case 2} & \begin{tabular}[c]{@{}c@{}}118-bus\\ 48-system\end{tabular} & 9                                                                          & 7                                                                      & \begin{tabular}[c]{@{}c@{}}Contains several\\ interconnected \\ loops\end{tabular}             \\ \hline
 \textbf{Case 3} & \begin{tabular}[c]{@{}c@{}}96-bus\\ 63-system\end{tabular}  & 10                                                                         & 0                                                                      & \begin{tabular}[c]{@{}c@{}}Fully radial \\ but considers  \\ bidirectional flows.\end{tabular} \\ \hline
 \end{tabular}
-\caption{Databses used in the study}
 \label{tab:databases}
 \end{table}
 \end{frame}
@@ -884,74 +647,26 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
 
 \end{frame}
 
-% \begin{frame}{Experimental setup}
-%     Since understanding and quantifying the inherent errors introduced by any constraint approximation approach supports its real-world pertinence, the considered validation trades off the reached cost function and constraint error values.
-%
-%     \begin{equation}
-%     {WE}_p^t = |f_{p}^t - \left(K_{nm}|(\pi_{n}^t)^2-(\pi_{m}^t)^2|\right)^{1/2}| , \quad \forall \ p =(n,m) \in\mathcal{P}
-% \end{equation}
-% Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches and validates the significance of their differences.
-% \end{frame}
-
-
-
-% \begin{frame}{Results - Case 1}
-% \scriptsize
-% \begin{columns}[t,onlytextwidth]
-%     \begin{column}{0.48\textwidth}
-%         % To assess the performance of Weymouth approximation approaches on the 8/9 system, 
-%         A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
-%         
-%         \vspace{0.5em}
-%         \begin{figure}[H]
-%             \centering
-%             \setlength\figurewidth{1\linewidth}        
-%             \setlength\figureheight{0.45\linewidth}
-%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_cost.pdf} % Import PNG image here 
-%             \label{fig:blue_test_cost}
-%         \end{figure}
-%     \end{column}
-%     
-%     \begin{column}{0.48\textwidth}
-%         The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
-%         
-%         \vspace{2.5em}
-%         \begin{figure}[H]
-%             \centering
-%             \setlength\figurewidth{1\linewidth}        
-%             \setlength\figureheight{0.45\linewidth}
-%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case1_error.pdf} % Import PNG image here 
-%             \label{fig:blue_test_boxplot}
-%         \end{figure}
-%     \end{column}
-% \end{columns}
-% \end{frame}
-
-
 
 \begin{frame}{Results - Case 1}
 \scriptsize
 \begin{columns}[t,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-        % To assess the performance of Weymouth approximation approaches on the 8/9 system, 
-        % A Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving the optimization problem for one single day one hundred times with uniformly sampled natural gas demands.
+    \begin{column}{0.48\textwidth} 
         \justifying
-        To evaluate the accuracy of different Weymouth equation approximations in the 8/9 system, we conducted a Monte Carlo experiment. The optimization problem was solved one hundred times for a single day, with natural gas demands sampled uniformly.          
+        The optimization problem was solved one hundred times for a single day, using a Monte Carlo experiment with uniformly sampled gas demands.       
         \vspace{0.5em}
         \begin{figure}[!htb]
             \centering
             \setlength\figurewidth{1\textwidth}        
             \setlength\figureheight{0.9\textwidth}
-    % \input{images/blue_test_cost_SOC}
             \input{figures/blue_test_costs}
             \label{fig:blue_test_cost}
 \end{figure}
     \end{column}
     
     \begin{column}{0.48\textwidth}
-        % The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
         \justifying
-        The analysis of the error distributions shows that the complementarity-based formulation (MPCC) produces considerably lower deviations in key arcs compared to the Taylor and SOC approaches.
+        The error distributions shows that the complementarity-based formulation (MPCC) produces considerably lower deviations in key arcs compared to the Taylor and SOC approaches.
         \vspace{2.5em}
         \begin{figure}[!htb]
             \centering
@@ -963,125 +678,6 @@ Hence, ${WE}_p^t$ metric explains the inherent sensitivity of tested approaches 
     \end{column}
 \end{columns}
 \end{frame}
-
-
-
-
-
-
-% \section{Results}
-% \begin{frame}{Results - Case 1}
-% To assess the performance of Weymouth approximation approaches on the 8/9 system, a Monte Carlo experiment estimates the cost function and Weymouth error distributions by solving  the optimization problem for one single day one hundred times with uniformly sampled natural gas demands. 
-%
-%     \begin{figure}[!htb]
-%     \centering
-%     \setlength\figurewidth{.7\textwidth}        
-%     \setlength\figureheight{0.35\textwidth}
-%     % \input{images/blue_test_cost_SOC}
-%     \input{figures/all_test_cost}
-%     \caption{Cost function histogram attained for the Taylor, SOC, and MPCC Weymouth approximation approaches.}
-%     \label{fig:blue_test_cost}
-% \end{figure}
-% \end{frame}
-%
-%
-% \begin{frame}{Results - Case 1}
-% The boxplot examination reveals significantly lower approximation errors on the proposed complementarity constraints approach over key network arcs.
-%
-% \begin{figure}[!htb]
-%     \centering
-%     \setlength\figurewidth{0.8\textwidth}        
-%     \setlength\figureheight{0.5\textwidth}
-%     \input{figures/blue_test_boxplot}
-%     \caption{Boxplot of Weymouth error distribution for each pipeline in the 8/9 system attained by contrasted approximation approaches.}
-%     \label{fig:blue_test_boxplot}
-% \end{figure}
-% \end{frame}
-%
-%
-
-% \begin{frame}{Results - Case 2}
-% \scriptsize
-% \begin{columns}[t,onlytextwidth]
-%     % First Column: Text and Histogram Image
-%     \begin{column}{0.44\textwidth}
-%         It is worth noting that both baselines yielded the same objective function values. The consistently positive relative difference indicates that the complementarity constraints formulation always yields larger cost values than Taylor and SOC for the 118/48 system.
-%         
-%         
-%         \begin{figure}[H]
-%             \centering
-%             \setlength\figurewidth{1\textwidth}        
-%             \setlength\figureheight{0.44\textwidth}
-%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_cost.pdf} 
-%             \caption{\scriptsize Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
-%             \label{fig:green_test_cost}
-%         \end{figure}
-%     \end{column}
-%     
-%     % Second Column: Text and Error Plot Images
-%     \begin{column}{0.52\textwidth}
-%         Contrarily to cost function analysis, Weymouth approximation results reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints.
-%         
-%         \vspace{1.5em}
-%         \begin{figure}[H]
-%             \centering
-%             \setlength\figurewidth{1\textwidth}        
-%             \setlength\figureheight{0.45\textwidth}
-%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case2_error.pdf}
-%             \caption{\scriptsize Weymouth approximation errors for each pipeline $p$ reached by Taylor (left), SOC (center), and MPCC (right) approaches in the 118/48 system.}
-%             \label{fig:green_test_error}
-%         \end{figure}
-%     \end{column}
-% \end{columns}
-% \end{frame}
-
-% \begin{frame}{Results - Case 2}
-% \scriptsize
-% \begin{columns}[t,onlytextwidth]
-%     % First Column: Text and Histogram Image
-%     \begin{column}{0.44\textwidth}
-%         \justifying
-%         For the 118/48 system, both baseline approaches produced identical objective 
-%         function values. The relative cost difference, however, was always positive, 
-%         indicating that the MPCC formulation systematically leads to higher cost 
-%         outcomes compared with the Taylor and SOC approximations. 
-%         
-%         \vspace{0.5em}
-%         \begin{figure}[!htb]
-%             \centering
-%             \setlength\figurewidth{1\textwidth}        
-%             \setlength\figureheight{1\textwidth}
-%             \input{figures/green_test_hist}
-%             \label{fig:green_test_cost}
-%         \end{figure}
-%     \end{column}
-%     
-%     % Second Column: Text and Error Plot Images
-%     \begin{column}{0.52\textwidth}
-%         \justifying
-%         In contrast, the analysis of Weymouth approximation errors highlights the 
-%         advantages of MPCC: the proposed formulation reduces deviations by nearly 
-%         seven orders of magnitude, from around $10^1$ to $10^{-6}$, compared with 
-%         the Taylor and SOC approaches.
-%         
-%         \vspace{1.5em}
-%         \begin{figure}[!htb]
-%             \setlength\figurewidth{0.55\textwidth}        
-%             \setlength\figureheight{0.55\textwidth}
-%             \subfloat[Taylor]{\input{figures/green_test_error_Taylor}}
-%             \subfloat[SOC]{\input{figures/green_test_error_SOC}}
-%             \subfloat[MPCC]{\input{figures/green_test_error_MPCC}}
-%             \label{fig:green_test_error}
-%         \end{figure}
-%     \end{column}
-% \end{columns}
-%
-% \vspace{0.5em}
-% \justifying
-% % \textbf{Summary:} While all methods provide comparable costs, the MPCC approach offers a dramatic improvement in accuracy for the Weymouth equation approximation. 
-% \end{frame}
-
-
 
 
 
@@ -1102,7 +698,6 @@ outcomes compared with the Taylor and SOC approximations.
     \label{fig:green_test_cost}
 \end{figure}
 \end{frame}
-
 
 
 
@@ -1127,122 +722,6 @@ the Taylor and SOC approaches.
 \end{frame}
 
 
-
-
-
-
-% \begin{frame}{Results - Case 2}
-% It is worth noting that both baselines yielded the same objective function values. The consistently positive relative difference indicates that the complementarity constraints formulation always yields larger cost values than Taylor and SOC for the 118/48 system.
-%
-% \begin{figure}[!htb]
-%     \centering
-%     \setlength\figurewidth{0.75\textwidth}        
-%     \setlength\figureheight{0.35\textwidth}
-%     \input{figures/green_test_hist}
-%     \caption{Histogram depicting the relative frequencies of cost differences obtained between MPCC and the other approaches in the 48-node 118-bus system.}
-%     \label{fig:green_test_cost}
-% \end{figure}
-% \end{frame}
-%
-%
-% \begin{frame}{Results - Case 2}
-% Contrarily to cost function analysis, Weymouth approximation results reveal a significant error reduction of about seven orders of magnitude (from $10^1$ to $10^{-6}$) under the proposed complementarity constraints.
-% \begin{figure}[!htb]
-% \setlength\figurewidth{0.37\textwidth}        
-% \setlength\figureheight{0.4\textwidth}
-% \subfloat[Taylor]{\input{figures/green_test_error_Taylor}}
-% \subfloat[SOC]{\input{figures/green_test_error_SOC}}
-% \subfloat[MPCC]{\input{figures/green_test_error_MPCC}}
-% \caption{Weymouth approximation errors for each pipeline $p$ reached by Taylor (left), SOC (center), and MPCC (right) approaches in the 118/48 system.}\label{fig:green_test_error}
-% \end{figure}
-% \end{frame}
-%
-
-
-% \begin{frame}{Results - Case 3}
-% \scriptsize
-% \begin{columns}[t,onlytextwidth]
-%     % First Column: Text and Cost Image
-%     \begin{column}{0.48\textwidth}
-%         Instead of estimating the distributions of the objective function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs.
-%                 
-%         \begin{figure}[H]
-%             \centering
-%             \setlength\figurewidth{1\textwidth}        
-%             \setlength\figureheight{0.45\textwidth}
-%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_cost.pdf} 
-%             \caption{\scriptsize Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
-%             \label{fig:red_test_cost}
-%         \end{figure}
-%     \end{column}
-%     
-%     % Second Column: Text and Error Plot Image
-%     \begin{column}{0.48\textwidth}
-%         Regarding the Weymouth approximation analysis, the figure presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC.
-%         
-%         \vspace{0.9em}
-%         
-%         \begin{figure}[H]
-%             \centering
-%             \setlength\figurewidth{1\textwidth}        
-%             \setlength\figureheight{0.45\textwidth}
-%             \includegraphics[width=\figurewidth, height=\figureheight]{figures/case3_error.pdf} % Import PDF image here
-%             \caption{\scriptsize Errors in the Weymouth equation expressed in three different formats- general error, error per flow, and error per day.}
-%             \label{fig:red_test_error}
-%         \end{figure}
-%     \end{column}
-% \end{columns}
-% \end{frame}
-
-
-
-
-
-
-% \begin{frame}{Results - Case 3}
-% \scriptsize
-% \begin{columns}[t,onlytextwidth]
-%     % First Column: Text and Cost Image
-%     \begin{column}{0.46\textwidth}
-%         \justifying
-%         For the 96/63 system, the evaluation differs from the previous cases. 
-%         The Weymouth approximations 
-%         were tested in an operational setting covering ten consecutive days 
-%         ($|\mathcal{T}|=10$), with gas extraction costs varying randomly each day.
-%                 
-%         \begin{figure}[!htb]
-%             \centering
-%             \setlength\figurewidth{1\textwidth}        
-%             \setlength\figureheight{0.8\textwidth}
-%             \input{figures/red_test_costs}
-%             \label{fig:red_test_cost}
-%         \end{figure}
-%     \end{column}
-%     
-%     % Second Column: Text and Error Plot Image
-%     \begin{column}{0.52\textwidth}
-%         \justifying
-%         The analysis of Weymouth errors reveals their distribution across pipelines, 
-%         as well as their relationship with gas flow magnitudes and the operation day. 
-%         Results are compared across the Taylor, SOC, and MPCC formulations.
-%         
-%         \vspace{0.9em}
-%         \begin{figure}[!htb]
-%             \setlength\figurewidth{0.68\textwidth}        
-%             \setlength\figureheight{0.7\textwidth} 
-%             \subfloat[\shortstack{Relative\\Frequency}]{\label{fig:case3error}\input{figures/red_test_error_all}}
-%             \subfloat[\shortstack{Pipeline\\flow ($f_m^t$)}]{\label{fig:case3flow}\input{figures/red_test_scatter_flow}}
-%             % \subfloat[Pipeline flow ($f_m^t$)]{\label{fig:case3flow}\input{figures/red_test_scatter_flow}}
-%         \end{figure}
-%     \end{column}
-% \end{columns}
-%
-% \vspace{0.5em}
-% \justifying
-% \end{frame}
-
-
-
 \begin{frame}{Results - Case 3 (Part 1)}
 \footnotesize
     \justifying
@@ -1261,16 +740,10 @@ the Taylor and SOC approaches.
 \end{frame}
 
 
-
-
 \begin{frame}{Results - Case 3 (Part 2)}
 \footnotesize
     \justifying
-    The analysis of Weymouth errors reveals their distribution across pipelines, 
-    as well as their relationship with gas flow magnitudes and the operation day. 
-    Results are compared across the Taylor, SOC, and MPCC formulations.
-    
-    \vspace{0.9em}
+    Throughout the three experiments, the proposed MPCC-based approach consistently achieved significantly lower errors, demonstrating its superior accuracy in representing the physical behavior of the gas network.    \vspace{0.9em}
     \begin{figure}[!htb]
         \setlength\figurewidth{0.55\textwidth}        
         \setlength\figureheight{0.55\textwidth} 
@@ -1281,70 +754,7 @@ the Taylor and SOC approaches.
 
 
 
-
-
-
-
-
-% \begin{frame}{Results - Case 3}
-% Instead of estimating the distributions of the objective function and Weymouth error as in cases 9/8 and 118/48, the 96/63 case validates the Weymouth approximations in an operation case of ten consecutive days ($\left | \mathcal{T} \right | = 10 $) with randomly changing gas extraction costs.
-%     \begin{figure}[!htb]
-%     \centering
-%     \setlength\figurewidth{0.8\textwidth}        
-%     \setlength\figureheight{0.4\textwidth}
-%     \input{figures/red_test_costs}
-%     \caption{Daily operating cost obtained with each of the approaches in the 63-node 96-bus system.}
-%     \label{fig:red_test_cost}
-% \end{figure}
-% \end{frame}
-%
-%
-% \begin{frame}{Results - Case 3}
-%     Regarding the Weymouth approximation analysis, the figure presents the error distribution and its relationship with the gas flow and the scheduled day for Taylor, SOC, and MPCC
-%
-%     \begin{figure}[!htb]
-% \setlength\figurewidth{0.37\textwidth}        
-% \setlength\figureheight{0.4\textwidth}
-% \subfloat[Relative Frequency]{\label{fig:case3error}\input{figures/pruebatikz}}
-% \subfloat[Pipeline flow ($f_m^t$)]{\label{fig:case3flow}\input{figures/redtest_scatter_flow1.tex}}
-% \subfloat[Operation day ($t$)]{\label{fig:case3day}\input{figures/err_day}}
-% \caption{Errors in the Weymouth equation expressed in three different formats- general error, error per flow, and error per day.}\label{fig:red_test_error}
-% \end{figure}
-% \end{frame}
-%
-%
-
-% \section{Objective 3 - Physics-Guided Neural Networks for Gas Networks under Uncertainty}
-% \begin{frame}{Physics-Guided Neural Networks}
-% \footnotesize
-% \textbf{Motivation:}
-% \begin{itemize}
-%     \item Traditional neural networks: fit data, ignore physics → risk of unrealistic predictions.
-%     \item In gas networks, physical constraints (mass balance, pressure-flow laws) are critical.
-% \end{itemize}
-%
-% \textbf{Physics-Informed Neural Networks (PINNs):}
-% \begin{itemize}
-%     \item Incorporate governing equations directly in the loss function.
-%     \item Penalize deviations from:
-%     \begin{itemize}
-%         \item \textbf{Gas balance constraint} – nodal mass conservation.
-%         \item \textbf{Weymouth equation} – relation between flow and pressure differences in pipelines.
-%     \end{itemize}
-%     \item Acts as a \emph{regularizer} for better generalization under uncertainty.
-% \end{itemize}
-%
-% % \textbf{Goal:}
-% % \begin{itemize}
-% %     \item Improve prediction accuracy and physical consistency.
-% %     \item Enable robust, uncertainty-aware gas dispatch optimization.
-% % \end{itemize}
-% \end{frame}
-%
-
-
 \section{Objective 3 - Physics-Guided Neural Networks for Gas Networks under Uncertainty}
-
 \begin{frame}{Objective 3 - Uncertainty in Gas Network Operation}
 \small
 \justifying
@@ -1705,7 +1115,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 \end{frame}
 
 
-\section{Bibliography}
+% \section{Bibliography}
 \begin{frame}[allowframebreaks]
         \frametitle{References}
         \bibliographystyle{apalike}

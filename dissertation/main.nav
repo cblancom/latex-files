@@ -18,7 +18,7 @@
 \headcommand {\beamer@framepages {6}{6}}
 \headcommand {\beamer@sectionpages {6}{6}}
 \headcommand {\beamer@subsectionpages {6}{6}}
-\headcommand {\sectionentry {3}{Natural Gas System Prediction Using Graph Neural Networks}{7}{Natural Gas System Prediction Using Graph Neural Networks}{0}}
+\headcommand {\sectionentry {3}{Objective 1 - Natural Gas System Prediction Using Graph Neural Networks}{7}{Objective 1 - Natural Gas System Prediction Using Graph Neural Networks}{0}}
 \headcommand {\slideentry {3}{0}{1}{7/7}{}{0}}
 \headcommand {\beamer@framepages {7}{7}}
 \headcommand {\slideentry {3}{0}{2}{8/8}{}{0}}
@@ -37,7 +37,7 @@
 \headcommand {\beamer@framepages {14}{14}}
 \headcommand {\beamer@sectionpages {7}{14}}
 \headcommand {\beamer@subsectionpages {7}{14}}
-\headcommand {\sectionentry {4}{Natural Gas System Optimization Using MPCC-Based Models}{15}{Natural Gas System Optimization Using MPCC-Based Models}{0}}
+\headcommand {\sectionentry {4}{Objective 2 - Natural Gas System Optimization Using MPCC-Based Models}{15}{Objective 2 - Natural Gas System Optimization Using MPCC-Based Models}{0}}
 \headcommand {\slideentry {4}{0}{1}{15/15}{}{0}}
 \headcommand {\beamer@framepages {15}{15}}
 \headcommand {\slideentry {4}{0}{2}{16/16}{}{0}}
@@ -92,21 +92,18 @@
 \headcommand {\beamer@framepages {37}{37}}
 \headcommand {\slideentry {6}{0}{4}{38/38}{}{0}}
 \headcommand {\beamer@framepages {38}{38}}
-\headcommand {\beamer@sectionpages {35}{38}}
-\headcommand {\beamer@subsectionpages {35}{38}}
-\headcommand {\sectionentry {7}{Bibliography}{39}{Bibliography}{0}}
-\headcommand {\slideentry {7}{0}{1}{39/39}{}{0}}
+\headcommand {\slideentry {6}{0}{5}{39/39}{}{0}}
 \headcommand {\beamer@framepages {39}{39}}
-\headcommand {\slideentry {7}{0}{1}{39/40}{}{0}}
+\headcommand {\slideentry {6}{0}{5}{39/40}{}{0}}
 \headcommand {\beamer@framepages {39}{40}}
-\headcommand {\slideentry {7}{0}{1}{39/41}{}{0}}
+\headcommand {\slideentry {6}{0}{5}{39/41}{}{0}}
 \headcommand {\beamer@framepages {39}{41}}
-\headcommand {\slideentry {7}{0}{1}{39/42}{}{0}}
+\headcommand {\slideentry {6}{0}{5}{39/42}{}{0}}
 \headcommand {\beamer@framepages {39}{42}}
 \headcommand {\beamer@partpages {1}{43}}
-\headcommand {\beamer@subsectionpages {39}{43}}
-\headcommand {\beamer@sectionpages {39}{43}}
+\headcommand {\beamer@subsectionpages {35}{43}}
+\headcommand {\beamer@sectionpages {35}{43}}
 \headcommand {\beamer@documentpages {43}}
 \headcommand {\gdef \inserttotalframenumber {43}}
-\headcommand {\slideentry {7}{0}{1}{39/43}{}{0}}
+\headcommand {\slideentry {6}{0}{5}{39/43}{}{0}}
 \headcommand {\beamer@framepages {39}{43}}
