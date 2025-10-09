@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  7 OCT 2025 21:18
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  8 OCT 2025 20:51
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2530,105 +2530,107 @@ Overfull \vbox (11.53516pt too high) detected at line 753
 
 ] [26
 
-] [27
-
 ]
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <8> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 878.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 815.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 878.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 815.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 878.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 815.
 
-<figures/Censnet_model.png, id=333, 618.31pt x 130.4875pt>
+<figures/Censnet_model.png, id=328, 618.31pt x 130.4875pt>
 File: figures/Censnet_model.png Graphic file (type png)
 <use figures/Censnet_model.png>
-Package luatex.def Info: figures/Censnet_model.png  used on input line 878.
+Package luatex.def Info: figures/Censnet_model.png  used on input line 815.
 (luatex.def)             Requested size: 188.26349pt x 39.72992pt.
-[28
+[27
 
-] (./figures/model_description_PINN.tex) [29
+] (./figures/model_description_PINN.tex) [28
 
 <./figures/Censnet_model.png>]
-Overfull \hbox (9.04518pt too wide) in paragraph at lines 927--927
+Overfull \hbox (9.04518pt too wide) in paragraph at lines 893--893
  [] 
  []
 
-[30
+[29
 
 ]
-<figures/outputs_outputs_2_cut.png, id=351, 1235.61626pt x 926.46124pt>
+<figures/outputs_outputs_2_cut.png, id=346, 1235.61626pt x 926.46124pt>
 File: figures/outputs_outputs_2_cut.png Graphic file (type png)
 <use figures/outputs_outputs_2_cut.png>
 Package luatex.def Info: figures/outputs_outputs_2_cut.png  used on input line 
-983.
+949.
 (luatex.def)             Requested size: 222.48988pt x 166.81236pt.
- [31
+ [30
 
 ]
-<figures/outputs_outputs_3.png, id=357, 1076.1003pt x 1076.1003pt>
+<figures/outputs_outputs_3.png, id=352, 1076.1003pt x 1076.1003pt>
 File: figures/outputs_outputs_3.png Graphic file (type png)
 <use figures/outputs_outputs_3.png>
-Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 997.
+Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 963.
 
 (luatex.def)             Requested size: 171.14767pt x 171.14511pt.
- [32
+ [31
 
 <./figures/outputs_outputs_2_cut.png>]
-<figures/inputs_outputs_1.png, id=366, 1307.94246pt x 849.1725pt>
+<figures/inputs_outputs_1.png, id=360, 1307.94246pt x 849.1725pt>
 File: figures/inputs_outputs_1.png Graphic file (type png)
 <use figures/inputs_outputs_1.png>
-Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 1016.
-
+Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 982.
 (luatex.def)             Requested size: 239.6057pt x 155.55252pt.
- [33
+ [32
 
 <./figures/outputs_outputs_3.png>]
-<figures/inputs_outputs_2.png, id=373, 1293.633pt x 1065.9825pt>
+<figures/inputs_outputs_2.png, id=368, 1293.633pt x 1065.9825pt>
 File: figures/inputs_outputs_2.png Graphic file (type png)
 <use figures/inputs_outputs_2.png>
-Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1043.
+Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1009.
 
 (luatex.def)             Requested size: 171.14767pt x 141.02242pt.
- [34
+ [33
 
-<./figures/inputs_outputs_1.png>] [35
+<./figures/inputs_outputs_1.png>] [34
 
-<./figures/inputs_outputs_2.png>] [36
+<./figures/inputs_outputs_2.png>] [35
 
-] [37
+] [36
 
 ]
-File: figures/logos/mie.jpg Graphic file (type jpg)
-<use figures/logos/mie.jpg>
-Package luatex.def Info: figures/logos/mie.jpg  used on input line 1115.
-(luatex.def)             Requested size: 71.29881pt x 42.67912pt.
-<figures/logos/minciencias_logo.png, id=397, 262.8pt x 209.364pt>
+<figures/logos/minciencias_logo.png, id=392, 262.8pt x 209.364pt>
 File: figures/logos/minciencias_logo.png Graphic file (type png)
 <use figures/logos/minciencias_logo.png>
 Package luatex.def Info: figures/logos/minciencias_logo.png  used on input line
- 1115.
+ 1082.
 (luatex.def)             Requested size: 53.56958pt x 42.67912pt.
- [38
+File: figures/logos/mie.jpg Graphic file (type jpg)
+<use figures/logos/mie.jpg>
+Package luatex.def Info: figures/logos/mie.jpg  used on input line 1082.
+(luatex.def)             Requested size: 71.29881pt x 42.67912pt.
+File: figures/logos/automatica.jpeg Graphic file (type jpg)
+<use figures/logos/automatica.jpeg>
+Package luatex.def Info: figures/logos/automatica.jpeg  used on input line 1082
+.
+(luatex.def)             Requested size: 41.77023pt x 42.67912pt.
+ [37
 
-] (./main.bbl) [39
+] (./main.bbl) [38
 
 <./figures/logos/minciencias_logo.png>]
-[40
+[39
 
 </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
-[41
+[40
+
+
+] [41
 
 
 ] [42
-
-
-] [43
 
 
 ]
@@ -2641,7 +2643,7 @@ Package luatex.def Info: figures/logos/minciencias_logo.png  used on input line
 \tf@snm=\write8
 
 \openout8 = main.snm
- [44
+ [43
 
 
 ] (./main.aux)
@@ -2650,15 +2652,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 45036 strings out of 478285
+ 45037 strings out of 478285
  476906,2373549 words of node,token memory allocated
  9131 words of node memory still in use:
    57 hlist, 9 vlist, 8 rule, 59 disc, 11 local_par, 186 glue, 41 kern, 33 penal
 ty, 629 glyph, 306 attribute, 77 glue_spec, 155 attribute_list, 5 write, 3 pdf_d
 est, 3 pdf_action, 77 pdf_colorstack nodes
-   avail lists: 2:59980,3:42945,4:8531,5:540,6:78,7:20843,8:39,9:1496,10:17,11:4
+   avail lists: 2:59980,3:42945,4:8531,5:539,6:78,7:20843,8:39,9:1496,10:17,11:4
 73
- 63071 multiletter control sequences out of 65536+600000
+ 63068 multiletter control sequences out of 65536+600000
  114 fonts using 9374111 bytes
  128i,23n,115p,718b,3143s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></u
@@ -2694,10 +2696,10 @@ s/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (43 pages, 9211135 bytes).
+Output written on main.pdf (42 pages, 9212609 bytes).
 
-PDF statistics: 608 PDF objects out of 1000 (max. 8388607)
- 436 compressed objects within 5 object streams
- 135 named destinations out of 1000 (max. 131072)
+PDF statistics: 603 PDF objects out of 1000 (max. 8388607)
+ 432 compressed objects within 5 object streams
+ 133 named destinations out of 1000 (max. 131072)
  154 words of extra memory for PDF output out of 10000 (max. 100000000)
 

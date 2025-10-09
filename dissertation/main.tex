@@ -753,28 +753,8 @@ the Taylor and SOC approaches.
 \end{frame}
 
 
-
 \section{Objective 3 - Physics-Guided Neural Networks for Gas Networks under Uncertainty}
-\begin{frame}{Objective 3 - Uncertainty in Gas Network Operation}
-\small
-\justifying
-Gas transportation systems are exposed to multiple sources of uncertainty:
-\begin{itemize}
-    \item \textbf{Demand variability:} Thermoelectric generation depends on hydropower availability, which fluctuates with rainfall and droughts.
-    \item \textbf{Supply fluctuations:} Variations in extraction fields and import conditions impact gas availability.
-    \item \textbf{Operational constraints:} Pressure limits, compressor capacities, and pipeline flow limits must always be satisfied.
-\end{itemize}
-
-\medskip
-\justifying
-\textbf{Challenge:} Stochastic conditions require repeated re-optimizations. 
-Purely data-driven models may fail to capture the physics of the system, 
-leading to unreliable predictions under uncertainty.
-\end{frame}
-
-
-
-\begin{frame}{Physics-Guided Neural Networks}
+\begin{frame}{Objective 3 - Physics-Guided Neural Networks}
 \small
 \justifying
 Traditional neural networks fit patterns in data but ignore system physics, 
@@ -795,43 +775,6 @@ when faced with uncertain scenarios.
 \end{frame}
 
 
-
-
-
-% \begin{frame}{Methodology: Physics-Guided CensNet}
-% \small
-% \textbf{Overall loss function:}
-% \[
-% \mathcal{J}(\Theta) =
-% \mathcal{J}_{\text{data}} +
-% \mathcal{J}_{\text{balance}} +
-% \mathcal{J}_{\text{weymouth}}
-% \]
-%
-% \textbf{Gas balance loss:}
-% \[
-% \mathcal{J}_{\text{balance}} =
-% \mathbf{T} \cdot \hat{\mathbf{f}}_e - \mathbf{d} + \hat{\mathbf{f}}_n
-% \]
-% \begin{itemize}
-%     \item Enforces nodal inflow = outflow + demand.
-% \end{itemize}
-%
-% \textbf{Weymouth loss:}
-% \[
-% \mathcal{J}_{\text{weymouth}} =
-% \mathbf{M}_{\mathcal{P}}
-% \left( \hat{\mathbf{f}}_e^{\circ 2} -
-% \mathbf{K} \circ \left(\mathbf{T} \cdot \hat{\boldsymbol{\pi}}^{\circ 2} \right) \right)
-% \]
-% \begin{itemize}
-%     \item Relates squared flows to squared pressure differences.
-%     \item Applies only to pipelines (not compressors).
-% \end{itemize}
-% \end{frame}
-%
-%
-
 \begin{frame}{Methodology: Physics-Guided CensNet}
 \scriptsize
 \textbf{Overall loss function:}
@@ -847,9 +790,7 @@ when faced with uncertain scenarios.
 \mathcal{J}_{\text{balance}} =
 \mathbf{T} \cdot \hat{\mathbf{f}}_e - \mathbf{d} + \hat{\mathbf{f}}_n
 \]
-% \begin{itemize}
-%     \item Enforces nodal inflow = outflow + demand.
-% \end{itemize}
+
 
 \textbf{Weymouth loss:}
 \[
@@ -858,10 +799,6 @@ when faced with uncertain scenarios.
 \left( \hat{\mathbf{f}}_e^{\circ 2} -
 \mathbf{K} \circ \left(\mathbf{T} \cdot \hat{\boldsymbol{\pi}}^{\circ 2} \right) \right)
 \]
-% \begin{itemize}
-%     \item Relates squared flows to squared pressure differences.
-%     \item Applies only to pipelines (not compressors).
-% \end{itemize}
 
 \vspace{0.5em}
 \textbf{Stochastic analysis:}
@@ -878,9 +815,8 @@ when faced with uncertain scenarios.
 \end{frame}
 
 
-
-
 \begin{frame}{Methodology: Physics-Guided CensNet}
+\footnotesize
 \textbf{Implementation:}
 \begin{itemize}
     \item Built on CensNet architecture from deterministic setup.
@@ -890,18 +826,49 @@ when faced with uncertain scenarios.
 \vspace{0.5em}
 \centering
     \resizebox{0.95\linewidth}{!}{\input{figures/model_description_PINN}}
+
+\vspace{0.8em}
+Two additional loss terms were introduced to guide the training process using physical constraints from the gas balance and Weymouth equations.
 \end{frame}
 
 
 
-% % --- Slide 1: Table of Results ---
+% \begin{frame}{Case Study I: 8-Node Network -- Performance Comparison}
+% \scriptsize
+% \centering
+% \begin{table}
+% \captionsetup{font=scriptsize}  % Cambia el tamaño del caption a \tiny
+% \centering
+% \begin{tabular}{lcccc}
+% \toprule
+% \textbf{Method} & \textbf{Node Error} & \textbf{Edge Error} & \textbf{Balance Error} & \textbf{Time (s)} \\
+% \midrule
+% CensNet (N) & $0.00 \pm 17.99$ & $22.76 \pm 15.43$ & $-0.01 \pm 17.45$ & $0.86 \pm 0.50$ \\
+% CensNet (N+E) & $-0.11 \pm 18.27$ & $0.22 \pm 21.65$ & $-0.12 \pm 1.70$ & $0.85 \pm 0.50$ \\
+% CensNet (N+E+B) & $-0.02 \pm 18.00$ & $-0.02 \pm 21.30$ & $-0.03 \pm 0.90$ & $0.85 \pm 0.50$ \\
+% CensNet (N+E+W) & $-0.07 \pm 17.56$ & $2.60 \pm 20.03$ & $-0.07 \pm 2.21$ & $0.86 \pm 0.50$ \\
+% CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.85 \pm 0.50$ \\
+% \bottomrule
+% \end{tabular}
+% % \caption{Performance of CensNet-based models vs. IPOPT benchmark.}
+% \end{table}
+%
+% \begin{itemize}
+%     \item Using only node loss leads to accurate nodal flows but large errors in edge predictions.
+%     \item Adding edge loss (\textbf{N+E}) reduces edge error from $22.76$ to $0.22$ and improves global balance.
+%     \item Including balance loss (\textbf{N+E+B}) further minimizes balance error, achieving best overall consistency.
+%     \item Weymouth loss (\textbf{N+E+W}) introduces slight trade-offs, slightly increasing edge/balance errors but retaining nodal accuracy.
+%     \item All CensNet variants are over an order of magnitude faster than IPOPT, with \textbf{N+E+B} offering the best accuracy-speed compromise.
+% \end{itemize}
+%
+% \end{frame}
+
 
 \begin{frame}{Case Study I: 8-Node Network -- Performance Comparison}
 \scriptsize
-\centering
 \begin{table}
 \captionsetup{font=scriptsize}  % Cambia el tamaño del caption a \tiny
-\centering
+\hfill  % Empuja la tabla a la derecha
 \begin{tabular}{lcccc}
 \toprule
 \textbf{Method} & \textbf{Node Error} & \textbf{Edge Error} & \textbf{Balance Error} & \textbf{Time (s)} \\
@@ -913,7 +880,6 @@ CensNet (N+E+W) & $-0.07 \pm 17.56$ & $2.60 \pm 20.03$ & $-0.07 \pm 2.21$ & $0.8
 CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.85 \pm 0.50$ \\
 \bottomrule
 \end{tabular}
-% \caption{Performance of CensNet-based models vs. IPOPT benchmark.}
 \end{table}
 
 \begin{itemize}
@@ -1069,7 +1035,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
     \item Develop \textbf{stochastic MPCC formulations} to handle variability from renewables and uncertain demand.
     % \item Design \textbf{physics-guided loss functions} (e.g., Weymouth) that balance accuracy and computational efficiency.
     % \item Test scalability and robustness using \textbf{real operational data}.
-    \item Integrate with \textbf{hydrological series prediction tools} to anticipate gas consumption linked to hydro–thermal coordination.
+    \item Integrate with \textbf{climatological forecasting tools} to anticipate gas consumption and interactions with renewable energy sources.
 \end{itemize}
 \end{frame}
 
@@ -1109,8 +1075,9 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 
     \vfill % pushes logos to the bottom
     \begin{center}
-        \includegraphics[height=1.5cm]{figures/logos/mie.jpg} \hspace{2cm}
         \includegraphics[height=1.5cm]{figures/logos/minciencias_logo.png}
+        \includegraphics[height=1.5cm]{figures/logos/mie.jpg} 
+        \includegraphics[height=1.5cm]{figures/logos/automatica.jpeg}
     \end{center}
 \end{frame}
 
