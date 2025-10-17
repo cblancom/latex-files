@@ -222,9 +222,11 @@ From the general problem of natural gas transportation optimization, three speci
 
 \section{Objectives}
 \begin{frame}{Objectives}
+\justifying
 \footnotesize
 \textbf{General Objective:}
 \begin{itemize}
+    \justifying
     \item Develop an optimization tool that integrates knowledge of the gas transportation network topology, a suitable approximation of the Weymouth equation and stochastic optimization techniques to address the gas transportation task taking into account the uncertainties related to hydroelectric generation and the growth of alternative energy sources.
 \end{itemize}
 
@@ -232,7 +234,7 @@ From the general problem of natural gas transportation optimization, three speci
 \begin{enumerate}
     \footnotesize
     \item Design a Graph Neural Networks-based approach of regression that integrates knowledge of natural gas network topology to reduce computational time for operation estimation.    
-    \item Develop an optimization model for natural gas transportation systems that takes into account the Weymouth equation for reducing that reduces the approximation error in pipeline gas flow calculations.
+    \item Develop an optimization model for natural gas transportation systems that takes into account the Weymouth equation to reduce  the approximation error in pipeline gas flow calculations.
     \item Develop a stochastic gas flow dispatch optimization strategy that quantifies the uncertainty in the objective variables and decision variables associated with the operation of the gas system taking into account the constraints of the transportation problem.
 \end{enumerate}
 \end{frame}
@@ -292,12 +294,13 @@ where $C_i$ is the cost per unit flow at element $i$, and $f_i$ is the correspon
 
 
 \begin{frame}{CensNet Layers: Integrating Node \& Edge Features}
+\justifying
 \footnotesize
 \textbf{Motivation:}  
 Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge features}, missing part of the graph’s information.
 
 \medskip
-\textbf{CensNet innovation:}
+\textbf{CensNet: Convolution with Edge-Node Switching in Graph Neural Networks:}
 \begin{itemize}
     \item Alternates between \textbf{node layers} and \textbf{edge layers}.
     \item Each layer type updates its own features while using information from the other:
@@ -322,7 +325,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 
 \[
 \mathbf{H}_v^{(l+1)} \;=\; \sigma\Big(
-\big( \mathbf{T}\,\Phi(\mathbf{H}_e^{(l)}\mathbf{p}_e)\,\mathbf{T}^\top \;\odot\; \tilde{\mathbf{A}}_v \big)
+\big( \mathbf{T}\,\Phi(\mathbf{H}_e^{(l)}\mathbf{p}_e)\,\mathbf{T}^\top \;\odot\; \mathbf{L}_v \big)
 \; \big(\mathbf{H}_v^{(l)} \mathbf{W}_v \big)
 \Big)
 \]
@@ -337,7 +340,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
     \item \(\mathbf{H}_e^{(l)} \in \mathbb{R}^{N_e \times D_e}\): edge features at layer \(l\).
     \item \(\mathbf{p}_e \in \mathbb{R}^{D_e}\): learnable projection vector for edges.
     \item \(\mathbf{T} \in \{0,1\}^{N_v \times N_e}\): incidence matrix.
-    \item \(\tilde{\mathbf{A}}_v \in \mathbb{R}^{N_v \times N_v}\): normalized node adjacency.
+    \item \(\mathbf{L}_v \in \mathbb{R}^{N_v \times N_v}\): normalized node adjacency.
     \item \(\mathbf{W}_v \in \mathbb{R}^{D_v \times D_v'}\): learnable weight matrix.
     \item \(\sigma(\cdot)\): non-linear activation, applied element-wise.
     \item \(\Phi(\cdot)\): diagonalization operator.
@@ -350,7 +353,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 
 \[
 \mathbf{H}_e^{(l+1)} \;=\; \sigma\Big(
-\big( \mathbf{T}^\top \,\Phi(\mathbf{H}_v^{(l)}\mathbf{p}_v)\,\mathbf{T} \;\odot\; \tilde{\mathbf{A}}_e \big)
+\big( \mathbf{T}^\top \,\Phi(\mathbf{H}_v^{(l)}\mathbf{p}_v)\,\mathbf{T} \;\odot\; \mathbf{L}_e \big)
 \; \big(\mathbf{H}_e^{(l)} \mathbf{W}_e \big)
 \Big)
 \]
@@ -364,7 +367,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
     \item \(\mathbf{H}_e^{(l)} \in \mathbb{R}^{N_e \times D_e}\): edge features at layer \(l\).
     \item \(\mathbf{H}_v^{(l)} \in \mathbb{R}^{N_v \times D_v}\): node features at layer \(l\).
     \item \(\mathbf{p}_v \in \mathbb{R}^{D_v}\): learnable projection vector for nodes.
-    \item \(\tilde{\mathbf{A}}_e \in \mathbb{R}^{N_e \times N_e}\): normalized edge adjacency (line graph).
+    \item \(\mathbf{L}_e \in \mathbb{R}^{N_e \times N_e}\): normalized edge adjacency.
     \item \(\mathbf{W}_e \in \mathbb{R}^{D_e \times D_e'}\): learnable weight matrix.
     \item \(\sigma(\cdot)\): non-linear activation, applied element-wise.
 \end{itemize}
@@ -387,11 +390,11 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
     \(\mathbf{X} \in \mathbb{R}^{N_v \times 3}\),  
     injection limits and demand. 
     
-    \item \footnotesize Node Laplacian: 
+    \item \footnotesize Normalized node adjacency: 
     \(\mathbf{L}_v \in \mathbb{R}^{N_v \times N_v}\),  
     node connectivity. 
     
-    \item \footnotesize Edge Laplacian: 
+    \item \footnotesize Normalized edge adjacency: 
     \(\mathbf{L}_e \in \mathbb{R}^{N_e \times N_e}\),  
     edge connectivity. 
     
@@ -412,6 +415,7 @@ Traditional GCNs focus mainly on \textit{node features} and ignore \textit{edge 
 
 
 \begin{frame}{Dataset and Experimental Setup}
+\justifying
 \scriptsize
 \begin{columns}[t,onlytextwidth]
     \begin{column}{0.55\textwidth}
@@ -500,6 +504,7 @@ The CensNet-based model captures the network’s topological information, allowi
 
 
 \section{Objective 2 - Natural Gas System Optimization Using MPCC-Based Models}
+\justifying
 \begin{frame}{Objective 2 - Interconnected system - Definition}
 A power-gas interconnected system is a hybrid infrastructure that integrates natural gas and power networks, enhancing overall system efficiency~\cite{Duan_Liu_Yang_2022}. 
 \begin{columns}
@@ -520,6 +525,7 @@ A power-gas interconnected system is a hybrid infrastructure that integrates nat
 
 
 \begin{frame}{Power system constraints}
+\justifying
 \footnotesize
 The constraints of the electrical system represent the technical limits of its components, as well as the physical laws that govern them. In this work, the DC model is adopted, which has been shown to be sufficient for similar applications~\cite{8468081}.
 \begin{columns}
@@ -554,6 +560,7 @@ The second set of restrictions interconnects the natural gas and electric power 
 
 
 \begin{frame}{Gas system constraints}
+\justifying
 \footnotesize
 This set of constraints ensures that wells, pipelines, nodal pressures, compressors, unsupplied demand and storage facilities operate within proper operating limits.~\cite{MPNG}.
 
@@ -587,6 +594,7 @@ Modeling the Weymouth equation as a nonconvex and discontinuous equality constra
 
 
 \begin{frame}{Proposed complementarity-based approach}
+\justifying
 \footnotesize
 Complementarity constraints can be used to represent non-uniform or discontinuous operators, such as absolute value, sign, and min/max \cite{mpcc}. The sign equation can be represented by an optimization problem whose constraints avoid the use of binary variables.
 
@@ -608,6 +616,7 @@ The regularized optimization model $\mathcal{O}_{\epsilon}$ offers several key p
 
 
 \begin{frame}{Databases}
+\justifying
 Each of the mentioned databases was selected based on its unique characteristics and the significant contributions it could make to the study.
 
 \begin{table}[]
@@ -625,6 +634,7 @@ Each of the mentioned databases was selected based on its unique characteristics
 
 
 \begin{frame}{Experimental setup}
+\justifying
 \footnotesize
 In order to establish a baseline for comparison, two alternative methodologies were employed: 
 \begin{itemize}
@@ -816,6 +826,7 @@ when faced with uncertain scenarios.
 
 
 \begin{frame}{Methodology: Physics-Guided CensNet}
+\justifying
 \footnotesize
 \textbf{Implementation:}
 \begin{itemize}
@@ -865,6 +876,7 @@ Two additional loss terms were introduced to guide the training process using ph
 
 
 \begin{frame}{Case Study I: 8-Node Network -- Performance Comparison}
+\justifying
 \scriptsize
 \begin{table}
 \captionsetup{font=scriptsize}  % Cambia el tamaño del caption a \tiny
@@ -1010,6 +1022,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 
 \section{Conclusions and Future Work}
 \begin{frame}{Conclusions}
+    \justifying
     \begin{itemize}
         \item \textbf{GNN-based prediction:} CensNet achieved accurate and scalable predictions for natural gas networks, with significant reductions in computation time compared to traditional optimization.
         \item \textbf{Optimization with MPCC:} Proposes a formulation to approximate Weymouth's restrictions, improving accuracy of pressure–flow representation and showing robustness in real-world scheduling tasks.
@@ -1031,6 +1044,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 
 \begin{frame}{Future Work}
 \begin{itemize}
+    \justifying
     \item Extend GNN-based models to capture \textbf{transient dynamics} and \textbf{operational uncertainty}.
     \item Develop \textbf{stochastic MPCC formulations} to handle variability from renewables and uncertain demand.
     % \item Design \textbf{physics-guided loss functions} (e.g., Weymouth) that balance accuracy and computational efficiency.
@@ -1068,7 +1082,7 @@ CensNet (N+E+B+W) & $0.05 \pm 17.91$ & $0.25 \pm 21.14$ & $0.05 \pm 1.69$ & $0.8
 
 \begin{frame}{Acknowledgments}
     \begin{itemize}
-        \item Gratitude to the Maestría en Ingenieríaa Eléctrica, graduate program of the Universidad Tecnológica de Pereira, for their support in the project E6-24-1.
+        \item Gratitude to the Maestría en Ingeniería Eléctrica, graduate program of the Universidad Tecnológica de Pereira, for their support in the project E6-24-1.
         \item Special thanks to the Minciencias project: “Desarrollo de una herramienta para la planeación a largo plazo de la operación del sistema de transporte de gas natural de Colombia”—código de registro 69982—part of the ”CONVOCATORIA DE PROYECTOS CONECTANDO CONOCIMIENTO 2019 852-2019”.
         \item Acknowledgment to the Automatics Research Group of the Universidad Tecnológica de Pereira for their invaluable support in the development of the project outcomes.
     \end{itemize}

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  8 OCT 2025 20:51
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  16 OCT 2025 22:36
  system commands enabled.
 **main.tex
 (./main.tex
@@ -1519,12 +1519,12 @@ Package luatex.def Info: figures/hydro_vs_thermal.png  used on input line 174.
 <figures/8_node_system.png, id=115, 376.88805pt x 153.2124pt>
 File: figures/8_node_system.png Graphic file (type png)
 <use figures/8_node_system.png>
-Package luatex.def Info: figures/8_node_system.png  used on input line 261.
+Package luatex.def Info: figures/8_node_system.png  used on input line 263.
 (luatex.def)             Requested size: 164.30031pt x 66.7918pt.
 <figures/incidence_matrix.png, id=116, 420.6114pt x 426.393pt>
 File: figures/incidence_matrix.png Graphic file (type png)
 <use figures/incidence_matrix.png>
-Package luatex.def Info: figures/incidence_matrix.png  used on input line 261.
+Package luatex.def Info: figures/incidence_matrix.png  used on input line 263.
 (luatex.def)             Requested size: 106.79419pt x 108.25706pt.
  [7
 
@@ -1548,45 +1548,56 @@ Package luatex.def Info: figures/incidence_matrix.png  used on input line 261.
 File: figures/network_math_alternative.pdf Graphic file (type pdf)
 <use figures/network_math_alternative.pdf>
 Package luatex.def Info: figures/network_math_alternative.pdf  used on input li
-ne 519.
+ne 524.
 (luatex.def)             Requested size: 171.14767pt x 171.66615pt.
  [15
 
 ]
+Overfull \hbox (12.39685pt too wide) in paragraph at lines 559--559
+\TU/lmr/m/n/9 adopted, which has been shown to be suf-fi-cient for sim-i-lar ap-
+pli-ca-tions [[]].[][] 
+ []
+
 <figures/power_dummy_constraint.png, id=192, 91.42155pt x 59.91183pt>
 File: figures/power_dummy_constraint.png Graphic file (type png)
 <use figures/power_dummy_constraint.png>
 Package luatex.def Info: figures/power_dummy_constraint.png  used on input line
- 553.
+ 559.
 (luatex.def)             Requested size: 115.01335pt x 75.37775pt.
 
-Overfull \hbox (32.8606pt too wide) in paragraph at lines 553--553
+Overfull \hbox (32.8606pt too wide) in paragraph at lines 559--559
 []  
  []
 
 [16
 
 <./figures/network_math_alternative.pdf>]
+Overfull \hbox (76.35512pt too wide) in paragraph at lines 593--593
+\TU/lmr/m/n/9 sup-plied de-mand and stor-age fa-cil-i-ties op-er-ate within prop
+er op-er-at-ing lim-its. [[]]. 
+ []
+
 <figures/gas_dummy.png, id=228, 875.55106pt x 471.27267pt>
 File: figures/gas_dummy.png Graphic file (type png)
 <use figures/gas_dummy.png>
-Package luatex.def Info: figures/gas_dummy.png  used on input line 586.
+Package luatex.def Info: figures/gas_dummy.png  used on input line 593.
 (luatex.def)             Requested size: 128.36075pt x 69.08424pt.
- [17
+[17
 
 <./figures/power_dummy_constraint.png>] [18
 
-<./figures/gas_dummy.png>] [19
+<./figures/gas_dummy.png>]
+[19
 
 ] [20
 
 ] (./figures/blue_test_costs.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 680--680
+Underfull \hbox (badness 10000) in paragraph at lines 690--690
 []\TU/lmr/m/n/8 The er-ror dis-tri-bu-tions shows that
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--680
+Underfull \hbox (badness 10000) in paragraph at lines 690--690
 \TU/lmr/m/n/8 the complementarity-based for-mu-la-tion
  []
 
@@ -2214,7 +2225,7 @@ Package pgfplots Warning: the current plot has no coordinates (or all have been
 
  [warning /pgfplots/warning/plot without coordinates]
 )
-Overfull \hbox (12.64105pt too wide) in paragraph at lines 722--722
+Overfull \hbox (12.64105pt too wide) in paragraph at lines 732--732
  [][][][][][] 
  []
 
@@ -2518,12 +2529,12 @@ NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
 NOTE: coordinate (0,-inf) has been dropped because it is unbounded (in y). (see
  also unbounded coords=jump). 
 )
-Overfull \hbox (8.30775pt too wide) in paragraph at lines 753--753
+Overfull \hbox (8.30775pt too wide) in paragraph at lines 763--763
  [][] 
  []
 
 
-Overfull \vbox (11.53516pt too high) detected at line 753
+Overfull \vbox (11.53516pt too high) detected at line 763
  []
 
 [25
@@ -2533,27 +2544,27 @@ Overfull \vbox (11.53516pt too high) detected at line 753
 ]
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <8> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 815.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 825.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <6> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 815.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 825.
 
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <5> not available
-(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 815.
+(Font)              Font shape `TU/lmr/b/sl' tried instead on input line 825.
 
 <figures/Censnet_model.png, id=328, 618.31pt x 130.4875pt>
 File: figures/Censnet_model.png Graphic file (type png)
 <use figures/Censnet_model.png>
-Package luatex.def Info: figures/Censnet_model.png  used on input line 815.
+Package luatex.def Info: figures/Censnet_model.png  used on input line 825.
 (luatex.def)             Requested size: 188.26349pt x 39.72992pt.
 [27
 
 ] (./figures/model_description_PINN.tex) [28
 
 <./figures/Censnet_model.png>]
-Overfull \hbox (9.04518pt too wide) in paragraph at lines 893--893
+Overfull \hbox (9.04518pt too wide) in paragraph at lines 905--905
  [] 
  []
 
@@ -2564,7 +2575,7 @@ Overfull \hbox (9.04518pt too wide) in paragraph at lines 893--893
 File: figures/outputs_outputs_2_cut.png Graphic file (type png)
 <use figures/outputs_outputs_2_cut.png>
 Package luatex.def Info: figures/outputs_outputs_2_cut.png  used on input line 
-949.
+961.
 (luatex.def)             Requested size: 222.48988pt x 166.81236pt.
  [30
 
@@ -2572,7 +2583,7 @@ Package luatex.def Info: figures/outputs_outputs_2_cut.png  used on input line
 <figures/outputs_outputs_3.png, id=352, 1076.1003pt x 1076.1003pt>
 File: figures/outputs_outputs_3.png Graphic file (type png)
 <use figures/outputs_outputs_3.png>
-Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 963.
+Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 975.
 
 (luatex.def)             Requested size: 171.14767pt x 171.14511pt.
  [31
@@ -2581,7 +2592,7 @@ Package luatex.def Info: figures/outputs_outputs_3.png  used on input line 963.
 <figures/inputs_outputs_1.png, id=360, 1307.94246pt x 849.1725pt>
 File: figures/inputs_outputs_1.png Graphic file (type png)
 <use figures/inputs_outputs_1.png>
-Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 982.
+Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 994.
 (luatex.def)             Requested size: 239.6057pt x 155.55252pt.
  [32
 
@@ -2589,7 +2600,7 @@ Package luatex.def Info: figures/inputs_outputs_1.png  used on input line 982.
 <figures/inputs_outputs_2.png, id=368, 1293.633pt x 1065.9825pt>
 File: figures/inputs_outputs_2.png Graphic file (type png)
 <use figures/inputs_outputs_2.png>
-Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1009.
+Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1021.
 
 (luatex.def)             Requested size: 171.14767pt x 141.02242pt.
  [33
@@ -2605,15 +2616,15 @@ Package luatex.def Info: figures/inputs_outputs_2.png  used on input line 1009.
 File: figures/logos/minciencias_logo.png Graphic file (type png)
 <use figures/logos/minciencias_logo.png>
 Package luatex.def Info: figures/logos/minciencias_logo.png  used on input line
- 1082.
+ 1096.
 (luatex.def)             Requested size: 53.56958pt x 42.67912pt.
 File: figures/logos/mie.jpg Graphic file (type jpg)
 <use figures/logos/mie.jpg>
-Package luatex.def Info: figures/logos/mie.jpg  used on input line 1082.
+Package luatex.def Info: figures/logos/mie.jpg  used on input line 1096.
 (luatex.def)             Requested size: 71.29881pt x 42.67912pt.
 File: figures/logos/automatica.jpeg Graphic file (type jpg)
 <use figures/logos/automatica.jpeg>
-Package luatex.def Info: figures/logos/automatica.jpeg  used on input line 1082
+Package luatex.def Info: figures/logos/automatica.jpeg  used on input line 1096
 .
 (luatex.def)             Requested size: 41.77023pt x 42.67912pt.
  [37
@@ -2653,16 +2664,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 
 Here is how much of LuaTeX's memory you used:
  45037 strings out of 478285
- 476906,2373549 words of node,token memory allocated
- 9131 words of node memory still in use:
+ 476900,2373549 words of node,token memory allocated
+ 9136 words of node memory still in use:
    57 hlist, 9 vlist, 8 rule, 59 disc, 11 local_par, 186 glue, 41 kern, 33 penal
-ty, 629 glyph, 306 attribute, 77 glue_spec, 155 attribute_list, 5 write, 3 pdf_d
+ty, 629 glyph, 306 attribute, 78 glue_spec, 155 attribute_list, 5 write, 3 pdf_d
 est, 3 pdf_action, 77 pdf_colorstack nodes
-   avail lists: 2:59980,3:42945,4:8531,5:539,6:78,7:20843,8:39,9:1496,10:17,11:4
-73
+   avail lists: 1:2,2:59980,3:42945,4:8531,5:539,6:78,7:20846,8:39,9:1493,10:17,
+11:469
  63068 multiletter control sequences out of 65536+600000
  114 fonts using 9374111 bytes
- 128i,23n,115p,718b,3143s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,23n,115p,718b,3140s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></u
 sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/sh
 are/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share
@@ -2696,7 +2707,7 @@ s/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (42 pages, 9212609 bytes).
+Output written on main.pdf (42 pages, 9212997 bytes).
 
 PDF statistics: 603 PDF objects out of 1000 (max. 8388607)
  432 compressed objects within 5 object streams
