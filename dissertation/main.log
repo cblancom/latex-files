@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  21 OCT 2025 21:19
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.23)  22 OCT 2025 14:19
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2701,7 +2701,7 @@ s/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (42 pages, 9212916 bytes).
+Output written on main.pdf (42 pages, 9212710 bytes).
 
 PDF statistics: 603 PDF objects out of 1000 (max. 8388607)
  432 compressed objects within 5 object streams
